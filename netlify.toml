@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://www.aravindhebbali.com/libraries.html/"
+  to = "https://www.aravindhebbali.com/r-packages.html/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.aravindhebbali.com/apps.html/"
+  to = "https://www.aravindhebbali.com/r-shiny-apps.html/"
+  status = 301
+  force = true
