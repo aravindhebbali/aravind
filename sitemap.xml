@@ -9,7 +9,23 @@
 
 <url>
   <loc>https://www.aravindhebbali.com/</loc>
-  <lastmod>2018-09-29T17:53:57+00:00</lastmod>
+  <lastmod>2021-02-19T14:35:28+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.aravindhebbali.com/r-packages.html</loc>
+  <lastmod>2021-02-19T14:35:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.aravindhebbali.com/r-shiny-apps.html</loc>
+  <lastmod>2021-02-19T14:35:28+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.aravindhebbali.com/e-books.html</loc>
+  <lastmod>2021-02-19T14:35:28+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
