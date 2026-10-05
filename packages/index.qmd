@@ -2,119 +2,162 @@
 title: "R Packages"
 description: "Reference documentation and vignettes for ten actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics and inference."
 ---
+# R Packages
 
-Ten packages, all on CRAN, all documented. Each card links to the package's
-reference site, its CRAN page and its source.
+Ten packages, all on CRAN, all documented, all actively maintained. Each was
+written while teaching at [Rsquared Academy](https://www.rsquaredacademy.com/)
+and shared in the hope that others find them useful.
+
+The goal is software which is user friendly, light weight, well tested and well
+documented. Major bugs get fixed quickly; feature requests are considered but
+not promised.
+
+Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquaredacademy.com/).
 
 ## Regression and modelling
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-olsrr.webp){.hex alt="Hex sticker for the olsrr R package"}
+::: {.pkg}
 
-### olsrr {.card-title}
+![](images/hex-olsrr.webp){.pkg-hex alt="olsrr hex sticker"}
 
-Tools for building OLS regression models. Coefficient diagnostics, ANOVA
-tables, influential observation analysis and model comparison.
+### [olsrr](https://olsrr.rsquaredacademy.com) {.pkg-name}
 
-[Reference](https://olsrr.rsquaredacademy.com) ·
-[CRAN](https://cran.r-project.org/package=olsrr) ·
-[GitHub](https://github.com/aravindhebbali/olsrr)
-:::
-:::
+Tools for building linear regression models
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-blorr.webp){.hex alt="Hex sticker for the blorr R package"}
+- Comprehensive Regression Output
+- Variable Selection Procedures
+- Heteroskedasticity Tests
+- Collinearity Diagnostics
+- Model Fit Assessment
+- Measures of Influence
+- Residual Diagnostics
 
-### blorr {.card-title}
+[CRAN](https://cran.r-project.org/package=olsrr) &nbsp; [GitHub](https://github.com/aravindhebbali/olsrr) &nbsp; [Docs](https://olsrr.rsquaredacademy.com)
 
-Tools for developing binary logistic regression models, with comprehensive
-regression output, model fit statistics and validation measures.
-
-[Reference](https://blorr.rsquaredacademy.com) ·
-[CRAN](https://cran.r-project.org/package=blorr) ·
-[GitHub](https://github.com/aravindhebbali/blorr)
-:::
 :::
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-xplorerr.webp){.hex alt="Hex sticker for the xplorerr R package"}
+::: {.pkg}
 
-### xplorerr {.card-title}
+![](images/hex-blorr.webp){.pkg-hex alt="blorr hex sticker"}
 
-Interactive data exploration and visualization: correlation heatmaps,
-scatterplots, distribution checks and regression modelling from a
-point-and-click interface.
+### [blorr](https://blorr.rsquaredacademy.com) {.pkg-name}
 
-[Reference](https://xplorerr.rsquaredacademy.com) ·
-[CRAN](https://cran.r-project.org/package=xplorerr) ·
-[GitHub](https://github.com/aravindhebbali/xplorerr)
+Tools for building binary logistic regression models
+
+- Bivariate Analysis
+- Model Fit Statistics
+- Model Validation
+- Variable Selection
+- Residual Diagnostics
+- Collinearity Diagnostics
+- Visualization
+
+[CRAN](https://cran.r-project.org/package=blorr) &nbsp; [GitHub](https://github.com/aravindhebbali/blorr) &nbsp; [Docs](https://blorr.rsquaredacademy.com)
+
 :::
+
+::: {.pkg}
+
+![](images/hex-xplorerr.webp){.pkg-hex alt="xplorerr hex sticker"}
+
+### [xplorerr](https://xplorerr.rsquaredacademy.com) {.pkg-name}
+
+Tools for interactive data analysis
+
+- Descriptive Statistics
+- Inferential Statistics
+- Visualize Probability Distributions
+- Data Visualization
+- RFM Analysis
+- Linear Regression
+- Logistic Regression
+
+[CRAN](https://cran.r-project.org/package=xplorerr) &nbsp; [GitHub](https://github.com/aravindhebbali/xplorerr) &nbsp; [Docs](https://xplorerr.rsquaredacademy.com)
+
 :::
 
 ## Descriptive and inferential statistics
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-descriptr.webp){.hex alt="Hex sticker for the descriptr R package"}
+::: {.pkg}
 
-### descriptr {.card-title}
+![](images/hex-descriptr.webp){.pkg-hex alt="descriptr hex sticker"}
 
-Descriptive statistics and frequency tables for numeric and categorical data.
-Skewness, kurtosis and key statistics, computed fast.
+### [descriptr](https://descriptr.rsquaredacademy.com) {.pkg-name}
 
-[Reference](https://descriptr.rsquaredacademy.com) ·
-[CRAN](https://cran.r-project.org/package=descriptr) ·
-[GitHub](https://github.com/aravindhebbali/descriptr)
-:::
-:::
+Tools for generating descriptive / summary statistics
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-inferr.webp){.hex alt="Hex sticker for the inferr R package"}
+- Data Screening
+- Summary Statistics
+- Frequency Tables
+- Cross Tables
+- Data Visualization
 
-### inferr {.card-title}
+[CRAN](https://cran.r-project.org/package=descriptr) &nbsp; [GitHub](https://github.com/aravindhebbali/descriptr) &nbsp; [Docs](https://descriptr.rsquaredacademy.com)
 
-Hypothesis testing and inference. Parametric and non-parametric tests with
-structured, readable output: t-test, chi-square, ANOVA and correlation.
-
-[Reference](https://inferr.rsquaredacademy.com) ·
-[CRAN](https://cran.r-project.org/package=inferr) ·
-[GitHub](https://github.com/aravindhebbali/inferr)
-:::
 :::
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-vistributions.webp){.hex alt="Hex sticker for the vistributions R package"}
+::: {.pkg}
 
-### vistributions {.card-title}
+![](images/hex-inferr.webp){.pkg-hex alt="inferr hex sticker"}
 
-Visualize probability distributions of univariate data across continuous and
-discrete families, with statistical quality checks.
+### [inferr](https://inferr.rsquaredacademy.com) {.pkg-name}
 
-[Reference](https://vistributions.rsquaredacademy.com) ·
-[CRAN](https://cran.r-project.org/package=vistributions) ·
-[GitHub](https://github.com/rsquaredacademy/vistributions)
+Tools for inferential statistics
+
+- Binomial Test
+- Test of Proportion
+- t Test
+- Chi Square Test
+- Levene's Test
+- Test of Variance
+- McNemar Test
+- Cochran Q Test
+- Runs Test
+
+[CRAN](https://cran.r-project.org/package=inferr) &nbsp; [GitHub](https://github.com/aravindhebbali/inferr) &nbsp; [Docs](https://inferr.rsquaredacademy.com)
+
 :::
+
+::: {.pkg}
+
+![](images/hex-vistributions.webp){.pkg-hex alt="vistributions hex sticker"}
+
+### [vistributions](https://vistributions.rsquaredacademy.com) {.pkg-name}
+
+Tools for visualizing probability distributions
+
+- Binomial Distribution
+- Chi Square Distribution
+- Normal Distribution
+- f Distribution
+- t Distribution
+- Includes Shiny App
+
+[CRAN](https://cran.r-project.org/package=vistributions) &nbsp; [GitHub](https://github.com/rsquaredacademy/vistributions) &nbsp; [Docs](https://vistributions.rsquaredacademy.com)
+
 :::
 
 ## Data wrangling
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-rbin.webp){.hex alt="Hex sticker for the rbin R package"}
+::: {.pkg}
 
-### rbin {.card-title}
+![](images/hex-rbin.webp){.pkg-hex alt="rbin hex sticker"}
 
-Bin and group numeric data into intervals: equidistant, quantile and custom
-breaks, with an interactive mode for picking them.
+### [rbin](https://github.com/rsquaredacademy/rbin) {.pkg-name}
 
-[CRAN](https://cran.r-project.org/package=rbin) ·
-[GitHub](https://github.com/rsquaredacademy/rbin)
-:::
+Tools for binning data
+
+- Manual Binning
+- Quantile Binning
+- Winsorized Binning
+- Equal Length Binning
+- Equal Width Binning
+- Factor Binning
+- Generate Dummy Variables
+- Includes RStudio Addins
+
+[CRAN](https://cran.r-project.org/package=rbin) &nbsp; [GitHub](https://github.com/rsquaredacademy/rbin)
+
 :::
 
 ## Utilities

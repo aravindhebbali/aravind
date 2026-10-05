@@ -74,42 +74,42 @@
     "href": "packages/index.html",
     "title": "R Packages",
     "section": "",
-    "text": "Ten packages, all on CRAN, all documented. Each card links to the package’s reference site, its CRAN page and its source."
+    "text": "Ten packages, all on CRAN, all documented, all actively maintained. Each was written while teaching at Rsquared Academy and shared in the hope that others find them useful.\nThe goal is software which is user friendly, light weight, well tested and well documented. Major bugs get fixed quickly; feature requests are considered but not promised.\nFull descriptions and vignettes: pkgs.rsquaredacademy.com.\n\n\n\n\n\n\nTools for building linear regression models\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for building binary logistic regression models\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for interactive data analysis\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\n\n\n\nTools for generating descriptive / summary statistics\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for inferential statistics\n\nBinomial Test\nTest of Proportion\nt Test\nChi Square Test\nLevene’s Test\nTest of Variance\nMcNemar Test\nCochran Q Test\nRuns Test\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for visualizing probability distributions\n\nBinomial Distribution\nChi Square Distribution\nNormal Distribution\nf Distribution\nt Distribution\nIncludes Shiny App\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\n\n\n\nTools for binning data\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\nCRAN   GitHub\n\n\n\n\n\n\n\n\nPackage\nWhat it does\nLinks\n\n\n\n\nyahoofinancer\nFetch stock and index data from Yahoo! Finance\nGitHub\n\n\nstandby\nSave, load and manage R processes and sessions\nGitHub\n\n\n\n\n\n\n\n\n\n\n\n\nnse2r — archived, under revival\n\n\n\nnse2r fetched live data from the National Stock Exchange of India. It was archived on CRAN on 2023-08-07 at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.\nSource and issue tracker: github.com/rsquaredacademy/nse2r."
   },
   {
     "objectID": "packages/index.html#regression-and-modelling",
     "href": "packages/index.html#regression-and-modelling",
     "title": "R Packages",
-    "section": "Regression and modelling",
-    "text": "Regression and modelling\n\n\n\n\nolsrr\nTools for building OLS regression models. Coefficient diagnostics, ANOVA tables, influential observation analysis and model comparison.\nReference · CRAN · GitHub\n\n\n\n\n\n\n\nblorr\nTools for developing binary logistic regression models, with comprehensive regression output, model fit statistics and validation measures.\nReference · CRAN · GitHub\n\n\n\n\n\n\n\nxplorerr\nInteractive data exploration and visualization: correlation heatmaps, scatterplots, distribution checks and regression modelling from a point-and-click interface.\nReference · CRAN · GitHub"
+    "section": "",
+    "text": "Tools for building linear regression models\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for building binary logistic regression models\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for interactive data analysis\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\nCRAN   GitHub   Docs"
   },
   {
     "objectID": "packages/index.html#descriptive-and-inferential-statistics",
     "href": "packages/index.html#descriptive-and-inferential-statistics",
     "title": "R Packages",
-    "section": "Descriptive and inferential statistics",
-    "text": "Descriptive and inferential statistics\n\n\n\n\ndescriptr\nDescriptive statistics and frequency tables for numeric and categorical data. Skewness, kurtosis and key statistics, computed fast.\nReference · CRAN · GitHub\n\n\n\n\n\n\n\ninferr\nHypothesis testing and inference. Parametric and non-parametric tests with structured, readable output: t-test, chi-square, ANOVA and correlation.\nReference · CRAN · GitHub\n\n\n\n\n\n\n\nvistributions\nVisualize probability distributions of univariate data across continuous and discrete families, with statistical quality checks.\nReference · CRAN · GitHub"
+    "section": "",
+    "text": "Tools for generating descriptive / summary statistics\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for inferential statistics\n\nBinomial Test\nTest of Proportion\nt Test\nChi Square Test\nLevene’s Test\nTest of Variance\nMcNemar Test\nCochran Q Test\nRuns Test\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for visualizing probability distributions\n\nBinomial Distribution\nChi Square Distribution\nNormal Distribution\nf Distribution\nt Distribution\nIncludes Shiny App\n\nCRAN   GitHub   Docs"
   },
   {
     "objectID": "packages/index.html#data-wrangling",
     "href": "packages/index.html#data-wrangling",
     "title": "R Packages",
-    "section": "Data wrangling",
-    "text": "Data wrangling\n\n\n\n\nrbin\nBin and group numeric data into intervals: equidistant, quantile and custom breaks, with an interactive mode for picking them.\nCRAN · GitHub"
+    "section": "",
+    "text": "Tools for binning data\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\nCRAN   GitHub"
   },
   {
     "objectID": "packages/index.html#utilities",
     "href": "packages/index.html#utilities",
     "title": "R Packages",
-    "section": "Utilities",
-    "text": "Utilities\n\n\n\nPackage\nWhat it does\nLinks\n\n\n\n\nyahoofinancer\nFetch stock and index data from Yahoo! Finance\nGitHub\n\n\nstandby\nSave, load and manage R processes and sessions\nGitHub"
+    "section": "",
+    "text": "Package\nWhat it does\nLinks\n\n\n\n\nyahoofinancer\nFetch stock and index data from Yahoo! Finance\nGitHub\n\n\nstandby\nSave, load and manage R processes and sessions\nGitHub"
   },
   {
     "objectID": "packages/index.html#archived",
     "href": "packages/index.html#archived",
     "title": "R Packages",
-    "section": "Archived",
-    "text": "Archived\n\n\n\n\n\n\nnse2r — archived, under revival\n\n\n\nnse2r fetched live data from the National Stock Exchange of India. It was archived on CRAN on 2023-08-07 at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.\nSource and issue tracker: github.com/rsquaredacademy/nse2r."
+    "section": "",
+    "text": "nse2r — archived, under revival\n\n\n\nnse2r fetched live data from the National Stock Exchange of India. It was archived on CRAN on 2023-08-07 at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.\nSource and issue tracker: github.com/rsquaredacademy/nse2r."
   },
   {
     "objectID": "books/index.html",
