@@ -97,7 +97,7 @@ format:
   html:
     theme:
       - cosmo
-    css: styles.scss
+    css: styles.css
     toc: false
     anchor-sections: true
     smooth-scroll: true

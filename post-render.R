@@ -80,13 +80,10 @@ writeLines(c(
 ), file.path(site_dir, "robots.txt"))
 message("post-render: robots.txt written")
 
-# Quarto copies the SCSS source alongside the compiled CSS. It is not needed
-# at runtime and would be publicly served.
-scss_copy <- file.path(site_dir, "styles.scss")
-if (file.exists(scss_copy)) {
-  unlink(scss_copy)
-  message("post-render: removed styles.scss from _site")
-}
+# NOTE: styles.scss is no longer copied into _site. Quarto used to copy the raw
+# SCSS verbatim (it does not compile `css:` .scss files), which served invalid
+# CSS; compile-styles.R now emits styles.css and _quarto.yml references that.
+# If a stale styles.scss ever reappears in the output, drop it.
 
 # ---------------------------------------------------------------------------
 # Pre-cutover guard (now dormant).
