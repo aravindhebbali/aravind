@@ -6,15 +6,15 @@ include-in-header: noindex.html
 
 That page doesn't exist — it may have been moved or renamed.
 
-The pages on this site are:
+There are four pages here:
 
 - [Home](/) — packages, books and consulting
-- [Packages](/packages/) — documentation for 10 CRAN packages
+- [Packages](/packages/) — reference docs for the R packages
 - [Apps](/apps/) — Shiny apps that run locally in R
-- [Books](/books/) — six free online textbooks
+- [Books](/books/) — the open textbooks
 
-If you arrived from an old link that used `.html` (for example
-`r-packages.html`), it still redirects to the current address.
-
-You can also search the site from the box above, or email
-[hebbali.aravind@gmail.com](mailto:hebbali.aravind@gmail.com).
+Old links ending in `.html` still work and redirect to the current addresses,
+so a stale bookmark should have landed you on the right page. If it did not,
+the [mailing list](https://blog.rsquaredacademy.com/) or
+[GitHub](https://github.com/aravindhebbali) is the fastest way to tell me it
+broke.

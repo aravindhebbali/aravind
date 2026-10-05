@@ -65,10 +65,10 @@ $bold = [System.Drawing.FontStyle]::Bold
 $reg  = [System.Drawing.FontStyle]::Regular
 
 Draw-Fitted "Aravind Hebbali" 46 $bold $wb 160
-Draw-Fitted "Principal Quantitative Consultant" 25 $reg $mb 232
-Draw-Fitted "& Open-Source Author" 25 $reg $mb 266
-Draw-Fitted "11 R packages $dot 2.8M+ CRAN downloads" 29 $bold $wb 340
-Draw-Fitted "olsrr $dot rfm $dot xplorerr $dot blorr" 21 $reg $mb 404
+Draw-Fitted "Statistical Software" 25 $reg $mb 232
+Draw-Fitted "& Quantitative Consulting" 25 $reg $mb 266
+Draw-Fitted "olsrr $dot rfm $dot xplorerr $dot blorr" 29 $bold $wb 340
+Draw-Fitted "Open-source packages & textbooks" 21 $reg $mb 404
 Draw-Fitted "aravindhebbali.com" 21 $reg $mb 442
 
 # Save BEFORE disposing.

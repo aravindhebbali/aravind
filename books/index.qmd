@@ -4,9 +4,8 @@ description: "Six open textbooks on R, data wrangling, ggplot2, base R visualiza
 ---
 
 Six open textbooks, free to read online. Written with
-[blogdown](https://bookdown.org/) and hosted on
-[Rsquared Academy](https://www.rsquaredacademy.com/); each was grown out of
-posts on my blog and is kept free and ad-free.
+[bookdown](https://bookdown.org/) and hosted on
+[Rsquared Academy](https://www.rsquaredacademy.com/).
 
 ::: {.books}
 
@@ -46,9 +45,12 @@ posts on my blog and is kept free and ad-free.
 
 They began as blog posts, expanded into tutorials on
 [Rsquared Academy](https://www.rsquaredacademy.com/), then collected and
-rewritten into these short books. The writing style is intentionally plain —
+rewritten into these short books. The writing style is deliberately plain —
 short chapters, worked examples, and the parts of the documentation people
 usually skip.
 
-None of them is a substitute for the official [R documentation](https://www.r-project.org/).
-If you want one resource to start with, **Introduction to R** is the one.
+None of them replaces the official [R documentation](https://www.r-project.org/).
+If you want one place to start, **Introduction to R** is the one.
+
+If these were useful, the courses behind them are at
+[rsquaredacademy.com](https://www.rsquaredacademy.com/).

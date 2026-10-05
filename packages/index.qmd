@@ -1,12 +1,12 @@
 ---
 title: "R Packages"
-description: "Documentation and vignettes for 10 actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics, inference and data binning."
+description: "Reference documentation and vignettes for ten actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics and inference."
 ---
 
-All ten packages below are on CRAN and documented. Each link opens the
-package's reference site; every one is maintained and versioned with CRAN.
+Ten packages, all on CRAN, all documented. Each card links to the package's
+reference site, its CRAN page and its source.
 
-## Regression and modeling
+## Regression and modelling
 
 ::: {.card-deck}
 ::: {.card}
@@ -15,11 +15,11 @@ package's reference site; every one is maintained and versioned with CRAN.
 ### olsrr {.card-title}
 
 Tools for building OLS regression models. Coefficient diagnostics, ANOVA
-tables, influential observation analysis, model comparison and more.
+tables, influential observation analysis and model comparison.
 
-- [CRAN](https://cran.r-project.org/package=olsrr)
-- [GitHub](https://github.com/aravindhebbali/olsrr)
-- [Docs](https://olsrr.rsquaredacademy.com)
+[Reference](https://olsrr.rsquaredacademy.com) ·
+[CRAN](https://cran.r-project.org/package=olsrr) ·
+[GitHub](https://github.com/aravindhebbali/olsrr)
 :::
 :::
 
@@ -29,13 +29,12 @@ tables, influential observation analysis, model comparison and more.
 
 ### blorr {.card-title}
 
-Tools for developing binary logistic regression models. Includes
-comprehensive regression output, model fit statistics and validation
-measures.
+Tools for developing binary logistic regression models, with comprehensive
+regression output, model fit statistics and validation measures.
 
-- [CRAN](https://cran.r-project.org/package=blorr)
-- [GitHub](https://github.com/aravindhebbali/blorr)
-- [Docs](https://blorr.rsquaredacademy.com)
+[Reference](https://blorr.rsquaredacademy.com) ·
+[CRAN](https://cran.r-project.org/package=blorr) ·
+[GitHub](https://github.com/aravindhebbali/blorr)
 :::
 :::
 
@@ -45,13 +44,13 @@ measures.
 
 ### xplorerr {.card-title}
 
-Interactive data exploration and visualization. Correlation heatmaps,
-scatterplots, normality and outlier checks, and regression modeling from a
+Interactive data exploration and visualization: correlation heatmaps,
+scatterplots, distribution checks and regression modelling from a
 point-and-click interface.
 
-- [CRAN](https://cran.r-project.org/package=xplorerr)
-- [GitHub](https://github.com/aravindhebbali/xplorerr)
-- [Docs](https://xplorerr.rsquaredacademy.com)
+[Reference](https://xplorerr.rsquaredacademy.com) ·
+[CRAN](https://cran.r-project.org/package=xplorerr) ·
+[GitHub](https://github.com/aravindhebbali/xplorerr)
 :::
 :::
 
@@ -63,13 +62,12 @@ point-and-click interface.
 
 ### descriptr {.card-title}
 
-Generate and visualize descriptive statistics for numeric and categorical
-data. Frequency tables, skewness, kurtosis, key statistics and interactive
-plots, all at speed.
+Descriptive statistics and frequency tables for numeric and categorical data.
+Skewness, kurtosis and key statistics, computed fast.
 
-- [CRAN](https://cran.r-project.org/package=descriptr)
-- [GitHub](https://github.com/aravindhebbali/descriptr)
-- [Docs](https://descriptr.rsquaredacademy.com)
+[Reference](https://descriptr.rsquaredacademy.com) ·
+[CRAN](https://cran.r-project.org/package=descriptr) ·
+[GitHub](https://github.com/aravindhebbali/descriptr)
 :::
 :::
 
@@ -80,12 +78,11 @@ plots, all at speed.
 ### inferr {.card-title}
 
 Hypothesis testing and inference. Parametric and non-parametric tests with
-structured, readable output — t-test, chi-square, ANOVA, correlation and
-more.
+structured, readable output: t-test, chi-square, ANOVA and correlation.
 
-- [CRAN](https://cran.r-project.org/package=inferr)
-- [GitHub](https://github.com/aravindhebbali/inferr)
-- [Docs](https://inferr.rsquaredacademy.com)
+[Reference](https://inferr.rsquaredacademy.com) ·
+[CRAN](https://cran.r-project.org/package=inferr) ·
+[GitHub](https://github.com/aravindhebbali/inferr)
 :::
 :::
 
@@ -95,12 +92,12 @@ more.
 
 ### vistributions {.card-title}
 
-Visualize probability distributions of univariate data across 20+
-continuous and discrete distributions, plus statistical quality checks.
+Visualize probability distributions of univariate data across continuous and
+discrete families, with statistical quality checks.
 
-- [CRAN](https://cran.r-project.org/package=vistributions)
-- [GitHub](https://github.com/rsquaredacademy/vistributions)
-- [Docs](https://vistributions.rsquaredacademy.com)
+[Reference](https://vistributions.rsquaredacademy.com) ·
+[CRAN](https://cran.r-project.org/package=vistributions) ·
+[GitHub](https://github.com/rsquaredacademy/vistributions)
 :::
 :::
 
@@ -112,11 +109,11 @@ continuous and discrete distributions, plus statistical quality checks.
 
 ### rbin {.card-title}
 
-Bin and group numeric data into intervals. Equidistant, quantile, quantile
-binning and custom breaks, with an easy-to-use interactive mode.
+Bin and group numeric data into intervals: equidistant, quantile and custom
+breaks, with an interactive mode for picking them.
 
-- [CRAN](https://cran.r-project.org/package=rbin)
-- [GitHub](https://github.com/rsquaredacademy/rbin)
+[CRAN](https://cran.r-project.org/package=rbin) ·
+[GitHub](https://github.com/rsquaredacademy/rbin)
 :::
 :::
 
@@ -133,10 +130,9 @@ binning and custom breaks, with an easy-to-use interactive mode.
 ### nse2r — archived, under revival
 
 `nse2r` fetched live data from the National Stock Exchange of India. It was
-**archived on CRAN on 2023-08-07** at the maintainer's request and is
-currently being revived, so it is no longer installable from CRAN.
+**archived on CRAN on 2023-08-07** at the maintainer's request and is currently
+being revived, so it is no longer installable from CRAN.
 
-Its ~22,000 historical downloads remain part of the totals quoted elsewhere
-on this site, but that figure is frozen and will not grow. Source and issue
-tracker: [github.com/rsquaredacademy/nse2r](https://github.com/rsquaredacademy/nse2r).
+Source and issue tracker:
+[github.com/rsquaredacademy/nse2r](https://github.com/rsquaredacademy/nse2r).
 :::
