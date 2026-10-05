@@ -71,9 +71,9 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .pkg > p:first-of-type { color: #64748b; font-size: 0.9375rem; margin-bottom: 0.7rem; max-width: none; }
 
-.pkg ul { margin: 0 0 0.7rem; padding-left: 1.1rem; columns: 2; column-gap: 2rem; font-size: 0.875rem; }
+.pkg ul { margin: 0 0 0.7rem; padding-left: 1.1rem; columns: 2; column-gap: 2rem; font-size: 1rem; }
 
-.pkg ul li { margin-bottom: 0.15rem; break-inside: avoid; }
+.pkg ul li { margin-bottom: 0.2rem; break-inside: avoid; }
 
 .pkg > p:last-of-type { clear: both; font-size: 0.8125rem; padding-top: 0.3rem; border-top: 1px solid #f1f5f9; max-width: none; }
 

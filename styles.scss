@@ -213,9 +213,9 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
   padding-left: 1.1rem;
   columns: 2;
   column-gap: 2rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
 
-  li { margin-bottom: 0.15rem; break-inside: avoid; }
+  li { margin-bottom: 0.2rem; break-inside: avoid; }
 }
 
 .pkg > p:last-of-type {
