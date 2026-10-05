@@ -134,12 +134,14 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 }
 
 // --- Explore cards --------------------------------------------------------
-// Three shallow panels. Borders only - no shadows, no hover lift.
+// Exactly three panels in a single row, matching the reference at
+// pkgs.rsquaredacademy.com. Hairline dividers come from the 1px grid gap, not
+// from borders on each panel. Collapses to one column on narrow screens.
 .explore-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: $line;   // the 1px gap becomes a hairline between panels
+  background: $line;
   border: 1px solid $line;
   border-radius: 6px;
   overflow: hidden;
@@ -148,7 +150,7 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 
 .explore-card {
   background: $surface;
-  padding: 1.25rem 1.25rem 1.4rem;
+  padding: 1.35rem 1.35rem 1.5rem;
 
   p { color: $muted; font-size: 0.9375rem; margin: 0; max-width: none; }
 }
@@ -329,7 +331,7 @@ main { max-width: 940px; }
 
 // --- Responsive -----------------------------------------------------------
 @media (max-width: 575px) {
-  main > h1:first-of-type { font-size: 1.9rem; }
+  .quarto-title-block .title { font-size: 1.9rem; }
   .hero-photo {
     float: none;
     display: block;
@@ -337,4 +339,10 @@ main { max-width: 940px; }
     max-width: 60%;
   }
   .books { grid-template-columns: 1fr; }
+}
+
+// The Explore row is fixed at 3 columns on desktop; below that it stacks,
+// because three panels at tablet width are unreadably narrow.
+@media (max-width: 900px) {
+  .explore-grid { grid-template-columns: 1fr; }
 }
