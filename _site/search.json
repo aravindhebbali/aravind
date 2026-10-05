@@ -63,13 +63,6 @@
     "text": "Consulting & Advisory\nCustom package development and architecture. Internal R or Python tooling built to survive handover: documented, tested, and structured so your team can extend it without me. Most consulting work is undocumented code that one person understands, and that is a single point of failure I can help remove.\nTeam masterclasses. Tidyverse, SQL, command-line tooling. Built around your data, your conventions and your team’s existing stack.\nWho this is for: teams shipping quantitative work that other people have to maintain. Who it is not for: one-off analyses, or anyone looking for a pre-packaged answer.\n\nSchedule an intro call"
   },
   {
-    "objectID": "index.html#elsewhere",
-    "href": "index.html#elsewhere",
-    "title": "Hey, I am Aravind",
-    "section": "Elsewhere",
-    "text": "Elsewhere\n\nBlog — essays on R, statistics and quantitative practice.\nGitHub — package sources, issues and discussions.\nRsquared Academy — courses and the books above.\nMadras School of Economics — where the statistical training started."
-  },
-  {
     "objectID": "packages/index.html",
     "href": "packages/index.html",
     "title": "R Packages",

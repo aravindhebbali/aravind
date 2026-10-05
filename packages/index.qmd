@@ -18,7 +18,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ::: {.pkg}
 
-![](images/hex-olsrr.webp){.pkg-hex alt="olsrr hex sticker"}
+![](../images/hex-olsrr.webp){.pkg-hex alt="olsrr hex sticker"}
 
 ### [olsrr](https://olsrr.rsquaredacademy.com) {.pkg-name}
 
@@ -38,7 +38,7 @@ Tools for building linear regression models
 
 ::: {.pkg}
 
-![](images/hex-blorr.webp){.pkg-hex alt="blorr hex sticker"}
+![](../images/hex-blorr.webp){.pkg-hex alt="blorr hex sticker"}
 
 ### [blorr](https://blorr.rsquaredacademy.com) {.pkg-name}
 
@@ -58,7 +58,7 @@ Tools for building binary logistic regression models
 
 ::: {.pkg}
 
-![](images/hex-xplorerr.webp){.pkg-hex alt="xplorerr hex sticker"}
+![](../images/hex-xplorerr.webp){.pkg-hex alt="xplorerr hex sticker"}
 
 ### [xplorerr](https://xplorerr.rsquaredacademy.com) {.pkg-name}
 
@@ -80,7 +80,7 @@ Tools for interactive data analysis
 
 ::: {.pkg}
 
-![](images/hex-descriptr.webp){.pkg-hex alt="descriptr hex sticker"}
+![](../images/hex-descriptr.webp){.pkg-hex alt="descriptr hex sticker"}
 
 ### [descriptr](https://descriptr.rsquaredacademy.com) {.pkg-name}
 
@@ -98,7 +98,7 @@ Tools for generating descriptive / summary statistics
 
 ::: {.pkg}
 
-![](images/hex-inferr.webp){.pkg-hex alt="inferr hex sticker"}
+![](../images/hex-inferr.webp){.pkg-hex alt="inferr hex sticker"}
 
 ### [inferr](https://inferr.rsquaredacademy.com) {.pkg-name}
 
@@ -120,7 +120,7 @@ Tools for inferential statistics
 
 ::: {.pkg}
 
-![](images/hex-vistributions.webp){.pkg-hex alt="vistributions hex sticker"}
+![](../images/hex-vistributions.webp){.pkg-hex alt="vistributions hex sticker"}
 
 ### [vistributions](https://vistributions.rsquaredacademy.com) {.pkg-name}
 
@@ -141,7 +141,7 @@ Tools for visualizing probability distributions
 
 ::: {.pkg}
 
-![](images/hex-rbin.webp){.pkg-hex alt="rbin hex sticker"}
+![](../images/hex-rbin.webp){.pkg-hex alt="rbin hex sticker"}
 
 ### [rbin](https://github.com/rsquaredacademy/rbin) {.pkg-name}
 

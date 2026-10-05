@@ -15,6 +15,4 @@ There are four pages here:
 
 Old links ending in `.html` still work and redirect to the current addresses,
 so a stale bookmark should have landed you on the right page. If it did not,
-the [mailing list](https://blog.rsquaredacademy.com/) or
-[GitHub](https://github.com/aravindhebbali) is the fastest way to tell me it
-broke.
+the contact links in the footer are the fastest way to tell me it broke.

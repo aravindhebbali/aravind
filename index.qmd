@@ -329,14 +329,3 @@ pre-packaged answer.
 ::: {.cta}
 [Schedule an intro call](https://calendly.com/aravindhebbali){.btn .btn-primary role="button"}
 :::
-
-## Elsewhere {#elsewhere}
-
-- **[Blog](https://blog.rsquaredacademy.com/)** — essays on R, statistics and
-  quantitative practice.
-- **[GitHub](https://github.com/aravindhebbali)** — package sources, issues and
-  discussions.
-- **[Rsquared Academy](https://www.rsquaredacademy.com/)** — courses and the
-  books above.
-- **[Madras School of Economics](https://www.mse.ac.in/)** — where the
-  statistical training started.
