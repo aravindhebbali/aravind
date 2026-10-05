@@ -315,11 +315,6 @@ if you never sign up for anything.
 
 ## Consulting & Advisory {#consulting}
 
-**Model validation and econometric audits.** Independent review of
-specification, identification and inference — for teams who inherited a model
-and need to know whether it is defensible. You get a written report, not just
-a corrected script.
-
 **Custom package development and architecture.** Internal R or Python tooling
 built to survive handover: documented, tested, and structured so your team can
 extend it without me. Most consulting work is undocumented code that one

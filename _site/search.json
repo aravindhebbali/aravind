@@ -67,7 +67,7 @@
     "href": "index.html#consulting",
     "title": "Hey, I am Aravind",
     "section": "Consulting & Advisory",
-    "text": "Consulting & Advisory\nModel validation and econometric audits. Independent review of specification, identification and inference — for teams who inherited a model and need to know whether it is defensible. You get a written report, not just a corrected script.\nCustom package development and architecture. Internal R or Python tooling built to survive handover: documented, tested, and structured so your team can extend it without me. Most consulting work is undocumented code that one person understands, and that is a single point of failure I can help remove.\nTeam masterclasses. Tidyverse, SQL, command-line tooling. Built around your data, your conventions and your team’s existing stack.\nWho this is for: teams shipping quantitative work that other people have to maintain. Who it is not for: one-off analyses, or anyone looking for a pre-packaged answer.\n\nSchedule an intro call"
+    "text": "Consulting & Advisory\nCustom package development and architecture. Internal R or Python tooling built to survive handover: documented, tested, and structured so your team can extend it without me. Most consulting work is undocumented code that one person understands, and that is a single point of failure I can help remove.\nTeam masterclasses. Tidyverse, SQL, command-line tooling. Built around your data, your conventions and your team’s existing stack.\nWho this is for: teams shipping quantitative work that other people have to maintain. Who it is not for: one-off analyses, or anyone looking for a pre-packaged answer.\n\nSchedule an intro call"
   },
   {
     "objectID": "index.html#elsewhere",
