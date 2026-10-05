@@ -30,9 +30,7 @@ platform for data science, where the courses behind those books live.
 
 I earned my postgraduate degree from
 [Madras School of Economics](https://www.mse.ac.in/) (Anna University),
-Chennai, and spent several years building statistical tooling inside
-[Rsquared Computing](https://www.rsquaredacademy.com/). I now maintain the
-portfolio independently from Bengaluru, India.
+Chennai, and now maintain the portfolio independently from Bengaluru, India.
 
 ::: {.proof}
 
