@@ -89,20 +89,25 @@ if (file.exists(scss_copy)) {
 }
 
 # ---------------------------------------------------------------------------
-# Pre-cutover guard.
+# Pre-cutover guard (now dormant).
 #
 # Quarto 1.6.40 DELETES a pre-existing root `index.html` when `index.qmd` is
-# present, treating them as a path collision. Until the cutover commit flips
-# Netlify's publish root to `_site`, that legacy `index.html` IS the live
-# homepage. Losing it from the working tree is harmless (the live site is
-# served from committed state) but committing the deletion would 404 the
-# homepage in production. Fail loudly rather than let that pass unnoticed.
+# present, treating them as a path collision. That mattered BEFORE the cutover
+# commit, when that legacy `index.html` was the live homepage: losing it from
+# the working tree is harmless (the live site is served from committed state)
+# but committing the deletion would have 404'd the homepage.
+#
+# `netlify.toml` now sets publish = "_site", so the legacy file is intentionally
+# gone for good and this check no longer applies. It is retained but skips
+# itself once the publish root has moved, so it cannot become permanent noise.
 # ---------------------------------------------------------------------------
-if (file.exists("_quarto.yml") && !file.exists("index.html")) {
+netlify <- if (file.exists("netlify.toml")) readLines("netlify.toml", warn = FALSE) else character(0)
+cutover_done <- any(grepl('publish\\s*=\\s*"_site"', netlify))
+
+if (!cutover_done && !file.exists("index.html")) {
   message(
     "post-render: WARNING - root index.html is missing. Quarto removes it ",
-    "because index.qmd now owns that path. Before committing, confirm this ",
-    "deletion is intentional (only valid once netlify.toml sets ",
-    "publish = \"_site\"). Restore with: git checkout -- index.html"
+    "because index.qmd now owns that path. Confirm this deletion is ",
+    "intentional. Restore with: git checkout -- index.html"
   )
 }

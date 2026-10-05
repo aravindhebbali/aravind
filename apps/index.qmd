@@ -17,7 +17,7 @@ you the exact command.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_olsrr.png){.hex alt="Hex sticker for the olsrr R package"}
+![](../images/hex-olsrr.webp){.hex alt="Hex sticker for the olsrr R package"}
 
 ### olsrr {.card-title}
 
@@ -33,7 +33,7 @@ olsrr::ols_launch_app()
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_blorr.png){.hex alt="Hex sticker for the blorr R package"}
+![](../images/hex-blorr.webp){.hex alt="Hex sticker for the blorr R package"}
 
 ### blorr {.card-title}
 
@@ -49,7 +49,7 @@ blorr::blr_launch_app()
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_xplorerr.png){.hex alt="Hex sticker for the xplorerr R package"}
+![](../images/hex-xplorerr.webp){.hex alt="Hex sticker for the xplorerr R package"}
 
 ### xplorerr {.card-title}
 
@@ -71,7 +71,7 @@ Also available: `app_descriptive()`, `app_visualizer()`,
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_descriptr.png){.hex alt="Hex sticker for the descriptr R package"}
+![](../images/hex-descriptr.webp){.hex alt="Hex sticker for the descriptr R package"}
 
 ### descriptr {.card-title}
 
@@ -87,7 +87,7 @@ descriptr::ds_launch_shiny_app()
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_inferr.png){.hex alt="Hex sticker for the inferr R package"}
+![](../images/hex-inferr.webp){.hex alt="Hex sticker for the inferr R package"}
 
 ### inferr {.card-title}
 
@@ -103,7 +103,7 @@ inferr::ifr_launch_shiny_app()
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_vistributions.png){.hex alt="Hex sticker for the vistributions R package"}
+![](../images/hex-vistributions.webp){.hex alt="Hex sticker for the vistributions R package"}
 
 ### vistributions {.card-title}
 
@@ -121,7 +121,7 @@ vistributions::vdist_launch_app()
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_rfm.png){.hex alt="Hex sticker for the rfm R package"}
+![](../images/hex-rfm.webp){.hex alt="Hex sticker for the rfm R package"}
 
 ### rfm {.card-title}
 

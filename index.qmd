@@ -2,7 +2,7 @@
 title: "Aravind Hebbali"
 pagetitle: "Aravind Hebbali — Principal Quantitative Consultant & Open-Source Author"
 description: "Production-grade R tools, statistical diagnostics and data engineering. Author of 11 R packages with 2.8M+ CRAN downloads and 6 open books. Founder, Rsquared Academy."
-image: images/og-card.png
+image: images/og-card.jpg
 image-alt: "Aravind Hebbali — Principal Quantitative Consultant & Open-Source Author"
 ---
 
@@ -34,7 +34,7 @@ n_books <- 6L
 ```
 
 ::: {.hero}
-![](images/latest_profile.png){.hero-photo alt="Aravind Hebbali"}
+![](images/avatar.webp){.hero-photo alt="Aravind Hebbali"}
 :::
 
 ## Aravind Hebbali {.hero-title}

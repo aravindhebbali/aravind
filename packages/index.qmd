@@ -10,7 +10,7 @@ package's reference site; every one is maintained and versioned with CRAN.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_olsrr.png){.hex alt="Hex sticker for the olsrr R package"}
+![](../images/hex-olsrr.webp){.hex alt="Hex sticker for the olsrr R package"}
 
 ### olsrr {.card-title}
 
@@ -25,7 +25,7 @@ tables, influential observation analysis, model comparison and more.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_blorr.png){.hex alt="Hex sticker for the blorr R package"}
+![](../images/hex-blorr.webp){.hex alt="Hex sticker for the blorr R package"}
 
 ### blorr {.card-title}
 
@@ -41,7 +41,7 @@ measures.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_xplorerr.png){.hex alt="Hex sticker for the xplorerr R package"}
+![](../images/hex-xplorerr.webp){.hex alt="Hex sticker for the xplorerr R package"}
 
 ### xplorerr {.card-title}
 
@@ -59,7 +59,7 @@ point-and-click interface.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_descriptr.png){.hex alt="Hex sticker for the descriptr R package"}
+![](../images/hex-descriptr.webp){.hex alt="Hex sticker for the descriptr R package"}
 
 ### descriptr {.card-title}
 
@@ -75,7 +75,7 @@ plots, all at speed.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_inferr.png){.hex alt="Hex sticker for the inferr R package"}
+![](../images/hex-inferr.webp){.hex alt="Hex sticker for the inferr R package"}
 
 ### inferr {.card-title}
 
@@ -91,7 +91,7 @@ more.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_vistributions.png){.hex alt="Hex sticker for the vistributions R package"}
+![](../images/hex-vistributions.webp){.hex alt="Hex sticker for the vistributions R package"}
 
 ### vistributions {.card-title}
 
@@ -108,7 +108,7 @@ continuous and discrete distributions, plus statistical quality checks.
 
 ::: {.card-deck}
 ::: {.card}
-![](../images/hex_rbin.png){.hex alt="Hex sticker for the rbin R package"}
+![](../images/hex-rbin.webp){.hex alt="Hex sticker for the rbin R package"}
 
 ### rbin {.card-title}
 
