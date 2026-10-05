@@ -2,30 +2,23 @@
   {
     "objectID": "apps/index.html",
     "href": "apps/index.html",
-    "title": "R Shiny Apps",
+    "title": "Interactive Apps",
     "section": "",
-    "text": "These apps run on your machine\n\n\n\nEvery R package listed here includes a Shiny app. The apps run locally in R — install the package from CRAN and launch from your console. There is no hosted version: the service that previously hosted these apps is no longer under my control, so rather than ship links that fail, each card below gives you the exact command."
+    "text": "Directory for interactive apps covering data analysis, visualization and modelling. Each app ships inside its R package."
   },
   {
-    "objectID": "apps/index.html#regression-and-modeling",
-    "href": "apps/index.html#regression-and-modeling",
-    "title": "R Shiny Apps",
-    "section": "Regression and modeling",
-    "text": "Regression and modeling\n\n\n\n\nolsrr\nBuild linear regression models and iterate through specifications quickly. Produces full olsrr model output from the UI.\ninstall.packages(\"olsrr\")\nolsrr::ols_launch_app()\n\n\n\n\n\n\n\nblorr\nBuild, validate and monitor binary logistic regression models with comprehensive output, model fit and validation statistics.\ninstall.packages(\"blorr\")\nblorr::blr_launch_app()\n\n\n\n\n\n\n\nxplorerr\nOne app, seven entry points. Linear and logistic regression, descriptive statistics, inference, RFM analysis, distributions and the visualizer.\ninstall.packages(\"xplorerr\")\nxplorerr::app_linear_regression()\nAlso available: app_descriptive(), app_visualizer(), app_logistic_regression(), app_inference(), app_rfm_analysis(), app_vistributions()."
+    "objectID": "apps/index.html#run-locally-today-with-xplorerr",
+    "href": "apps/index.html#run-locally-today-with-xplorerr",
+    "title": "Interactive Apps",
+    "section": "Run locally today with xplorerr",
+    "text": "Run locally today with xplorerr\nInstall once, then launch any app from your R console:\ninstall.packages(\"xplorerr\")\n\nxplorerr::app_descriptive()         # descriptive statistics\nxplorerr::app_vistributions()      # probability distributions\nxplorerr::app_inference()          # hypothesis testing\nxplorerr::app_linear_regression()  # linear regression\nxplorerr::app_logistic_regression() # logistic regression\nxplorerr::app_rfm_analysis()       # RFM / customer segmentation\nxplorerr::app_visualizer()         # data visualization\nDocs: xplorerr.rsquaredacademy.com · CRAN: xplorerr · Source: GitHub"
   },
   {
-    "objectID": "apps/index.html#statistics",
-    "href": "apps/index.html#statistics",
-    "title": "R Shiny Apps",
-    "section": "Statistics",
-    "text": "Statistics\n\n\n\n\ndescriptr\nGenerate and visualize descriptive statistics for numeric and categorical data. Explore key statistical distributions with interactive plots.\ninstall.packages(\"descriptr\")\ndescriptr::ds_launch_shiny_app()\n\n\n\n\n\n\n\ninferr\nBeginner-friendly hypothesis testing with parametric and non-parametric tests, flexible input options and structured results.\ninstall.packages(\"inferr\")\ninferr::ifr_launch_shiny_app()\n\n\n\n\n\n\n\nvistributions\nVisualize probability distributions and run statistical quality checks on univariate data.\ninstall.packages(\"vistributions\")\nvistributions::vdist_launch_app()"
-  },
-  {
-    "objectID": "apps/index.html#customer-analytics",
-    "href": "apps/index.html#customer-analytics",
-    "title": "R Shiny Apps",
-    "section": "Customer analytics",
-    "text": "Customer analytics\n\n\n\n\nrfm\nCustomer segmentation using recency, frequency and monetary value analysis. Build customized segments from customer- or transaction-level data.\ninstall.packages(\"rfm\")\nrfm::rfm_launch_app()\n\n\n\n\n\n\n\n\n\nnse2r has no app\n\n\n\nnse2r exported an nse_app() Shiny entry point, but the package was archived on CRAN on 2023-08-07 and is under revival, so it is deliberately excluded from this page rather than shipped with a command that cannot be run. See Packages for its current status."
+    "objectID": "apps/index.html#app-directory",
+    "href": "apps/index.html#app-directory",
+    "title": "Interactive Apps",
+    "section": "App directory",
+    "text": "App directory\nBrowser apps will be published on the relevant package site when they are ready. In the meantime each app runs locally.\n\n\n\nApp\nCovers\nRun locally\nDocs\n\n\n\n\ndescriptr\ndescriptive statistics\napp_descriptive()\ndocs\n\n\nvistributions\nprobability distributions\napp_vistributions()\ndocs\n\n\ninferr\nhypothesis testing\napp_inference()\ndocs\n\n\nolsrr\nlinear regression\napp_linear_regression()\ndocs\n\n\nblorr\nlogistic regression\napp_logistic_regression()\ndocs\n\n\nrfm\ncustomer segmentation\napp_rfm_analysis()\ndocs\n\n\nxplorerr\nall of the above + visualizer\napp_visualizer()\ndocs\n\n\n\nPrefer the package that owns the app? Each package also exports its own launcher, which is arguably the more natural entry point:\nolsrr::ols_launch_app()             # linear regression\nblorr::blr_launch_app()             # logistic regression\nrfm::rfm_launch_app()               # customer segmentation\ndescriptr::ds_launch_shiny_app()    # descriptive statistics\ninferr::ifr_launch_shiny_app()      # hypothesis testing\nvistributions::vdist_launch_app()   # probability distributions\nxplorerr::app_linear_regression()   # and the rest\nAll packages: pkgs.rsquaredacademy.com"
   },
   {
     "objectID": "index.html",

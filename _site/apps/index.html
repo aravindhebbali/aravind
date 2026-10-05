@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Interactive Shiny applications that ship with the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run them locally from R.">
+<meta name="description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.">
 
-<title>R Shiny Apps – Aravind Hebbali</title>
+<title>Interactive Apps – Aravind Hebbali</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,15 +135,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="R Shiny Apps – Aravind Hebbali">
-<meta property="og:description" content="Interactive Shiny applications that ship with the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run them locally from R.">
-<meta property="og:image" content="https://www.aravindhebbali.com/images/hex-olsrr.webp">
+<meta property="og:title" content="Interactive Apps – Aravind Hebbali">
+<meta property="og:description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.">
+<meta property="og:image" content="https://www.aravindhebbali.com/apps/images/og-card.jpg">
 <meta property="og:site_name" content="Aravind Hebbali">
-<meta property="og:image:alt" content="Hex sticker for the olsrr R package">
-<meta name="twitter:title" content="R Shiny Apps – Aravind Hebbali">
-<meta name="twitter:description" content="Interactive Shiny applications that ship with the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run them locally from R.">
-<meta name="twitter:image" content="https://www.aravindhebbali.com/images/hex-olsrr.webp">
-<meta name="twitter:image:alt" content="Hex sticker for the olsrr R package">
+<meta property="og:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
+<meta name="twitter:title" content="Interactive Apps – Aravind Hebbali">
+<meta name="twitter:description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.">
+<meta name="twitter:image" content="https://www.aravindhebbali.com/apps/images/og-card.jpg">
+<meta name="twitter:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.aravindhebbali.com/apps/">
 </head>
@@ -216,12 +216,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R Shiny Apps</h1>
+<h1 class="title">Interactive Apps</h1>
 </div>
 
 <div>
   <div class="description">
-    Interactive Shiny applications that ship with the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run them locally from R.
+    Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.
   </div>
 </div>
 
@@ -238,118 +238,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-These apps run on your machine
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Every R package listed here includes a Shiny app. The apps run <strong>locally in R</strong> — install the package from CRAN and launch from your console. There is no hosted version: the service that previously hosted these apps is no longer under my control, so rather than ship links that fail, each card below gives you the exact command.</p>
-</div>
-</div>
-<section id="regression-and-modeling" class="level2">
-<h2 class="anchored" data-anchor-id="regression-and-modeling">Regression and modeling</h2>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-olsrr.webp" class="hex img-fluid" alt="Hex sticker for the olsrr R package"></p>
-<section id="olsrr" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="olsrr">olsrr</h3>
-<p>Build linear regression models and iterate through specifications quickly. Produces full olsrr model output from the UI.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"olsrr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>olsrr<span class="sc">::</span><span class="fu">ols_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-</div>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-blorr.webp" class="hex img-fluid" alt="Hex sticker for the blorr R package"></p>
-<section id="blorr" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="blorr">blorr</h3>
-<p>Build, validate and monitor binary logistic regression models with comprehensive output, model fit and validation statistics.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"blorr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>blorr<span class="sc">::</span><span class="fu">blr_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-</div>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-xplorerr.webp" class="hex img-fluid" alt="Hex sticker for the xplorerr R package"></p>
-<section id="xplorerr" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="xplorerr">xplorerr</h3>
-<p>One app, seven entry points. Linear and logistic regression, descriptive statistics, inference, RFM analysis, distributions and the visualizer.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"xplorerr"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_linear_regression</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Also available: <code>app_descriptive()</code>, <code>app_visualizer()</code>, <code>app_logistic_regression()</code>, <code>app_inference()</code>, <code>app_rfm_analysis()</code>, <code>app_vistributions()</code>.</p>
-</section>
-</div>
-</div>
-</section>
-<section id="statistics" class="level2">
-<h2 class="anchored" data-anchor-id="statistics">Statistics</h2>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-descriptr.webp" class="hex img-fluid" alt="Hex sticker for the descriptr R package"></p>
-<section id="descriptr" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="descriptr">descriptr</h3>
-<p>Generate and visualize descriptive statistics for numeric and categorical data. Explore key statistical distributions with interactive plots.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"descriptr"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>descriptr<span class="sc">::</span><span class="fu">ds_launch_shiny_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-</div>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-inferr.webp" class="hex img-fluid" alt="Hex sticker for the inferr R package"></p>
-<section id="inferr" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="inferr">inferr</h3>
-<p>Beginner-friendly hypothesis testing with parametric and non-parametric tests, flexible input options and structured results.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"inferr"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>inferr<span class="sc">::</span><span class="fu">ifr_launch_shiny_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-</div>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-vistributions.webp" class="hex img-fluid" alt="Hex sticker for the vistributions R package"></p>
-<section id="vistributions" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="vistributions">vistributions</h3>
-<p>Visualize probability distributions and run statistical quality checks on univariate data.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"vistributions"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vistributions<span class="sc">::</span><span class="fu">vdist_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-</div>
-</section>
-<section id="customer-analytics" class="level2">
-<h2 class="anchored" data-anchor-id="customer-analytics">Customer analytics</h2>
-<div class="card-deck">
-<div class="card">
-<p><img src="../images/hex-rfm.webp" class="hex img-fluid" alt="Hex sticker for the rfm R package"></p>
-<section id="rfm" class="level3 card-title">
-<h3 class="card-title anchored" data-anchor-id="rfm">rfm</h3>
-<p>Customer segmentation using recency, frequency and monetary value analysis. Build customized segments from customer- or transaction-level data.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rfm"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rfm<span class="sc">::</span><span class="fu">rfm_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-</div>
+<p>Directory for interactive apps covering data analysis, visualization and modelling. Each app ships inside its R package.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-nse2r has no app
+Cloud hosting retired
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>nse2r</code> exported an <code>nse_app()</code> Shiny entry point, but the package was <strong>archived on CRAN on 2023-08-07</strong> and is under revival, so it is deliberately excluded from this page rather than shipped with a command that cannot be run. See <a href="packages/">Packages</a> for its current status.</p>
+<p>Apps that were previously hosted in the browser are <strong>no longer available</strong>. There is currently no browser version of any of them. Run them locally with R using the commands below.</p>
 </div>
 </div>
+<section id="run-locally-today-with-xplorerr" class="level2">
+<h2 class="anchored" data-anchor-id="run-locally-today-with-xplorerr">Run locally today with xplorerr</h2>
+<p>Install once, then launch any app from your R console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"xplorerr"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_descriptive</span>()         <span class="co"># descriptive statistics</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_vistributions</span>()      <span class="co"># probability distributions</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_inference</span>()          <span class="co"># hypothesis testing</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_linear_regression</span>()  <span class="co"># linear regression</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_logistic_regression</span>() <span class="co"># logistic regression</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_rfm_analysis</span>()       <span class="co"># RFM / customer segmentation</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_visualizer</span>()         <span class="co"># data visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Docs: <a href="https://xplorerr.rsquaredacademy.com/">xplorerr.rsquaredacademy.com</a> · CRAN: <a href="https://cran.r-project.org/package=xplorerr">xplorerr</a> · Source: <a href="https://github.com/aravindhebbali/xplorerr">GitHub</a></p>
+</section>
+<section id="app-directory" class="level2">
+<h2 class="anchored" data-anchor-id="app-directory">App directory</h2>
+<p>Browser apps will be published on the relevant package site when they are ready. In the meantime each app runs locally.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">App</th>
+<th style="text-align: left;">Covers</th>
+<th style="text-align: left;">Run locally</th>
+<th style="text-align: left;">Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>descriptr</strong></td>
+<td style="text-align: left;">descriptive statistics</td>
+<td style="text-align: left;"><code>app_descriptive()</code></td>
+<td style="text-align: left;"><a href="https://descriptr.rsquaredacademy.com/">docs</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>vistributions</strong></td>
+<td style="text-align: left;">probability distributions</td>
+<td style="text-align: left;"><code>app_vistributions()</code></td>
+<td style="text-align: left;"><a href="https://vistributions.rsquaredacademy.com/">docs</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>inferr</strong></td>
+<td style="text-align: left;">hypothesis testing</td>
+<td style="text-align: left;"><code>app_inference()</code></td>
+<td style="text-align: left;"><a href="https://inferr.rsquaredacademy.com/">docs</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>olsrr</strong></td>
+<td style="text-align: left;">linear regression</td>
+<td style="text-align: left;"><code>app_linear_regression()</code></td>
+<td style="text-align: left;"><a href="https://olsrr.rsquaredacademy.com/">docs</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>blorr</strong></td>
+<td style="text-align: left;">logistic regression</td>
+<td style="text-align: left;"><code>app_logistic_regression()</code></td>
+<td style="text-align: left;"><a href="https://blorr.rsquaredacademy.com/">docs</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>rfm</strong></td>
+<td style="text-align: left;">customer segmentation</td>
+<td style="text-align: left;"><code>app_rfm_analysis()</code></td>
+<td style="text-align: left;"><a href="https://rfm.rsquaredacademy.com/">docs</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>xplorerr</strong></td>
+<td style="text-align: left;">all of the above + visualizer</td>
+<td style="text-align: left;"><code>app_visualizer()</code></td>
+<td style="text-align: left;"><a href="https://xplorerr.rsquaredacademy.com/">docs</a></td>
+</tr>
+</tbody>
+</table>
+<p>Prefer the package that owns the app? Each package also exports its own launcher, which is arguably the more natural entry point:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>olsrr<span class="sc">::</span><span class="fu">ols_launch_app</span>()             <span class="co"># linear regression</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>blorr<span class="sc">::</span><span class="fu">blr_launch_app</span>()             <span class="co"># logistic regression</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rfm<span class="sc">::</span><span class="fu">rfm_launch_app</span>()               <span class="co"># customer segmentation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>descriptr<span class="sc">::</span><span class="fu">ds_launch_shiny_app</span>()    <span class="co"># descriptive statistics</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>inferr<span class="sc">::</span><span class="fu">ifr_launch_shiny_app</span>()      <span class="co"># hypothesis testing</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>vistributions<span class="sc">::</span><span class="fu">vdist_launch_app</span>()   <span class="co"># probability distributions</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_linear_regression</span>()   <span class="co"># and the rest</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All packages: <a href="https://pkgs.rsquaredacademy.com/">pkgs.rsquaredacademy.com</a></p>
 
 
 </section>

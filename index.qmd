@@ -1,7 +1,6 @@
 ---
 title: "Hey, I am Aravind"
 subtitle: "statistics, econometrics, and open-source tooling."
-pagetitle: "Aravind Hebbali — Statistical Software & Quantitative Consulting"
 description: "Production-grade R tools, statistical diagnostics and data engineering. Author of open-source packages and textbooks, and founder of Rsquared Academy."
 image: images/og-card.jpg
 image-alt: "Aravind Hebbali — Statistical Software & Quantitative Consulting"

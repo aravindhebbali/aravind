@@ -1,145 +1,69 @@
 ---
-title: "R Shiny Apps"
-description: "Interactive Shiny applications that ship with the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run them locally from R."
+title: "Interactive Apps"
+description: "Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R."
+image: images/og-card.jpg
+image-alt: "Aravind Hebbali — Statistical Software & Quantitative Consulting"
+title-block-date: false
+title-block-categories: false
 ---
 
-::: {.callout-note}
-### These apps run on your machine
+Directory for interactive apps covering data analysis, visualization and
+modelling. Each app ships inside its R package.
 
-Every R package listed here includes a Shiny app. The apps run **locally in
-R** — install the package from CRAN and launch from your console. There is no
-hosted version: the service that previously hosted these apps is no longer
-under my control, so rather than ship links that fail, each card below gives
-you the exact command.
+::: {.callout-warning}
+### Cloud hosting retired
+
+Apps that were previously hosted in the browser are **no longer available**.
+There is currently no browser version of any of them. Run them locally with R
+using the commands below.
 :::
 
-## Regression and modeling
+## Run locally today with xplorerr
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-olsrr.webp){.hex alt="Hex sticker for the olsrr R package"}
-
-### olsrr {.card-title}
-
-Build linear regression models and iterate through specifications quickly.
-Produces full olsrr model output from the UI.
-
-```r
-install.packages("olsrr")
-olsrr::ols_launch_app()
-```
-:::
-:::
-
-::: {.card-deck}
-::: {.card}
-![](../images/hex-blorr.webp){.hex alt="Hex sticker for the blorr R package"}
-
-### blorr {.card-title}
-
-Build, validate and monitor binary logistic regression models with
-comprehensive output, model fit and validation statistics.
-
-```r
-install.packages("blorr")
-blorr::blr_launch_app()
-```
-:::
-:::
-
-::: {.card-deck}
-::: {.card}
-![](../images/hex-xplorerr.webp){.hex alt="Hex sticker for the xplorerr R package"}
-
-### xplorerr {.card-title}
-
-One app, seven entry points. Linear and logistic regression, descriptive
-statistics, inference, RFM analysis, distributions and the visualizer.
+Install once, then launch any app from your R console:
 
 ```r
 install.packages("xplorerr")
-xplorerr::app_linear_regression()
+
+xplorerr::app_descriptive()         # descriptive statistics
+xplorerr::app_vistributions()      # probability distributions
+xplorerr::app_inference()          # hypothesis testing
+xplorerr::app_linear_regression()  # linear regression
+xplorerr::app_logistic_regression() # logistic regression
+xplorerr::app_rfm_analysis()       # RFM / customer segmentation
+xplorerr::app_visualizer()         # data visualization
 ```
 
-Also available: `app_descriptive()`, `app_visualizer()`,
-`app_logistic_regression()`, `app_inference()`, `app_rfm_analysis()`,
-`app_vistributions()`.
-:::
-:::
+Docs: [xplorerr.rsquaredacademy.com](https://xplorerr.rsquaredacademy.com/) ·
+CRAN: [xplorerr](https://cran.r-project.org/package=xplorerr) ·
+Source: [GitHub](https://github.com/aravindhebbali/xplorerr)
 
-## Statistics
+## App directory
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-descriptr.webp){.hex alt="Hex sticker for the descriptr R package"}
+Browser apps will be published on the relevant package site when they are
+ready. In the meantime each app runs locally.
 
-### descriptr {.card-title}
+| App | Covers | Run locally | Docs |
+|:----|:-------|:------------|:-----|
+| **descriptr** | descriptive statistics | `app_descriptive()` | [docs](https://descriptr.rsquaredacademy.com/) |
+| **vistributions** | probability distributions | `app_vistributions()` | [docs](https://vistributions.rsquaredacademy.com/) |
+| **inferr** | hypothesis testing | `app_inference()` | [docs](https://inferr.rsquaredacademy.com/) |
+| **olsrr** | linear regression | `app_linear_regression()` | [docs](https://olsrr.rsquaredacademy.com/) |
+| **blorr** | logistic regression | `app_logistic_regression()` | [docs](https://blorr.rsquaredacademy.com/) |
+| **rfm** | customer segmentation | `app_rfm_analysis()` | [docs](https://rfm.rsquaredacademy.com/) |
+| **xplorerr** | all of the above + visualizer | `app_visualizer()` | [docs](https://xplorerr.rsquaredacademy.com/) |
 
-Generate and visualize descriptive statistics for numeric and categorical
-data. Explore key statistical distributions with interactive plots.
+Prefer the package that owns the app? Each package also exports its own
+launcher, which is arguably the more natural entry point:
 
 ```r
-install.packages("descriptr")
-descriptr::ds_launch_shiny_app()
+olsrr::ols_launch_app()             # linear regression
+blorr::blr_launch_app()             # logistic regression
+rfm::rfm_launch_app()               # customer segmentation
+descriptr::ds_launch_shiny_app()    # descriptive statistics
+inferr::ifr_launch_shiny_app()      # hypothesis testing
+vistributions::vdist_launch_app()   # probability distributions
+xplorerr::app_linear_regression()   # and the rest
 ```
-:::
-:::
 
-::: {.card-deck}
-::: {.card}
-![](../images/hex-inferr.webp){.hex alt="Hex sticker for the inferr R package"}
-
-### inferr {.card-title}
-
-Beginner-friendly hypothesis testing with parametric and non-parametric
-tests, flexible input options and structured results.
-
-```r
-install.packages("inferr")
-inferr::ifr_launch_shiny_app()
-```
-:::
-:::
-
-::: {.card-deck}
-::: {.card}
-![](../images/hex-vistributions.webp){.hex alt="Hex sticker for the vistributions R package"}
-
-### vistributions {.card-title}
-
-Visualize probability distributions and run statistical quality checks on
-univariate data.
-
-```r
-install.packages("vistributions")
-vistributions::vdist_launch_app()
-```
-:::
-:::
-
-## Customer analytics
-
-::: {.card-deck}
-::: {.card}
-![](../images/hex-rfm.webp){.hex alt="Hex sticker for the rfm R package"}
-
-### rfm {.card-title}
-
-Customer segmentation using recency, frequency and monetary value analysis.
-Build customized segments from customer- or transaction-level data.
-
-```r
-install.packages("rfm")
-rfm::rfm_launch_app()
-```
-:::
-:::
-
-::: {.callout-warning}
-### nse2r has no app
-
-`nse2r` exported an `nse_app()` Shiny entry point, but the package was
-**archived on CRAN on 2023-08-07** and is under revival, so it is
-deliberately excluded from this page rather than shipped with a command that
-cannot be run. See [Packages](packages/) for its current status.
-:::
+All packages: [pkgs.rsquaredacademy.com](https://pkgs.rsquaredacademy.com/)
