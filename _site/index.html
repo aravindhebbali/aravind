@@ -231,58 +231,150 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="open-source" class="level2">
 <h2 class="anchored" data-anchor-id="open-source">Open Source</h2>
-<p>Everything below is on CRAN, documented, and actively maintained. Each package exists because I hit the problem myself and the existing options were either too general or too abandoned.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Package</th>
-<th style="text-align: left;">What it does</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://olsrr.rsquaredacademy.com">olsrr</a></td>
-<td style="text-align: left;">Tools for building and interpreting OLS regression models: coefficient diagnostics, ANOVA tables, influential observation analysis and model comparison</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></td>
-<td style="text-align: left;">Interactive data exploration and visualization: correlation heatmaps, scatterplots, distribution checks and regression modelling from a point-and-click interface</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://rfm.rsquaredacademy.com">rfm</a></td>
-<td style="text-align: left;">Recency, frequency and monetary value analysis for customer segmentation, from customer- or transaction-level data</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://descriptr.rsquaredacademy.com">descriptr</a></td>
-<td style="text-align: left;">Fast descriptive statistics and frequency tables for numeric and categorical data</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://blorr.rsquaredacademy.com">blorr</a></td>
-<td style="text-align: left;">Tools for developing binary logistic regression models, with model fit and validation measures</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://github.com/rsquaredacademy/rbin">rbin</a></td>
-<td style="text-align: left;">Bin and group numeric data into intervals: equidistant, quantile and custom breaks</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://vistributions.rsquaredacademy.com">vistributions</a></td>
-<td style="text-align: left;">Visualize probability distributions of univariate data, with statistical quality checks</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://inferr.rsquaredacademy.com">inferr</a></td>
-<td style="text-align: left;">Hypothesis testing and inference: parametric and non-parametric tests with structured output</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://github.com/rsquaredacademy/yahoofinancer">yahoofinancer</a></td>
-<td style="text-align: left;">Fetch stock and index data from Yahoo! Finance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://github.com/rsquaredacademy/standby">standby</a></td>
-<td style="text-align: left;">Save, load and manage R processes and sessions</td>
-</tr>
-</tbody>
-</table>
-<p>Reference documentation and vignettes for every package: <a href="packages/">Packages</a>.</p>
+<p>These packages were written while teaching data science at <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a>. They are free to use and were shared in the hope that others find them useful for teaching and learning data science with R.</p>
+<p>The goal is software which is:</p>
+<ul>
+<li>user friendly</li>
+<li>light weight</li>
+<li>well tested</li>
+<li>well documented</li>
+</ul>
+<p>Major bugs get fixed quickly. Feature requests are considered but not promised.</p>
+<div class="pkg">
+<p><img src="images/hex-olsrr.webp" class="pkg-hex img-fluid" alt="olsrr hex sticker"></p>
+<section id="olsrr" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="olsrr"><a href="https://olsrr.rsquaredacademy.com">olsrr</a></h3>
+<p>Tools for building linear regression models</p>
+<ul>
+<li>Comprehensive Regression Output</li>
+<li>Variable Selection Procedures</li>
+<li>Heteroskedasticity Tests</li>
+<li>Collinearity Diagnostics</li>
+<li>Model Fit Assessment</li>
+<li>Measures of Influence</li>
+<li>Residual Diagnostics</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=olsrr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/olsrr">GitHub</a> &nbsp; <a href="https://olsrr.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-rfm.webp" class="pkg-hex img-fluid" alt="rfm hex sticker"></p>
+<section id="rfm" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="rfm"><a href="https://rfm.rsquaredacademy.com">rfm</a></h3>
+<p>Tools for RFM analysis</p>
+<ul>
+<li>Generate RFM Scores</li>
+<li>Handles Transaction / Customer Level Data</li>
+<li>Visualization Tools</li>
+<li>Segment Customers</li>
+<li>Includes Shiny App</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=rfm">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/rfm">GitHub</a> &nbsp; <a href="https://rfm.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-xplorerr.webp" class="pkg-hex img-fluid" alt="xplorerr hex sticker"></p>
+<section id="xplorerr" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="xplorerr"><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></h3>
+<p>Tools for interactive data analysis</p>
+<ul>
+<li>Descriptive Statistics</li>
+<li>Inferential Statistics</li>
+<li>Visualize Probability Distributions</li>
+<li>Data Visualization</li>
+<li>RFM Analysis</li>
+<li>Linear Regression</li>
+<li>Logistic Regression</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=xplorerr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/xplorerr">GitHub</a> &nbsp; <a href="https://xplorerr.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-descriptr.webp" class="pkg-hex img-fluid" alt="descriptr hex sticker"></p>
+<section id="descriptr" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="descriptr"><a href="https://descriptr.rsquaredacademy.com">descriptr</a></h3>
+<p>Tools for generating descriptive / summary statistics</p>
+<ul>
+<li>Data Screening</li>
+<li>Summary Statistics</li>
+<li>Frequency Tables</li>
+<li>Cross Tables</li>
+<li>Data Visualization</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=descriptr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/descriptr">GitHub</a> &nbsp; <a href="https://descriptr.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-inferr.webp" class="pkg-hex img-fluid" alt="inferr hex sticker"></p>
+<section id="inferr" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="inferr"><a href="https://inferr.rsquaredacademy.com">inferr</a></h3>
+<p>Tools for inferential statistics</p>
+<ul>
+<li>Binomial Test</li>
+<li>Test of Proportion</li>
+<li>t Test</li>
+<li>Chi Square Test</li>
+<li>Levene’s Test</li>
+<li>Test of Variance</li>
+<li>McNemar Test</li>
+<li>Cochran Q Test</li>
+<li>Runs Test</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=inferr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/inferr">GitHub</a> &nbsp; <a href="https://inferr.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-blorr.webp" class="pkg-hex img-fluid" alt="blorr hex sticker"></p>
+<section id="blorr" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="blorr"><a href="https://blorr.rsquaredacademy.com">blorr</a></h3>
+<p>Tools for building binary logistic regression models</p>
+<ul>
+<li>Bivariate Analysis</li>
+<li>Model Fit Statistics</li>
+<li>Model Validation</li>
+<li>Variable Selection</li>
+<li>Residual Diagnostics</li>
+<li>Collinearity Diagnostics</li>
+<li>Visualization</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=blorr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/blorr">GitHub</a> &nbsp; <a href="https://blorr.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-vistributions.webp" class="pkg-hex img-fluid" alt="vistributions hex sticker"></p>
+<section id="vistributions" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="vistributions"><a href="https://vistributions.rsquaredacademy.com">vistributions</a></h3>
+<p>Tools for visualizing probability distributions</p>
+<ul>
+<li>Binomial Distribution</li>
+<li>Chi Square Distribution</li>
+<li>Normal Distribution</li>
+<li>f Distribution</li>
+<li>t Distribution</li>
+<li>Includes Shiny App</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=vistributions">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/vistributions">GitHub</a> &nbsp; <a href="https://vistributions.rsquaredacademy.com">Docs</a></p>
+</section>
+</div>
+<div class="pkg">
+<p><img src="images/hex-rbin.webp" class="pkg-hex img-fluid" alt="rbin hex sticker"></p>
+<section id="rbin" class="level3 pkg-name">
+<h3 class="pkg-name anchored" data-anchor-id="rbin"><a href="https://github.com/rsquaredacademy/rbin">rbin</a></h3>
+<p>Tools for binning data</p>
+<ul>
+<li>Manual Binning</li>
+<li>Quantile Binning</li>
+<li>Winsorized Binning</li>
+<li>Equal Length Binning</li>
+<li>Equal Width Binning</li>
+<li>Factor Binning</li>
+<li>Generate Dummy Variables</li>
+<li>Includes RStudio Addins</li>
+</ul>
+<p><a href="https://cran.r-project.org/package=rbin">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/rbin">GitHub</a></p>
+</section>
+</div>
+<p>Also on CRAN: <a href="https://cran.r-project.org/package=yahoofinancer">yahoofinancer</a> for Yahoo! Finance data, and <a href="https://cran.r-project.org/package=standby">standby</a> for managing R processes. <a href="https://github.com/rsquaredacademy/nse2r">nse2r</a> is archived and under revival. Full reference documentation and vignettes: <a href="packages/">Packages</a>.</p>
 </section>
 <section id="books" class="level2">
 <h2 class="anchored" data-anchor-id="books">Books</h2>

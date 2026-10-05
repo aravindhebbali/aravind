@@ -60,24 +60,183 @@ Six open textbooks on R, data wrangling, visualization, SQL and Bash.
 
 ## Open Source {#open-source}
 
-Everything below is on CRAN, documented, and actively maintained. Each package
-exists because I hit the problem myself and the existing options were either
-too general or too abandoned.
+These packages were written while teaching data science at
+[Rsquared Academy](https://www.rsquaredacademy.com/). They are free to use and
+were shared in the hope that others find them useful for teaching and learning
+data science with R.
 
-| Package | What it does |
-|:--------|:-------------|
-| [olsrr](https://olsrr.rsquaredacademy.com) | Tools for building and interpreting OLS regression models: coefficient diagnostics, ANOVA tables, influential observation analysis and model comparison |
-| [xplorerr](https://xplorerr.rsquaredacademy.com) | Interactive data exploration and visualization: correlation heatmaps, scatterplots, distribution checks and regression modelling from a point-and-click interface |
-| [rfm](https://rfm.rsquaredacademy.com) | Recency, frequency and monetary value analysis for customer segmentation, from customer- or transaction-level data |
-| [descriptr](https://descriptr.rsquaredacademy.com) | Fast descriptive statistics and frequency tables for numeric and categorical data |
-| [blorr](https://blorr.rsquaredacademy.com) | Tools for developing binary logistic regression models, with model fit and validation measures |
-| [rbin](https://github.com/rsquaredacademy/rbin) | Bin and group numeric data into intervals: equidistant, quantile and custom breaks |
-| [vistributions](https://vistributions.rsquaredacademy.com) | Visualize probability distributions of univariate data, with statistical quality checks |
-| [inferr](https://inferr.rsquaredacademy.com) | Hypothesis testing and inference: parametric and non-parametric tests with structured output |
-| [yahoofinancer](https://github.com/rsquaredacademy/yahoofinancer) | Fetch stock and index data from Yahoo! Finance |
-| [standby](https://github.com/rsquaredacademy/standby) | Save, load and manage R processes and sessions |
+The goal is software which is:
 
-Reference documentation and vignettes for every package: [Packages](packages/).
+- user friendly
+- light weight
+- well tested
+- well documented
+
+Major bugs get fixed quickly. Feature requests are considered but not promised.
+
+::: {.pkg}
+
+![](images/hex-olsrr.webp){.pkg-hex alt="olsrr hex sticker"}
+
+### [olsrr](https://olsrr.rsquaredacademy.com) {.pkg-name}
+
+Tools for building linear regression models
+
+- Comprehensive Regression Output
+- Variable Selection Procedures
+- Heteroskedasticity Tests
+- Collinearity Diagnostics
+- Model Fit Assessment
+- Measures of Influence
+- Residual Diagnostics
+
+[CRAN](https://cran.r-project.org/package=olsrr) &nbsp; [GitHub](https://github.com/aravindhebbali/olsrr) &nbsp; [Docs](https://olsrr.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-rfm.webp){.pkg-hex alt="rfm hex sticker"}
+
+### [rfm](https://rfm.rsquaredacademy.com) {.pkg-name}
+
+Tools for RFM analysis
+
+- Generate RFM Scores
+- Handles Transaction / Customer Level Data
+- Visualization Tools
+- Segment Customers
+- Includes Shiny App
+
+[CRAN](https://cran.r-project.org/package=rfm) &nbsp; [GitHub](https://github.com/rsquaredacademy/rfm) &nbsp; [Docs](https://rfm.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-xplorerr.webp){.pkg-hex alt="xplorerr hex sticker"}
+
+### [xplorerr](https://xplorerr.rsquaredacademy.com) {.pkg-name}
+
+Tools for interactive data analysis
+
+- Descriptive Statistics
+- Inferential Statistics
+- Visualize Probability Distributions
+- Data Visualization
+- RFM Analysis
+- Linear Regression
+- Logistic Regression
+
+[CRAN](https://cran.r-project.org/package=xplorerr) &nbsp; [GitHub](https://github.com/aravindhebbali/xplorerr) &nbsp; [Docs](https://xplorerr.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-descriptr.webp){.pkg-hex alt="descriptr hex sticker"}
+
+### [descriptr](https://descriptr.rsquaredacademy.com) {.pkg-name}
+
+Tools for generating descriptive / summary statistics
+
+- Data Screening
+- Summary Statistics
+- Frequency Tables
+- Cross Tables
+- Data Visualization
+
+[CRAN](https://cran.r-project.org/package=descriptr) &nbsp; [GitHub](https://github.com/aravindhebbali/descriptr) &nbsp; [Docs](https://descriptr.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-inferr.webp){.pkg-hex alt="inferr hex sticker"}
+
+### [inferr](https://inferr.rsquaredacademy.com) {.pkg-name}
+
+Tools for inferential statistics
+
+- Binomial Test
+- Test of Proportion
+- t Test
+- Chi Square Test
+- Levene's Test
+- Test of Variance
+- McNemar Test
+- Cochran Q Test
+- Runs Test
+
+[CRAN](https://cran.r-project.org/package=inferr) &nbsp; [GitHub](https://github.com/aravindhebbali/inferr) &nbsp; [Docs](https://inferr.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-blorr.webp){.pkg-hex alt="blorr hex sticker"}
+
+### [blorr](https://blorr.rsquaredacademy.com) {.pkg-name}
+
+Tools for building binary logistic regression models
+
+- Bivariate Analysis
+- Model Fit Statistics
+- Model Validation
+- Variable Selection
+- Residual Diagnostics
+- Collinearity Diagnostics
+- Visualization
+
+[CRAN](https://cran.r-project.org/package=blorr) &nbsp; [GitHub](https://github.com/aravindhebbali/blorr) &nbsp; [Docs](https://blorr.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-vistributions.webp){.pkg-hex alt="vistributions hex sticker"}
+
+### [vistributions](https://vistributions.rsquaredacademy.com) {.pkg-name}
+
+Tools for visualizing probability distributions
+
+- Binomial Distribution
+- Chi Square Distribution
+- Normal Distribution
+- f Distribution
+- t Distribution
+- Includes Shiny App
+
+[CRAN](https://cran.r-project.org/package=vistributions) &nbsp; [GitHub](https://github.com/rsquaredacademy/vistributions) &nbsp; [Docs](https://vistributions.rsquaredacademy.com)
+
+:::
+
+::: {.pkg}
+
+![](images/hex-rbin.webp){.pkg-hex alt="rbin hex sticker"}
+
+### [rbin](https://github.com/rsquaredacademy/rbin) {.pkg-name}
+
+Tools for binning data
+
+- Manual Binning
+- Quantile Binning
+- Winsorized Binning
+- Equal Length Binning
+- Equal Width Binning
+- Factor Binning
+- Generate Dummy Variables
+- Includes RStudio Addins
+
+[CRAN](https://cran.r-project.org/package=rbin) &nbsp; [GitHub](https://github.com/rsquaredacademy/rbin)
+
+:::
+
+Also on CRAN: [yahoofinancer](https://cran.r-project.org/package=yahoofinancer)
+for Yahoo! Finance data, and
+[standby](https://cran.r-project.org/package=standby) for managing R processes.
+[nse2r](https://github.com/rsquaredacademy/nse2r) is archived and under revival.
+Full reference documentation and vignettes: [Packages](packages/).
 
 ## Books {#books}
 
