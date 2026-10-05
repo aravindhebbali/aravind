@@ -127,10 +127,9 @@
                       <br>
                       <p class = 'text-justify'>All the R packages authored by me include web 
                         applications for interactive analysis built using the 
-                        <a href="https://shiny.rstudio.com/" target="_blank">shiny</a> package. You
-                        can launch these apps directly from the respective packages or can try 
-                        them live by using the below links. The apps have been deployed on 
-                        <a href="https://cloud.google.com/" target="_blank">GCP</a>.
+                        <a href="https://shiny.rstudio.com/" target="_blank">shiny</a> package. These apps 
+                        run locally in R - install the package from CRAN, then launch the app straight 
+                        from your R console using the snippet on each card.
                       </p>
                     </div>
 
@@ -153,7 +152,7 @@
                     <h5 class="card-title">olsrr</h5>
                     <p class="card-text text-justify">Build linear regression models using the olsrr package. Quickly iterate through
                     models and generate models with the click of a button.</p>
-                    <a href="https://www.rsquaredcomputing.com/shiny/olsrr/" target="_blank" class="btn btn-primary">Launch App</a>
+                    <p class="card-text"><code>install.packages("olsrr")<br>olsrr::ols_launch_app()</code></p>
                   </div>
                 </div>
               </div>
@@ -164,7 +163,7 @@
                     <h5 class="card-title">blorr</h5>
                     <p class="card-text text-justify">Build, validate and monitor binary logistic regression models. Includes comprehensive
                     regression output, model fit and validation statistics.</p>
-                    <a href="https://www.rsquaredcomputing.com/shiny/blorr/" target="_blank" class="btn btn-primary">Launch App</a>
+                    <p class="card-text"><code>install.packages("blorr")<br>blorr::blr_launch_app()</code></p>
                   </div>
                 </div>
               </div>
@@ -175,7 +174,7 @@
                     <h5 class="card-title">descriptr</h5>
                     <p class="card-text text-justify">Generate and visualize descriptive statistics for numeric/categorical data. Explore
                     key statistical distributions using interactive plots.</p>
-                    <a href="https://www.rsquaredcomputing.com/shiny/descriptr/" target="_blank" class="btn btn-primary">Launch App</a>
+                    <p class="card-text"><code>install.packages("descriptr")<br>descriptr::ds_launch_shiny_app()</code></p>
                   </div>
                 </div>
               </div>
@@ -191,7 +190,7 @@
                   <div class="card-body">
                     <h5 class="card-title">inferr</h5>
                     <p class="card-text text-justify">Beginner friendly interface to perform hypothesis testing using parametric and non-parametric statistical test. Includes flexible input options and structured results.</p>
-                    <a href="https://www.rsquaredcomputing.com/shiny/inferr/" target="_blank" class="btn btn-primary">Launch App</a>
+                    <p class="card-text"><code>install.packages("inferr")<br>inferr::ifr_launch_shiny_app()</code></p>
                   </div>
                 </div>
               </div>
@@ -201,7 +200,7 @@
                   <div class="card-body">
                     <h5 class="card-title">rfm</h5>
                     <p class="card-text text-justify">Tools for customer segmentation using recency, frequency and monetary value analysis. Build customized segments using customer or transaction level data.</p>
-                    <a href="https://www.rsquaredcomputing.com/shiny/rfm/" target="_blank" class="btn btn-primary">Launch App</a>
+                    <p class="card-text"><code>install.packages("rfm")<br>rfm::rfm_launch_app()</code></p>
                   </div>
                 </div>
               </div>
@@ -211,7 +210,7 @@
                   <div class="card-body">
                     <h5 class="card-title">xplorerr</h5>
                     <p class="card-text text-justify">Apps for data visualization, exploratory data analysis, hypothesis testing, customer segmentation, linear and logistic regression modeling.</p>
-                    <a href="https://www.rsquaredcomputing.com/shiny/xplorerr/" target="_blank" class="btn btn-primary">Launch App</a>
+                    <p class="card-text"><code>install.packages("xplorerr")<br>xplorerr::app_linear_regression()</code></p>
                   </div>
                 </div>
               </div>
@@ -227,9 +226,7 @@
                       <div class="card-body">
                         <h5 class="card-title">vistributions</h5>
                         <p class="card-text text-center">Visualize probability distributions.</p>
-                        <br>
-                        <br>
-                        <a href="https://www.rsquaredcomputing.com/shiny/vistributions/" target="_blank" class="btn btn-primary">Launch App</a>
+                        <p class="card-text"><code>install.packages("vistributions")<br>vistributions::vdist_launch_app()</code></p>
                       </div>
                     </div>
                 </div>
