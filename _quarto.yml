@@ -82,10 +82,6 @@ format:
     canonical-url: true
     link-external-icon: true
     link-external-newwindow: true
-    other-links:
-      - icon: envelope
-        href: "mailto:hebbali.aravind@gmail.com"
-        text: "Email"
     page-footer:
       left: "&copy; Aravind Hebbali"
       right:
@@ -107,11 +103,9 @@ format:
     include-in-header:
       - head-includes.html
 
-# Deliberately NOT frozen. The CRAN download total is time-varying, and
-# `freeze: auto` / `freeze: true` would reuse the cached value forever, so the
-# monthly Actions re-render could never pick up new numbers. Re-querying costs
-# one CRAN API call per render and the chunk falls back to a static string if
-# the API is unreachable - it never fabricates a value.
+# The homepage has no executable chunks. The CRAN download chunk was removed
+# (see roadmap 8.7) so `quarto render` needs no R execution; post-render.R
+# still uses R for sitemap/robots fixups.
 execute:
   warning: false
   message: false

@@ -39,8 +39,10 @@ h1, h2, h3, h4, h5 {
   text-align: left;
 }
 
-.quarto-title-block { display: none; }
+// The title block is NOT hidden - it carries the page h1 and is restyled as
+// the hero further down. See "Hero".
 
+h1 { font-size: 2.25rem; font-weight: 700; }
 h1 { font-size: 2.25rem; font-weight: 700; }
 h2 {
   font-size: 1.5rem;
@@ -88,28 +90,79 @@ pre {
 hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 
 // --- Hero -----------------------------------------------------------------
-// Reference opens with the photo beside the name and tagline.
+// The Quarto title block IS the h1 (markdown has no heading of its own), so
+// there is exactly one h1 on the page. It is restyled to read as a hero rather
+// than as a document title block.
+.quarto-title-block {
+  border-bottom: 0;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0;
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $ink;
+    letter-spacing: -0.022em;
+    margin-bottom: 0.2rem;
+  }
+
+  .subtitle {
+    color: $muted;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  // `description` is a meta/SEO field but Quarto also renders it inside the
+  // title block. It duplicates the prose below, so hide it visually.
+  .description { display: none; }
+
+  .quarto-title-meta { display: none; }
+}
+
 .hero-photo {
   float: right;
-  width: 190px;
-  max-width: 38%;
-  margin: 0 0 1rem 2rem;
-  border-radius: 4px;   // restrained: not a circle
+  width: 230px;
+  max-width: 40%;
+  margin: 0.25rem 0 1rem 2.25rem;
+  border-radius: 4px;
 }
 
-main > h1:first-of-type {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+// --- Proof band -----------------------------------------------------------
+// Restores the achievement signal the metrics strip used to carry, without
+// the CRAN download figures.
+.proof {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  padding: 1.15rem 0;
+  margin: 2rem 0;
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
 }
 
-main > h1:first-of-type + h3 {
+.proof-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+
+  strong {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: $ink;
+    line-height: 1;
+  }
+
+  // Trailing text after the value
+  font-size: 0.875rem;
   color: $muted;
-  font-size: 1.15rem;
-  font-weight: 400;
-  font-style: normal;
-  margin-top: 0;
-  margin-bottom: 1.75rem;
+  line-height: 1.3;
+}
+
+// --- CTA band -------------------------------------------------------------
+.cta {
+  margin: 2rem 0 0.5rem;
 }
 
 // --- Social row -----------------------------------------------------------
