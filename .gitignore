@@ -1,3 +1,6 @@
 roadmap/
 
 /.quarto/
+
+# R sass internal cache (compile-styles.R) - machine-specific, not portable
+.sass_cache_keys
