@@ -223,31 +223,55 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
   .pkg ul { columns: 1; }
   .pkg-hex { width: 60px; max-width: 26%; margin-right: 1rem; }
 }
-.books {
+// --- Bookshelf ------------------------------------------------------------
+// Mirrors ebooks.rsquaredacademy.com: a fixed three-column grid, cover on
+// top, title in caps beneath. The previous version ran cover and title side
+// by side inside a bordered row, which read as a list of links rather than as
+// a shelf.
+.shelf {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 1.75rem;
+  margin: 1.75rem 0 1.5rem;
 }
 
 .book {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid $line;
-  border-radius: 6px;
-  background: $surface;
-
-  img { height: 62px; width: auto; border-radius: 2px; flex: 0 0 auto; }
+  text-align: center;
 }
 
-.book-title {
+.book-cover {
+  display: block;
+  border-bottom: 0;
+  margin-bottom: 0.7rem;
+
+  img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 2px;
+    border: 1px solid $line;
+    transition: transform 0.12s ease;
+  }
+
+  &:hover { border-bottom: 0; }
+  &:hover img { transform: translateY(-2px); }
+}
+
+.book-cap {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1.45;
+  text-transform: uppercase;
   color: $ink;
-  font-weight: 500;
   border-bottom: 0;
 
   &:hover { color: $accent; }
+}
+
+@media (max-width: 900px) {
+  .shelf { grid-template-columns: repeat(2, 1fr); }
 }
 
 // --- Package / app listings ----------------------------------------------
@@ -394,7 +418,8 @@ main { max-width: 940px; }
     margin: 0 auto 1.25rem;
     max-width: 60%;
   }
-  .books { grid-template-columns: 1fr; }
+  .shelf { grid-template-columns: 1fr; }
+  .book-cover img { max-width: 130px; }
 }
 
 // The Explore row is fixed at 3 columns on desktop; below that it stacks,

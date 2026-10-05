@@ -7,47 +7,68 @@ Six open textbooks, free to read online. Written with
 [bookdown](https://bookdown.org/) and hosted on
 [Rsquared Academy](https://www.rsquaredacademy.com/).
 
-::: {.books}
+::: {.shelf}
 
 ::: {.book}
-![](../images/book-intro-r.webp){alt="Cover: Introduction to R"}
-[Introduction to R](https://intro-r.rsquaredacademy.com/){.book-title}
+
+[![Cover: Introduction to R](../images/book-intro-r.webp)](https://intro-r.rsquaredacademy.com/){.book-cover}
+
+[INTRODUCTION TO R](https://intro-r.rsquaredacademy.com/){.book-cap}
+
 :::
 
 ::: {.book}
-![](../images/book-wrangle-r.webp){alt="Cover: Data Wrangling with R"}
-[Data Wrangling with R](https://wrangle-r.rsquaredacademy.com/){.book-title}
+
+[![Cover: Data Wrangling with R](../images/book-wrangle-r.webp)](https://wrangle-r.rsquaredacademy.com/){.book-cover}
+
+[DATA WRANGLING WITH R](https://wrangle-r.rsquaredacademy.com/){.book-cap}
+
 :::
 
 ::: {.book}
-![](../images/book-viz-ggplot2.webp){alt="Cover: Data Visualization with ggplot2"}
-[Data Visualization with ggplot2](https://viz-ggplot2.rsquaredacademy.com/){.book-title}
+
+[![Cover: Data Visualization with ggplot2](../images/book-viz-ggplot2.webp)](https://viz-ggplot2.rsquaredacademy.com/){.book-cover}
+
+[DATA VISUALIZATION WITH ggplot2](https://viz-ggplot2.rsquaredacademy.com/){.book-cap}
+
 :::
 
 ::: {.book}
-![](../images/book-viz-base.webp){alt="Cover: Data Visualization with Base R"}
-[Data Visualization with Base R](https://viz-base.rsquaredacademy.com/){.book-title}
+
+[![Cover: Data Visualization with R](../images/book-viz-base.webp)](https://viz-base.rsquaredacademy.com/){.book-cover}
+
+[DATA VISUALIZATION WITH R](https://viz-base.rsquaredacademy.com/){.book-cap}
+
 :::
 
 ::: {.book}
-![](../images/book-rdbsql.webp){alt="Cover: R and Relational Databases"}
-[R and Relational Databases](https://rdbsql.rsquaredacademy.com/){.book-title}
+
+[![Cover: R, Databases and SQL](../images/book-rdbsql.webp)](https://rdbsql.rsquaredacademy.com/){.book-cover}
+
+[R, DATABASES & SQL](https://rdbsql.rsquaredacademy.com/){.book-cap}
+
 :::
 
 ::: {.book}
-![](../images/book-bash-intro.webp){alt="Cover: Introduction to Bash"}
-[Introduction to Bash](https://bash-intro.rsquaredacademy.com/){.book-title}
+
+[![Cover: Command Line Basics](../images/book-bash-intro.webp)](https://bash-intro.rsquaredacademy.com/){.book-cover}
+
+[COMMAND LINE BASICS](https://bash-intro.rsquaredacademy.com/){.book-cap}
+
 :::
 
 :::
 
 ## About these books
 
-They began as blog posts, expanded into tutorials on
-[Rsquared Academy](https://www.rsquaredacademy.com/), then collected and
-rewritten into these short books. The writing style is deliberately plain —
-short chapters, worked examples, and the parts of the documentation people
-usually skip.
+They were authored to supplement the courses at
+[Rsquared Academy](https://www.rsquaredacademy.com). Some are beginner friendly
+while others assume prior familiarity with a topic.
+
+They began as blog posts, expanded into tutorials, and were eventually
+rewritten into short books with the sharp edges filed off. The style is
+deliberately plain — short chapters, worked examples, and the parts of the
+documentation people usually skip.
 
 None of them replaces the official [R documentation](https://www.r-project.org/).
 If you want one place to start, **Introduction to R** is the one.

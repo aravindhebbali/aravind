@@ -53,7 +53,7 @@
     "href": "index.html#books",
     "title": "Hey, I am Aravind",
     "section": "Books",
-    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n Introduction to R\n\n\n Data Wrangling with R\n\n\n Data Visualization with ggplot2\n\n\n Data Visualization with Base R\n\n\n R and Relational Databases\n\n\n Introduction to Bash\n\n\nIf you are starting from zero, begin with Introduction to R. More on how these were written: Books."
+    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n\n\nCover: Introduction to R\n\n\nINTRODUCTION TO R\n\n\n\n\n\nCover: Data Wrangling with R\n\n\nDATA WRANGLING WITH R\n\n\n\n\n\nCover: Data Visualization with ggplot2\n\n\nDATA VISUALIZATION WITH GGPLOT2\n\n\n\n\n\nCover: Data Visualization with R\n\n\nDATA VISUALIZATION WITH R\n\n\n\n\n\nCover: R, Databases and SQL\n\n\nR, DATABASES AND SQL\n\n\n\n\n\nCover: Command Line Basics\n\n\nCOMMAND LINE BASICS\n\n\nIf you are starting from zero, begin with Introduction to R. More on how these were written: Books."
   },
   {
     "objectID": "index.html#teaching",
@@ -130,6 +130,6 @@
     "href": "books/index.html#about-these-books",
     "title": "E-Books",
     "section": "About these books",
-    "text": "About these books\nThey began as blog posts, expanded into tutorials on Rsquared Academy, then collected and rewritten into these short books. The writing style is deliberately plain — short chapters, worked examples, and the parts of the documentation people usually skip.\nNone of them replaces the official R documentation. If you want one place to start, Introduction to R is the one.\nIf these were useful, the courses behind them are at rsquaredacademy.com."
+    "text": "About these books\nThey were authored to supplement the courses at Rsquared Academy. Some are beginner friendly while others assume prior familiarity with a topic.\nThey began as blog posts, expanded into tutorials, and were eventually rewritten into short books with the sharp edges filed off. The style is deliberately plain — short chapters, worked examples, and the parts of the documentation people usually skip.\nNone of them replaces the official R documentation. If you want one place to start, Introduction to R is the one.\nIf these were useful, the courses behind them are at rsquaredacademy.com."
   }
 ]
