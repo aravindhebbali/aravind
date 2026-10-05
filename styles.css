@@ -57,27 +57,27 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .explore-title:hover { color: #1d4ed8; }
 
-.pkg { clear: both; padding: 1.75rem 0 0.5rem; }
+.pkg { clear: both; padding: 1.4rem 0 0.4rem; }
 
-.pkg:first-of-type { padding-top: 0.5rem; }
+.pkg:first-of-type { padding-top: 0.4rem; }
 
-.pkg-hex { float: left; width: 76px; max-width: 22%; margin: 0.35rem 1.5rem 0.75rem 0; }
+.pkg-hex { float: left; width: 60px; max-width: 20%; margin: 0.3rem 1.35rem 0.6rem 0; }
 
-.pkg-name { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.2rem; border-bottom: 0; }
+.pkg-name { font-size: 1.0625rem; font-weight: 500; letter-spacing: 0; margin: 0 0 0.1rem; border-bottom: 0; }
 
 .pkg-name a { border-bottom: 0; }
 
 .pkg-name a:hover { color: #2563eb; }
 
-.pkg > p:first-of-type { color: #64748b; margin-bottom: 0.85rem; max-width: none; }
+.pkg > p:first-of-type { color: #64748b; font-size: 0.9375rem; margin-bottom: 0.7rem; max-width: none; }
 
-.pkg ul { margin: 0 0 0.85rem; padding-left: 1.15rem; columns: 2; column-gap: 2rem; }
+.pkg ul { margin: 0 0 0.7rem; padding-left: 1.1rem; columns: 2; column-gap: 2rem; font-size: 0.875rem; }
 
-.pkg ul li { margin-bottom: 0.2rem; break-inside: avoid; }
+.pkg ul li { margin-bottom: 0.15rem; break-inside: avoid; }
 
-.pkg > p:last-of-type { clear: both; font-size: 0.875rem; padding-top: 0.35rem; border-top: 1px solid #f1f5f9; max-width: none; }
+.pkg > p:last-of-type { clear: both; font-size: 0.8125rem; padding-top: 0.3rem; border-top: 1px solid #f1f5f9; max-width: none; }
 
-@media (max-width: 575px) { .pkg ul { columns: 1; } .pkg-hex { width: 60px; max-width: 26%; margin-right: 1rem; } }
+@media (max-width: 575px) { .pkg ul { columns: 1; } .pkg-hex { width: 48px; max-width: 24%; margin-right: 0.9rem; } }
 
 .shelf { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 1.75rem; margin: 1.75rem 0 1.5rem; }
 

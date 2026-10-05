@@ -171,24 +171,29 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 // tagline beside it, feature list below, then a CRAN / GitHub / Docs row.
 // Separated by whitespace rather than borders, which reads lighter than the
 // reference's <hr> dividers.
+//
+// Type is deliberately small and light. Eight of these stack on the homepage,
+// so at body size the section dominated the page; the package name is the only
+// element that stays above 1rem.
 .pkg {
   clear: both;
-  padding: 1.75rem 0 0.5rem;
+  padding: 1.4rem 0 0.4rem;
 
-  &:first-of-type { padding-top: 0.5rem; }
+  &:first-of-type { padding-top: 0.4rem; }
 }
 
 .pkg-hex {
   float: left;
-  width: 76px;
-  max-width: 22%;
-  margin: 0.35rem 1.5rem 0.75rem 0;
+  width: 60px;
+  max-width: 20%;
+  margin: 0.3rem 1.35rem 0.6rem 0;
 }
 
 .pkg-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 0.2rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin: 0 0 0.1rem;
   border-bottom: 0;
 
   a { border-bottom: 0; }
@@ -198,30 +203,32 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 // Tagline sits directly under the name.
 .pkg > p:first-of-type {
   color: $muted;
-  margin-bottom: 0.85rem;
+  font-size: 0.9375rem;
+  margin-bottom: 0.7rem;
   max-width: none;
 }
 
 .pkg ul {
-  margin: 0 0 0.85rem;
-  padding-left: 1.15rem;
+  margin: 0 0 0.7rem;
+  padding-left: 1.1rem;
   columns: 2;
   column-gap: 2rem;
+  font-size: 0.875rem;
 
-  li { margin-bottom: 0.2rem; break-inside: avoid; }
+  li { margin-bottom: 0.15rem; break-inside: avoid; }
 }
 
 .pkg > p:last-of-type {
   clear: both;
-  font-size: 0.875rem;
-  padding-top: 0.35rem;
+  font-size: 0.8125rem;
+  padding-top: 0.3rem;
   border-top: 1px solid $line-soft;
   max-width: none;
 }
 
 @media (max-width: 575px) {
   .pkg ul { columns: 1; }
-  .pkg-hex { width: 60px; max-width: 26%; margin-right: 1rem; }
+  .pkg-hex { width: 48px; max-width: 24%; margin-right: 0.9rem; }
 }
 // --- Bookshelf ------------------------------------------------------------
 // Mirrors ebooks.rsquaredacademy.com: a fixed three-column grid, cover on
