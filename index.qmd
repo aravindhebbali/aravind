@@ -32,12 +32,6 @@ I earned my postgraduate degree from
 [Madras School of Economics](https://www.mse.ac.in/) (Anna University),
 Chennai, and now maintain the portfolio independently from Bengaluru, India.
 
-::: {.social-row}
-[LinkedIn](https://www.linkedin.com/in/aravind-hebbali-b6553831/) ·
-[GitHub](https://github.com/aravindhebbali) ·
-[hebbali.aravind@gmail.com](mailto:hebbali.aravind@gmail.com)
-:::
-
 ## Explore {#explore}
 
 ::: {.explore-grid}

@@ -71,6 +71,28 @@ website:
         href: https://blog.rsquaredacademy.com
         target: _blank
 
+  # `page-footer` is a `website:`-level option (indent 2), NOT a format.html
+  # one and NOT nested inside navbar. Both mistakes are silent - the site just
+  # renders with no footer at all. This is where the contact links live.
+  page-footer:
+    left: "© Aravind Hebbali · Bengaluru, India"
+    right:
+      - icon: envelope
+        href: "mailto:hebbali.aravind@gmail.com"
+        aria-label: Email
+      - icon: github
+        href: https://github.com/aravindhebbali
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/aravind-hebbali-b6553831/
+        aria-label: LinkedIn
+      - icon: rss
+        href: https://blog.rsquaredacademy.com/
+        aria-label: Blog
+      - icon: link-45deg
+        href: https://www.rsquaredacademy.com/
+        aria-label: "Rsquared Academy"
+
 format:
   html:
     theme:
@@ -82,24 +104,6 @@ format:
     canonical-url: true
     link-external-icon: true
     link-external-newwindow: true
-    page-footer:
-      left: "&copy; Aravind Hebbali"
-      right:
-        - text: "hebbali.aravind@gmail.com"
-          icon: envelope
-          href: "mailto:hebbali.aravind@gmail.com"
-          target: _blank
-        - icon: github
-          href: https://github.com/aravindhebbali
-          aria-label: GitHub
-          target: _blank
-        - icon: linkedin
-          href: https://www.linkedin.com/in/aravind-hebbali-b6553831/
-          aria-label: LinkedIn
-          target: _blank
-        - text: "Sitemap"
-          icon: list
-          href: sitemap.xml
     include-in-header:
       - head-includes.html
 

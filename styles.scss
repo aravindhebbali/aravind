@@ -133,18 +133,6 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
   margin: 2rem 0 0.5rem;
 }
 
-// --- Social row -----------------------------------------------------------
-.social-row {
-  clear: both;
-  padding-top: 1rem;
-  margin-top: 1.5rem;
-  border-top: 1px solid $line;
-  font-size: 0.9375rem;
-
-  a { border-bottom: 0; margin-right: 0.35rem; }
-  a + a::before { content: "·"; color: $line; margin: 0 0.35rem 0 0; }
-}
-
 // --- Explore cards --------------------------------------------------------
 // Three shallow panels. Borders only - no shadows, no hover lift.
 .explore-grid {
