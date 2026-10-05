@@ -1,107 +1,126 @@
 ---
 title: "Aravind Hebbali"
-pagetitle: "Aravind Hebbali — Principal Quantitative Consultant & Open-Source Author"
-description: "Production-grade R tools, statistical diagnostics and data engineering. Author of 11 R packages with 2.8M+ CRAN downloads and 6 open books. Founder, Rsquared Academy."
+pagetitle: "Aravind Hebbali — Statistical Software & Quantitative Consulting"
+description: "Production-grade R tools, statistical diagnostics and data engineering. Author of open-source packages and textbooks, and founder of Rsquared Academy."
 image: images/og-card.jpg
-image-alt: "Aravind Hebbali — Principal Quantitative Consultant & Open-Source Author"
+image-alt: "Aravind Hebbali — Statistical Software & Quantitative Consulting"
 ---
 
-```{r}
-#| label: metrics
-#| include: false
-# Build-time proof of work. Grand totals, frozen by `freeze: auto`, refreshed
-# monthly by GitHub Actions. Falls back to a static string when cranlogs is
-# unreachable or the package is not installed - never fabricates a number.
-fmt_dls <- function(n) {
-  if (is.na(n)) return("2.8M+")
-  if (n >= 1e6) paste0(round(n / 1e6, 1), "M+")
-  else paste0(format(round(n / 1e3), big.mark = ","), "K+")
-}
+# Hey, I am Aravind
 
-pkgs <- c("olsrr", "xplorerr", "rfm", "descriptr", "rbin", "blorr",
-          "vistributions", "inferr", "yahoofinancer", "nse2r", "standby")
-
-total_dls <- tryCatch({
-  if (!requireNamespace("cranlogs", quietly = TRUE)) stop("cranlogs not installed")
-  res <- cranlogs::cran_downloads(packages = pkgs, from = "2017-01-01",
-                                  to = as.Date(Sys.Date()))
-  sum(res$count, na.rm = TRUE)
-}, error = function(e) NA_real_)
-
-downloads <- fmt_dls(total_dls)
-n_pkgs <- length(pkgs)
-n_books <- 6L
-```
+### statistics, econometrics, and open-source tooling.
 
 ::: {.hero}
 ![](images/avatar.webp){.hero-photo alt="Aravind Hebbali"}
 :::
 
-## Aravind Hebbali {.hero-title}
-Production-grade statistical software {.hero-sub}
-
-[Schedule Intro Call](https://calendly.com/aravindhebbali){.btn .btn-primary role="button"}
-[Explore Open Source](#open-source){.btn .btn-secondary role="button"}
-
-::: {.metrics}
-
-**`r downloads`**
-CRAN downloads
-
-**`r n_pkgs`**
-R packages
-
-**`r n_books`**
-free books
-
-**Founder**
-Rsquared Academy
-
-:::
-
 I build statistical software that holds up outside a tutorial, and I help
-teams do the same. Author of 11 R packages with 2.8M+ CRAN downloads and 6
-open textbooks. Founder of [Rsquared Academy](https://www.rsquaredacademy.com/),
-an open-source education platform for data science.
+teams do the same. My work sits where R, statistics, economics and finance
+overlap — regression diagnostics, customer segmentation, descriptive and
+inferential statistics, and the unglamorous plumbing that keeps analysis
+reproducible.
+
+I am the author of the open-source package portfolio below and six data
+science textbooks, and the founder of
+[Rsquared Academy](https://www.rsquaredacademy.com/), an open-source education
+platform.
 
 I earned my postgraduate degree from
 [Madras School of Economics](https://www.mse.ac.in/) (Anna University),
-Chennai. Most of my work sits at the intersection of R, statistics,
-economics and finance. Previously I built tooling at
-[Rsquared Computing](https://www.rsquaredacademy.com/); I now maintain my own
-package portfolio independently. Based in Bengaluru, India.
+Chennai, and now work independently from Bengaluru, India. The packages are
+maintained on my own time and see far more use than I expected.
+
+::: {.social-row}
+[LinkedIn](https://www.linkedin.com/in/aravind-hebbali-b6553831/) ·
+[GitHub](https://github.com/aravindhebbali) ·
+[hebbali.aravind@gmail.com](mailto:hebbali.aravind@gmail.com)
+:::
+
+## Explore {#explore}
+
+::: {.explore-grid}
+
+::: {.explore-card}
+[Packages →](packages/){.explore-title}
+
+Ten actively maintained packages on CRAN, from regression diagnostics to
+customer segmentation.
+:::
+
+::: {.explore-card}
+[Apps →](apps/){.explore-title}
+
+Shiny applications that ship inside the packages and run locally in R.
+:::
+
+::: {.explore-card}
+[Books →](books/){.explore-title}
+
+Six open textbooks on R, data wrangling, visualization, SQL and Bash.
+:::
+
+:::
 
 ## Open Source {#open-source}
 
-Ten actively maintained CRAN packages, 2.8M+ combined downloads.
+The portfolio. Everything here is on CRAN, documented, and maintained.
 
-| Package | What it does | CRAN downloads |
-|:--------|:-------------|----------------:|
-| [olsrr](https://olsrr.rsquaredacademy.com) | Tools for building and interpreting OLS regression models | 1.09M |
-| [xplorerr](https://xplorerr.rsquaredacademy.com) | Interactive data exploration, visualization and modeling | 676K |
-| [rfm](https://rfm.rsquaredacademy.com) | Recency, frequency and monetary value analysis for customer segmentation | 441K |
-| [descriptr](https://descriptr.rsquaredacademy.com) | Fast descriptive statistics and frequency tables for R | 166K |
-| [rbin](https://github.com/rsquaredacademy/rbin) | Bin and group numeric data into intervals | 163K |
-| [blorr](https://blorr.rsquaredacademy.com) | Tools for developing binary logistic regression models | 105K |
-| [vistributions](https://vistributions.rsquaredacademy.com) | Visualize probability distributions of univariate data | 60K |
-| [inferr](https://inferr.rsquaredacademy.com) | Hypothesis testing and inference for R | 57K |
-| [yahoofinancer](https://github.com/rsquaredacademy/yahoofinancer) | Fetch financial data from Yahoo! Finance | 30K |
-| [standby](https://github.com/rsquaredacademy/standby) | Manage R processes and sessions | 16K |
+| Package | What it does |
+|:--------|:-------------|
+| [olsrr](https://olsrr.rsquaredacademy.com) | Tools for building and interpreting OLS regression models |
+| [xplorerr](https://xplorerr.rsquaredacademy.com) | Interactive data exploration, visualization and modeling |
+| [rfm](https://rfm.rsquaredacademy.com) | Recency, frequency and monetary value analysis for customer segmentation |
+| [descriptr](https://descriptr.rsquaredacademy.com) | Fast descriptive statistics and frequency tables for R |
+| [rbin](https://github.com/rsquaredacademy/rbin) | Bin and group numeric data into intervals |
+| [blorr](https://blorr.rsquaredacademy.com) | Tools for developing binary logistic regression models |
+| [vistributions](https://vistributions.rsquaredacademy.com) | Visualize probability distributions of univariate data |
+| [inferr](https://inferr.rsquaredacademy.com) | Hypothesis testing and inference for R |
+| [yahoofinancer](https://github.com/rsquaredacademy/yahoofinancer) | Fetch financial data from Yahoo! Finance |
+| [standby](https://github.com/rsquaredacademy/standby) | Save, load and manage R processes and sessions |
 
-See [Packages](packages/) for documentation and vignettes for each one.
+Reference docs and vignettes for each: [Packages](packages/).
 
-## Books
+## Books {#books}
 
-Six open textbooks, free to read online.
+Six open textbooks, free to read online. They started as blog posts, grew into
+tutorials on [Rsquared Academy](https://www.rsquaredacademy.com/), and were
+eventually rewritten into short books.
 
-- **Intro to R** — [intro-r.rsquaredacademy.com](https://intro-r.rsquaredacademy.com/)
-- **Data Wrangling with R** — [wrangle-r.rsquaredacademy.com](https://wrangle-r.rsquaredacademy.com/)
-- **Visualization with ggplot2** — [viz-ggplot2.rsquaredacademy.com](https://viz-ggplot2.rsquaredacademy.com/)
-- **Visualization with Base R** — [viz-base.rsquaredacademy.com](https://viz-base.rsquaredacademy.com/)
-- **R and Relational Databases** — [rdbsql.rsquaredacademy.com](https://rdbsql.rsquaredacademy.com/)
-- **Introduction to Bash** — [bash-intro.rsquaredacademy.com](https://bash-intro.rsquaredacademy.com/)
+::: {.books}
 
-## Consulting & Advisory
+::: {.book}
+![](images/book-intro-r.webp){alt="Cover: Introduction to R"}
+[Introduction to R](https://intro-r.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](images/book-wrangle-r.webp){alt="Cover: Data Wrangling with R"}
+[Data Wrangling with R](https://wrangle-r.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](images/book-viz-ggplot2.webp){alt="Cover: Data Visualization with ggplot2"}
+[Data Visualization with ggplot2](https://viz-ggplot2.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](images/book-viz-base.webp){alt="Cover: Data Visualization with Base R"}
+[Data Visualization with Base R](https://viz-base.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](images/book-rdbsql.webp){alt="Cover: R and Relational Databases"}
+[R and Relational Databases](https://rdbsql.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](images/book-bash-intro.webp){alt="Cover: Introduction to Bash"}
+[Introduction to Bash](https://bash-intro.rsquaredacademy.com/){.book-title}
+:::
+
+:::
+
+## Consulting & Advisory {#consulting}
 
 **Model validation and econometric audits.** Independent review of
 specification, identification and inference. You get a written report, not
