@@ -1,0 +1,54 @@
+---
+title: "E-Books"
+description: "Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash, free to read online."
+---
+
+Six open textbooks, free to read online. Written with
+[blogdown](https://bookdown.org/) and hosted on
+[Rsquared Academy](https://www.rsquaredacademy.com/); each was grown out of
+posts on my blog and is kept free and ad-free.
+
+::: {.books}
+
+::: {.book}
+![](../images/intro-r.png){alt="Cover: Introduction to R"}
+[Introduction to R](https://intro-r.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](../images/wrangle-r.png){alt="Cover: Data Wrangling with R"}
+[Data Wrangling with R](https://wrangle-r.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](../images/viz-ggplot2.png){alt="Cover: Data Visualization with ggplot2"}
+[Data Visualization with ggplot2](https://viz-ggplot2.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](../images/viz-base.png){alt="Cover: Data Visualization with Base R"}
+[Data Visualization with Base R](https://viz-base.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](../images/rdbsql.png){alt="Cover: R and Relational Databases"}
+[R and Relational Databases](https://rdbsql.rsquaredacademy.com/){.book-title}
+:::
+
+::: {.book}
+![](../images/ebook-bash-intro.png){alt="Cover: Introduction to Bash"}
+[Introduction to Bash](https://bash-intro.rsquaredacademy.com/){.book-title}
+:::
+
+:::
+
+## About these books
+
+They began as blog posts, expanded into tutorials on
+[Rsquared Academy](https://www.rsquaredacademy.com/), then collected and
+rewritten into these short books. The writing style is intentionally plain —
+short chapters, worked examples, and the parts of the documentation people
+usually skip.
+
+None of them is a substitute for the official [R documentation](https://www.r-project.org/).
+If you want one resource to start with, **Introduction to R** is the one.

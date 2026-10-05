@@ -1,0 +1,142 @@
+---
+title: "R Packages"
+description: "Documentation and vignettes for 10 actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics, inference and data binning."
+---
+
+All ten packages below are on CRAN and documented. Each link opens the
+package's reference site; every one is maintained and versioned with CRAN.
+
+## Regression and modeling
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_olsrr.png){.hex alt="Hex sticker for the olsrr R package"}
+
+### olsrr {.card-title}
+
+Tools for building OLS regression models. Coefficient diagnostics, ANOVA
+tables, influential observation analysis, model comparison and more.
+
+- [CRAN](https://cran.r-project.org/package=olsrr)
+- [GitHub](https://github.com/aravindhebbali/olsrr)
+- [Docs](https://olsrr.rsquaredacademy.com)
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_blorr.png){.hex alt="Hex sticker for the blorr R package"}
+
+### blorr {.card-title}
+
+Tools for developing binary logistic regression models. Includes
+comprehensive regression output, model fit statistics and validation
+measures.
+
+- [CRAN](https://cran.r-project.org/package=blorr)
+- [GitHub](https://github.com/aravindhebbali/blorr)
+- [Docs](https://blorr.rsquaredacademy.com)
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_xplorerr.png){.hex alt="Hex sticker for the xplorerr R package"}
+
+### xplorerr {.card-title}
+
+Interactive data exploration and visualization. Correlation heatmaps,
+scatterplots, normality and outlier checks, and regression modeling from a
+point-and-click interface.
+
+- [CRAN](https://cran.r-project.org/package=xplorerr)
+- [GitHub](https://github.com/aravindhebbali/xplorerr)
+- [Docs](https://xplorerr.rsquaredacademy.com)
+:::
+:::
+
+## Descriptive and inferential statistics
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_descriptr.png){.hex alt="Hex sticker for the descriptr R package"}
+
+### descriptr {.card-title}
+
+Generate and visualize descriptive statistics for numeric and categorical
+data. Frequency tables, skewness, kurtosis, key statistics and interactive
+plots, all at speed.
+
+- [CRAN](https://cran.r-project.org/package=descriptr)
+- [GitHub](https://github.com/aravindhebbali/descriptr)
+- [Docs](https://descriptr.rsquaredacademy.com)
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_inferr.png){.hex alt="Hex sticker for the inferr R package"}
+
+### inferr {.card-title}
+
+Hypothesis testing and inference. Parametric and non-parametric tests with
+structured, readable output — t-test, chi-square, ANOVA, correlation and
+more.
+
+- [CRAN](https://cran.r-project.org/package=inferr)
+- [GitHub](https://github.com/aravindhebbali/inferr)
+- [Docs](https://inferr.rsquaredacademy.com)
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_vistributions.png){.hex alt="Hex sticker for the vistributions R package"}
+
+### vistributions {.card-title}
+
+Visualize probability distributions of univariate data across 20+
+continuous and discrete distributions, plus statistical quality checks.
+
+- [CRAN](https://cran.r-project.org/package=vistributions)
+- [GitHub](https://github.com/rsquaredacademy/vistributions)
+- [Docs](https://vistributions.rsquaredacademy.com)
+:::
+:::
+
+## Data wrangling
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_rbin.png){.hex alt="Hex sticker for the rbin R package"}
+
+### rbin {.card-title}
+
+Bin and group numeric data into intervals. Equidistant, quantile, quantile
+binning and custom breaks, with an easy-to-use interactive mode.
+
+- [CRAN](https://cran.r-project.org/package=rbin)
+- [GitHub](https://github.com/rsquaredacademy/rbin)
+:::
+:::
+
+## Utilities
+
+| Package | What it does | Links |
+|:--------|:-------------|:------|
+| [yahoofinancer](https://cran.r-project.org/package=yahoofinancer) | Fetch stock and index data from Yahoo! Finance | [GitHub](https://github.com/rsquaredacademy/yahoofinancer) |
+| [standby](https://cran.r-project.org/package=standby) | Save, load and manage R processes and sessions | [GitHub](https://github.com/rsquaredacademy/standby) |
+
+## Archived
+
+::: {.callout-warning}
+### nse2r — archived, under revival
+
+`nse2r` fetched live data from the National Stock Exchange of India. It was
+**archived on CRAN on 2023-08-07** at the maintainer's request and is
+currently being revived, so it is no longer installable from CRAN.
+
+Its ~22,000 historical downloads remain part of the totals quoted elsewhere
+on this site, but that figure is frozen and will not grow. Source and issue
+tracker: [github.com/rsquaredacademy/nse2r](https://github.com/rsquaredacademy/nse2r).
+:::

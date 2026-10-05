@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "apps/index.html",
+    "href": "apps/index.html",
+    "title": "R Shiny Apps",
+    "section": "",
+    "text": "These apps run on your machine\n\n\n\nEvery R package listed here includes a Shiny app. The apps run locally in R — install the package from CRAN and launch from your console. There is no hosted version: the service that previously hosted these apps is no longer under my control, so rather than ship links that fail, each card below gives you the exact command."
+  },
+  {
+    "objectID": "apps/index.html#regression-and-modeling",
+    "href": "apps/index.html#regression-and-modeling",
+    "title": "R Shiny Apps",
+    "section": "Regression and modeling",
+    "text": "Regression and modeling\n\n\n\n\nolsrr\nBuild linear regression models and iterate through specifications quickly. Produces full olsrr model output from the UI.\ninstall.packages(\"olsrr\")\nolsrr::ols_launch_app()\n\n\n\n\n\n\n\nblorr\nBuild, validate and monitor binary logistic regression models with comprehensive output, model fit and validation statistics.\ninstall.packages(\"blorr\")\nblorr::blr_launch_app()\n\n\n\n\n\n\n\nxplorerr\nOne app, seven entry points. Linear and logistic regression, descriptive statistics, inference, RFM analysis, distributions and the visualizer.\ninstall.packages(\"xplorerr\")\nxplorerr::app_linear_regression()\nAlso available: app_descriptive(), app_visualizer(), app_logistic_regression(), app_inference(), app_rfm_analysis(), app_vistributions()."
+  },
+  {
+    "objectID": "apps/index.html#statistics",
+    "href": "apps/index.html#statistics",
+    "title": "R Shiny Apps",
+    "section": "Statistics",
+    "text": "Statistics\n\n\n\n\ndescriptr\nGenerate and visualize descriptive statistics for numeric and categorical data. Explore key statistical distributions with interactive plots.\ninstall.packages(\"descriptr\")\ndescriptr::ds_launch_shiny_app()\n\n\n\n\n\n\n\ninferr\nBeginner-friendly hypothesis testing with parametric and non-parametric tests, flexible input options and structured results.\ninstall.packages(\"inferr\")\ninferr::ifr_launch_shiny_app()\n\n\n\n\n\n\n\nvistributions\nVisualize probability distributions and run statistical quality checks on univariate data.\ninstall.packages(\"vistributions\")\nvistributions::vdist_launch_app()"
+  },
+  {
+    "objectID": "apps/index.html#customer-analytics",
+    "href": "apps/index.html#customer-analytics",
+    "title": "R Shiny Apps",
+    "section": "Customer analytics",
+    "text": "Customer analytics\n\n\n\n\nrfm\nCustomer segmentation using recency, frequency and monetary value analysis. Build customized segments from customer- or transaction-level data.\ninstall.packages(\"rfm\")\nrfm::rfm_launch_app()\n\n\n\n\n\n\n\n\n\nnse2r has no app\n\n\n\nnse2r exported an nse_app() Shiny entry point, but the package was archived on CRAN on 2023-08-07 and is under revival, so it is deliberately excluded from this page rather than shipped with a command that cannot be run. See Packages for its current status."
+  },
+  {
+    "objectID": "index.html#aravind-hebbali",
+    "href": "index.html#aravind-hebbali",
+    "title": "Aravind Hebbali",
+    "section": "Aravind Hebbali",
+    "text": "Aravind Hebbali\nProduction-grade statistical software {.hero-sub}\nSchedule Intro Call Explore Open Source\n\n2.8M+ CRAN downloads\n11 R packages\n6 free books\nFounder Rsquared Academy\n\nI build statistical software that holds up outside a tutorial, and I help teams do the same. Author of 11 R packages with 2.8M+ CRAN downloads and 6 open textbooks. Founder of Rsquared Academy, an open-source education platform for data science.\nI earned my postgraduate degree from Madras School of Economics (Anna University), Chennai. Most of my work sits at the intersection of R, statistics, economics and finance. Previously I built tooling at Rsquared Computing; I now maintain my own package portfolio independently. Based in Bengaluru, India."
+  },
+  {
+    "objectID": "index.html#open-source",
+    "href": "index.html#open-source",
+    "title": "Aravind Hebbali",
+    "section": "Open Source",
+    "text": "Open Source\nTen actively maintained CRAN packages, 2.8M+ combined downloads.\n\n\n\nPackage\nWhat it does\nCRAN downloads\n\n\n\n\nolsrr\nTools for building and interpreting OLS regression models\n1.09M\n\n\nxplorerr\nInteractive data exploration, visualization and modeling\n676K\n\n\nrfm\nRecency, frequency and monetary value analysis for customer segmentation\n441K\n\n\ndescriptr\nFast descriptive statistics and frequency tables for R\n166K\n\n\nrbin\nBin and group numeric data into intervals\n163K\n\n\nblorr\nTools for developing binary logistic regression models\n105K\n\n\nvistributions\nVisualize probability distributions of univariate data\n60K\n\n\ninferr\nHypothesis testing and inference for R\n57K\n\n\nyahoofinancer\nFetch financial data from Yahoo! Finance\n30K\n\n\nstandby\nManage R processes and sessions\n16K\n\n\n\nSee Packages for documentation and vignettes for each one."
+  },
+  {
+    "objectID": "index.html#books",
+    "href": "index.html#books",
+    "title": "Aravind Hebbali",
+    "section": "Books",
+    "text": "Books\nSix open textbooks, free to read online.\n\nIntro to R — intro-r.rsquaredacademy.com\nData Wrangling with R — wrangle-r.rsquaredacademy.com\nVisualization with ggplot2 — viz-ggplot2.rsquaredacademy.com\nVisualization with Base R — viz-base.rsquaredacademy.com\nR and Relational Databases — rdbsql.rsquaredacademy.com\nIntroduction to Bash — bash-intro.rsquaredacademy.com"
+  },
+  {
+    "objectID": "index.html#consulting-advisory",
+    "href": "index.html#consulting-advisory",
+    "title": "Aravind Hebbali",
+    "section": "Consulting & Advisory",
+    "text": "Consulting & Advisory\nModel validation and econometric audits. Independent review of specification, identification and inference. You get a written report, not just a fixed script.\nCustom package development and architecture. Internal R or Python tooling built to survive handover: documented, tested, and structured so your team can extend it without me.\nTeam masterclasses. Tidyverse, SQL, command-line tooling. Hands-on sessions built around your own data and problems.\nWho this is for: teams shipping quantitative work that other people have to maintain. Who it is not for: one-off analyses, or anyone looking for a pre-packaged answer.\nSchedule an intro call"
+  },
+  {
+    "objectID": "packages/index.html",
+    "href": "packages/index.html",
+    "title": "R Packages",
+    "section": "",
+    "text": "All ten packages below are on CRAN and documented. Each link opens the package’s reference site; every one is maintained and versioned with CRAN."
+  },
+  {
+    "objectID": "packages/index.html#regression-and-modeling",
+    "href": "packages/index.html#regression-and-modeling",
+    "title": "R Packages",
+    "section": "Regression and modeling",
+    "text": "Regression and modeling\n\n\n\n\nolsrr\nTools for building OLS regression models. Coefficient diagnostics, ANOVA tables, influential observation analysis, model comparison and more.\n\nCRAN\nGitHub\nDocs\n\n\n\n\n\n\n\n\nblorr\nTools for developing binary logistic regression models. Includes comprehensive regression output, model fit statistics and validation measures.\n\nCRAN\nGitHub\nDocs\n\n\n\n\n\n\n\n\nxplorerr\nInteractive data exploration and visualization. Correlation heatmaps, scatterplots, normality and outlier checks, and regression modeling from a point-and-click interface.\n\nCRAN\nGitHub\nDocs"
+  },
+  {
+    "objectID": "packages/index.html#descriptive-and-inferential-statistics",
+    "href": "packages/index.html#descriptive-and-inferential-statistics",
+    "title": "R Packages",
+    "section": "Descriptive and inferential statistics",
+    "text": "Descriptive and inferential statistics\n\n\n\n\ndescriptr\nGenerate and visualize descriptive statistics for numeric and categorical data. Frequency tables, skewness, kurtosis, key statistics and interactive plots, all at speed.\n\nCRAN\nGitHub\nDocs\n\n\n\n\n\n\n\n\ninferr\nHypothesis testing and inference. Parametric and non-parametric tests with structured, readable output — t-test, chi-square, ANOVA, correlation and more.\n\nCRAN\nGitHub\nDocs\n\n\n\n\n\n\n\n\nvistributions\nVisualize probability distributions of univariate data across 20+ continuous and discrete distributions, plus statistical quality checks.\n\nCRAN\nGitHub\nDocs"
+  },
+  {
+    "objectID": "packages/index.html#data-wrangling",
+    "href": "packages/index.html#data-wrangling",
+    "title": "R Packages",
+    "section": "Data wrangling",
+    "text": "Data wrangling\n\n\n\n\nrbin\nBin and group numeric data into intervals. Equidistant, quantile, quantile binning and custom breaks, with an easy-to-use interactive mode.\n\nCRAN\nGitHub"
+  },
+  {
+    "objectID": "packages/index.html#utilities",
+    "href": "packages/index.html#utilities",
+    "title": "R Packages",
+    "section": "Utilities",
+    "text": "Utilities\n\n\n\nPackage\nWhat it does\nLinks\n\n\n\n\nyahoofinancer\nFetch stock and index data from Yahoo! Finance\nGitHub\n\n\nstandby\nSave, load and manage R processes and sessions\nGitHub"
+  },
+  {
+    "objectID": "packages/index.html#archived",
+    "href": "packages/index.html#archived",
+    "title": "R Packages",
+    "section": "Archived",
+    "text": "Archived\n\n\n\n\n\n\nnse2r — archived, under revival\n\n\n\nnse2r fetched live data from the National Stock Exchange of India. It was archived on CRAN on 2023-08-07 at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.\nIts ~22,000 historical downloads remain part of the totals quoted elsewhere on this site, but that figure is frozen and will not grow. Source and issue tracker: github.com/rsquaredacademy/nse2r."
+  },
+  {
+    "objectID": "books/index.html",
+    "href": "books/index.html",
+    "title": "E-Books",
+    "section": "",
+    "text": "Six open textbooks, free to read online. Written with blogdown and hosted on Rsquared Academy; each was grown out of posts on my blog and is kept free and ad-free."
+  },
+  {
+    "objectID": "books/index.html#about-these-books",
+    "href": "books/index.html#about-these-books",
+    "title": "E-Books",
+    "section": "About these books",
+    "text": "About these books\nThey began as blog posts, expanded into tutorials on Rsquared Academy, then collected and rewritten into these short books. The writing style is intentionally plain — short chapters, worked examples, and the parts of the documentation people usually skip.\nNone of them is a substitute for the official R documentation. If you want one resource to start with, Introduction to R is the one."
+  }
+]

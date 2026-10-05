@@ -1,0 +1,20 @@
+---
+title: "Page Not Found"
+pagetitle: "Page not found - Aravind Hebbali"
+include-in-header: noindex.html
+---
+
+That page doesn't exist — it may have been moved or renamed.
+
+The pages on this site are:
+
+- [Home](/) — packages, books and consulting
+- [Packages](/packages/) — documentation for 10 CRAN packages
+- [Apps](/apps/) — Shiny apps that run locally in R
+- [Books](/books/) — six free online textbooks
+
+If you arrived from an old link that used `.html` (for example
+`r-packages.html`), it still redirects to the current address.
+
+You can also search the site from the box above, or email
+[hebbali.aravind@gmail.com](mailto:hebbali.aravind@gmail.com).

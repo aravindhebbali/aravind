@@ -1,0 +1,145 @@
+---
+title: "R Shiny Apps"
+description: "Interactive Shiny applications that ship with the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run them locally from R."
+---
+
+::: {.callout-note}
+### These apps run on your machine
+
+Every R package listed here includes a Shiny app. The apps run **locally in
+R** — install the package from CRAN and launch from your console. There is no
+hosted version: the service that previously hosted these apps is no longer
+under my control, so rather than ship links that fail, each card below gives
+you the exact command.
+:::
+
+## Regression and modeling
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_olsrr.png){.hex alt="Hex sticker for the olsrr R package"}
+
+### olsrr {.card-title}
+
+Build linear regression models and iterate through specifications quickly.
+Produces full olsrr model output from the UI.
+
+```r
+install.packages("olsrr")
+olsrr::ols_launch_app()
+```
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_blorr.png){.hex alt="Hex sticker for the blorr R package"}
+
+### blorr {.card-title}
+
+Build, validate and monitor binary logistic regression models with
+comprehensive output, model fit and validation statistics.
+
+```r
+install.packages("blorr")
+blorr::blr_launch_app()
+```
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_xplorerr.png){.hex alt="Hex sticker for the xplorerr R package"}
+
+### xplorerr {.card-title}
+
+One app, seven entry points. Linear and logistic regression, descriptive
+statistics, inference, RFM analysis, distributions and the visualizer.
+
+```r
+install.packages("xplorerr")
+xplorerr::app_linear_regression()
+```
+
+Also available: `app_descriptive()`, `app_visualizer()`,
+`app_logistic_regression()`, `app_inference()`, `app_rfm_analysis()`,
+`app_vistributions()`.
+:::
+:::
+
+## Statistics
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_descriptr.png){.hex alt="Hex sticker for the descriptr R package"}
+
+### descriptr {.card-title}
+
+Generate and visualize descriptive statistics for numeric and categorical
+data. Explore key statistical distributions with interactive plots.
+
+```r
+install.packages("descriptr")
+descriptr::ds_launch_shiny_app()
+```
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_inferr.png){.hex alt="Hex sticker for the inferr R package"}
+
+### inferr {.card-title}
+
+Beginner-friendly hypothesis testing with parametric and non-parametric
+tests, flexible input options and structured results.
+
+```r
+install.packages("inferr")
+inferr::ifr_launch_shiny_app()
+```
+:::
+:::
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_vistributions.png){.hex alt="Hex sticker for the vistributions R package"}
+
+### vistributions {.card-title}
+
+Visualize probability distributions and run statistical quality checks on
+univariate data.
+
+```r
+install.packages("vistributions")
+vistributions::vdist_launch_app()
+```
+:::
+:::
+
+## Customer analytics
+
+::: {.card-deck}
+::: {.card}
+![](../images/hex_rfm.png){.hex alt="Hex sticker for the rfm R package"}
+
+### rfm {.card-title}
+
+Customer segmentation using recency, frequency and monetary value analysis.
+Build customized segments from customer- or transaction-level data.
+
+```r
+install.packages("rfm")
+rfm::rfm_launch_app()
+```
+:::
+:::
+
+::: {.callout-warning}
+### nse2r has no app
+
+`nse2r` exported an `nse_app()` Shiny entry point, but the package was
+**archived on CRAN on 2023-08-07** and is under revival, so it is
+deliberately excluded from this page rather than shipped with a command that
+cannot be run. See [Packages](packages/) for its current status.
+:::

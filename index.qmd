@@ -1,0 +1,121 @@
+---
+title: "Aravind Hebbali"
+pagetitle: "Aravind Hebbali — Principal Quantitative Consultant & Open-Source Author"
+description: "Production-grade R tools, statistical diagnostics and data engineering. Author of 11 R packages with 2.8M+ CRAN downloads and 6 open books. Founder, Rsquared Academy."
+image: images/og-card.png
+image-alt: "Aravind Hebbali — Principal Quantitative Consultant & Open-Source Author"
+---
+
+```{r}
+#| label: metrics
+#| include: false
+# Build-time proof of work. Grand totals, frozen by `freeze: auto`, refreshed
+# monthly by GitHub Actions. Falls back to a static string when cranlogs is
+# unreachable or the package is not installed - never fabricates a number.
+fmt_dls <- function(n) {
+  if (is.na(n)) return("2.8M+")
+  if (n >= 1e6) paste0(round(n / 1e6, 1), "M+")
+  else paste0(format(round(n / 1e3), big.mark = ","), "K+")
+}
+
+pkgs <- c("olsrr", "xplorerr", "rfm", "descriptr", "rbin", "blorr",
+          "vistributions", "inferr", "yahoofinancer", "nse2r", "standby")
+
+total_dls <- tryCatch({
+  if (!requireNamespace("cranlogs", quietly = TRUE)) stop("cranlogs not installed")
+  res <- cranlogs::cran_downloads(packages = pkgs, from = "2017-01-01",
+                                  to = as.Date(Sys.Date()))
+  sum(res$count, na.rm = TRUE)
+}, error = function(e) NA_real_)
+
+downloads <- fmt_dls(total_dls)
+n_pkgs <- length(pkgs)
+n_books <- 6L
+```
+
+::: {.hero}
+![](images/latest_profile.png){.hero-photo alt="Aravind Hebbali"}
+:::
+
+## Aravind Hebbali {.hero-title}
+Production-grade statistical software {.hero-sub}
+
+[Schedule Intro Call](https://calendly.com/aravindhebbali){.btn .btn-primary role="button"}
+[Explore Open Source](#open-source){.btn .btn-secondary role="button"}
+
+::: {.metrics}
+
+**`r downloads`**
+CRAN downloads
+
+**`r n_pkgs`**
+R packages
+
+**`r n_books`**
+free books
+
+**Founder**
+Rsquared Academy
+
+:::
+
+I build statistical software that holds up outside a tutorial, and I help
+teams do the same. Author of 11 R packages with 2.8M+ CRAN downloads and 6
+open textbooks. Founder of [Rsquared Academy](https://www.rsquaredacademy.com/),
+an open-source education platform for data science.
+
+I earned my postgraduate degree from
+[Madras School of Economics](https://www.mse.ac.in/) (Anna University),
+Chennai. Most of my work sits at the intersection of R, statistics,
+economics and finance. Previously I built tooling at
+[Rsquared Computing](https://www.rsquaredacademy.com/); I now maintain my own
+package portfolio independently. Based in Bengaluru, India.
+
+## Open Source {#open-source}
+
+Ten actively maintained CRAN packages, 2.8M+ combined downloads.
+
+| Package | What it does | CRAN downloads |
+|:--------|:-------------|----------------:|
+| [olsrr](https://olsrr.rsquaredacademy.com) | Tools for building and interpreting OLS regression models | 1.09M |
+| [xplorerr](https://xplorerr.rsquaredacademy.com) | Interactive data exploration, visualization and modeling | 676K |
+| [rfm](https://rfm.rsquaredacademy.com) | Recency, frequency and monetary value analysis for customer segmentation | 441K |
+| [descriptr](https://descriptr.rsquaredacademy.com) | Fast descriptive statistics and frequency tables for R | 166K |
+| [rbin](https://github.com/rsquaredacademy/rbin) | Bin and group numeric data into intervals | 163K |
+| [blorr](https://blorr.rsquaredacademy.com) | Tools for developing binary logistic regression models | 105K |
+| [vistributions](https://vistributions.rsquaredacademy.com) | Visualize probability distributions of univariate data | 60K |
+| [inferr](https://inferr.rsquaredacademy.com) | Hypothesis testing and inference for R | 57K |
+| [yahoofinancer](https://github.com/rsquaredacademy/yahoofinancer) | Fetch financial data from Yahoo! Finance | 30K |
+| [standby](https://github.com/rsquaredacademy/standby) | Manage R processes and sessions | 16K |
+
+See [Packages](packages/) for documentation and vignettes for each one.
+
+## Books
+
+Six open textbooks, free to read online.
+
+- **Intro to R** — [intro-r.rsquaredacademy.com](https://intro-r.rsquaredacademy.com/)
+- **Data Wrangling with R** — [wrangle-r.rsquaredacademy.com](https://wrangle-r.rsquaredacademy.com/)
+- **Visualization with ggplot2** — [viz-ggplot2.rsquaredacademy.com](https://viz-ggplot2.rsquaredacademy.com/)
+- **Visualization with Base R** — [viz-base.rsquaredacademy.com](https://viz-base.rsquaredacademy.com/)
+- **R and Relational Databases** — [rdbsql.rsquaredacademy.com](https://rdbsql.rsquaredacademy.com/)
+- **Introduction to Bash** — [bash-intro.rsquaredacademy.com](https://bash-intro.rsquaredacademy.com/)
+
+## Consulting & Advisory
+
+**Model validation and econometric audits.** Independent review of
+specification, identification and inference. You get a written report, not
+just a fixed script.
+
+**Custom package development and architecture.** Internal R or Python tooling
+built to survive handover: documented, tested, and structured so your team can
+extend it without me.
+
+**Team masterclasses.** Tidyverse, SQL, command-line tooling. Hands-on
+sessions built around your own data and problems.
+
+**Who this is for:** teams shipping quantitative work that other people have
+to maintain. **Who it is not for:** one-off analyses, or anyone looking for a
+pre-packaged answer.
+
+[Schedule an intro call](https://calendly.com/aravindhebbali){.btn .btn-primary role="button"}

@@ -1,0 +1,116 @@
+project:
+  type: website
+  output-dir: _site
+  # Explicit list: the roadmap/ planning docs are markdown and would
+  # otherwise be rendered and published alongside the site.
+  render:
+    - index.qmd
+    - packages/index.qmd
+    - apps/index.qmd
+    - books/index.qmd
+    - 404.qmd
+  post-render: post-render.R
+  resources:
+    - "_headers"
+    - "favicon.ico"
+    - "zohoverify/**"
+    # Whitelisted, not `images/**`: the repo still holds 39 unused legacy
+    # images (1.85MB) that the pre-cutover Bootstrap 3 pages reference. Once
+    # the cutover lands, delete those and swap this for `images/**`.
+    - "images/og-card.png"
+    - "images/latest_profile.png"
+    - "images/hex_olsrr.png"
+    - "images/hex_blorr.png"
+    - "images/hex_xplorerr.png"
+    - "images/hex_descriptr.png"
+    - "images/hex_inferr.png"
+    - "images/hex_vistributions.png"
+    - "images/hex_rbin.png"
+    - "images/hex_rfm.png"
+    - "images/intro-r.png"
+    - "images/wrangle-r.png"
+    - "images/viz-ggplot2.png"
+    - "images/viz-base.png"
+    - "images/rdbsql.png"
+    - "images/ebook-bash-intro.png"
+
+website:
+  title: "Aravind Hebbali"
+  site-url: "https://www.aravindhebbali.com/"
+  favicon: favicon.ico
+  search: true
+  reader-mode: false
+  open-graph: true
+  twitter-card: true
+  navbar:
+    background: "#0f172a"
+    foreground: "#e2e8f0"
+    logo: images/latest_profile.png
+    logo-alt: "Aravind Hebbali"
+    search: true
+    collapse-below: lg
+    left:
+      - href: index.qmd
+        text: Home
+      - href: packages/index.qmd
+        text: Packages
+      - href: apps/index.qmd
+        text: Apps
+      - href: books/index.qmd
+        text: Books
+    right:
+      - text: Teaching
+        href: https://www.rsquaredacademy.com/
+        target: _blank
+      - icon: github
+        href: https://github.com/aravindhebbali
+        aria-label: GitHub
+        target: _blank
+      - text: Blog
+        href: https://blog.rsquaredacademy.com
+        target: _blank
+
+format:
+  html:
+    theme:
+      - cosmo
+    css: styles.scss
+    toc: false
+    anchor-sections: true
+    smooth-scroll: true
+    canonical-url: true
+    link-external-icon: true
+    link-external-newwindow: true
+    other-links:
+      - icon: envelope
+        href: "mailto:hebbali.aravind@gmail.com"
+        text: "Email"
+    page-footer:
+      left: "&copy; Aravind Hebbali"
+      right:
+        - text: "hebbali.aravind@gmail.com"
+          icon: envelope
+          href: "mailto:hebbali.aravind@gmail.com"
+          target: _blank
+        - icon: github
+          href: https://github.com/aravindhebbali
+          aria-label: GitHub
+          target: _blank
+        - icon: linkedin
+          href: https://www.linkedin.com/in/aravind-hebbali-b6553831/
+          aria-label: LinkedIn
+          target: _blank
+        - text: "Sitemap"
+          icon: list
+          href: sitemap.xml
+    include-in-header:
+      - head-includes.html
+
+# Deliberately NOT frozen. The CRAN download total is time-varying, and
+# `freeze: auto` / `freeze: true` would reuse the cached value forever, so the
+# monthly Actions re-render could never pick up new numbers. Re-querying costs
+# one CRAN API call per render and the chunk falls back to a static string if
+# the API is unreachable - it never fabricates a value.
+execute:
+  warning: false
+  message: false
