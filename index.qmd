@@ -32,30 +32,6 @@ I earned my postgraduate degree from
 [Madras School of Economics](https://www.mse.ac.in/) (Anna University),
 Chennai, and now maintain the portfolio independently from Bengaluru, India.
 
-::: {.proof}
-
-::: {.proof-item}
-**11**
-R packages on CRAN
-:::
-
-::: {.proof-item}
-**6**
-free textbooks
-:::
-
-::: {.proof-item}
-**Founder**
-Rsquared Academy
-:::
-
-::: {.proof-item}
-**Bengaluru**
-India
-:::
-
-:::
-
 ::: {.social-row}
 [LinkedIn](https://www.linkedin.com/in/aravind-hebbali-b6553831/) ·
 [GitHub](https://github.com/aravindhebbali) ·
