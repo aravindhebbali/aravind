@@ -73,13 +73,26 @@ The goal is software which is:
 
 Major bugs get fixed quickly. Feature requests are considered but not promised.
 
-::: {.pkg}
+::: {.lgrid}
 
-![](images/hex-olsrr.webp){.pkg-hex alt="olsrr hex sticker"}
+::: {.lcard}
+![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
-### [olsrr](https://olsrr.rsquaredacademy.com) {.pkg-name}
+::: {.lbody}
+<span class="ltrack">Regression</span>
 
-Tools for building linear regression models
+### [olsrr](https://olsrr.rsquaredacademy.com)
+
+<p class="lout">Tools for building linear regression models.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=olsrr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Comprehensive Regression Output
 - Variable Selection Procedures
@@ -89,35 +102,28 @@ Tools for building linear regression models
 - Measures of Influence
 - Residual Diagnostics
 
-[CRAN](https://cran.r-project.org/package=olsrr) &nbsp; [GitHub](https://github.com/aravindhebbali/olsrr) &nbsp; [Docs](https://olsrr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
-![](images/hex-rfm.webp){.pkg-hex alt="rfm hex sticker"}
+::: {.lbody}
+<span class="ltrack">Interactive</span>
 
-### [rfm](https://rfm.rsquaredacademy.com) {.pkg-name}
+### [xplorerr](https://xplorerr.rsquaredacademy.com)
 
-Tools for RFM analysis
+<p class="lout">Tools for interactive data analysis.</p>
 
-- Generate RFM Scores
-- Handles Transaction / Customer Level Data
-- Visualization Tools
-- Segment Customers
-- Includes Shiny App
-
-[CRAN](https://cran.r-project.org/package=rfm) &nbsp; [GitHub](https://github.com/rsquaredacademy/rfm) &nbsp; [Docs](https://rfm.rsquaredacademy.com)
-
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=xplorerr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
 :::
 
-::: {.pkg}
-
-![](images/hex-xplorerr.webp){.pkg-hex alt="xplorerr hex sticker"}
-
-### [xplorerr](https://xplorerr.rsquaredacademy.com) {.pkg-name}
-
-Tools for interactive data analysis
+<details>
+<summary>What's inside</summary>
 
 - Descriptive Statistics
 - Inferential Statistics
@@ -127,17 +133,57 @@ Tools for interactive data analysis
 - Linear Regression
 - Logistic Regression
 
-[CRAN](https://cran.r-project.org/package=xplorerr) &nbsp; [GitHub](https://github.com/aravindhebbali/xplorerr) &nbsp; [Docs](https://xplorerr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
-![](images/hex-descriptr.webp){.pkg-hex alt="descriptr hex sticker"}
+::: {.lbody}
+<span class="ltrack">Segmentation</span>
 
-### [descriptr](https://descriptr.rsquaredacademy.com) {.pkg-name}
+### [rfm](https://rfm.rsquaredacademy.com)
 
-Tools for generating descriptive / summary statistics
+<p class="lout">Tools for RFM analysis.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rfm){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
+[Docs](https://rfm.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
+
+- Generate RFM Scores
+- Handles Transaction / Customer Level Data
+- Visualization Tools
+- Segment Customers
+- Includes Shiny App
+
+</details>
+:::
+:::
+
+::: {.lcard}
+![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">Descriptive</span>
+
+### [descriptr](https://descriptr.rsquaredacademy.com)
+
+<p class="lout">Tools for generating descriptive and summary statistics.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=descriptr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Data Screening
 - Summary Statistics
@@ -145,78 +191,27 @@ Tools for generating descriptive / summary statistics
 - Cross Tables
 - Data Visualization
 
-[CRAN](https://cran.r-project.org/package=descriptr) &nbsp; [GitHub](https://github.com/aravindhebbali/descriptr) &nbsp; [Docs](https://descriptr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
 
-![](images/hex-inferr.webp){.pkg-hex alt="inferr hex sticker"}
+::: {.lbody}
+<span class="ltrack">Wrangling</span>
 
-### [inferr](https://inferr.rsquaredacademy.com) {.pkg-name}
+### [rbin](https://github.com/rsquaredacademy/rbin)
 
-Tools for inferential statistics
+<p class="lout">Tools for binning data.</p>
 
-- Binomial Test
-- Test of Proportion
-- t Test
-- Chi Square Test
-- Levene's Test
-- Test of Variance
-- McNemar Test
-- Cochran Q Test
-- Runs Test
-
-[CRAN](https://cran.r-project.org/package=inferr) &nbsp; [GitHub](https://github.com/aravindhebbali/inferr) &nbsp; [Docs](https://inferr.rsquaredacademy.com)
-
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rbin){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
 :::
 
-::: {.pkg}
-
-![](images/hex-blorr.webp){.pkg-hex alt="blorr hex sticker"}
-
-### [blorr](https://blorr.rsquaredacademy.com) {.pkg-name}
-
-Tools for building binary logistic regression models
-
-- Bivariate Analysis
-- Model Fit Statistics
-- Model Validation
-- Variable Selection
-- Residual Diagnostics
-- Collinearity Diagnostics
-- Visualization
-
-[CRAN](https://cran.r-project.org/package=blorr) &nbsp; [GitHub](https://github.com/aravindhebbali/blorr) &nbsp; [Docs](https://blorr.rsquaredacademy.com)
-
-:::
-
-::: {.pkg}
-
-![](images/hex-vistributions.webp){.pkg-hex alt="vistributions hex sticker"}
-
-### [vistributions](https://vistributions.rsquaredacademy.com) {.pkg-name}
-
-Tools for visualizing probability distributions
-
-- Binomial Distribution
-- Chi Square Distribution
-- Normal Distribution
-- f Distribution
-- t Distribution
-- Includes Shiny App
-
-[CRAN](https://cran.r-project.org/package=vistributions) &nbsp; [GitHub](https://github.com/rsquaredacademy/vistributions) &nbsp; [Docs](https://vistributions.rsquaredacademy.com)
-
-:::
-
-::: {.pkg}
-
-![](images/hex-rbin.webp){.pkg-hex alt="rbin hex sticker"}
-
-### [rbin](https://github.com/rsquaredacademy/rbin) {.pkg-name}
-
-Tools for binning data
+<details>
+<summary>What's inside</summary>
 
 - Manual Binning
 - Quantile Binning
@@ -227,15 +222,51 @@ Tools for binning data
 - Generate Dummy Variables
 - Includes RStudio Addins
 
-[CRAN](https://cran.r-project.org/package=rbin) &nbsp; [GitHub](https://github.com/rsquaredacademy/rbin)
+</details>
+:::
+:::
+
+::: {.lcard}
+![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">Regression</span>
+
+### [blorr](https://blorr.rsquaredacademy.com)
+
+<p class="lout">Tools for building binary logistic regression models.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=blorr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[Docs](https://blorr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
+
+- Bivariate Analysis
+- Model Fit Statistics
+- Model Validation
+- Variable Selection
+- Residual Diagnostics
+- Collinearity Diagnostics
+- Visualization
+
+</details>
+:::
+:::
 
 :::
 
-Also on CRAN: [yahoofinancer](https://cran.r-project.org/package=yahoofinancer)
-for Yahoo! Finance data, and
-[standby](https://cran.r-project.org/package=standby) for managing R processes.
-[nse2r](https://github.com/rsquaredacademy/nse2r) is archived and under revival.
-Full reference documentation and vignettes: [Packages](packages/).
+Four more carry the long tail: [vistributions](https://cran.r-project.org/package=vistributions)
+for visualizing probability distributions,
+[inferr](https://cran.r-project.org/package=inferr) for inferential statistics,
+[yahoofinancer](https://cran.r-project.org/package=yahoofinancer) for Yahoo!
+Finance data, and [standby](https://cran.r-project.org/package=standby) for
+managing R processes. [nse2r](https://github.com/rsquaredacademy/nse2r) is
+archived and under revival. Full reference documentation and vignettes:
+[Packages](packages/).
 
 ## Books {#books}
 
@@ -243,62 +274,49 @@ Six open textbooks, free to read online. They started as blog posts, grew into
 tutorials on [Rsquared Academy](https://www.rsquaredacademy.com/), and were
 eventually rewritten into short books with the sharp edges filed off.
 
-::: {.shelf}
+::: {.lshelf}
 
-::: {.book}
+::: {.lshelf-item}
+[![Cover: Introduction to R](images/book-intro-r.webp)](https://intro-r.rsquaredacademy.com/)
 
-[![Cover: Introduction to R](images/book-intro-r.webp)](https://intro-r.rsquaredacademy.com/){.book-cover}
-
-[INTRODUCTION TO R](https://intro-r.rsquaredacademy.com/){.book-cap}
-
+01 Intro
 :::
 
-::: {.book}
+::: {.lshelf-item}
+[![Cover: Data Wrangling with R](images/book-wrangle-r.webp)](https://wrangle-r.rsquaredacademy.com/)
 
-[![Cover: Data Wrangling with R](images/book-wrangle-r.webp)](https://wrangle-r.rsquaredacademy.com/){.book-cover}
-
-[DATA WRANGLING WITH R](https://wrangle-r.rsquaredacademy.com/){.book-cap}
-
+02 Wrangle
 :::
 
-::: {.book}
+::: {.lshelf-item}
+[![Cover: Data Visualization with ggplot2](images/book-viz-ggplot2.webp)](https://viz-ggplot2.rsquaredacademy.com/)
 
-[![Cover: Data Visualization with ggplot2](images/book-viz-ggplot2.webp)](https://viz-ggplot2.rsquaredacademy.com/){.book-cover}
-
-[DATA VISUALIZATION WITH GGPLOT2](https://viz-ggplot2.rsquaredacademy.com/){.book-cap}
-
+03 ggplot2
 :::
 
-::: {.book}
+::: {.lshelf-item}
+[![Cover: Data Visualization with R](images/book-viz-base.webp)](https://viz-base.rsquaredacademy.com/)
 
-[![Cover: Data Visualization with R](images/book-viz-base.webp)](https://viz-base.rsquaredacademy.com/){.book-cover}
-
-[DATA VISUALIZATION WITH R](https://viz-base.rsquaredacademy.com/){.book-cap}
-
+04 Base
 :::
 
-::: {.book}
+::: {.lshelf-item}
+[![Cover: R, Databases and SQL](images/book-rdbsql.webp)](https://rdbsql.rsquaredacademy.com/)
 
-[![Cover: R, Databases and SQL](images/book-rdbsql.webp)](https://rdbsql.rsquaredacademy.com/){.book-cover}
-
-[R, DATABASES AND SQL](https://rdbsql.rsquaredacademy.com/){.book-cap}
-
+05 SQL
 :::
 
-::: {.book}
+::: {.lshelf-item}
+[![Cover: Command Line Basics](images/book-bash-intro.webp)](https://bash-intro.rsquaredacademy.com/)
 
-[![Cover: Command Line Basics](images/book-bash-intro.webp)](https://bash-intro.rsquaredacademy.com/){.book-cover}
-
-[COMMAND LINE BASICS](https://bash-intro.rsquaredacademy.com/){.book-cap}
-
+06 Bash
 :::
 
 :::
-
 
 If you are starting from zero, begin with
-[Introduction to R](https://intro-r.rsquaredacademy.com/). More on how these
-were written: [Books](books/).
+[Introduction to R](https://intro-r.rsquaredacademy.com/). Every title can also
+be downloaded as a PDF or ePub: [Books](books/).
 
 ## Teaching {#teaching}
 
