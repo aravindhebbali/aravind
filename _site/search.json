@@ -4,21 +4,35 @@
     "href": "apps/index.html",
     "title": "Interactive Apps",
     "section": "",
-    "text": "Directory for interactive apps covering data analysis, visualization and modelling. Each app ships inside its R package."
+    "text": "Seven Shiny applications covering data analysis, visualization and modelling. Each one ships inside its own R package and runs locally — there is no hosted copy to sign up for, and nothing to install beyond the package itself."
   },
   {
-    "objectID": "apps/index.html#run-locally-today-with-xplorerr",
-    "href": "apps/index.html#run-locally-today-with-xplorerr",
+    "objectID": "apps/index.html#regression",
+    "href": "apps/index.html#regression",
     "title": "Interactive Apps",
-    "section": "Run locally today with xplorerr",
-    "text": "Run locally today with xplorerr\nInstall once, then launch any app from your R console:\ninstall.packages(\"xplorerr\")\n\nxplorerr::app_descriptive()         # descriptive statistics\nxplorerr::app_vistributions()      # probability distributions\nxplorerr::app_inference()          # hypothesis testing\nxplorerr::app_linear_regression()  # linear regression\nxplorerr::app_logistic_regression() # logistic regression\nxplorerr::app_rfm_analysis()       # RFM / customer segmentation\nxplorerr::app_visualizer()         # data visualization\nDocs: xplorerr.rsquaredacademy.com · CRAN: xplorerr · Source: GitHub"
+    "section": "Regression and modelling",
+    "text": "Regression and modelling\n\n\n\n\nolsrr\n\nLinear regression\n\nInteractive regression output, diagnostics and variable selection.\n\n\nInteractive diagnostics for a fitted lm model.\n\ninstall.packages(\"olsrr\")\nolsrr::ols_launch_app()\n\nDocs CRAN GitHub\n\n\n\n\n\n\n\nblorr\n\nLogistic regression\n\nModel fit, validation and collinearity for binary outcomes.\n\n\nThe glm equivalent of the olsrr app.\n\ninstall.packages(\"blorr\")\nblorr::blr_launch_app()\n\nDocs CRAN GitHub\n\n\n\n\n\n\n\nrfm\n\nCustomer segmentation\n\nGenerate RFM scores and explore customer segments visually.\n\n\nPoint it at transaction- or customer-level data.\n\ninstall.packages(\"rfm\")\nrfm::rfm_launch_app()\n\nDocs CRAN GitHub"
   },
   {
-    "objectID": "apps/index.html#app-directory",
-    "href": "apps/index.html#app-directory",
+    "objectID": "apps/index.html#statistics",
+    "href": "apps/index.html#statistics",
     "title": "Interactive Apps",
-    "section": "App directory",
-    "text": "App directory\nBrowser apps will be published on the relevant package site when they are ready. In the meantime each app runs locally.\n\n\n\nApp\nCovers\nRun locally\nDocs\n\n\n\n\ndescriptr\ndescriptive statistics\napp_descriptive()\ndocs\n\n\nvistributions\nprobability distributions\napp_vistributions()\ndocs\n\n\ninferr\nhypothesis testing\napp_inference()\ndocs\n\n\nolsrr\nlinear regression\napp_linear_regression()\ndocs\n\n\nblorr\nlogistic regression\napp_logistic_regression()\ndocs\n\n\nrfm\ncustomer segmentation\napp_rfm_analysis()\ndocs\n\n\nxplorerr\nall of the above + visualizer\napp_visualizer()\ndocs\n\n\n\nPrefer the package that owns the app? Each package also exports its own launcher, which is arguably the more natural entry point:\nolsrr::ols_launch_app()             # linear regression\nblorr::blr_launch_app()             # logistic regression\nrfm::rfm_launch_app()               # customer segmentation\ndescriptr::ds_launch_shiny_app()    # descriptive statistics\ninferr::ifr_launch_shiny_app()      # hypothesis testing\nvistributions::vdist_launch_app()   # probability distributions\nxplorerr::app_linear_regression()   # and the rest\nAll packages: pkgs.rsquaredacademy.com"
+    "section": "Statistics and distributions",
+    "text": "Statistics and distributions\n\n\n\n\ndescriptr\n\nDescriptive statistics\n\nData screening, summary statistics, frequency and cross tables.\n\n\nA visual front end to the descriptr functions.\n\ninstall.packages(\"descriptr\")\ndescriptr::ds_launch_shiny_app()\n\nDocs CRAN GitHub\n\n\n\n\n\n\n\ninferr\n\nHypothesis testing\n\nt tests, chi square, binomial and proportion tests, interactively.\n\n\nChoose the test, pick the columns, read the result.\n\ninstall.packages(\"inferr\")\ninferr::ifr_launch_shiny_app()\n\nDocs CRAN GitHub\n\n\n\nAlso exported\n\n\ninferr exports a second launcher under a longer name, infer_launch_shiny_app(). It is the same app; ifr_launch_shiny_app() is used here for consistency with the other packages.\n\n\n\n\n\n\n\n\nvistributions\n\nProbability distributions\n\nVisualize the binomial, chi square, normal, F and t distributions.\n\n\nAdjust the parameters and watch the density update.\n\ninstall.packages(\"vistributions\")\nvistributions::vdist_launch_app()\n\nDocs CRAN GitHub"
+  },
+  {
+    "objectID": "apps/index.html#xplorerr",
+    "href": "apps/index.html#xplorerr",
+    "title": "Interactive Apps",
+    "section": "Everything in one app",
+    "text": "Everything in one app\nxplorerr bundles the whole set behind a single install, and adds a visualizer the other packages do not have. If you are not attached to a particular package, start here.\n\n\n\nxplorerr\n\nAll seven apps\n\nDescriptive, inferential, visual, RFM, linear and logistic — one package, one install.\n\n\nSeven launchers. Each opens its own app window.\n\ninstall.packages(\"xplorerr\")\nxplorerr::app_linear_regression()   # linear regression\nxplorerr::app_logistic_regression() # logistic regression\nxplorerr::app_descriptive()         # descriptive statistics\nxplorerr::app_inference()           # hypothesis testing\nxplorerr::app_vistributions()       # probability distributions\nxplorerr::app_rfm_analysis()        # RFM / customer segmentation\nxplorerr::app_visualizer()          # data visualization\n\nDocs CRAN GitHub"
+  },
+  {
+    "objectID": "apps/index.html#which",
+    "href": "apps/index.html#which",
+    "title": "Interactive Apps",
+    "section": "Which launcher should I use?",
+    "text": "Which launcher should I use?\nBoth routes work and reach the same apps. The difference is who owns them.\n\n\n\nOption A\n\nOne install, seven apps\n\nInstall xplorerr and call any app_*() function. Nothing else to install.\n\n\nBest if you want the visualizer, or several apps at once.\n\n\n\n\n\n\nOption B\n\nThe owning package\n\nInstall the package that owns the app and call its own launcher.\n\n\nBest if you already use that package for its non-interactive functions.\n\n\nPackage reference\n\n\n\n\n\n\n\n\n\n\n\nnse2r has no app here\n\n\n\nnse2r did ship a Shiny app for NSE market data, but the package was archived on CRAN on 2023-08-07 and is under revival, so it gets no app card. Nothing to install and nothing to link to."
   },
   {
     "objectID": "index.html",
@@ -39,14 +53,14 @@
     "href": "index.html#open-source",
     "title": "Hey, I am Aravind",
     "section": "Open Source",
-    "text": "Open Source\nThese packages were written while teaching data science at Rsquared Academy. They are free to use and were shared in the hope that others find them useful for teaching and learning data science with R.\nThe goal is software which is:\n\nuser friendly\nlight weight\nwell tested\nwell documented\n\nMajor bugs get fixed quickly. Feature requests are considered but not promised.\n\n\n\nolsrr\nTools for building linear regression models\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\nCRAN   GitHub   Docs\n\n\n\n\n\nrfm\nTools for RFM analysis\n\nGenerate RFM Scores\nHandles Transaction / Customer Level Data\nVisualization Tools\nSegment Customers\nIncludes Shiny App\n\nCRAN   GitHub   Docs\n\n\n\n\n\nxplorerr\nTools for interactive data analysis\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\nCRAN   GitHub   Docs\n\n\n\n\n\ndescriptr\nTools for generating descriptive / summary statistics\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\ninferr\nTools for inferential statistics\n\nBinomial Test\nTest of Proportion\nt Test\nChi Square Test\nLevene’s Test\nTest of Variance\nMcNemar Test\nCochran Q Test\nRuns Test\n\nCRAN   GitHub   Docs\n\n\n\n\n\nblorr\nTools for building binary logistic regression models\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\nvistributions\nTools for visualizing probability distributions\n\nBinomial Distribution\nChi Square Distribution\nNormal Distribution\nf Distribution\nt Distribution\nIncludes Shiny App\n\nCRAN   GitHub   Docs\n\n\n\n\n\nrbin\nTools for binning data\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\nCRAN   GitHub\n\n\nAlso on CRAN: yahoofinancer for Yahoo! Finance data, and standby for managing R processes. nse2r is archived and under revival. Full reference documentation and vignettes: Packages."
+    "text": "Open Source\nThese packages were written while teaching data science at Rsquared Academy. They are free to use and were shared in the hope that others find them useful for teaching and learning data science with R.\nThe goal is software which is:\n\nuser friendly\nlight weight\nwell tested\nwell documented\n\nMajor bugs get fixed quickly. Feature requests are considered but not promised.\n\n\n\n\nRegression\n\nolsrr\n\nTools for building linear regression models.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\n\n\n\n\n\n\n\nInteractive\n\nxplorerr\n\nTools for interactive data analysis.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\n\n\n\n\n\n\n\nSegmentation\n\nrfm\n\nTools for RFM analysis.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nGenerate RFM Scores\nHandles Transaction / Customer Level Data\nVisualization Tools\nSegment Customers\nIncludes Shiny App\n\n\n\n\n\n\n\n\nDescriptive\n\ndescriptr\n\nTools for generating descriptive and summary statistics.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\n\n\n\n\n\n\n\nWrangling\n\nrbin\n\nTools for binning data.\n\n\nCRAN GitHub\n\n\n\nWhat’s inside\n\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\n\n\n\n\n\n\n\nRegression\n\nblorr\n\nTools for building binary logistic regression models.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\n\n\n\n\n\nFour more carry the long tail: vistributions for visualizing probability distributions, inferr for inferential statistics, yahoofinancer for Yahoo! Finance data, and standby for managing R processes. nse2r is archived and under revival. Full reference documentation and vignettes: Packages."
   },
   {
     "objectID": "index.html#books",
     "href": "index.html#books",
     "title": "Hey, I am Aravind",
     "section": "Books",
-    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n\n\nCover: Introduction to R\n\n\nINTRODUCTION TO R\n\n\n\n\n\nCover: Data Wrangling with R\n\n\nDATA WRANGLING WITH R\n\n\n\n\n\nCover: Data Visualization with ggplot2\n\n\nDATA VISUALIZATION WITH GGPLOT2\n\n\n\n\n\nCover: Data Visualization with R\n\n\nDATA VISUALIZATION WITH R\n\n\n\n\n\nCover: R, Databases and SQL\n\n\nR, DATABASES AND SQL\n\n\n\n\n\nCover: Command Line Basics\n\n\nCOMMAND LINE BASICS\n\n\nIf you are starting from zero, begin with Introduction to R. More on how these were written: Books."
+    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n\n\nCover: Introduction to R\n\n\n01 Intro\n\n\n\n\n\nCover: Data Wrangling with R\n\n\n02 Wrangle\n\n\n\n\n\nCover: Data Visualization with ggplot2\n\n\n03 ggplot2\n\n\n\n\n\nCover: Data Visualization with R\n\n\n04 Base\n\n\n\n\n\nCover: R, Databases and SQL\n\n\n05 SQL\n\n\n\n\n\nCover: Command Line Basics\n\n\n06 Bash\n\n\nIf you are starting from zero, begin with Introduction to R. Every title can also be downloaded as a PDF or ePub: Books."
   },
   {
     "objectID": "index.html#teaching",
@@ -67,55 +81,69 @@
     "href": "packages/index.html",
     "title": "R Packages",
     "section": "",
-    "text": "Ten packages, all on CRAN, all documented, all actively maintained. Each was written while teaching at Rsquared Academy and shared in the hope that others find them useful.\nThe goal is software which is user friendly, light weight, well tested and well documented. Major bugs get fixed quickly; feature requests are considered but not promised.\nFull descriptions and vignettes: pkgs.rsquaredacademy.com.\n\n\n\n\n\n\nTools for building linear regression models\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for building binary logistic regression models\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for interactive data analysis\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\n\n\n\nTools for generating descriptive / summary statistics\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for inferential statistics\n\nBinomial Test\nTest of Proportion\nt Test\nChi Square Test\nLevene’s Test\nTest of Variance\nMcNemar Test\nCochran Q Test\nRuns Test\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for visualizing probability distributions\n\nBinomial Distribution\nChi Square Distribution\nNormal Distribution\nf Distribution\nt Distribution\nIncludes Shiny App\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\n\n\n\nTools for binning data\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\nCRAN   GitHub\n\n\n\n\n\n\n\n\nPackage\nWhat it does\nLinks\n\n\n\n\nyahoofinancer\nFetch stock and index data from Yahoo! Finance\nGitHub\n\n\nstandby\nSave, load and manage R processes and sessions\nGitHub\n\n\n\n\n\n\n\n\n\n\n\n\nnse2r — archived, under revival\n\n\n\nnse2r fetched live data from the National Stock Exchange of India. It was archived on CRAN on 2023-08-07 at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.\nSource and issue tracker: github.com/rsquaredacademy/nse2r."
+    "text": "Ten packages, all on CRAN, all documented, all actively maintained. Each was written while teaching at Rsquared Academy and shared in the hope that others find them useful.\nThe goal is software which is user friendly, light weight, well tested and well documented. Major bugs get fixed quickly; feature requests are considered but not promised.\nFull descriptions and vignettes: pkgs.rsquaredacademy.com."
   },
   {
-    "objectID": "packages/index.html#regression-and-modelling",
-    "href": "packages/index.html#regression-and-modelling",
+    "objectID": "packages/index.html#regression",
+    "href": "packages/index.html#regression",
     "title": "R Packages",
-    "section": "",
-    "text": "Tools for building linear regression models\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for building binary logistic regression models\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for interactive data analysis\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\nCRAN   GitHub   Docs"
+    "section": "Regression and modelling",
+    "text": "Regression and modelling\n\n\n\n\nFlagship\n\nolsrr\n\nTools for building linear regression models.\n\n\nDiagnostics, variable selection and influence measures for a fitted lm.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\n\n\n\n\n\n\n\nFlagship\n\nblorr\n\nTools for building binary logistic regression models.\n\n\nModel fit, validation and collinearity for a fitted glm with a binary outcome.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\n\n\n\n\n\n\n\nFlagship\n\nxplorerr\n\nTools for interactive data analysis.\n\n\nDescriptive, inferential and visual analysis behind a Shiny interface. See Apps.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression"
   },
   {
-    "objectID": "packages/index.html#descriptive-and-inferential-statistics",
-    "href": "packages/index.html#descriptive-and-inferential-statistics",
+    "objectID": "packages/index.html#statistics",
+    "href": "packages/index.html#statistics",
     "title": "R Packages",
-    "section": "",
-    "text": "Tools for generating descriptive / summary statistics\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for inferential statistics\n\nBinomial Test\nTest of Proportion\nt Test\nChi Square Test\nLevene’s Test\nTest of Variance\nMcNemar Test\nCochran Q Test\nRuns Test\n\nCRAN   GitHub   Docs\n\n\n\n\n\n\nTools for visualizing probability distributions\n\nBinomial Distribution\nChi Square Distribution\nNormal Distribution\nf Distribution\nt Distribution\nIncludes Shiny App\n\nCRAN   GitHub   Docs"
+    "section": "Descriptive and inferential statistics",
+    "text": "Descriptive and inferential statistics\n\n\n\n\nFlagship\n\ndescriptr\n\nTools for generating descriptive and summary statistics.\n\n\nThe fastest way to screen a data frame before you model it.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\n\n\n\n\n\n\n\nFlagship\n\ninferr\n\nTools for inferential statistics.\n\n\nHypothesis tests with plain R syntax — no formulas to memorise.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nBinomial Test\nTest of Proportion\nt Test\nChi Square Test\nLevene’s Test\nTest of Variance\nMcNemar Test\nCochran Q Test\nRuns Test\n\n\n\n\n\n\n\n\nFlagship\n\nvistributions\n\nTools for visualizing probability distributions.\n\n\nPlot the binomial, chi square, normal, F and t distributions. See Apps.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nBinomial Distribution\nChi Square Distribution\nNormal Distribution\nf Distribution\nt Distribution\nIncludes Shiny App"
   },
   {
-    "objectID": "packages/index.html#data-wrangling",
-    "href": "packages/index.html#data-wrangling",
+    "objectID": "packages/index.html#wrangling",
+    "href": "packages/index.html#wrangling",
     "title": "R Packages",
-    "section": "",
-    "text": "Tools for binning data\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\nCRAN   GitHub"
+    "section": "Data wrangling and segmentation",
+    "text": "Data wrangling and segmentation\n\n\n\n\nFlagship\n\nrbin\n\nTools for binning data.\n\n\nTurn continuous variables into factors, and generate dummy variables from them.\n\n\nCRAN GitHub\n\n\n\nWhat’s inside\n\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\n\n\n\n\n\n\n\nFlagship\n\nrfm\n\nTools for RFM analysis.\n\n\nScore and segment customers from transaction-level data. See Apps.\n\n\nCRAN GitHub Docs\n\n\n\nWhat’s inside\n\n\nGenerate RFM Scores\nHandles Transaction / Customer Level Data\nVisualization Tools\nSegment Customers\nIncludes Shiny App"
   },
   {
     "objectID": "packages/index.html#utilities",
     "href": "packages/index.html#utilities",
     "title": "R Packages",
-    "section": "",
-    "text": "Package\nWhat it does\nLinks\n\n\n\n\nyahoofinancer\nFetch stock and index data from Yahoo! Finance\nGitHub\n\n\nstandby\nSave, load and manage R processes and sessions\nGitHub"
+    "section": "Utilities",
+    "text": "Utilities\n\n\n\nUtility\n\nyahoofinancer\n\nFetch stock and index data from Yahoo! Finance.\n\n\nCRAN GitHub\n\n\n\n\n\n\nUtility\n\nstandby\n\nSave, load and manage R processes and sessions.\n\n\nCRAN GitHub"
   },
   {
     "objectID": "packages/index.html#archived",
     "href": "packages/index.html#archived",
     "title": "R Packages",
-    "section": "",
-    "text": "nse2r — archived, under revival\n\n\n\nnse2r fetched live data from the National Stock Exchange of India. It was archived on CRAN on 2023-08-07 at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.\nSource and issue tracker: github.com/rsquaredacademy/nse2r."
+    "section": "Archived",
+    "text": "Archived\n\n\n\nArchived\n\nnse2r\n\nFetched data from the National Stock Exchange of India.\n\n\nArchived 2023-08-07v0.1.6, under revival\n\n\nNo longer installable from CRAN. Source and issue tracker are on GitHub.\n\n\nCRAN (archived) GitHub"
   },
   {
     "objectID": "books/index.html",
     "href": "books/index.html",
     "title": "E-Books",
     "section": "",
-    "text": "Six open textbooks, free to read online. Written with bookdown and hosted on Rsquared Academy."
+    "text": "Six open textbooks, free to read online. Written with bookdown and hosted on Rsquared Academy. Every title can also be downloaded as a PDF or ePub."
   },
   {
-    "objectID": "books/index.html#about-these-books",
-    "href": "books/index.html#about-these-books",
+    "objectID": "books/index.html#path",
+    "href": "books/index.html#path",
     "title": "E-Books",
-    "section": "About these books",
-    "text": "About these books\nThey were authored to supplement the courses at Rsquared Academy. Some are beginner friendly while others assume prior familiarity with a topic.\nThey began as blog posts, expanded into tutorials, and were eventually rewritten into short books with the sharp edges filed off. The style is deliberately plain — short chapters, worked examples, and the parts of the documentation people usually skip.\nNone of them replaces the official R documentation. If you want one place to start, Introduction to R is the one.\nIf these were useful, the courses behind them are at rsquaredacademy.com."
+    "section": "Learning path",
+    "text": "Learning path\nThe Core Track is designed to be followed end to end. The two companions slot in alongside it rather than after it.\n\n\nCore 01\n\nIntro to R\n\nBeginnerZero to running code. RStudio, packages, help.\n\n\n\n\nCore 02\n\nData Wrangling\n\nBeginnerImport, reshape, dplyr, pipes, tibbles.\n\n\n\n\nCore 03\n\nViz with ggplot2\n\nIntermediateGrammar of graphics through to publication polish.\n\n\n\n\nCore 04\n\nR, Databases & SQL\n\nIntermediateDBI, dbplyr, queries, joins.\n\nShortcut: already wrangling data in SQL? Take 04 straight after 02.\n\n\n\n\n\nCompanion A — Foundational Tooling\n\nCommand Line Basics\n\nBeginnerFiles, permissions, pipes and scripting for R users. Pair with Core 01.\n\n\nOn Windows: everything works from the RStudio Terminal, Git Bash or WSL — chapter 1 covers all three.\n\n\n\n\nCompanion B — Graphics Deep-Dive\n\nData Viz with Base R\n\nIntermediateBase graphics engine, parameters, multi-panel layouts, production export. Zero dependencies. After Core 03."
+  },
+  {
+    "objectID": "books/index.html#shelf",
+    "href": "books/index.html#shelf",
+    "title": "E-Books",
+    "section": "Series at a glance",
+    "text": "Series at a glance\nSix titles in the order they are meant to be read.\n\n\n\n\n\nIntroduction to R cover\n\n\n01 Intro\n\n\n\n\n\nData Wrangling with R cover\n\n\n02 Wrangle\n\n\n\n\n\nData Visualization with ggplot2 cover\n\n\n03 ggplot2\n\n\n\n\n\nR, Databases and SQL cover\n\n\n04 SQL\n\n\n\n\n\nCommand Line Basics cover\n\n\nC-A Bash\n\n\n\n\n\nData Visualization with Base R cover\n\n\nC-B Base\n\n\nIf you are starting from zero, begin with Introduction to R. The full catalogue, with download links for every title, is also at ebooks.rsquaredacademy.com."
+  },
+  {
+    "objectID": "books/index.html#license",
+    "href": "books/index.html#license",
+    "title": "E-Books",
+    "section": "License",
+    "text": "License\nAll six books are open educational resources under CC BY-NC-SA 4.0 — free to read online and to share with attribution, non-commercially. Found a typo? Open an issue on the book’s GitHub repository."
   }
 ]

@@ -72,6 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- TODO(roadmap 4): add X to the sameAs array once an X handle exists. Do not
      add twitter:site / twitter:creator meta until then - both pointed at a
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
+
+<!-- Quarto emits og:image / twitter:image from each page's `image:` field but
+     has no front-matter option for the dimensions, and roadmap section 6 asks
+     for them explicitly. Every page shares one card, images/og-card.jpg, so the
+     values are constant and belong here rather than in each .qmd.
+     Verified: the file is 1200x630. -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -103,13 +115,13 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="R Packages – Aravind Hebbali">
 <meta property="og:description" content="Reference documentation and vignettes for ten actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics and inference.">
-<meta property="og:image" content="https://www.aravindhebbali.com/images/hex-olsrr.webp">
+<meta property="og:image" content="https://www.aravindhebbali.com/images/og-card.jpg">
 <meta property="og:site_name" content="Aravind Hebbali">
-<meta property="og:image:alt" content="olsrr hex sticker">
+<meta property="og:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:title" content="R Packages – Aravind Hebbali">
 <meta name="twitter:description" content="Reference documentation and vignettes for ten actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics and inference.">
-<meta name="twitter:image" content="https://www.aravindhebbali.com/images/hex-olsrr.webp">
-<meta name="twitter:image:alt" content="olsrr hex sticker">
+<meta name="twitter:image" content="https://www.aravindhebbali.com/images/og-card.jpg">
+<meta name="twitter:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.aravindhebbali.com/packages/">
 </head>
@@ -204,18 +216,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="r-packages" class="level1">
-<h1>R Packages</h1>
 <p>Ten packages, all on CRAN, all documented, all actively maintained. Each was written while teaching at <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a> and shared in the hope that others find them useful.</p>
 <p>The goal is software which is user friendly, light weight, well tested and well documented. Major bugs get fixed quickly; feature requests are considered but not promised.</p>
 <p>Full descriptions and vignettes: <a href="https://pkgs.rsquaredacademy.com/">pkgs.rsquaredacademy.com</a>.</p>
-<section id="regression-and-modelling" class="level2">
-<h2 class="anchored" data-anchor-id="regression-and-modelling">Regression and modelling</h2>
-<div class="pkg">
-<p><img src="../images/hex-olsrr.webp" class="pkg-hex img-fluid" alt="olsrr hex sticker"></p>
-<section id="olsrr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="olsrr"><a href="https://olsrr.rsquaredacademy.com">olsrr</a></h3>
-<p>Tools for building linear regression models</p>
+<section id="regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression">Regression and modelling</h2>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="images/hex-olsrr.webp" class="lcover lcover-hex img-fluid" alt="olsrr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="olsrr" class="level3">
+<h3 class="anchored" data-anchor-id="olsrr"><a href="https://olsrr.rsquaredacademy.com">olsrr</a></h3>
+<p class="lout">
+Tools for building linear regression models.
+</p>
+<p class="lprereq">
+Diagnostics, variable selection and influence measures for a fitted <code>lm</code>.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=olsrr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/olsrr" class="labtn">GitHub</a> <a href="https://olsrr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Comprehensive Regression Output</li>
 <li>Variable Selection Procedures</li>
@@ -225,14 +250,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Measures of Influence</li>
 <li>Residual Diagnostics</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=olsrr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/olsrr">GitHub</a> &nbsp; <a href="https://olsrr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="../images/hex-blorr.webp" class="pkg-hex img-fluid" alt="blorr hex sticker"></p>
-<section id="blorr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="blorr"><a href="https://blorr.rsquaredacademy.com">blorr</a></h3>
-<p>Tools for building binary logistic regression models</p>
+</div>
+<div class="lcard">
+<p><img src="images/hex-blorr.webp" class="lcover lcover-hex img-fluid" alt="blorr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="blorr" class="level3">
+<h3 class="anchored" data-anchor-id="blorr"><a href="https://blorr.rsquaredacademy.com">blorr</a></h3>
+<p class="lout">
+Tools for building binary logistic regression models.
+</p>
+<p class="lprereq">
+Model fit, validation and collinearity for a fitted <code>glm</code> with a binary outcome.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=blorr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/blorr" class="labtn">GitHub</a> <a href="https://blorr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Bivariate Analysis</li>
 <li>Model Fit Statistics</li>
@@ -242,14 +282,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Collinearity Diagnostics</li>
 <li>Visualization</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=blorr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/blorr">GitHub</a> &nbsp; <a href="https://blorr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="../images/hex-xplorerr.webp" class="pkg-hex img-fluid" alt="xplorerr hex sticker"></p>
-<section id="xplorerr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="xplorerr"><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></h3>
-<p>Tools for interactive data analysis</p>
+</div>
+<div class="lcard">
+<p><img src="images/hex-xplorerr.webp" class="lcover lcover-hex img-fluid" alt="xplorerr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="xplorerr" class="level3">
+<h3 class="anchored" data-anchor-id="xplorerr"><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></h3>
+<p class="lout">
+Tools for interactive data analysis.
+</p>
+<p class="lprereq">
+Descriptive, inferential and visual analysis behind a Shiny interface. See <a href="../apps/">Apps</a>.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=xplorerr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/xplorerr" class="labtn">GitHub</a> <a href="https://xplorerr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Descriptive Statistics</li>
 <li>Inferential Statistics</li>
@@ -259,17 +314,34 @@ ul.task-list li input[type="checkbox"] {
 <li>Linear Regression</li>
 <li>Logistic Regression</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=xplorerr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/xplorerr">GitHub</a> &nbsp; <a href="https://xplorerr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
+</div>
+</div>
 </section>
-<section id="descriptive-and-inferential-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="descriptive-and-inferential-statistics">Descriptive and inferential statistics</h2>
-<div class="pkg">
-<p><img src="../images/hex-descriptr.webp" class="pkg-hex img-fluid" alt="descriptr hex sticker"></p>
-<section id="descriptr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="descriptr"><a href="https://descriptr.rsquaredacademy.com">descriptr</a></h3>
-<p>Tools for generating descriptive / summary statistics</p>
+<section id="statistics" class="level2">
+<h2 class="anchored" data-anchor-id="statistics">Descriptive and inferential statistics</h2>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="images/hex-descriptr.webp" class="lcover lcover-hex img-fluid" alt="descriptr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="descriptr" class="level3">
+<h3 class="anchored" data-anchor-id="descriptr"><a href="https://descriptr.rsquaredacademy.com">descriptr</a></h3>
+<p class="lout">
+Tools for generating descriptive and summary statistics.
+</p>
+<p class="lprereq">
+The fastest way to screen a data frame before you model it.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=descriptr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/descriptr" class="labtn">GitHub</a> <a href="https://descriptr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Data Screening</li>
 <li>Summary Statistics</li>
@@ -277,14 +349,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Cross Tables</li>
 <li>Data Visualization</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=descriptr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/descriptr">GitHub</a> &nbsp; <a href="https://descriptr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="../images/hex-inferr.webp" class="pkg-hex img-fluid" alt="inferr hex sticker"></p>
-<section id="inferr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="inferr"><a href="https://inferr.rsquaredacademy.com">inferr</a></h3>
-<p>Tools for inferential statistics</p>
+</div>
+<div class="lcard">
+<p><img src="images/hex-inferr.webp" class="lcover lcover-hex img-fluid" alt="inferr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="inferr" class="level3">
+<h3 class="anchored" data-anchor-id="inferr"><a href="https://inferr.rsquaredacademy.com">inferr</a></h3>
+<p class="lout">
+Tools for inferential statistics.
+</p>
+<p class="lprereq">
+Hypothesis tests with plain R syntax — no formulas to memorise.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=inferr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/inferr" class="labtn">GitHub</a> <a href="https://inferr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Binomial Test</li>
 <li>Test of Proportion</li>
@@ -296,14 +383,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Cochran Q Test</li>
 <li>Runs Test</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=inferr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/inferr">GitHub</a> &nbsp; <a href="https://inferr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="../images/hex-vistributions.webp" class="pkg-hex img-fluid" alt="vistributions hex sticker"></p>
-<section id="vistributions" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="vistributions"><a href="https://vistributions.rsquaredacademy.com">vistributions</a></h3>
-<p>Tools for visualizing probability distributions</p>
+</div>
+<div class="lcard">
+<p><img src="images/hex-vistributions.webp" class="lcover lcover-hex img-fluid" alt="vistributions hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="vistributions" class="level3">
+<h3 class="anchored" data-anchor-id="vistributions"><a href="https://vistributions.rsquaredacademy.com">vistributions</a></h3>
+<p class="lout">
+Tools for visualizing probability distributions.
+</p>
+<p class="lprereq">
+Plot the binomial, chi square, normal, F and t distributions. See <a href="../apps/">Apps</a>.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=vistributions" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/vistributions" class="labtn">GitHub</a> <a href="https://vistributions.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Binomial Distribution</li>
 <li>Chi Square Distribution</li>
@@ -312,17 +414,34 @@ ul.task-list li input[type="checkbox"] {
 <li>t Distribution</li>
 <li>Includes Shiny App</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=vistributions">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/vistributions">GitHub</a> &nbsp; <a href="https://vistributions.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
+</div>
+</div>
 </section>
-<section id="data-wrangling" class="level2">
-<h2 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h2>
-<div class="pkg">
-<p><img src="../images/hex-rbin.webp" class="pkg-hex img-fluid" alt="rbin hex sticker"></p>
-<section id="rbin" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="rbin"><a href="https://github.com/rsquaredacademy/rbin">rbin</a></h3>
-<p>Tools for binning data</p>
+<section id="wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="wrangling">Data wrangling and segmentation</h2>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="images/hex-rbin.webp" class="lcover lcover-hex img-fluid" alt="rbin hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="rbin" class="level3">
+<h3 class="anchored" data-anchor-id="rbin"><a href="https://github.com/rsquaredacademy/rbin">rbin</a></h3>
+<p class="lout">
+Tools for binning data.
+</p>
+<p class="lprereq">
+Turn continuous variables into factors, and generate dummy variables from them.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=rbin" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/rbin" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Manual Binning</li>
 <li>Quantile Binning</li>
@@ -333,53 +452,101 @@ ul.task-list li input[type="checkbox"] {
 <li>Generate Dummy Variables</li>
 <li>Includes RStudio Addins</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=rbin">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/rbin">GitHub</a></p>
+</details>
 </section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="images/hex-rfm.webp" class="lcover lcover-hex img-fluid" alt="rfm hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Flagship</span></p>
+<section id="rfm" class="level3">
+<h3 class="anchored" data-anchor-id="rfm"><a href="https://rfm.rsquaredacademy.com">rfm</a></h3>
+<p class="lout">
+Tools for RFM analysis.
+</p>
+<p class="lprereq">
+Score and segment customers from transaction-level data. See <a href="../apps/">Apps</a>.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=rfm" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/rfm" class="labtn">GitHub</a> <a href="https://rfm.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<ul>
+<li>Generate RFM Scores</li>
+<li>Handles Transaction / Customer Level Data</li>
+<li>Visualization Tools</li>
+<li>Segment Customers</li>
+<li>Includes Shiny App</li>
+</ul>
+</details>
+</section>
+</div>
+</div>
 </div>
 </section>
 <section id="utilities" class="level2">
 <h2 class="anchored" data-anchor-id="utilities">Utilities</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Package</th>
-<th style="text-align: left;">What it does</th>
-<th style="text-align: left;">Links</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://cran.r-project.org/package=yahoofinancer">yahoofinancer</a></td>
-<td style="text-align: left;">Fetch stock and index data from Yahoo! Finance</td>
-<td style="text-align: left;"><a href="https://github.com/rsquaredacademy/yahoofinancer">GitHub</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://cran.r-project.org/package=standby">standby</a></td>
-<td style="text-align: left;">Save, load and manage R processes and sessions</td>
-<td style="text-align: left;"><a href="https://github.com/rsquaredacademy/standby">GitHub</a></td>
-</tr>
-</tbody>
-</table>
+<div class="lgrid">
+<div class="lcard">
+<div class="lbody">
+<p><span class="ltrack util">Utility</span></p>
+<section id="yahoofinancer" class="level3">
+<h3 class="anchored" data-anchor-id="yahoofinancer"><a href="https://cran.r-project.org/package=yahoofinancer">yahoofinancer</a></h3>
+<p class="lout">
+Fetch stock and index data from Yahoo! Finance.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=yahoofinancer" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/yahoofinancer" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+<div class="lcard">
+<div class="lbody">
+<p><span class="ltrack util">Utility</span></p>
+<section id="standby" class="level3">
+<h3 class="anchored" data-anchor-id="standby"><a href="https://cran.r-project.org/package=standby">standby</a></h3>
+<p class="lout">
+Save, load and manage R processes and sessions.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=standby" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/standby" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
 </section>
 <section id="archived" class="level2">
 <h2 class="anchored" data-anchor-id="archived">Archived</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="lgrid">
+<div class="lcard">
+<div class="lbody">
+<p><span class="ltrack arch">Archived</span></p>
+<section id="nse2r" class="level3">
+<h3 class="anchored" data-anchor-id="nse2r"><a href="https://github.com/rsquaredacademy/nse2r">nse2r</a></h3>
+<p class="lout">
+Fetched data from the National Stock Exchange of India.
+</p>
+<p class="lmeta">
+<span class="lpill arch">Archived 2023-08-07</span>v0.1.6, under revival
+</p>
+<p class="lprereq">
+No longer installable from CRAN. Source and issue tracker are on GitHub.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=nse2r" class="labtn">CRAN (archived)</a> <a href="https://github.com/rsquaredacademy/nse2r" class="labtn primary">GitHub</a></p>
 </div>
-<div class="callout-title-container flex-fill">
-nse2r — archived, under revival
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>nse2r</code> fetched live data from the National Stock Exchange of India. It was <strong>archived on CRAN on 2023-08-07</strong> at the maintainer’s request and is currently being revived, so it is no longer installable from CRAN.</p>
-<p>Source and issue tracker: <a href="https://github.com/rsquaredacademy/nse2r">github.com/rsquaredacademy/nse2r</a>.</p>
-</div>
-</div>
-
-
 </section>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash, free to read online.">
+<meta name="description" content="Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash. Read free online, or download the PDF and ePub of each.">
 
 <title>E-Books – Aravind Hebbali</title>
 <style>
@@ -72,6 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- TODO(roadmap 4): add X to the sameAs array once an X handle exists. Do not
      add twitter:site / twitter:creator meta until then - both pointed at a
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
+
+<!-- Quarto emits og:image / twitter:image from each page's `image:` field but
+     has no front-matter option for the dimensions, and roadmap section 6 asks
+     for them explicitly. Every page shares one card, images/og-card.jpg, so the
+     values are constant and belong here rather than in each .qmd.
+     Verified: the file is 1200x630. -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,14 +114,14 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="E-Books – Aravind Hebbali">
-<meta property="og:description" content="Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash, free to read online.">
-<meta property="og:image" content="https://www.aravindhebbali.com/images/book-intro-r.webp">
+<meta property="og:description" content="Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash. Read free online, or download the PDF and ePub of each.">
+<meta property="og:image" content="https://www.aravindhebbali.com/images/og-card.jpg">
 <meta property="og:site_name" content="Aravind Hebbali">
-<meta property="og:image:alt" content="Cover: Introduction to R">
+<meta property="og:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:title" content="E-Books – Aravind Hebbali">
-<meta name="twitter:description" content="Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash, free to read online.">
-<meta name="twitter:image" content="https://www.aravindhebbali.com/images/book-intro-r.webp">
-<meta name="twitter:image:alt" content="Cover: Introduction to R">
+<meta name="twitter:description" content="Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash. Read free online, or download the PDF and ePub of each.">
+<meta name="twitter:image" content="https://www.aravindhebbali.com/images/og-card.jpg">
+<meta name="twitter:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.aravindhebbali.com/books/">
 </head>
@@ -187,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash, free to read online.
+    Six open textbooks on R, data wrangling, ggplot2, base R visualization, SQL and Bash. Read free online, or download the PDF and ePub of each.
   </div>
 </div>
 
@@ -204,69 +216,417 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Six open textbooks, free to read online. Written with <a href="https://bookdown.org/">bookdown</a> and hosted on <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a>.</p>
-<div class="shelf">
-<div class="book">
+<p>Six open textbooks, free to read online. Written with <a href="https://bookdown.org/">bookdown</a> and hosted on <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a>. Every title can also be downloaded as a PDF or ePub.</p>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="../images/book-intro-r.webp" class="lcover lcover-book img-fluid" alt="Introduction to R book cover"></p>
+<div class="lbody">
+<p><span class="ltrack">Core 01</span></p>
+<section id="introduction-to-r" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-r"><a href="https://intro-r.rsquaredacademy.com/">Introduction to R</a></h3>
+<p class="lout">
+Install R &amp; RStudio, variables, data types, packages, getting help — zero to running code.
+</p>
+<p class="lmeta">
+<span class="lpill beg">Beginner</span>13 chapters
+</p>
+<p class="lprereq">
+No prerequisites. Start here.
+</p>
+<div class="lactions">
+<p><a href="https://intro-r.rsquaredacademy.com/" class="labtn primary">Read free online</a> <a href="https://intro-r.rsquaredacademy.com/Introduction-to-R.pdf" class="labtn dl">PDF</a> <a href="https://intro-r.rsquaredacademy.com/Introduction-to-R.epub" class="labtn dl">ePub</a> <a href="https://github.com/rsquaredacademy-education/intro-r" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<p>
+13 chapters, from the book’s table of contents
+</p>
+<ul>
+<li>Introduction to R</li>
+<li>Install R &amp; RStudio</li>
+<li>Variables in R</li>
+<li>Data Types in R</li>
+<li>Getting Help in R</li>
+<li>Vectors in R</li>
+<li>Dataframes in R</li>
+<li>Factors in R</li>
+<li>Lists in R</li>
+<li>Install &amp; Update R Packages</li>
+<li>RStudio Projects &amp; Data Import</li>
+<li>Your First Visualization</li>
+<li>Your First Data Wrangling</li>
+</ul>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="../images/book-wrangle-r.webp" class="lcover lcover-book img-fluid" alt="Data Wrangling with R book cover"></p>
+<div class="lbody">
+<p><span class="ltrack">Core 02</span></p>
+<section id="data-wrangling-with-r" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling-with-r"><a href="https://wrangle-r.rsquaredacademy.com/">Data Wrangling with R</a></h3>
+<p class="lout">
+Import flat files and Excel, reshape with tidyr, clean with dplyr, pipes, tibbles, stringr, lubridate, forcats.
+</p>
+<p class="lmeta">
+<span class="lpill beg">Beginner</span><span class="lpill int">Intermediate</span>13 chapters
+</p>
+<p class="lprereq">
+Prereq: Core 01 Introduction to R.
+</p>
+<div class="lactions">
+<p><a href="https://wrangle-r.rsquaredacademy.com/" class="labtn primary">Read free online</a> <a href="https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.pdf" class="labtn dl">PDF</a> <a href="https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.epub" class="labtn dl">ePub</a> <a href="https://github.com/rsquaredacademy-education/wrangle-r" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<p>
+13 chapters, plus solutions and 3 appendices
+</p>
+<ul>
+<li>Import Data — Basics</li>
+<li>Import Data — Advanced</li>
+<li>Pipe Operator</li>
+<li>dplyr Basics</li>
+<li>Joining Tables using dplyr</li>
+<li>dplyr Helpers</li>
+<li>tibbles</li>
+<li>Tidying Data with tidyr</li>
+<li>Hacking Strings</li>
+<li>Date &amp; Time: Parsing and Components</li>
+<li>Date &amp; Time: Arithmetic and Time Zones</li>
+<li>Categorical Data Fundamentals</li>
+<li>Factor Manipulation with forcats</li>
+</ul>
+<p>
+Also: Exercise Solutions · Appendix A Arrow, Parquet and DuckDB · B Legacy magrittr Operators · C From pandas to dplyr
+</p>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="../images/book-viz-ggplot2.webp" class="lcover lcover-book img-fluid" alt="Data Visualization with ggplot2 book cover"></p>
+<div class="lbody">
+<p><span class="ltrack">Core 03</span></p>
+<section id="data-visualization-with-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization-with-ggplot2"><a href="https://viz-ggplot2.rsquaredacademy.com/">Data Visualization with ggplot2</a></h3>
+<p class="lout">
+Grammar of graphics, geoms, scales, facets, themes, position and stats tuning, publication polish.
+</p>
+<p class="lmeta">
+<span class="lpill int">Intermediate</span>22 chapters
+</p>
+<p class="lprereq">
+Prereq: Core 01 + Core 02.
+</p>
+<div class="lactions">
+<p><a href="https://viz-ggplot2.rsquaredacademy.com/" class="labtn primary">Read free online</a> <a href="https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.pdf" class="labtn dl">PDF</a> <a href="https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.epub" class="labtn dl">ePub</a> <a href="https://github.com/rsquaredacademy-education/viz-ggplot2" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<p>
+22 chapters, plus a recipe cheat sheet
+</p>
+<ul>
+<li>Quick Tour</li>
+<li>Geoms</li>
+<li>Aesthetics</li>
+<li>Labels</li>
+<li>Text Annotations</li>
+<li>Scatter Plots</li>
+<li>Line Graphs</li>
+<li>Bar Plots</li>
+<li>Box Plots</li>
+<li>Histograms</li>
+<li>Modify Axis</li>
+<li>Modify Legend</li>
+<li>Legend: Color and Fill</li>
+<li>Legend: Shape Size and Alpha</li>
+<li>Faceting</li>
+<li>Themes</li>
+<li>Position &amp; Stats Tuning</li>
+<li>Scales, Formatting &amp; Color Accessibility</li>
+<li>Data Reshaping for ggplot2</li>
+<li>Label Polishing &amp; Wrapping</li>
+<li>Finale: Publication Polish with patchwork, ggrepel &amp; ggtext</li>
+<li>Export &amp; Communicate</li>
+</ul>
+<p>
+Also: chapter 23 Modern Recipe Cheat Sheet.
+</p>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="../images/book-rdbsql.webp" class="lcover lcover-book img-fluid" alt="R, Databases and SQL book cover"></p>
+<div class="lbody">
+<p><span class="ltrack">Core 04</span></p>
+<section id="r-databases-sql" class="level3">
+<h3 class="anchored" data-anchor-id="r-databases-sql"><a href="https://rdbsql.rsquaredacademy.com/">R, Databases &amp; SQL</a></h3>
+<p class="lout">
+Connect R to databases with DBI, translate dplyr into SQL, write joins and production-grade queries.
+</p>
+<p class="lmeta">
+<span class="lpill int">Intermediate</span>5 chapters
+</p>
+<p class="lprereq">
+Prereq: Core 02. Already querying in SQL? Take 04 straight after 02.
+</p>
+<div class="lactions">
+<p><a href="https://rdbsql.rsquaredacademy.com/" class="labtn primary">Read free online</a> <a href="https://rdbsql.rsquaredacademy.com/databases-and-sql.pdf" class="labtn dl">PDF</a> <a href="https://rdbsql.rsquaredacademy.com/databases-and-sql.epub" class="labtn dl">ePub</a> <a href="https://rdbsql.rsquaredacademy.com/cheatsheet/dbi-cheatsheet.pdf" class="labtn dl">Cheatsheet</a> <a href="https://github.com/rsquaredacademy-education/rdbsql" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<p>
+5 chapters, plus a cheat sheet and 2 appendices
+</p>
+<ul>
+<li>DBI</li>
+<li>dbplyr</li>
+<li>SQL Basics</li>
+<li>SQL Advanced</li>
+<li>JOINs</li>
+</ul>
+<p>
+Also: chapter 6 DBI Cheat Sheet · Appendix A Production R Patterns · B DuckDB + Parquet.
+</p>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="../images/book-bash-intro.webp" class="lcover lcover-book img-fluid" alt="Command Line Basics book cover"></p>
+<div class="lbody">
+<p><span class="ltrack">Companion A</span></p>
+<section id="command-line-basics" class="level3">
+<h3 class="anchored" data-anchor-id="command-line-basics"><a href="https://bash-intro.rsquaredacademy.com/">Command Line Basics</a></h3>
+<p class="lout">
+Files, permissions, pipes and scripting — enough shell for R users.
+</p>
+<p class="lmeta">
+<span class="lpill beg">Beginner</span>12 chapters
+</p>
+<p class="lprereq">
+No prerequisites. Take alongside Core 01.
+</p>
+<div class="lactions">
+<p><a href="https://bash-intro.rsquaredacademy.com/" class="labtn primary">Read free online</a> <a href="https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.pdf" class="labtn dl">PDF</a> <a href="https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.epub" class="labtn dl">ePub</a> <a href="https://github.com/rsquaredacademy-education/bash-intro" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<p>
+12 chapters, plus a shell cheat sheet and a Git primer
+</p>
+<ul>
+<li>Introduction</li>
+<li>Navigating File System</li>
+<li>File Management</li>
+<li>Input/Output</li>
+<li>Search &amp; Regular Expression</li>
+<li>Data Transfer</li>
+<li>sudo</li>
+<li>File Compression</li>
+<li>System Info</li>
+<li>R &amp; the Shell</li>
+<li>Pipes &amp; Redirection</li>
+<li>Conclusion</li>
+</ul>
+<p>
+Also: chapter 13 Shell ↔︎ R Cheat Sheet · chapter 14 Git in 10 Minutes for RStudio Users.
+</p>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="../images/book-viz-base.webp" class="lcover lcover-book img-fluid" alt="Data Visualization with Base R book cover"></p>
+<div class="lbody">
+<p><span class="ltrack">Companion B</span></p>
+<section id="data-visualization-with-base-r" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization-with-base-r"><a href="https://viz-base.rsquaredacademy.com/">Data Visualization with Base R</a></h3>
+<p class="lout">
+The base graphics engine: parameters, multi-panel layouts and production export. Zero dependencies.
+</p>
+<p class="lmeta">
+<span class="lpill int">Intermediate</span>12 chapters
+</p>
+<p class="lprereq">
+After Core 03, if you need fine-grained canvas control. Requires R 4.1+.
+</p>
+<div class="lactions">
+<p><a href="https://viz-base.rsquaredacademy.com/" class="labtn primary">Read free online</a> <a href="https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.pdf" class="labtn dl">PDF</a> <a href="https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.epub" class="labtn dl">ePub</a> <a href="https://github.com/rsquaredacademy-education/viz-base" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<p>
+12 chapters, plus a Rosetta Stone appendix
+</p>
+<ul>
+<li>Why Base R Graphics in 2026?</li>
+<li>Introduction</li>
+<li>Title &amp; Axis Labels</li>
+<li>Scatter Plots</li>
+<li>Line Graphs</li>
+<li>Bar Plots</li>
+<li>Box Plots</li>
+<li>Histograms</li>
+<li>Legends</li>
+<li>Text Annotations</li>
+<li>Faceting</li>
+<li>Production Export &amp; Graphical Devices</li>
+</ul>
+<p>
+Also: Appendix A Base R ↔︎ ggplot2 — a Rosetta Stone · References.
+</p>
+</details>
+</section>
+</div>
+</div>
+</div>
+<section id="path" class="level2">
+<h2 class="anchored" data-anchor-id="path">Learning path</h2>
+<p>The Core Track is designed to be followed end to end. The two companions slot in alongside it rather than after it.</p>
+<div class="lpath">
+<div class="lstep">
+<p><span class="num">Core 01</span></p>
+<section id="intro-to-r" class="level3">
+<h3 class="anchored" data-anchor-id="intro-to-r">Intro to R</h3>
+<p>
+<span class="lpill beg">Beginner</span>Zero to running code. RStudio, packages, help.
+</p>
+</section>
+</div>
+<div class="lstep">
+<p><span class="num">Core 02</span></p>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
+<p>
+<span class="lpill beg">Beginner</span>Import, reshape, dplyr, pipes, tibbles.
+</p>
+</section>
+</div>
+<div class="lstep">
+<p><span class="num">Core 03</span></p>
+<section id="viz-with-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="viz-with-ggplot2">Viz with ggplot2</h3>
+<p>
+<span class="lpill int">Intermediate</span>Grammar of graphics through to publication polish.
+</p>
+</section>
+</div>
+<div class="lstep">
+<p><span class="num">Core 04</span></p>
+<section id="r-databases-sql-1" class="level3">
+<h3 class="anchored" data-anchor-id="r-databases-sql-1">R, Databases &amp; SQL</h3>
+<p>
+<span class="lpill int">Intermediate</span>DBI, dbplyr, queries, joins.
+</p>
+<p><span class="lshortcut"><b>Shortcut:</b> already wrangling data in SQL? Take 04 straight after 02.</span></p>
+</section>
+</div>
+</div>
+<div class="lcomps">
+<div class="lcomp">
+<p><span class="num">Companion A — Foundational Tooling</span></p>
+<section id="command-line-basics-1" class="level3">
+<h3 class="anchored" data-anchor-id="command-line-basics-1">Command Line Basics</h3>
+<p>
+<span class="lpill beg">Beginner</span>Files, permissions, pipes and scripting for R users. Pair with Core 01.
+</p>
+<p>
+<b>On Windows:</b> everything works from the RStudio Terminal, Git Bash or WSL — chapter 1 covers all three.
+</p>
+</section>
+</div>
+<div class="lcomp deep">
+<p><span class="num">Companion B — Graphics Deep-Dive</span></p>
+<section id="data-viz-with-base-r" class="level3">
+<h3 class="anchored" data-anchor-id="data-viz-with-base-r">Data Viz with Base R</h3>
+<p>
+<span class="lpill int">Intermediate</span>Base graphics engine, parameters, multi-panel layouts, production export. Zero dependencies. After Core 03.
+</p>
+</section>
+</div>
+</div>
+</section>
+<section id="shelf" class="level2">
+<h2 class="anchored" data-anchor-id="shelf">Series at a glance</h2>
+<p>Six titles in the order they are meant to be read.</p>
+<div class="lshelf">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://intro-r.rsquaredacademy.com/" class="book-cover"><img src="../images/book-intro-r.webp" class="img-fluid figure-img" alt="Cover: Introduction to R"></a></p>
-<figcaption>Cover: Introduction to R</figcaption>
+<p><a href="https://intro-r.rsquaredacademy.com/"><img src="../images/book-intro-r.webp" class="img-fluid figure-img" alt="Introduction to R cover"></a></p>
+<figcaption>Introduction to R cover</figcaption>
 </figure>
 </div>
-<p><a href="https://intro-r.rsquaredacademy.com/" class="book-cap">INTRODUCTION TO R</a></p>
+<p>01 Intro</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://wrangle-r.rsquaredacademy.com/" class="book-cover"><img src="../images/book-wrangle-r.webp" class="img-fluid figure-img" alt="Cover: Data Wrangling with R"></a></p>
-<figcaption>Cover: Data Wrangling with R</figcaption>
+<p><a href="https://wrangle-r.rsquaredacademy.com/"><img src="../images/book-wrangle-r.webp" class="img-fluid figure-img" alt="Data Wrangling with R cover"></a></p>
+<figcaption>Data Wrangling with R cover</figcaption>
 </figure>
 </div>
-<p><a href="https://wrangle-r.rsquaredacademy.com/" class="book-cap">DATA WRANGLING WITH R</a></p>
+<p>02 Wrangle</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://viz-ggplot2.rsquaredacademy.com/" class="book-cover"><img src="../images/book-viz-ggplot2.webp" class="img-fluid figure-img" alt="Cover: Data Visualization with ggplot2"></a></p>
-<figcaption>Cover: Data Visualization with ggplot2</figcaption>
+<p><a href="https://viz-ggplot2.rsquaredacademy.com/"><img src="../images/book-viz-ggplot2.webp" class="img-fluid figure-img" alt="Data Visualization with ggplot2 cover"></a></p>
+<figcaption>Data Visualization with ggplot2 cover</figcaption>
 </figure>
 </div>
-<p><a href="https://viz-ggplot2.rsquaredacademy.com/" class="book-cap">DATA VISUALIZATION WITH ggplot2</a></p>
+<p>03 ggplot2</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://viz-base.rsquaredacademy.com/" class="book-cover"><img src="../images/book-viz-base.webp" class="img-fluid figure-img" alt="Cover: Data Visualization with R"></a></p>
-<figcaption>Cover: Data Visualization with R</figcaption>
+<p><a href="https://rdbsql.rsquaredacademy.com/"><img src="../images/book-rdbsql.webp" class="img-fluid figure-img" alt="R, Databases and SQL cover"></a></p>
+<figcaption>R, Databases and SQL cover</figcaption>
 </figure>
 </div>
-<p><a href="https://viz-base.rsquaredacademy.com/" class="book-cap">DATA VISUALIZATION WITH R</a></p>
+<p>04 SQL</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://rdbsql.rsquaredacademy.com/" class="book-cover"><img src="../images/book-rdbsql.webp" class="img-fluid figure-img" alt="Cover: R, Databases and SQL"></a></p>
-<figcaption>Cover: R, Databases and SQL</figcaption>
+<p><a href="https://bash-intro.rsquaredacademy.com/"><img src="../images/book-bash-intro.webp" class="img-fluid figure-img" alt="Command Line Basics cover"></a></p>
+<figcaption>Command Line Basics cover</figcaption>
 </figure>
 </div>
-<p><a href="https://rdbsql.rsquaredacademy.com/" class="book-cap">R, DATABASES &amp; SQL</a></p>
+<p>C-A Bash</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://bash-intro.rsquaredacademy.com/" class="book-cover"><img src="../images/book-bash-intro.webp" class="img-fluid figure-img" alt="Cover: Command Line Basics"></a></p>
-<figcaption>Cover: Command Line Basics</figcaption>
+<p><a href="https://viz-base.rsquaredacademy.com/"><img src="../images/book-viz-base.webp" class="img-fluid figure-img" alt="Data Visualization with Base R cover"></a></p>
+<figcaption>Data Visualization with Base R cover</figcaption>
 </figure>
 </div>
-<p><a href="https://bash-intro.rsquaredacademy.com/" class="book-cap">COMMAND LINE BASICS</a></p>
+<p>C-B Base</p>
 </div>
 </div>
-<section id="about-these-books" class="level2">
-<h2 class="anchored" data-anchor-id="about-these-books">About these books</h2>
-<p>They were authored to supplement the courses at <a href="https://www.rsquaredacademy.com">Rsquared Academy</a>. Some are beginner friendly while others assume prior familiarity with a topic.</p>
-<p>They began as blog posts, expanded into tutorials, and were eventually rewritten into short books with the sharp edges filed off. The style is deliberately plain — short chapters, worked examples, and the parts of the documentation people usually skip.</p>
-<p>None of them replaces the official <a href="https://www.r-project.org/">R documentation</a>. If you want one place to start, <strong>Introduction to R</strong> is the one.</p>
-<p>If these were useful, the courses behind them are at <a href="https://www.rsquaredacademy.com/">rsquaredacademy.com</a>.</p>
+<p>If you are starting from zero, begin with <a href="https://intro-r.rsquaredacademy.com/">Introduction to R</a>. The full catalogue, with download links for every title, is also at <a href="https://ebooks.rsquaredacademy.com/">ebooks.rsquaredacademy.com</a>.</p>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>All six books are open educational resources under <strong>CC BY-NC-SA 4.0</strong> — free to read online and to share with attribution, non-commercially. Found a typo? Open an issue on the book’s GitHub repository.</p>
 
 
 </section>

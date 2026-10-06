@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.">
+<meta name="description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R — no install, no hosting, no account.">
 
 <title>Interactive Apps – Aravind Hebbali</title>
 <style>
@@ -106,6 +106,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- TODO(roadmap 4): add X to the sameAs array once an X handle exists. Do not
      add twitter:site / twitter:creator meta until then - both pointed at a
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
+
+<!-- Quarto emits og:image / twitter:image from each page's `image:` field but
+     has no front-matter option for the dimensions, and roadmap section 6 asks
+     for them explicitly. Every page shares one card, images/og-card.jpg, so the
+     values are constant and belong here rather than in each .qmd.
+     Verified: the file is 1200x630. -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -136,13 +148,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Interactive Apps – Aravind Hebbali">
-<meta property="og:description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.">
-<meta property="og:image" content="https://www.aravindhebbali.com/apps/images/og-card.jpg">
+<meta property="og:description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R — no install, no hosting, no account.">
+<meta property="og:image" content="https://www.aravindhebbali.com/images/og-card.jpg">
 <meta property="og:site_name" content="Aravind Hebbali">
 <meta property="og:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:title" content="Interactive Apps – Aravind Hebbali">
-<meta name="twitter:description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.">
-<meta name="twitter:image" content="https://www.aravindhebbali.com/apps/images/og-card.jpg">
+<meta name="twitter:description" content="Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R — no install, no hosting, no account.">
+<meta name="twitter:image" content="https://www.aravindhebbali.com/images/og-card.jpg">
 <meta name="twitter:image:alt" content="Aravind Hebbali — Statistical Software &amp; Quantitative Consulting">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.aravindhebbali.com/apps/">
@@ -221,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R.
+    Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R — no install, no hosting, no account.
   </div>
 </div>
 
@@ -238,100 +250,237 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Directory for interactive apps covering data analysis, visualization and modelling. Each app ships inside its R package.</p>
+<p>Seven Shiny applications covering data analysis, visualization and modelling. Each one ships inside its own R package and runs locally — there is no hosted copy to sign up for, and nothing to install beyond the package itself.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Cloud hosting retired
+Browser hosting has been retired
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Apps that were previously hosted in the browser are <strong>no longer available</strong>. There is currently no browser version of any of them. Run them locally with R using the commands below.</p>
+<p>Apps that were previously hosted in the browser are <strong>no longer available</strong>, and there is no replacement host. Every app below runs on your own machine with R installed. Copy the two lines, paste them into the console, and the app opens.</p>
 </div>
 </div>
-<section id="run-locally-today-with-xplorerr" class="level2">
-<h2 class="anchored" data-anchor-id="run-locally-today-with-xplorerr">Run locally today with xplorerr</h2>
-<p>Install once, then launch any app from your R console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"xplorerr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_descriptive</span>()         <span class="co"># descriptive statistics</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_vistributions</span>()      <span class="co"># probability distributions</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_inference</span>()          <span class="co"># hypothesis testing</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_linear_regression</span>()  <span class="co"># linear regression</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_logistic_regression</span>() <span class="co"># logistic regression</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_rfm_analysis</span>()       <span class="co"># RFM / customer segmentation</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_visualizer</span>()         <span class="co"># data visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Docs: <a href="https://xplorerr.rsquaredacademy.com/">xplorerr.rsquaredacademy.com</a> · CRAN: <a href="https://cran.r-project.org/package=xplorerr">xplorerr</a> · Source: <a href="https://github.com/aravindhebbali/xplorerr">GitHub</a></p>
+<section id="regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression">Regression and modelling</h2>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="images/hex-olsrr.webp" class="lcover lcover-hex img-fluid" alt="olsrr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">olsrr</span></p>
+<section id="linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="linear-regression">Linear regression</h3>
+<p class="lout">
+Interactive regression output, diagnostics and variable selection.
+</p>
+<p class="lprereq">
+Interactive diagnostics for a fitted <code>lm</code> model.
+</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"olsrr"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>olsrr<span class="sc">::</span><span class="fu">ols_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://olsrr.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=olsrr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/olsrr" class="labtn">GitHub</a></p>
+</div>
 </section>
-<section id="app-directory" class="level2">
-<h2 class="anchored" data-anchor-id="app-directory">App directory</h2>
-<p>Browser apps will be published on the relevant package site when they are ready. In the meantime each app runs locally.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">App</th>
-<th style="text-align: left;">Covers</th>
-<th style="text-align: left;">Run locally</th>
-<th style="text-align: left;">Docs</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>descriptr</strong></td>
-<td style="text-align: left;">descriptive statistics</td>
-<td style="text-align: left;"><code>app_descriptive()</code></td>
-<td style="text-align: left;"><a href="https://descriptr.rsquaredacademy.com/">docs</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>vistributions</strong></td>
-<td style="text-align: left;">probability distributions</td>
-<td style="text-align: left;"><code>app_vistributions()</code></td>
-<td style="text-align: left;"><a href="https://vistributions.rsquaredacademy.com/">docs</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>inferr</strong></td>
-<td style="text-align: left;">hypothesis testing</td>
-<td style="text-align: left;"><code>app_inference()</code></td>
-<td style="text-align: left;"><a href="https://inferr.rsquaredacademy.com/">docs</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>olsrr</strong></td>
-<td style="text-align: left;">linear regression</td>
-<td style="text-align: left;"><code>app_linear_regression()</code></td>
-<td style="text-align: left;"><a href="https://olsrr.rsquaredacademy.com/">docs</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>blorr</strong></td>
-<td style="text-align: left;">logistic regression</td>
-<td style="text-align: left;"><code>app_logistic_regression()</code></td>
-<td style="text-align: left;"><a href="https://blorr.rsquaredacademy.com/">docs</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>rfm</strong></td>
-<td style="text-align: left;">customer segmentation</td>
-<td style="text-align: left;"><code>app_rfm_analysis()</code></td>
-<td style="text-align: left;"><a href="https://rfm.rsquaredacademy.com/">docs</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>xplorerr</strong></td>
-<td style="text-align: left;">all of the above + visualizer</td>
-<td style="text-align: left;"><code>app_visualizer()</code></td>
-<td style="text-align: left;"><a href="https://xplorerr.rsquaredacademy.com/">docs</a></td>
-</tr>
-</tbody>
-</table>
-<p>Prefer the package that owns the app? Each package also exports its own launcher, which is arguably the more natural entry point:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>olsrr<span class="sc">::</span><span class="fu">ols_launch_app</span>()             <span class="co"># linear regression</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>blorr<span class="sc">::</span><span class="fu">blr_launch_app</span>()             <span class="co"># logistic regression</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rfm<span class="sc">::</span><span class="fu">rfm_launch_app</span>()               <span class="co"># customer segmentation</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>descriptr<span class="sc">::</span><span class="fu">ds_launch_shiny_app</span>()    <span class="co"># descriptive statistics</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>inferr<span class="sc">::</span><span class="fu">ifr_launch_shiny_app</span>()      <span class="co"># hypothesis testing</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>vistributions<span class="sc">::</span><span class="fu">vdist_launch_app</span>()   <span class="co"># probability distributions</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_linear_regression</span>()   <span class="co"># and the rest</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>All packages: <a href="https://pkgs.rsquaredacademy.com/">pkgs.rsquaredacademy.com</a></p>
+</div>
+</div>
+<div class="lcard">
+<p><img src="images/hex-blorr.webp" class="lcover lcover-hex img-fluid" alt="blorr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">blorr</span></p>
+<section id="logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h3>
+<p class="lout">
+Model fit, validation and collinearity for binary outcomes.
+</p>
+<p class="lprereq">
+The <code>glm</code> equivalent of the olsrr app.
+</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"blorr"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>blorr<span class="sc">::</span><span class="fu">blr_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://blorr.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=blorr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/blorr" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="images/hex-rfm.webp" class="lcover lcover-hex img-fluid" alt="rfm hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">rfm</span></p>
+<section id="customer-segmentation" class="level3">
+<h3 class="anchored" data-anchor-id="customer-segmentation">Customer segmentation</h3>
+<p class="lout">
+Generate RFM scores and explore customer segments visually.
+</p>
+<p class="lprereq">
+Point it at transaction- or customer-level data.
+</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rfm"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>rfm<span class="sc">::</span><span class="fu">rfm_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://rfm.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=rfm" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/rfm" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="statistics" class="level2">
+<h2 class="anchored" data-anchor-id="statistics">Statistics and distributions</h2>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="images/hex-descriptr.webp" class="lcover lcover-hex img-fluid" alt="descriptr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">descriptr</span></p>
+<section id="descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive statistics</h3>
+<p class="lout">
+Data screening, summary statistics, frequency and cross tables.
+</p>
+<p class="lprereq">
+A visual front end to the descriptr functions.
+</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"descriptr"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>descriptr<span class="sc">::</span><span class="fu">ds_launch_shiny_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://descriptr.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=descriptr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/descriptr" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="images/hex-inferr.webp" class="lcover lcover-hex img-fluid" alt="inferr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">inferr</span></p>
+<section id="hypothesis-testing" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h3>
+<p class="lout">
+t tests, chi square, binomial and proportion tests, interactively.
+</p>
+<p class="lprereq">
+Choose the test, pick the columns, read the result.
+</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"inferr"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>inferr<span class="sc">::</span><span class="fu">ifr_launch_shiny_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://inferr.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=inferr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/inferr" class="labtn">GitHub</a></p>
+</div>
+<details>
+<summary>
+Also exported
+</summary>
+<p>
+<code>inferr</code> exports a second launcher under a longer name, <code>infer_launch_shiny_app()</code>. It is the same app; <code>ifr_launch_shiny_app()</code> is used here for consistency with the other packages.
+</p>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="images/hex-vistributions.webp" class="lcover lcover-hex img-fluid" alt="vistributions hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">vistributions</span></p>
+<section id="probability-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="probability-distributions">Probability distributions</h3>
+<p class="lout">
+Visualize the binomial, chi square, normal, F and t distributions.
+</p>
+<p class="lprereq">
+Adjust the parameters and watch the density update.
+</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"vistributions"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vistributions<span class="sc">::</span><span class="fu">vdist_launch_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://vistributions.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=vistributions" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/vistributions" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="xplorerr" class="level2">
+<h2 class="anchored" data-anchor-id="xplorerr">Everything in one app</h2>
+<p><code>xplorerr</code> bundles the whole set behind a single install, and adds a visualizer the other packages do not have. If you are not attached to a particular package, start here.</p>
+<div class="lcard">
+<p><img src="images/hex-xplorerr.webp" class="lcover lcover-hex img-fluid" alt="xplorerr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">xplorerr</span></p>
+<section id="all-seven-apps" class="level3">
+<h3 class="anchored" data-anchor-id="all-seven-apps">All seven apps</h3>
+<p class="lout">
+Descriptive, inferential, visual, RFM, linear and logistic — one package, one install.
+</p>
+<p class="lprereq">
+Seven launchers. Each opens its own app window.
+</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"xplorerr"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_linear_regression</span>()   <span class="co"># linear regression</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_logistic_regression</span>() <span class="co"># logistic regression</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_descriptive</span>()         <span class="co"># descriptive statistics</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_inference</span>()           <span class="co"># hypothesis testing</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_vistributions</span>()       <span class="co"># probability distributions</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_rfm_analysis</span>()        <span class="co"># RFM / customer segmentation</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>xplorerr<span class="sc">::</span><span class="fu">app_visualizer</span>()          <span class="co"># data visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="lactions">
+<p><a href="https://xplorerr.rsquaredacademy.com" class="labtn primary">Docs</a> <a href="https://cran.r-project.org/package=xplorerr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/xplorerr" class="labtn">GitHub</a></p>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="which" class="level2">
+<h2 class="anchored" data-anchor-id="which">Which launcher should I use?</h2>
+<p>Both routes work and reach the same apps. The difference is who owns them.</p>
+<div class="lgrid">
+<div class="lcard">
+<div class="lbody">
+<p><span class="ltrack util">Option A</span></p>
+<section id="one-install-seven-apps" class="level3">
+<h3 class="anchored" data-anchor-id="one-install-seven-apps">One install, seven apps</h3>
+<p class="lout">
+Install <code>xplorerr</code> and call any <code>app_*()</code> function. Nothing else to install.
+</p>
+<p class="lprereq">
+Best if you want the visualizer, or several apps at once.
+</p>
+</section>
+</div>
+</div>
+<div class="lcard">
+<div class="lbody">
+<p><span class="ltrack util">Option B</span></p>
+<section id="the-owning-package" class="level3">
+<h3 class="anchored" data-anchor-id="the-owning-package">The owning package</h3>
+<p class="lout">
+Install the package that owns the app and call its own launcher.
+</p>
+<p class="lprereq">
+Best if you already use that package for its non-interactive functions.
+</p>
+<div class="lactions">
+<p><a href="https://pkgs.rsquaredacademy.com/" class="labtn">Package reference</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+nse2r has no app here
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>nse2r</code> did ship a Shiny app for NSE market data, but the package was <a href="https://github.com/rsquaredacademy/nse2r">archived on CRAN on 2023-08-07</a> and is under revival, so it gets no app card. Nothing to install and nothing to link to.</p>
+</div>
+</div>
 
 
 </section>

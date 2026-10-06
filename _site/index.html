@@ -72,6 +72,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- TODO(roadmap 4): add X to the sameAs array once an X handle exists. Do not
      add twitter:site / twitter:creator meta until then - both pointed at a
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
+
+<!-- Quarto emits og:image / twitter:image from each page's `image:` field but
+     has no front-matter option for the dimensions, and roadmap section 6 asks
+     for them explicitly. Every page shares one card, images/og-card.jpg, so the
+     values are constant and belong here rather than in each .qmd.
+     Verified: the file is 1200x630. -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -240,11 +252,23 @@ ul.task-list li input[type="checkbox"] {
 <li>well documented</li>
 </ul>
 <p>Major bugs get fixed quickly. Feature requests are considered but not promised.</p>
-<div class="pkg">
-<p><img src="images/hex-olsrr.webp" class="pkg-hex img-fluid" alt="olsrr hex sticker"></p>
-<section id="olsrr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="olsrr"><a href="https://olsrr.rsquaredacademy.com">olsrr</a></h3>
-<p>Tools for building linear regression models</p>
+<div class="lgrid">
+<div class="lcard">
+<p><img src="images/hex-olsrr.webp" class="lcover lcover-hex img-fluid" alt="olsrr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Regression</span></p>
+<section id="olsrr" class="level3">
+<h3 class="anchored" data-anchor-id="olsrr"><a href="https://olsrr.rsquaredacademy.com">olsrr</a></h3>
+<p class="lout">
+Tools for building linear regression models.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=olsrr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/olsrr" class="labtn">GitHub</a> <a href="https://olsrr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Comprehensive Regression Output</li>
 <li>Variable Selection Procedures</li>
@@ -254,29 +278,26 @@ ul.task-list li input[type="checkbox"] {
 <li>Measures of Influence</li>
 <li>Residual Diagnostics</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=olsrr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/olsrr">GitHub</a> &nbsp; <a href="https://olsrr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="images/hex-rfm.webp" class="pkg-hex img-fluid" alt="rfm hex sticker"></p>
-<section id="rfm" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="rfm"><a href="https://rfm.rsquaredacademy.com">rfm</a></h3>
-<p>Tools for RFM analysis</p>
-<ul>
-<li>Generate RFM Scores</li>
-<li>Handles Transaction / Customer Level Data</li>
-<li>Visualization Tools</li>
-<li>Segment Customers</li>
-<li>Includes Shiny App</li>
-</ul>
-<p><a href="https://cran.r-project.org/package=rfm">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/rfm">GitHub</a> &nbsp; <a href="https://rfm.rsquaredacademy.com">Docs</a></p>
-</section>
 </div>
-<div class="pkg">
-<p><img src="images/hex-xplorerr.webp" class="pkg-hex img-fluid" alt="xplorerr hex sticker"></p>
-<section id="xplorerr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="xplorerr"><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></h3>
-<p>Tools for interactive data analysis</p>
+<div class="lcard">
+<p><img src="images/hex-xplorerr.webp" class="lcover lcover-hex img-fluid" alt="xplorerr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Interactive</span></p>
+<section id="xplorerr" class="level3">
+<h3 class="anchored" data-anchor-id="xplorerr"><a href="https://xplorerr.rsquaredacademy.com">xplorerr</a></h3>
+<p class="lout">
+Tools for interactive data analysis.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=xplorerr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/xplorerr" class="labtn">GitHub</a> <a href="https://xplorerr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Descriptive Statistics</li>
 <li>Inferential Statistics</li>
@@ -286,14 +307,53 @@ ul.task-list li input[type="checkbox"] {
 <li>Linear Regression</li>
 <li>Logistic Regression</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=xplorerr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/xplorerr">GitHub</a> &nbsp; <a href="https://xplorerr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="images/hex-descriptr.webp" class="pkg-hex img-fluid" alt="descriptr hex sticker"></p>
-<section id="descriptr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="descriptr"><a href="https://descriptr.rsquaredacademy.com">descriptr</a></h3>
-<p>Tools for generating descriptive / summary statistics</p>
+</div>
+<div class="lcard">
+<p><img src="images/hex-rfm.webp" class="lcover lcover-hex img-fluid" alt="rfm hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Segmentation</span></p>
+<section id="rfm" class="level3">
+<h3 class="anchored" data-anchor-id="rfm"><a href="https://rfm.rsquaredacademy.com">rfm</a></h3>
+<p class="lout">
+Tools for RFM analysis.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=rfm" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/rfm" class="labtn">GitHub</a> <a href="https://rfm.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<ul>
+<li>Generate RFM Scores</li>
+<li>Handles Transaction / Customer Level Data</li>
+<li>Visualization Tools</li>
+<li>Segment Customers</li>
+<li>Includes Shiny App</li>
+</ul>
+</details>
+</section>
+</div>
+</div>
+<div class="lcard">
+<p><img src="images/hex-descriptr.webp" class="lcover lcover-hex img-fluid" alt="descriptr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Descriptive</span></p>
+<section id="descriptr" class="level3">
+<h3 class="anchored" data-anchor-id="descriptr"><a href="https://descriptr.rsquaredacademy.com">descriptr</a></h3>
+<p class="lout">
+Tools for generating descriptive and summary statistics.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=descriptr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/descriptr" class="labtn">GitHub</a> <a href="https://descriptr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Data Screening</li>
 <li>Summary Statistics</li>
@@ -301,66 +361,26 @@ ul.task-list li input[type="checkbox"] {
 <li>Cross Tables</li>
 <li>Data Visualization</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=descriptr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/descriptr">GitHub</a> &nbsp; <a href="https://descriptr.rsquaredacademy.com">Docs</a></p>
+</details>
 </section>
 </div>
-<div class="pkg">
-<p><img src="images/hex-inferr.webp" class="pkg-hex img-fluid" alt="inferr hex sticker"></p>
-<section id="inferr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="inferr"><a href="https://inferr.rsquaredacademy.com">inferr</a></h3>
-<p>Tools for inferential statistics</p>
-<ul>
-<li>Binomial Test</li>
-<li>Test of Proportion</li>
-<li>t Test</li>
-<li>Chi Square Test</li>
-<li>Levene’s Test</li>
-<li>Test of Variance</li>
-<li>McNemar Test</li>
-<li>Cochran Q Test</li>
-<li>Runs Test</li>
-</ul>
-<p><a href="https://cran.r-project.org/package=inferr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/inferr">GitHub</a> &nbsp; <a href="https://inferr.rsquaredacademy.com">Docs</a></p>
-</section>
 </div>
-<div class="pkg">
-<p><img src="images/hex-blorr.webp" class="pkg-hex img-fluid" alt="blorr hex sticker"></p>
-<section id="blorr" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="blorr"><a href="https://blorr.rsquaredacademy.com">blorr</a></h3>
-<p>Tools for building binary logistic regression models</p>
-<ul>
-<li>Bivariate Analysis</li>
-<li>Model Fit Statistics</li>
-<li>Model Validation</li>
-<li>Variable Selection</li>
-<li>Residual Diagnostics</li>
-<li>Collinearity Diagnostics</li>
-<li>Visualization</li>
-</ul>
-<p><a href="https://cran.r-project.org/package=blorr">CRAN</a> &nbsp; <a href="https://github.com/aravindhebbali/blorr">GitHub</a> &nbsp; <a href="https://blorr.rsquaredacademy.com">Docs</a></p>
-</section>
+<div class="lcard">
+<p><img src="images/hex-rbin.webp" class="lcover lcover-hex img-fluid" alt="rbin hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Wrangling</span></p>
+<section id="rbin" class="level3">
+<h3 class="anchored" data-anchor-id="rbin"><a href="https://github.com/rsquaredacademy/rbin">rbin</a></h3>
+<p class="lout">
+Tools for binning data.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=rbin" class="labtn primary">CRAN</a> <a href="https://github.com/rsquaredacademy/rbin" class="labtn">GitHub</a></p>
 </div>
-<div class="pkg">
-<p><img src="images/hex-vistributions.webp" class="pkg-hex img-fluid" alt="vistributions hex sticker"></p>
-<section id="vistributions" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="vistributions"><a href="https://vistributions.rsquaredacademy.com">vistributions</a></h3>
-<p>Tools for visualizing probability distributions</p>
-<ul>
-<li>Binomial Distribution</li>
-<li>Chi Square Distribution</li>
-<li>Normal Distribution</li>
-<li>f Distribution</li>
-<li>t Distribution</li>
-<li>Includes Shiny App</li>
-</ul>
-<p><a href="https://cran.r-project.org/package=vistributions">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/vistributions">GitHub</a> &nbsp; <a href="https://vistributions.rsquaredacademy.com">Docs</a></p>
-</section>
-</div>
-<div class="pkg">
-<p><img src="images/hex-rbin.webp" class="pkg-hex img-fluid" alt="rbin hex sticker"></p>
-<section id="rbin" class="level3 pkg-name">
-<h3 class="pkg-name anchored" data-anchor-id="rbin"><a href="https://github.com/rsquaredacademy/rbin">rbin</a></h3>
-<p>Tools for binning data</p>
+<details>
+<summary>
+What’s inside
+</summary>
 <ul>
 <li>Manual Binning</li>
 <li>Quantile Binning</li>
@@ -371,71 +391,102 @@ ul.task-list li input[type="checkbox"] {
 <li>Generate Dummy Variables</li>
 <li>Includes RStudio Addins</li>
 </ul>
-<p><a href="https://cran.r-project.org/package=rbin">CRAN</a> &nbsp; <a href="https://github.com/rsquaredacademy/rbin">GitHub</a></p>
+</details>
 </section>
 </div>
-<p>Also on CRAN: <a href="https://cran.r-project.org/package=yahoofinancer">yahoofinancer</a> for Yahoo! Finance data, and <a href="https://cran.r-project.org/package=standby">standby</a> for managing R processes. <a href="https://github.com/rsquaredacademy/nse2r">nse2r</a> is archived and under revival. Full reference documentation and vignettes: <a href="packages/">Packages</a>.</p>
+</div>
+<div class="lcard">
+<p><img src="images/hex-blorr.webp" class="lcover lcover-hex img-fluid" alt="blorr hex sticker"></p>
+<div class="lbody">
+<p><span class="ltrack">Regression</span></p>
+<section id="blorr" class="level3">
+<h3 class="anchored" data-anchor-id="blorr"><a href="https://blorr.rsquaredacademy.com">blorr</a></h3>
+<p class="lout">
+Tools for building binary logistic regression models.
+</p>
+<div class="lactions">
+<p><a href="https://cran.r-project.org/package=blorr" class="labtn primary">CRAN</a> <a href="https://github.com/aravindhebbali/blorr" class="labtn">GitHub</a> <a href="https://blorr.rsquaredacademy.com" class="labtn">Docs</a></p>
+</div>
+<details>
+<summary>
+What’s inside
+</summary>
+<ul>
+<li>Bivariate Analysis</li>
+<li>Model Fit Statistics</li>
+<li>Model Validation</li>
+<li>Variable Selection</li>
+<li>Residual Diagnostics</li>
+<li>Collinearity Diagnostics</li>
+<li>Visualization</li>
+</ul>
+</details>
+</section>
+</div>
+</div>
+</div>
+<p>Four more carry the long tail: <a href="https://cran.r-project.org/package=vistributions">vistributions</a> for visualizing probability distributions, <a href="https://cran.r-project.org/package=inferr">inferr</a> for inferential statistics, <a href="https://cran.r-project.org/package=yahoofinancer">yahoofinancer</a> for Yahoo! Finance data, and <a href="https://cran.r-project.org/package=standby">standby</a> for managing R processes. <a href="https://github.com/rsquaredacademy/nse2r">nse2r</a> is archived and under revival. Full reference documentation and vignettes: <a href="packages/">Packages</a>.</p>
 </section>
 <section id="books" class="level2">
 <h2 class="anchored" data-anchor-id="books">Books</h2>
 <p>Six open textbooks, free to read online. They started as blog posts, grew into tutorials on <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a>, and were eventually rewritten into short books with the sharp edges filed off.</p>
-<div class="shelf">
-<div class="book">
+<div class="lshelf">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://intro-r.rsquaredacademy.com/" class="book-cover"><img src="images/book-intro-r.webp" class="img-fluid figure-img" alt="Cover: Introduction to R"></a></p>
+<p><a href="https://intro-r.rsquaredacademy.com/"><img src="images/book-intro-r.webp" class="img-fluid figure-img" alt="Cover: Introduction to R"></a></p>
 <figcaption>Cover: Introduction to R</figcaption>
 </figure>
 </div>
-<p><a href="https://intro-r.rsquaredacademy.com/" class="book-cap">INTRODUCTION TO R</a></p>
+<p>01 Intro</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://wrangle-r.rsquaredacademy.com/" class="book-cover"><img src="images/book-wrangle-r.webp" class="img-fluid figure-img" alt="Cover: Data Wrangling with R"></a></p>
+<p><a href="https://wrangle-r.rsquaredacademy.com/"><img src="images/book-wrangle-r.webp" class="img-fluid figure-img" alt="Cover: Data Wrangling with R"></a></p>
 <figcaption>Cover: Data Wrangling with R</figcaption>
 </figure>
 </div>
-<p><a href="https://wrangle-r.rsquaredacademy.com/" class="book-cap">DATA WRANGLING WITH R</a></p>
+<p>02 Wrangle</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://viz-ggplot2.rsquaredacademy.com/" class="book-cover"><img src="images/book-viz-ggplot2.webp" class="img-fluid figure-img" alt="Cover: Data Visualization with ggplot2"></a></p>
+<p><a href="https://viz-ggplot2.rsquaredacademy.com/"><img src="images/book-viz-ggplot2.webp" class="img-fluid figure-img" alt="Cover: Data Visualization with ggplot2"></a></p>
 <figcaption>Cover: Data Visualization with ggplot2</figcaption>
 </figure>
 </div>
-<p><a href="https://viz-ggplot2.rsquaredacademy.com/" class="book-cap">DATA VISUALIZATION WITH GGPLOT2</a></p>
+<p>03 ggplot2</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://viz-base.rsquaredacademy.com/" class="book-cover"><img src="images/book-viz-base.webp" class="img-fluid figure-img" alt="Cover: Data Visualization with R"></a></p>
+<p><a href="https://viz-base.rsquaredacademy.com/"><img src="images/book-viz-base.webp" class="img-fluid figure-img" alt="Cover: Data Visualization with R"></a></p>
 <figcaption>Cover: Data Visualization with R</figcaption>
 </figure>
 </div>
-<p><a href="https://viz-base.rsquaredacademy.com/" class="book-cap">DATA VISUALIZATION WITH R</a></p>
+<p>04 Base</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://rdbsql.rsquaredacademy.com/" class="book-cover"><img src="images/book-rdbsql.webp" class="img-fluid figure-img" alt="Cover: R, Databases and SQL"></a></p>
+<p><a href="https://rdbsql.rsquaredacademy.com/"><img src="images/book-rdbsql.webp" class="img-fluid figure-img" alt="Cover: R, Databases and SQL"></a></p>
 <figcaption>Cover: R, Databases and SQL</figcaption>
 </figure>
 </div>
-<p><a href="https://rdbsql.rsquaredacademy.com/" class="book-cap">R, DATABASES AND SQL</a></p>
+<p>05 SQL</p>
 </div>
-<div class="book">
+<div class="lshelf-item">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://bash-intro.rsquaredacademy.com/" class="book-cover"><img src="images/book-bash-intro.webp" class="img-fluid figure-img" alt="Cover: Command Line Basics"></a></p>
+<p><a href="https://bash-intro.rsquaredacademy.com/"><img src="images/book-bash-intro.webp" class="img-fluid figure-img" alt="Cover: Command Line Basics"></a></p>
 <figcaption>Cover: Command Line Basics</figcaption>
 </figure>
 </div>
-<p><a href="https://bash-intro.rsquaredacademy.com/" class="book-cap">COMMAND LINE BASICS</a></p>
+<p>06 Bash</p>
 </div>
 </div>
-<p>If you are starting from zero, begin with <a href="https://intro-r.rsquaredacademy.com/">Introduction to R</a>. More on how these were written: <a href="books/">Books</a>.</p>
+<p>If you are starting from zero, begin with <a href="https://intro-r.rsquaredacademy.com/">Introduction to R</a>. Every title can also be downloaded as a PDF or ePub: <a href="books/">Books</a>.</p>
 </section>
 <section id="teaching" class="level2">
 <h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
