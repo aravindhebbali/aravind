@@ -1,69 +1,281 @@
 ---
 title: "Interactive Apps"
-description: "Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R."
-image: images/og-card.jpg
+description: "Shiny applications that ship inside the olsrr, blorr, descriptr, inferr, rfm, vistributions and xplorerr packages. Run locally in R — no install, no hosting, no account."
+image: ../images/og-card.jpg
 image-alt: "Aravind Hebbali — Statistical Software & Quantitative Consulting"
 title-block-date: false
 title-block-categories: false
 ---
 
-Directory for interactive apps covering data analysis, visualization and
-modelling. Each app ships inside its R package.
+Seven Shiny applications covering data analysis, visualization and modelling.
+Each one ships inside its own R package and runs locally — there is no hosted
+copy to sign up for, and nothing to install beyond the package itself.
 
 ::: {.callout-warning}
-### Cloud hosting retired
+### Browser hosting has been retired
 
-Apps that were previously hosted in the browser are **no longer available**.
-There is currently no browser version of any of them. Run them locally with R
-using the commands below.
+Apps that were previously hosted in the browser are **no longer available**, and
+there is no replacement host. Every app below runs on your own machine with R
+installed. Copy the two lines, paste them into the console, and the app opens.
 :::
 
-## Run locally today with xplorerr
+## Regression and modelling {#regression}
 
-Install once, then launch any app from your R console:
+::: {.lgrid}
+
+::: {.lcard}
+![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">olsrr</span>
+
+### Linear regression
+
+<p class="lout">Interactive regression output, diagnostics and variable selection.</p>
+
+<p class="lprereq">Interactive diagnostics for a fitted <code>lm</code> model.</p>
+
+```r
+install.packages("olsrr")
+olsrr::ols_launch_app()
+```
+
+::: {.lactions}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
+[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+:::
+:::
+
+:::
+
+::: {.lcard}
+![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">blorr</span>
+
+### Logistic regression
+
+<p class="lout">Model fit, validation and collinearity for binary outcomes.</p>
+
+<p class="lprereq">The <code>glm</code> equivalent of the olsrr app.</p>
+
+```r
+install.packages("blorr")
+blorr::blr_launch_app()
+```
+
+::: {.lactions}
+[Docs](https://blorr.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=blorr){.labtn}
+[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+:::
+:::
+
+:::
+
+::: {.lcard}
+![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">rfm</span>
+
+### Customer segmentation
+
+<p class="lout">Generate RFM scores and explore customer segments visually.</p>
+
+<p class="lprereq">Point it at transaction- or customer-level data.</p>
+
+```r
+install.packages("rfm")
+rfm::rfm_launch_app()
+```
+
+::: {.lactions}
+[Docs](https://rfm.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=rfm){.labtn}
+[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
+:::
+:::
+
+:::
+
+:::
+
+## Statistics and distributions {#statistics}
+
+::: {.lgrid}
+
+::: {.lcard}
+![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">descriptr</span>
+
+### Descriptive statistics
+
+<p class="lout">Data screening, summary statistics, frequency and cross tables.</p>
+
+<p class="lprereq">A visual front end to the descriptr functions.</p>
+
+```r
+install.packages("descriptr")
+descriptr::ds_launch_shiny_app()
+```
+
+::: {.lactions}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
+[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+:::
+:::
+
+:::
+
+::: {.lcard}
+![](images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">inferr</span>
+
+### Hypothesis testing
+
+<p class="lout">t tests, chi square, binomial and proportion tests, interactively.</p>
+
+<p class="lprereq">Choose the test, pick the columns, read the result.</p>
+
+```r
+install.packages("inferr")
+inferr::ifr_launch_shiny_app()
+```
+
+::: {.lactions}
+[Docs](https://inferr.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=inferr){.labtn}
+[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
+:::
+
+<details>
+<summary>Also exported</summary>
+
+<p><code>inferr</code> exports a second launcher under a longer name,
+<code>infer_launch_shiny_app()</code>. It is the same app;
+<code>ifr_launch_shiny_app()</code> is used here for consistency with the
+other packages.</p>
+
+</details>
+:::
+:::
+
+::: {.lcard}
+![](images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">vistributions</span>
+
+### Probability distributions
+
+<p class="lout">Visualize the binomial, chi square, normal, F and t distributions.</p>
+
+<p class="lprereq">Adjust the parameters and watch the density update.</p>
+
+```r
+install.packages("vistributions")
+vistributions::vdist_launch_app()
+```
+
+::: {.lactions}
+[Docs](https://vistributions.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=vistributions){.labtn}
+[GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
+:::
+:::
+
+:::
+
+:::
+
+## Everything in one app {#xplorerr}
+
+`xplorerr` bundles the whole set behind a single install, and adds a visualizer
+the other packages do not have. If you are not attached to a particular
+package, start here.
+
+::: {.lcard}
+![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">xplorerr</span>
+
+### All seven apps
+
+<p class="lout">Descriptive, inferential, visual, RFM, linear and logistic — one package, one install.</p>
+
+<p class="lprereq">Seven launchers. Each opens its own app window.</p>
 
 ```r
 install.packages("xplorerr")
-
-xplorerr::app_descriptive()         # descriptive statistics
-xplorerr::app_vistributions()      # probability distributions
-xplorerr::app_inference()          # hypothesis testing
-xplorerr::app_linear_regression()  # linear regression
+xplorerr::app_linear_regression()   # linear regression
 xplorerr::app_logistic_regression() # logistic regression
-xplorerr::app_rfm_analysis()       # RFM / customer segmentation
-xplorerr::app_visualizer()         # data visualization
+xplorerr::app_descriptive()         # descriptive statistics
+xplorerr::app_inference()           # hypothesis testing
+xplorerr::app_vistributions()       # probability distributions
+xplorerr::app_rfm_analysis()        # RFM / customer segmentation
+xplorerr::app_visualizer()          # data visualization
 ```
 
-Docs: [xplorerr.rsquaredacademy.com](https://xplorerr.rsquaredacademy.com/) ·
-CRAN: [xplorerr](https://cran.r-project.org/package=xplorerr) ·
-Source: [GitHub](https://github.com/aravindhebbali/xplorerr)
+::: {.lactions}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn .primary}
+[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
+[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+:::
+:::
 
-## App directory
+:::
 
-Browser apps will be published on the relevant package site when they are
-ready. In the meantime each app runs locally.
+## Which launcher should I use? {#which}
 
-| App | Covers | Run locally | Docs |
-|:----|:-------|:------------|:-----|
-| **descriptr** | descriptive statistics | `app_descriptive()` | [docs](https://descriptr.rsquaredacademy.com/) |
-| **vistributions** | probability distributions | `app_vistributions()` | [docs](https://vistributions.rsquaredacademy.com/) |
-| **inferr** | hypothesis testing | `app_inference()` | [docs](https://inferr.rsquaredacademy.com/) |
-| **olsrr** | linear regression | `app_linear_regression()` | [docs](https://olsrr.rsquaredacademy.com/) |
-| **blorr** | logistic regression | `app_logistic_regression()` | [docs](https://blorr.rsquaredacademy.com/) |
-| **rfm** | customer segmentation | `app_rfm_analysis()` | [docs](https://rfm.rsquaredacademy.com/) |
-| **xplorerr** | all of the above + visualizer | `app_visualizer()` | [docs](https://xplorerr.rsquaredacademy.com/) |
+Both routes work and reach the same apps. The difference is who owns them.
 
-Prefer the package that owns the app? Each package also exports its own
-launcher, which is arguably the more natural entry point:
+::: {.lgrid}
 
-```r
-olsrr::ols_launch_app()             # linear regression
-blorr::blr_launch_app()             # logistic regression
-rfm::rfm_launch_app()               # customer segmentation
-descriptr::ds_launch_shiny_app()    # descriptive statistics
-inferr::ifr_launch_shiny_app()      # hypothesis testing
-vistributions::vdist_launch_app()   # probability distributions
-xplorerr::app_linear_regression()   # and the rest
-```
+::: {.lcard}
+::: {.lbody}
+<span class="ltrack util">Option A</span>
 
-All packages: [pkgs.rsquaredacademy.com](https://pkgs.rsquaredacademy.com/)
+### One install, seven apps
+
+<p class="lout">Install <code>xplorerr</code> and call any <code>app_*()</code> function. Nothing else to install.</p>
+
+<p class="lprereq">Best if you want the visualizer, or several apps at once.</p>
+:::
+
+:::
+
+::: {.lcard}
+::: {.lbody}
+<span class="ltrack util">Option B</span>
+
+### The owning package
+
+<p class="lout">Install the package that owns the app and call its own launcher.</p>
+
+<p class="lprereq">Best if you already use that package for its non-interactive functions.</p>
+
+::: {.lactions}
+[Package reference](https://pkgs.rsquaredacademy.com/){.labtn}
+:::
+:::
+
+:::
+
+:::
+
+::: {.callout}
+### nse2r has no app here
+
+`nse2r` did ship a Shiny app for NSE market data, but the package was
+[archived on CRAN on 2023-08-07](https://github.com/rsquaredacademy/nse2r) and is
+under revival, so it gets no app card. Nothing to install and nothing to link to.
+:::
