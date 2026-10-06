@@ -12,10 +12,11 @@ Six open textbooks, free to read online. Written with
 [Rsquared Academy](https://www.rsquaredacademy.com/). Every title can also be
 downloaded as a PDF or ePub.
 
+
 ::: {.lgrid}
 
 ::: {.lcard}
-![](../images/book-intro-r.webp){.lcover .lcover-book alt="Introduction to R book cover"}
+![](../images/covers/intro-r.svg){.lcover .lcover-book alt="Cover: Introduction to R"}
 
 ::: {.lbody}
 <span class="ltrack">Core 01</span>
@@ -60,7 +61,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/book-wrangle-r.webp){.lcover .lcover-book alt="Data Wrangling with R book cover"}
+![](../images/covers/wrangle-r.svg){.lcover .lcover-book alt="Cover: Data Wrangling with R"}
 
 ::: {.lbody}
 <span class="ltrack">Core 02</span>
@@ -107,7 +108,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/book-viz-ggplot2.webp){.lcover .lcover-book alt="Data Visualization with ggplot2 book cover"}
+![](../images/covers/viz-ggplot2.svg){.lcover .lcover-book alt="Cover: Data Visualization with ggplot2"}
 
 ::: {.lbody}
 <span class="ltrack">Core 03</span>
@@ -163,7 +164,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/book-rdbsql.webp){.lcover .lcover-book alt="R, Databases and SQL book cover"}
+![](../images/covers/rdbsql.svg){.lcover .lcover-book alt="Cover: R, Databases and SQL"}
 
 ::: {.lbody}
 <span class="ltrack">Core 04</span>
@@ -203,7 +204,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/book-bash-intro.webp){.lcover .lcover-book alt="Command Line Basics book cover"}
+![](../images/covers/bash-intro.svg){.lcover .lcover-book alt="Cover: Command Line Basics"}
 
 ::: {.lbody}
 <span class="ltrack">Companion A</span>
@@ -249,7 +250,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/book-viz-base.webp){.lcover .lcover-book alt="Data Visualization with Base R book cover"}
+![](../images/covers/viz-base.svg){.lcover .lcover-book alt="Cover: Data Visualization with Base R"}
 
 ::: {.lbody}
 <span class="ltrack">Companion B</span>
@@ -368,37 +369,37 @@ Six titles in the order they are meant to be read.
 ::: {.lshelf}
 
 ::: {.lshelf-item}
-[![Introduction to R cover](../images/book-intro-r.webp)](https://intro-r.rsquaredacademy.com/)
+[![Cover: Introduction to R](../images/covers/intro-r.svg)](https://intro-r.rsquaredacademy.com/)
 
 01 Intro
 :::
 
 ::: {.lshelf-item}
-[![Data Wrangling with R cover](../images/book-wrangle-r.webp)](https://wrangle-r.rsquaredacademy.com/)
+[![Cover: Data Wrangling with R](../images/covers/wrangle-r.svg)](https://wrangle-r.rsquaredacademy.com/)
 
 02 Wrangle
 :::
 
 ::: {.lshelf-item}
-[![Data Visualization with ggplot2 cover](../images/book-viz-ggplot2.webp)](https://viz-ggplot2.rsquaredacademy.com/)
+[![Cover: Data Visualization with ggplot2](../images/covers/viz-ggplot2.svg)](https://viz-ggplot2.rsquaredacademy.com/)
 
 03 ggplot2
 :::
 
 ::: {.lshelf-item}
-[![R, Databases and SQL cover](../images/book-rdbsql.webp)](https://rdbsql.rsquaredacademy.com/)
+[![Cover: R, Databases and SQL](../images/covers/rdbsql.svg)](https://rdbsql.rsquaredacademy.com/)
 
 04 SQL
 :::
 
 ::: {.lshelf-item}
-[![Command Line Basics cover](../images/book-bash-intro.webp)](https://bash-intro.rsquaredacademy.com/)
+[![Cover: Command Line Basics](../images/covers/bash-intro.svg)](https://bash-intro.rsquaredacademy.com/)
 
 C-A Bash
 :::
 
 ::: {.lshelf-item}
-[![Data Visualization with Base R cover](../images/book-viz-base.webp)](https://viz-base.rsquaredacademy.com/)
+[![Cover: Data Visualization with Base R](../images/covers/viz-base.svg)](https://viz-base.rsquaredacademy.com/)
 
 C-B Base
 :::

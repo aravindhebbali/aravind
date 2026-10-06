@@ -28,12 +28,10 @@ project:
     - "images/hex-vistributions.webp"
     - "images/hex-rbin.webp"
     - "images/hex-rfm.webp"
-    - "images/book-intro-r.webp"
-    - "images/book-wrangle-r.webp"
-    - "images/book-viz-ggplot2.webp"
-    - "images/book-viz-base.webp"
-    - "images/book-rdbsql.webp"
-    - "images/book-bash-intro.webp"
+    # Book covers are standalone SVGs extracted from ebooks.rsquaredacademy.com,
+    # where they exist only as inline markup. They supersede the raster covers,
+    # so the book-*.webp renditions and their PNG sources are gone.
+    - "images/covers/**"
 
 website:
   title: "Aravind Hebbali"

@@ -69,12 +69,12 @@ hex_out <- c("hex-olsrr.webp", "hex-blorr.webp", "hex-xplorerr.webp",
              "hex-vistributions.webp", "hex-rbin.webp")
 for (i in seq_along(hex_src)) saved[hex_out[i]] <- save_webp(hex_src[i], hex_out[i], "360x")
 
-cat("\nbook covers (150h, displayed at 72px tall)\n")
-book_src <- c("intro-r.png", "wrangle-r.png", "viz-ggplot2.png",
-              "viz-base.png", "rdbsql.png", "ebook-bash-intro.png")
-book_out <- c("book-intro-r.webp", "book-wrangle-r.webp", "book-viz-ggplot2.webp",
-              "book-viz-base.webp", "book-rdbsql.webp", "book-bash-intro.webp")
-for (i in seq_along(book_src)) saved[book_out[i]] <- save_webp(book_src[i], book_out[i], "x150")
+# Book covers are no longer generated here. They were raster renditions of
+# intro-r.png / wrangle-r.png / viz-ggplot2.png / viz-base.png / rdbsql.png /
+# ebook-bash-intro.png, and have been replaced by the standalone SVGs in
+# images/covers/ - which are vector, stay sharp at any size, and cost ~9 KB for
+# all six against ~15 KB of WebP. Those six PNGs are deleted; see the commit
+# that removed them. Nothing in this script reads them any more.
 
 cat("\nog card (1200x630 as JPEG - no transparency needed, far smaller than PNG)\n")
 # Social scrapers universally accept JPEG. 1200x630 is retained because that is

@@ -71,7 +71,7 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .lcover-hex { max-height: 128px; width: auto; padding: 1.5rem 0 1.25rem; }
 
-.lcover-book { max-width: 132px; width: auto; height: auto; border: 1px solid #e2e8f0; border-radius: 4px; margin-bottom: 0.35rem; }
+.lcover-book { width: 100%; max-width: 132px; height: auto; border: 1px solid #e2e8f0; border-radius: 4px; margin-bottom: 0.35rem; }
 
 .lbody { padding: 0.9rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
 
@@ -147,9 +147,9 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .lshelf .lshelf-item > p:last-child { font-size: 0.71875rem; color: #64748b; text-align: center; margin: 0.35rem 0 0; max-width: none; }
 
-.lshelf img { display: block; width: 100%; height: auto; border: 1px solid #e2e8f0; border-radius: 6px; border-bottom: 0; }
+.lshelf img, .lshelf svg { display: block; width: 100%; height: auto; border: 1px solid #e2e8f0; border-radius: 6px; border-bottom: 0; }
 
-.lshelf img:hover { border-bottom: 0; }
+.lshelf img:hover, .lshelf svg:hover { border-bottom: 0; }
 
 .lpath { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 1rem 0 1.25rem; }
 

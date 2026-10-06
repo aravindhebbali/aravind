@@ -240,16 +240,19 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 }
 
 // CRAN hexagons are taller than wide - sizing by height preserves the shape,
-// where a square aspect-ratio box would distort them.
+// where a square aspect-ratio box would distort them. Applies to <img> only;
+// book covers are inline <svg> and are sized by width in .lcover-book.
 .lcover-hex {
   max-height: 128px;
   width: auto;
   padding: 1.5rem 0 1.25rem;
 }
 
+// Book covers are inline SVG sprites (see covers.html), not <img>. The viewBox
+// is 3:4 so `height: auto` resolves from the intrinsic ratio.
 .lcover-book {
+  width: 100%;
   max-width: 132px;
-  width: auto;
   height: auto;
   border: 1px solid $line;
   border-radius: 4px;
@@ -457,7 +460,8 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
     max-width: none;
   }
 
-  img {
+  // Applies to both raster hexes and inline SVG book covers.
+  img, svg {
     display: block;
     width: 100%;
     height: auto;

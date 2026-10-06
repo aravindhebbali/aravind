@@ -286,40 +286,41 @@ Six open textbooks, free to read online. They started as blog posts, grew into
 tutorials on [Rsquared Academy](https://www.rsquaredacademy.com/), and were
 eventually rewritten into short books with the sharp edges filed off.
 
+
 ::: {.lshelf}
 
 ::: {.lshelf-item}
-[![Cover: Introduction to R](images/book-intro-r.webp)](https://intro-r.rsquaredacademy.com/)
+[![Cover: Introduction to R](images/covers/intro-r.svg)](https://intro-r.rsquaredacademy.com/)
 
 01 Intro
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Wrangling with R](images/book-wrangle-r.webp)](https://wrangle-r.rsquaredacademy.com/)
+[![Cover: Data Wrangling with R](images/covers/wrangle-r.svg)](https://wrangle-r.rsquaredacademy.com/)
 
 02 Wrangle
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Visualization with ggplot2](images/book-viz-ggplot2.webp)](https://viz-ggplot2.rsquaredacademy.com/)
+[![Cover: Data Visualization with ggplot2](images/covers/viz-ggplot2.svg)](https://viz-ggplot2.rsquaredacademy.com/)
 
 03 ggplot2
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Visualization with R](images/book-viz-base.webp)](https://viz-base.rsquaredacademy.com/)
+[![Cover: Data Visualization with Base R](images/covers/viz-base.svg)](https://viz-base.rsquaredacademy.com/)
 
 04 Base
 :::
 
 ::: {.lshelf-item}
-[![Cover: R, Databases and SQL](images/book-rdbsql.webp)](https://rdbsql.rsquaredacademy.com/)
+[![Cover: R, Databases and SQL](images/covers/rdbsql.svg)](https://rdbsql.rsquaredacademy.com/)
 
 05 SQL
 :::
 
 ::: {.lshelf-item}
-[![Cover: Command Line Basics](images/book-bash-intro.webp)](https://bash-intro.rsquaredacademy.com/)
+[![Cover: Command Line Basics](images/covers/bash-intro.svg)](https://bash-intro.rsquaredacademy.com/)
 
 06 Bash
 :::
