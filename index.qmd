@@ -226,6 +226,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=rbin){.labtn}
 [GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
+[Docs](https://rbin.rsquaredacademy.com){.labtn}
 :::
 :::
 
@@ -233,7 +234,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <span class="ltrack">Wrangling</span>
 
-### [rbin](https://github.com/rsquaredacademy/rbin)
+### [rbin](https://rbin.rsquaredacademy.com)
 
 <p class="lout">Tools for binning data.</p>
 

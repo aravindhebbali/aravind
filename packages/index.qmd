@@ -261,6 +261,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=rbin){.labtn}
 [GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
+[Docs](https://rbin.rsquaredacademy.com){.labtn}
 :::
 :::
 
@@ -268,7 +269,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <span class="ltrack">Flagship</span>
 
-### [rbin](https://github.com/rsquaredacademy/rbin)
+### [rbin](https://rbin.rsquaredacademy.com)
 
 <p class="lout">Tools for binning data.</p>
 
@@ -336,13 +337,14 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lbody}
 <span class="ltrack util">Utility</span>
 
-### [yahoofinancer](https://cran.r-project.org/package=yahoofinancer)
+### [yahoofinancer](https://yahoofinancer.rsquaredacademy.com)
 
 <p class="lout">Fetch stock and index data from Yahoo! Finance.</p>
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=yahoofinancer){.labtn}
 [GitHub](https://github.com/rsquaredacademy/yahoofinancer){.labtn}
+[Docs](https://yahoofinancer.rsquaredacademy.com){.labtn}
 :::
 :::
 
@@ -352,13 +354,14 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lbody}
 <span class="ltrack util">Utility</span>
 
-### [standby](https://cran.r-project.org/package=standby)
+### [standby](https://standby.rsquaredacademy.com)
 
 <p class="lout">Save, load and manage R processes and sessions.</p>
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=standby){.labtn}
 [GitHub](https://github.com/rsquaredacademy/standby){.labtn}
+[Docs](https://standby.rsquaredacademy.com){.labtn}
 :::
 :::
 
