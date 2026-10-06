@@ -1,8 +1,11 @@
 ---
 title: "R Packages"
 description: "Reference documentation and vignettes for ten actively maintained R packages covering regression diagnostics, customer segmentation, descriptive statistics and inference."
+image: ../images/og-card.jpg
+image-alt: "Aravind Hebbali — Statistical Software & Quantitative Consulting"
+title-block-date: false
+title-block-categories: false
 ---
-# R Packages
 
 Ten packages, all on CRAN, all documented, all actively maintained. Each was
 written while teaching at [Rsquared Academy](https://www.rsquaredacademy.com/)
@@ -14,15 +17,30 @@ not promised.
 
 Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquaredacademy.com/).
 
-## Regression and modelling
+## Regression and modelling {#regression}
 
-::: {.pkg}
+::: {.lgrid}
 
-![](../images/hex-olsrr.webp){.pkg-hex alt="olsrr hex sticker"}
+::: {.lcard}
+![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
-### [olsrr](https://olsrr.rsquaredacademy.com) {.pkg-name}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-Tools for building linear regression models
+### [olsrr](https://olsrr.rsquaredacademy.com)
+
+<p class="lout">Tools for building linear regression models.</p>
+
+<p class="lprereq">Diagnostics, variable selection and influence measures for a fitted <code>lm</code>.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=olsrr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Comprehensive Regression Output
 - Variable Selection Procedures
@@ -32,17 +50,30 @@ Tools for building linear regression models
 - Measures of Influence
 - Residual Diagnostics
 
-[CRAN](https://cran.r-project.org/package=olsrr) &nbsp; [GitHub](https://github.com/aravindhebbali/olsrr) &nbsp; [Docs](https://olsrr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
-![](../images/hex-blorr.webp){.pkg-hex alt="blorr hex sticker"}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-### [blorr](https://blorr.rsquaredacademy.com) {.pkg-name}
+### [blorr](https://blorr.rsquaredacademy.com)
 
-Tools for building binary logistic regression models
+<p class="lout">Tools for building binary logistic regression models.</p>
+
+<p class="lprereq">Model fit, validation and collinearity for a fitted <code>glm</code> with a binary outcome.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=blorr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[Docs](https://blorr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Bivariate Analysis
 - Model Fit Statistics
@@ -52,17 +83,30 @@ Tools for building binary logistic regression models
 - Collinearity Diagnostics
 - Visualization
 
-[CRAN](https://cran.r-project.org/package=blorr) &nbsp; [GitHub](https://github.com/aravindhebbali/blorr) &nbsp; [Docs](https://blorr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
-![](../images/hex-xplorerr.webp){.pkg-hex alt="xplorerr hex sticker"}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-### [xplorerr](https://xplorerr.rsquaredacademy.com) {.pkg-name}
+### [xplorerr](https://xplorerr.rsquaredacademy.com)
 
-Tools for interactive data analysis
+<p class="lout">Tools for interactive data analysis.</p>
+
+<p class="lprereq">Descriptive, inferential and visual analysis behind a Shiny interface. See <a href="../apps/">Apps</a>.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=xplorerr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Descriptive Statistics
 - Inferential Statistics
@@ -72,19 +116,36 @@ Tools for interactive data analysis
 - Linear Regression
 - Logistic Regression
 
-[CRAN](https://cran.r-project.org/package=xplorerr) &nbsp; [GitHub](https://github.com/aravindhebbali/xplorerr) &nbsp; [Docs](https://xplorerr.rsquaredacademy.com)
+</details>
+:::
+:::
 
 :::
 
-## Descriptive and inferential statistics
+## Descriptive and inferential statistics {#statistics}
 
-::: {.pkg}
+::: {.lgrid}
 
-![](../images/hex-descriptr.webp){.pkg-hex alt="descriptr hex sticker"}
+::: {.lcard}
+![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
-### [descriptr](https://descriptr.rsquaredacademy.com) {.pkg-name}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-Tools for generating descriptive / summary statistics
+### [descriptr](https://descriptr.rsquaredacademy.com)
+
+<p class="lout">Tools for generating descriptive and summary statistics.</p>
+
+<p class="lprereq">The fastest way to screen a data frame before you model it.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=descriptr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Data Screening
 - Summary Statistics
@@ -92,17 +153,30 @@ Tools for generating descriptive / summary statistics
 - Cross Tables
 - Data Visualization
 
-[CRAN](https://cran.r-project.org/package=descriptr) &nbsp; [GitHub](https://github.com/aravindhebbali/descriptr) &nbsp; [Docs](https://descriptr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
-![](../images/hex-inferr.webp){.pkg-hex alt="inferr hex sticker"}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-### [inferr](https://inferr.rsquaredacademy.com) {.pkg-name}
+### [inferr](https://inferr.rsquaredacademy.com)
 
-Tools for inferential statistics
+<p class="lout">Tools for inferential statistics.</p>
+
+<p class="lprereq">Hypothesis tests with plain R syntax — no formulas to memorise.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=inferr){.labtn .primary}
+[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
+[Docs](https://inferr.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Binomial Test
 - Test of Proportion
@@ -114,17 +188,30 @@ Tools for inferential statistics
 - Cochran Q Test
 - Runs Test
 
-[CRAN](https://cran.r-project.org/package=inferr) &nbsp; [GitHub](https://github.com/aravindhebbali/inferr) &nbsp; [Docs](https://inferr.rsquaredacademy.com)
-
+</details>
+:::
 :::
 
-::: {.pkg}
+::: {.lcard}
+![](images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
-![](../images/hex-vistributions.webp){.pkg-hex alt="vistributions hex sticker"}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-### [vistributions](https://vistributions.rsquaredacademy.com) {.pkg-name}
+### [vistributions](https://vistributions.rsquaredacademy.com)
 
-Tools for visualizing probability distributions
+<p class="lout">Tools for visualizing probability distributions.</p>
+
+<p class="lprereq">Plot the binomial, chi square, normal, F and t distributions. See <a href="../apps/">Apps</a>.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=vistributions){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
+[Docs](https://vistributions.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Binomial Distribution
 - Chi Square Distribution
@@ -133,19 +220,35 @@ Tools for visualizing probability distributions
 - t Distribution
 - Includes Shiny App
 
-[CRAN](https://cran.r-project.org/package=vistributions) &nbsp; [GitHub](https://github.com/rsquaredacademy/vistributions) &nbsp; [Docs](https://vistributions.rsquaredacademy.com)
+</details>
+:::
+:::
 
 :::
 
-## Data wrangling
+## Data wrangling and segmentation {#wrangling}
 
-::: {.pkg}
+::: {.lgrid}
 
-![](../images/hex-rbin.webp){.pkg-hex alt="rbin hex sticker"}
+::: {.lcard}
+![](images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
 
-### [rbin](https://github.com/rsquaredacademy/rbin) {.pkg-name}
+::: {.lbody}
+<span class="ltrack">Flagship</span>
 
-Tools for binning data
+### [rbin](https://github.com/rsquaredacademy/rbin)
+
+<p class="lout">Tools for binning data.</p>
+
+<p class="lprereq">Turn continuous variables into factors, and generate dummy variables from them.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rbin){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
 
 - Manual Binning
 - Quantile Binning
@@ -156,26 +259,103 @@ Tools for binning data
 - Generate Dummy Variables
 - Includes RStudio Addins
 
-[CRAN](https://cran.r-project.org/package=rbin) &nbsp; [GitHub](https://github.com/rsquaredacademy/rbin)
+</details>
+:::
+:::
+
+::: {.lcard}
+![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
+
+::: {.lbody}
+<span class="ltrack">Flagship</span>
+
+### [rfm](https://rfm.rsquaredacademy.com)
+
+<p class="lout">Tools for RFM analysis.</p>
+
+<p class="lprereq">Score and segment customers from transaction-level data. See <a href="../apps/">Apps</a>.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rfm){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
+[Docs](https://rfm.rsquaredacademy.com){.labtn}
+:::
+
+<details>
+<summary>What's inside</summary>
+
+- Generate RFM Scores
+- Handles Transaction / Customer Level Data
+- Visualization Tools
+- Segment Customers
+- Includes Shiny App
+
+</details>
+:::
+:::
 
 :::
 
-## Utilities
+## Utilities {#utilities}
 
-| Package | What it does | Links |
-|:--------|:-------------|:------|
-| [yahoofinancer](https://cran.r-project.org/package=yahoofinancer) | Fetch stock and index data from Yahoo! Finance | [GitHub](https://github.com/rsquaredacademy/yahoofinancer) |
-| [standby](https://cran.r-project.org/package=standby) | Save, load and manage R processes and sessions | [GitHub](https://github.com/rsquaredacademy/standby) |
+::: {.lgrid}
 
-## Archived
+::: {.lcard}
+::: {.lbody}
+<span class="ltrack util">Utility</span>
 
-::: {.callout-warning}
-### nse2r — archived, under revival
+### [yahoofinancer](https://cran.r-project.org/package=yahoofinancer)
 
-`nse2r` fetched live data from the National Stock Exchange of India. It was
-**archived on CRAN on 2023-08-07** at the maintainer's request and is currently
-being revived, so it is no longer installable from CRAN.
+<p class="lout">Fetch stock and index data from Yahoo! Finance.</p>
 
-Source and issue tracker:
-[github.com/rsquaredacademy/nse2r](https://github.com/rsquaredacademy/nse2r).
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=yahoofinancer){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/yahoofinancer){.labtn}
+:::
+:::
+
+:::
+
+::: {.lcard}
+::: {.lbody}
+<span class="ltrack util">Utility</span>
+
+### [standby](https://cran.r-project.org/package=standby)
+
+<p class="lout">Save, load and manage R processes and sessions.</p>
+
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=standby){.labtn .primary}
+[GitHub](https://github.com/rsquaredacademy/standby){.labtn}
+:::
+:::
+
+:::
+
+:::
+
+## Archived {#archived}
+
+::: {.lgrid}
+
+::: {.lcard}
+::: {.lbody}
+<span class="ltrack arch">Archived</span>
+
+### [nse2r](https://github.com/rsquaredacademy/nse2r)
+
+<p class="lout">Fetched data from the National Stock Exchange of India.</p>
+
+<p class="lmeta"><span class="lpill arch">Archived 2023-08-07</span>v0.1.6, under revival</p>
+
+<p class="lprereq">No longer installable from CRAN. Source and issue tracker are on GitHub.</p>
+
+::: {.lactions}
+[CRAN (archived)](https://cran.r-project.org/package=nse2r){.labtn}
+[GitHub](https://github.com/rsquaredacademy/nse2r){.labtn .primary}
+:::
+:::
+
+:::
+
 :::
