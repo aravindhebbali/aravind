@@ -27,7 +27,7 @@ main li { margin-bottom: 0.35rem; }
 
 code { color: #0f172a; background: #f1f5f9; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.875em; }
 
-pre { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.9rem 1rem; font-size: 0.8125rem; line-height: 1.55; max-width: 72ch; }
+pre { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.9rem 1rem; font-size: 0.8125rem; line-height: 1.55; max-width: 72ch; overflow-x: auto; }
 
 hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 

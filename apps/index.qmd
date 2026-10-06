@@ -21,9 +21,9 @@ installed. Copy the two lines, paste them into the console, and the app opens.
 
 ## Regression and modelling {#regression}
 
-::: {.lgrid}
+::: {.lgrid .lgrid-h}
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
 ::: {.lbody}
@@ -41,7 +41,7 @@ olsrr::ols_launch_app()
 ```
 
 ::: {.lactions}
-[Docs](https://olsrr.rsquaredacademy.com){.labtn .primary}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=olsrr){.labtn}
 [GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
 :::
@@ -49,7 +49,7 @@ olsrr::ols_launch_app()
 
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
 ::: {.lbody}
@@ -67,7 +67,7 @@ blorr::blr_launch_app()
 ```
 
 ::: {.lactions}
-[Docs](https://blorr.rsquaredacademy.com){.labtn .primary}
+[Docs](https://blorr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=blorr){.labtn}
 [GitHub](https://github.com/aravindhebbali/blorr){.labtn}
 :::
@@ -75,7 +75,7 @@ blorr::blr_launch_app()
 
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
 ::: {.lbody}
@@ -93,7 +93,7 @@ rfm::rfm_launch_app()
 ```
 
 ::: {.lactions}
-[Docs](https://rfm.rsquaredacademy.com){.labtn .primary}
+[Docs](https://rfm.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=rfm){.labtn}
 [GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
 :::
@@ -105,9 +105,9 @@ rfm::rfm_launch_app()
 
 ## Statistics and distributions {#statistics}
 
-::: {.lgrid}
+::: {.lgrid .lgrid-h}
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
 ::: {.lbody}
@@ -125,7 +125,7 @@ descriptr::ds_launch_shiny_app()
 ```
 
 ::: {.lactions}
-[Docs](https://descriptr.rsquaredacademy.com){.labtn .primary}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=descriptr){.labtn}
 [GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
 :::
@@ -133,7 +133,7 @@ descriptr::ds_launch_shiny_app()
 
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
 ::: {.lbody}
@@ -151,7 +151,7 @@ inferr::ifr_launch_shiny_app()
 ```
 
 ::: {.lactions}
-[Docs](https://inferr.rsquaredacademy.com){.labtn .primary}
+[Docs](https://inferr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=inferr){.labtn}
 [GitHub](https://github.com/aravindhebbali/inferr){.labtn}
 :::
@@ -168,7 +168,7 @@ other packages.</p>
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
 ::: {.lbody}
@@ -186,7 +186,7 @@ vistributions::vdist_launch_app()
 ```
 
 ::: {.lactions}
-[Docs](https://vistributions.rsquaredacademy.com){.labtn .primary}
+[Docs](https://vistributions.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=vistributions){.labtn}
 [GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
 :::
@@ -202,7 +202,7 @@ vistributions::vdist_launch_app()
 the other packages do not have. If you are not attached to a particular
 package, start here.
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
 ::: {.lbody}
@@ -216,17 +216,17 @@ package, start here.
 
 ```r
 install.packages("xplorerr")
-xplorerr::app_linear_regression()   # linear regression
-xplorerr::app_logistic_regression() # logistic regression
-xplorerr::app_descriptive()         # descriptive statistics
-xplorerr::app_inference()           # hypothesis testing
-xplorerr::app_vistributions()       # probability distributions
-xplorerr::app_rfm_analysis()        # RFM / customer segmentation
-xplorerr::app_visualizer()          # data visualization
+xplorerr::app_linear_regression()   # linear
+xplorerr::app_logistic_regression() # logistic
+xplorerr::app_descriptive()         # descriptive
+xplorerr::app_inference()           # inference
+xplorerr::app_vistributions()       # distributions
+xplorerr::app_rfm_analysis()        # segmentation
+xplorerr::app_visualizer()          # visualizer
 ```
 
 ::: {.lactions}
-[Docs](https://xplorerr.rsquaredacademy.com){.labtn .primary}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
 [GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
 :::

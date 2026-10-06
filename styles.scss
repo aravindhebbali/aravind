@@ -113,6 +113,9 @@ pre {
   // `main` is widened to $wide for the card grids; without this, code blocks
   // on the apps page would stretch to the full 1100px.
   max-width: 72ch;
+  // The apps cards hold launcher snippets in a ~400px body. Without this a long
+  // line spills past the card edge instead of scrolling inside the block.
+  overflow-x: auto;
 }
 
 hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
