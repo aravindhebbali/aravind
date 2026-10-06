@@ -240,6 +240,12 @@ table td a { border-bottom: 0; }
 
 .btn-secondary:hover { background: #f1f5f9; color: #0f172a; border-color: #cbd5e1; }
 
+header#quarto-header { background: #ffffff; }
+
+header#quarto-header.headroom.headroom--unpinned { transform: translateY(0); }
+
+html { scroll-padding-top: 4rem; }
+
 .navbar { border-bottom: 1px solid #e2e8f0; background: #ffffff; box-shadow: none; padding-top: 0.6rem; padding-bottom: 0.6rem; }
 
 .navbar-brand { font-weight: 600; color: #0f172a; margin-right: 1.5rem; }

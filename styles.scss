@@ -780,6 +780,35 @@ table {
   &:hover { background: $line-soft; color: $ink; border-color: #cbd5e1; }
 }
 
+// --- Navbar: always pinned ------------------------------------------------
+// Quarto already renders the header as `fixed-top`, so the navbar is fixed -
+// but quarto-nav.js initialises headroom on #quarto-header, and Bootstrap ships
+// `header.headroom--unpinned { transform: translateY(-100%) }`. The header
+// therefore slid away on scroll-down and only came back on scroll-up.
+//
+// Cancelling that one transform is enough. Headroom keeps running, so its
+// onPin/onUnpin bookkeeping still fires, and quarto-nav.js's headerOffset()
+// measures clientHeight rather than reading the state class - so the body's
+// padding-top offset stays correct. Extra specificity (1,2,1 against Bootstrap's
+// 0,1,1) beats the rule without needing !important.
+header#quarto-header {
+  // .fixed-top sets no background of its own. Without this, page content
+  // scrolling underneath shows through.
+  background: $surface;
+
+  &.headroom.headroom--unpinned {
+    transform: translateY(0);
+  }
+}
+
+// With the header permanently on screen, anchor targets have to clear it.
+// Nothing in the Quarto or Bootstrap CSS sets scroll-margin or scroll-padding,
+// so `smooth-scroll` + `anchor-sections` was landing every heading link
+// underneath the navbar. ~48px of header, so 4rem gives it clearance.
+html {
+  scroll-padding-top: 4rem;
+}
+
 // --- Navbar ---------------------------------------------------------------
 .navbar {
   border-bottom: 1px solid $line;
