@@ -24,7 +24,7 @@ installed. Copy the two lines, paste them into the console, and the app opens.
 ::: {.lgrid}
 
 ::: {.lcard}
-![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
+![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">olsrr</span>
@@ -50,7 +50,7 @@ olsrr::ols_launch_app()
 :::
 
 ::: {.lcard}
-![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
+![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">blorr</span>
@@ -76,7 +76,7 @@ blorr::blr_launch_app()
 :::
 
 ::: {.lcard}
-![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
+![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">rfm</span>
@@ -108,7 +108,7 @@ rfm::rfm_launch_app()
 ::: {.lgrid}
 
 ::: {.lcard}
-![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
+![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">descriptr</span>
@@ -134,7 +134,7 @@ descriptr::ds_launch_shiny_app()
 :::
 
 ::: {.lcard}
-![](images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
+![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">inferr</span>
@@ -169,7 +169,7 @@ other packages.</p>
 :::
 
 ::: {.lcard}
-![](images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
+![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">vistributions</span>
@@ -203,7 +203,7 @@ the other packages do not have. If you are not attached to a particular
 package, start here.
 
 ::: {.lcard}
-![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
+![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">xplorerr</span>

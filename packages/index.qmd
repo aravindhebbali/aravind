@@ -22,7 +22,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lgrid}
 
 ::: {.lcard}
-![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
+![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -55,7 +55,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard}
-![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
+![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -88,7 +88,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard}
-![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
+![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -127,7 +127,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lgrid}
 
 ::: {.lcard}
-![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
+![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -158,7 +158,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard}
-![](images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
+![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -193,7 +193,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard}
-![](images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
+![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -231,7 +231,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lgrid}
 
 ::: {.lcard}
-![](images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
+![](../images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
@@ -264,7 +264,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard}
-![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
+![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
 ::: {.lbody}
 <span class="ltrack">Flagship</span>
