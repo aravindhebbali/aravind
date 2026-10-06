@@ -384,7 +384,16 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
     padding: 0;
     flex: 1 1 auto;
     min-width: 0;
+    // Every body child is margin:0, so this gap is the only thing separating
+    // the eyebrow, title, one-liner, note and disclosure. At the inherited
+    // 0.5rem they read as one congested block once the one-liner wraps to two
+    // lines, which it usually does in a ~400px column.
+    gap: 0.85rem;
   }
+
+  // The disclosure already gets a margin-top of its own; with the wider gap
+  // above it that made this one seam visibly larger than the rest.
+  .lbody details { margin-top: 0; }
 
   // Buttons run down the rail rather than across the card.
   .lactions {
