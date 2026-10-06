@@ -805,16 +805,50 @@ table {
 }
 
 // --- Footer ---------------------------------------------------------------
+// Sized up from the original 0.875rem / $muted, which read as an afterthought
+// against the card layouts above it. The icon row carries most of the weight -
+// the glyphs inherit the footer's font-size, so they grow with it - and each one
+// is given a square hit area with a hover chip so it reads as tappable.
 footer {
   border-top: 1px solid $line;
   margin-top: 4rem;
-  padding: 1.75rem 0 2.5rem;
+  padding: 2rem 0 2.75rem;
   background: $surface;
-  font-size: 0.875rem;
-  color: $muted;
+  font-size: 0.9375rem;
+  color: $body;
 
-  a { color: $body; border-bottom: 0; }
-  a:hover { color: $accent; }
+  // Quarto emits the copyright as a bare <p>, which otherwise collects the
+  // global 1.1rem bottom margin and leaves a gap under the text.
+  p { margin: 0; }
+
+  .nav-footer-left {
+    font-weight: 500;
+  }
+
+  .footer-items {
+    gap: 0.3rem;
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 8px;
+      color: $ink;
+      font-size: 1.0625rem;
+      border-bottom: 0;
+      transition: background-color 0.12s ease, color 0.12s ease;
+
+      &:hover {
+        color: $ink;
+        background: $line-soft;
+        border-bottom: 0;
+      }
+
+      &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+    }
+  }
 }
 
 // --- Layout cap -----------------------------------------------------------

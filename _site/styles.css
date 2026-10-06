@@ -250,11 +250,19 @@ table td a { border-bottom: 0; }
 
 .navbar .nav-link:hover, .navbar .nav-link.active { color: #2563eb; }
 
-footer { border-top: 1px solid #e2e8f0; margin-top: 4rem; padding: 1.75rem 0 2.5rem; background: #ffffff; font-size: 0.875rem; color: #64748b; }
+footer { border-top: 1px solid #e2e8f0; margin-top: 4rem; padding: 2rem 0 2.75rem; background: #ffffff; font-size: 0.9375rem; color: #334155; }
 
-footer a { color: #334155; border-bottom: 0; }
+footer p { margin: 0; }
 
-footer a:hover { color: #2563eb; }
+footer .nav-footer-left { font-weight: 500; }
+
+footer .footer-items { gap: 0.3rem; }
+
+footer .footer-items .nav-link { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4rem; height: 2.4rem; border-radius: 8px; color: #0f172a; font-size: 1.0625rem; border-bottom: 0; transition: background-color 0.12s ease, color 0.12s ease; }
+
+footer .footer-items .nav-link:hover { color: #0f172a; background: #f1f5f9; border-bottom: 0; }
+
+footer .footer-items .nav-link:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
 
 main { max-width: 1100px; }
 
