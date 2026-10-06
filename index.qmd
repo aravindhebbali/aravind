@@ -36,23 +36,15 @@ Chennai, and now maintain the portfolio independently from Bengaluru, India.
 ::: {.explore-grid}
 
 ::: {.explore-card}
-[Packages →](packages/){.explore-title}
-
-Ten actively maintained packages on CRAN, from regression diagnostics to
-customer segmentation. Reference docs and vignettes for each.
+[<i class="bi bi-code"></i><span class="explore-name">Packages</span><span class="explore-sub">10 packages on CRAN &middot; reference docs and vignettes</span>](packages/)
 :::
 
 ::: {.explore-card}
-[Apps →](apps/){.explore-title}
-
-Shiny applications that ship inside the packages and run locally in R. No
-install, no hosting, no account.
+[<i class="bi bi-window"></i><span class="explore-name">Apps</span><span class="explore-sub">7 Shiny apps &middot; run locally, no account</span>](apps/)
 :::
 
 ::: {.explore-card}
-[Books →](books/){.explore-title}
-
-Six open textbooks on R, data wrangling, visualization, SQL and Bash.
+[<i class="bi bi-book"></i><span class="explore-name">Books</span><span class="explore-sub">6 open textbooks &middot; free to read online</span>](books/)
 :::
 
 :::

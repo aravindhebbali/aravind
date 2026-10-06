@@ -46,7 +46,7 @@
     "href": "index.html#explore",
     "title": "Hey, I am Aravind",
     "section": "Explore",
-    "text": "Explore\n\n\nPackages →\nTen actively maintained packages on CRAN, from regression diagnostics to customer segmentation. Reference docs and vignettes for each.\n\n\nApps →\nShiny applications that ship inside the packages and run locally in R. No install, no hosting, no account.\n\n\nBooks →\nSix open textbooks on R, data wrangling, visualization, SQL and Bash."
+    "text": "Explore\n\n\nPackages10 packages on CRAN · reference docs and vignettes\n\n\nApps7 Shiny apps · run locally, no account\n\n\nBooks6 open textbooks · free to read online"
   },
   {
     "objectID": "index.html#open-source",
