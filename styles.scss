@@ -161,8 +161,10 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 }
 
 // --- CTA band -------------------------------------------------------------
+// No bottom margin: the footer's own margin-top provides the separation, and
+// the two stacked left a canyon after the button on the homepage.
 .cta {
-  margin: 2rem 0 0.5rem;
+  margin: 2rem 0 0;
 }
 
 // --- Explore cards --------------------------------------------------------
@@ -811,8 +813,8 @@ table {
 // is given a square hit area with a hover chip so it reads as tappable.
 footer {
   border-top: 1px solid $line;
-  margin-top: 4rem;
-  padding: 2rem 0 2.75rem;
+  margin-top: 2.25rem;
+  padding: 1.25rem 0 1.75rem;
   background: $surface;
   font-size: 0.9375rem;
   color: $body;
@@ -821,11 +823,25 @@ footer {
   // global 1.1rem bottom margin and leaves a gap under the text.
   p { margin: 0; }
 
+  // Bootstrap's own .nav-footer contributes padding on both sides plus a
+  // min-height of 3.5em, on top of the footer's own padding - 24px of nothing.
+  // Its baseline alignment also leaves the copyright sitting oddly against a
+  // 2.4rem icon row.
+  .nav-footer {
+    padding: 0;
+    min-height: 0;
+    align-items: center;
+  }
+
   .nav-footer-left {
     font-weight: 500;
   }
 
+  // .list-unstyled resets padding-left and list-style but not margin, so this
+  // ul was still carrying the UA's `margin: 1em 0` - another 30px of dead
+  // space inside the footer.
   .footer-items {
+    margin: 0;
     gap: 0.3rem;
 
     .nav-link {
