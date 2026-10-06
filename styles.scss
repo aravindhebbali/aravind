@@ -330,36 +330,51 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
 }
 
 // --- Horizontal card variant ----------------------------------------------
-// Hex on the left, contents on the right. Built for the packages listing; the
-// apps listing can adopt the same pair once the shape is agreed.
+// Left rail: hex sticker on top, action buttons stacked beneath it. Contents on
+// the right. Built for the packages listing, then extended to home and apps.
 //
 // Two columns, not three. At three, a $wide main yields a ~354px card, and
 // after a ~90px hex and the padding the body is left ~200px - too narrow for a
 // two-line title, a three-line one-liner and a row of buttons without wrapping
 // badly. Two columns give the body ~400px, which is where this reads well.
+//
+// Top-aligned, not centred. With `align-items: center` a 104px hex floats
+// against a ~180px body and leaves dead space above and below it; the rail now
+// carries the buttons down that side instead.
 .lgrid-h {
   grid-template-columns: repeat(2, 1fr);
 }
 
 .lcard-h {
   flex-direction: row;
-  align-items: center;
-  padding: 0.95rem 1.1rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
 
-  // Pandoc wraps the lone cover image in a <p>, and that wrapper - not the
-  // <img> - is what flex lays out. Without this it is shrinkable and
-  // `img-fluid`'s max-width:100% can squash the hex.
-  > p {
+  .lside {
     flex: 0 0 auto;
-    margin: 0;
+    width: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    margin-right: 1.15rem;
   }
 
   .lcover-hex {
-    flex: 0 0 auto;
-    max-height: 104px;
+    max-height: 100px;
     width: auto;
-    margin: 0 1.1rem 0 0;
+    margin: 0;
     padding: 0;
+  }
+
+  // Pandoc wraps the lone cover image in a <p>, and that wrapper is what flex
+  // lays out. Pinned so it cannot shrink - left alone, `img-fluid`'s
+  // max-width:100% would squash the hex - and line-height:0 removes the
+  // residual inline baseline gap under a block image.
+  .lside > p {
+    flex: 0 0 auto;
+    margin: 0;
+    line-height: 0;
   }
 
   // The card supplies the padding now. `min-width: 0` lets the body shrink
@@ -369,6 +384,26 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
     padding: 0;
     flex: 1 1 auto;
     min-width: 0;
+  }
+
+  // Buttons run down the rail rather than across the card.
+  .lactions {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .lactions > p {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .labtn {
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.35rem;
   }
 }
 

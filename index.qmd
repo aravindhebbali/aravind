@@ -76,9 +76,18 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 ::: {.lgrid .lgrid-h}
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
+[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Regression</span>
 
 ### [olsrr](https://olsrr.rsquaredacademy.com)
@@ -87,11 +96,6 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <p class="lprereq">Diagnostics, variable selection and influence measures for a fitted <code>lm</code>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
-[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
-[Docs](https://olsrr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -109,9 +113,18 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
+[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Interactive</span>
 
 ### [xplorerr](https://xplorerr.rsquaredacademy.com)
@@ -120,11 +133,6 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <p class="lprereq">Descriptive, inferential and visual analysis behind a Shiny interface. See <a href="apps/">Apps</a>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
-[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
-[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -142,9 +150,18 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rfm){.labtn}
+[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
+[Docs](https://rfm.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Segmentation</span>
 
 ### [rfm](https://rfm.rsquaredacademy.com)
@@ -153,11 +170,6 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <p class="lprereq">Score and segment customers from transaction-level data. See <a href="apps/">Apps</a>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=rfm){.labtn}
-[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
-[Docs](https://rfm.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -173,9 +185,18 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
+[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Descriptive</span>
 
 ### [descriptr](https://descriptr.rsquaredacademy.com)
@@ -184,11 +205,6 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <p class="lprereq">The fastest way to screen a data frame before you model it.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
-[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
-[Docs](https://descriptr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -204,9 +220,17 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rbin){.labtn}
+[GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Wrangling</span>
 
 ### [rbin](https://github.com/rsquaredacademy/rbin)
@@ -215,10 +239,6 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <p class="lprereq">Turn continuous variables into factors, and generate dummy variables from them.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=rbin){.labtn}
-[GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -237,9 +257,18 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=blorr){.labtn}
+[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[Docs](https://blorr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Regression</span>
 
 ### [blorr](https://blorr.rsquaredacademy.com)
@@ -248,11 +277,6 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 <p class="lprereq">Model fit, validation and collinearity for a fitted <code>glm</code> with a binary outcome.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=blorr){.labtn}
-[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
-[Docs](https://blorr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -267,6 +291,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 </details>
 :::
+
 :::
 
 :::

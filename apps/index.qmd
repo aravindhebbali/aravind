@@ -24,9 +24,18 @@ installed. Copy the two lines, paste them into the console, and the app opens.
 ::: {.lgrid .lgrid-h}
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
+::: {.lactions}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
+[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">olsrr</span>
 
 ### Linear regression
@@ -40,19 +49,23 @@ install.packages("olsrr")
 olsrr::ols_launch_app()
 ```
 
-::: {.lactions}
-[Docs](https://olsrr.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
-[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
-:::
 :::
 
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
+::: {.lactions}
+[Docs](https://blorr.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=blorr){.labtn}
+[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">blorr</span>
 
 ### Logistic regression
@@ -66,19 +79,23 @@ install.packages("blorr")
 blorr::blr_launch_app()
 ```
 
-::: {.lactions}
-[Docs](https://blorr.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=blorr){.labtn}
-[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
-:::
 :::
 
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
+::: {.lactions}
+[Docs](https://rfm.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=rfm){.labtn}
+[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">rfm</span>
 
 ### Customer segmentation
@@ -92,11 +109,6 @@ install.packages("rfm")
 rfm::rfm_launch_app()
 ```
 
-::: {.lactions}
-[Docs](https://rfm.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=rfm){.labtn}
-[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
-:::
 :::
 
 :::
@@ -108,9 +120,18 @@ rfm::rfm_launch_app()
 ::: {.lgrid .lgrid-h}
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
+::: {.lactions}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
+[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">descriptr</span>
 
 ### Descriptive statistics
@@ -124,19 +145,23 @@ install.packages("descriptr")
 descriptr::ds_launch_shiny_app()
 ```
 
-::: {.lactions}
-[Docs](https://descriptr.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
-[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
-:::
 :::
 
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
+::: {.lactions}
+[Docs](https://inferr.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=inferr){.labtn}
+[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">inferr</span>
 
 ### Hypothesis testing
@@ -150,11 +175,6 @@ install.packages("inferr")
 inferr::ifr_launch_shiny_app()
 ```
 
-::: {.lactions}
-[Docs](https://inferr.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=inferr){.labtn}
-[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
-:::
 
 <details>
 <summary>Also exported</summary>
@@ -169,9 +189,18 @@ other packages.</p>
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
+::: {.lactions}
+[Docs](https://vistributions.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=vistributions){.labtn}
+[GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">vistributions</span>
 
 ### Probability distributions
@@ -185,11 +214,6 @@ install.packages("vistributions")
 vistributions::vdist_launch_app()
 ```
 
-::: {.lactions}
-[Docs](https://vistributions.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=vistributions){.labtn}
-[GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
-:::
 :::
 
 :::
@@ -203,9 +227,18 @@ the other packages do not have. If you are not attached to a particular
 package, start here.
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
+::: {.lactions}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
+[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
+[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">xplorerr</span>
 
 ### All seven apps
@@ -225,11 +258,6 @@ xplorerr::app_rfm_analysis()        # segmentation
 xplorerr::app_visualizer()          # visualizer
 ```
 
-::: {.lactions}
-[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
-[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
-[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
-:::
 :::
 
 :::
@@ -266,6 +294,7 @@ Both routes work and reach the same apps. The difference is who owns them.
 ::: {.lactions}
 [Package reference](https://pkgs.rsquaredacademy.com/){.labtn}
 :::
+
 :::
 
 :::

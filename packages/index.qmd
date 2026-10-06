@@ -22,9 +22,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lgrid .lgrid-h}
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
+[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[Docs](https://olsrr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [olsrr](https://olsrr.rsquaredacademy.com)
@@ -33,11 +42,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Diagnostics, variable selection and influence measures for a fitted <code>lm</code>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=olsrr){.labtn}
-[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
-[Docs](https://olsrr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -55,9 +59,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=blorr){.labtn}
+[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[Docs](https://blorr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [blorr](https://blorr.rsquaredacademy.com)
@@ -66,11 +79,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Model fit, validation and collinearity for a fitted <code>glm</code> with a binary outcome.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=blorr){.labtn}
-[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
-[Docs](https://blorr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -88,9 +96,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
+[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [xplorerr](https://xplorerr.rsquaredacademy.com)
@@ -99,11 +116,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Descriptive, inferential and visual analysis behind a Shiny interface. See <a href="../apps/">Apps</a>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
-[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
-[Docs](https://xplorerr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -127,9 +139,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lgrid .lgrid-h}
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
+[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[Docs](https://descriptr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [descriptr](https://descriptr.rsquaredacademy.com)
@@ -138,11 +159,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">The fastest way to screen a data frame before you model it.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=descriptr){.labtn}
-[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
-[Docs](https://descriptr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -158,9 +174,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=inferr){.labtn}
+[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
+[Docs](https://inferr.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [inferr](https://inferr.rsquaredacademy.com)
@@ -169,11 +194,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Hypothesis tests with plain R syntax — no formulas to memorise.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=inferr){.labtn}
-[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
-[Docs](https://inferr.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -193,9 +213,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=vistributions){.labtn}
+[GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
+[Docs](https://vistributions.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [vistributions](https://vistributions.rsquaredacademy.com)
@@ -204,11 +233,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Plot the binomial, chi square, normal, F and t distributions. See <a href="../apps/">Apps</a>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=vistributions){.labtn}
-[GitHub](https://github.com/rsquaredacademy/vistributions){.labtn}
-[Docs](https://vistributions.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -231,9 +255,17 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 ::: {.lgrid .lgrid-h}
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rbin){.labtn}
+[GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [rbin](https://github.com/rsquaredacademy/rbin)
@@ -242,10 +274,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Turn continuous variables into factors, and generate dummy variables from them.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=rbin){.labtn}
-[GitHub](https://github.com/rsquaredacademy/rbin){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -264,9 +292,18 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 
 ::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
+::: {.lactions}
+[CRAN](https://cran.r-project.org/package=rfm){.labtn}
+[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
+[Docs](https://rfm.rsquaredacademy.com){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Flagship</span>
 
 ### [rfm](https://rfm.rsquaredacademy.com)
@@ -275,11 +312,6 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 <p class="lprereq">Score and segment customers from transaction-level data. See <a href="../apps/">Apps</a>.</p>
 
-::: {.lactions}
-[CRAN](https://cran.r-project.org/package=rfm){.labtn}
-[GitHub](https://github.com/rsquaredacademy/rfm){.labtn}
-[Docs](https://rfm.rsquaredacademy.com){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -354,6 +386,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 [CRAN (archived)](https://cran.r-project.org/package=nse2r){.labtn}
 [GitHub](https://github.com/rsquaredacademy/nse2r){.labtn .primary}
 :::
+
 :::
 
 :::

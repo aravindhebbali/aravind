@@ -103,13 +103,21 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .lgrid-h { grid-template-columns: repeat(2, 1fr); }
 
-.lcard-h { flex-direction: row; align-items: center; padding: 0.95rem 1.1rem; }
+.lcard-h { flex-direction: row; align-items: flex-start; padding: 1rem 1.15rem; }
 
-.lcard-h > p { flex: 0 0 auto; margin: 0; }
+.lcard-h .lside { flex: 0 0 auto; width: 108px; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; margin-right: 1.15rem; }
 
-.lcard-h .lcover-hex { flex: 0 0 auto; max-height: 104px; width: auto; margin: 0 1.1rem 0 0; padding: 0; }
+.lcard-h .lcover-hex { max-height: 100px; width: auto; margin: 0; padding: 0; }
+
+.lcard-h .lside > p { flex: 0 0 auto; margin: 0; line-height: 0; }
 
 .lcard-h .lbody { padding: 0; flex: 1 1 auto; min-width: 0; }
+
+.lcard-h .lactions { width: 100%; margin-top: 0; }
+
+.lcard-h .lactions > p { flex-direction: column; align-items: stretch; gap: 5px; width: 100%; margin: 0; }
+
+.lcard-h .labtn { text-align: center; font-size: 0.75rem; padding: 0.3rem 0.35rem; }
 
 .lactions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.15rem; }
 
