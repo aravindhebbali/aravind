@@ -19,9 +19,9 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ## Regression and modelling {#regression}
 
-::: {.lgrid}
+::: {.lgrid .lgrid-h}
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
 
 ::: {.lbody}
@@ -54,7 +54,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
 
 ::: {.lbody}
@@ -87,7 +87,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
 
 ::: {.lbody}
@@ -124,9 +124,9 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ## Descriptive and inferential statistics {#statistics}
 
-::: {.lgrid}
+::: {.lgrid .lgrid-h}
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
 
 ::: {.lbody}
@@ -157,7 +157,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
 
 ::: {.lbody}
@@ -192,7 +192,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
 
 ::: {.lbody}
@@ -228,9 +228,9 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ## Data wrangling and segmentation {#wrangling}
 
-::: {.lgrid}
+::: {.lgrid .lgrid-h}
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
 
 ::: {.lbody}
@@ -263,7 +263,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
 ![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
 
 ::: {.lbody}

@@ -326,6 +326,49 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
   margin: 0;
 }
 
+// --- Horizontal card variant ----------------------------------------------
+// Hex on the left, contents on the right. Built for the packages listing; the
+// apps listing can adopt the same pair once the shape is agreed.
+//
+// Two columns, not three. At three, a $wide main yields a ~354px card, and
+// after a ~90px hex and the padding the body is left ~200px - too narrow for a
+// two-line title, a three-line one-liner and a row of buttons without wrapping
+// badly. Two columns give the body ~400px, which is where this reads well.
+.lgrid-h {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lcard-h {
+  flex-direction: row;
+  align-items: center;
+  padding: 0.95rem 1.1rem;
+
+  // Pandoc wraps the lone cover image in a <p>, and that wrapper - not the
+  // <img> - is what flex lays out. Without this it is shrinkable and
+  // `img-fluid`'s max-width:100% can squash the hex.
+  > p {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .lcover-hex {
+    flex: 0 0 auto;
+    max-height: 104px;
+    width: auto;
+    margin: 0 1.1rem 0 0;
+    padding: 0;
+  }
+
+  // The card supplies the padding now. `min-width: 0` lets the body shrink
+  // below its content width so long bullets and URLs wrap instead of forcing
+  // the card wider than its column.
+  .lbody {
+    padding: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
 // --- Card actions ---------------------------------------------------------
 // Pandoc collects a run of links into a single <p>, so the flex context has to
 // be established on the wrapper as well - otherwise `gap` has no flex items to
@@ -682,8 +725,10 @@ main { max-width: $wide; }
     max-width: 60%;
   }
   .lgrid { grid-template-columns: 1fr; }
+  .lgrid-h { grid-template-columns: 1fr; }
   .lpath { grid-template-columns: 1fr; }
   .lcover-book { max-width: 118px; }
+  .lcard-h .lcover-hex { max-height: 84px; margin-right: 0.85rem; }
 }
 
 // The Explore row is fixed at 3 columns on desktop; below that it stacks,
