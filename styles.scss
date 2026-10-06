@@ -1,9 +1,18 @@
-// Design system - flat, spacious, list-driven.
+// Design system - card-led, quiet, generous.
 //
-// Reference: arpitbhayani.me. The cues deliberately adopted are restraint and
-// density: hairline borders, no drop shadows, one accent colour, generous
-// vertical rhythm, and lists instead of card grids wherever the content is
-// genuinely tabular.
+// Two references, deliberately merged:
+//
+//   arpitbhayani.me  - restraint and density. Hairline borders, one accent
+//                      colour, generous vertical rhythm, no centred title
+//                      block. Still governs all prose.
+//   ebooks.rsquaredacademy.com - the card grid. Monospace eyebrow labels,
+//                      collapsed <details> for long TOCs, a row of small
+//                      action buttons per card, a thumbnail shelf, and the
+//                      learning-path panels.
+//
+// The card system is namespaced `.l*` because Bootstrap 5 already owns
+// `.card`, `.card-body`, `.card-title`, `.btn` and `.badge` - unprefixed
+// names would collide with cosmo and either lose silently or win noisily.
 //
 // The Bootstrap 5 defaults are overridden rather than fought - cosmo is a
 // reasonable base and only its excesses (shadows, heavy borders, centred
@@ -14,13 +23,25 @@ $ink:      #0f172a;  // headings, primary text
 $body:     #334155;  // body copy
 $muted:    #64748b;  // captions, meta, inactive
 $line:     #e2e8f0;  // hairline borders
-$line-soft: #f1f5f9;  // zebra / inset backgrounds
+$line-soft:#f1f5f9;  // zebra / inset backgrounds
 $accent:   #2563eb;  // 4.54:1 on white - passes WCAG AA for normal text
 $accent-dk:#1d4ed8;
 $surface:  #ffffff;
 $canvas:   #fbfcfd;
 
-$measure: 68ch;      // prose line length
+$measure:  68ch;      // prose line length
+$wide:     1100px;    // card grid measure - matches the ebooks. reference
+$radius:   14px;      // card corner radius
+$serif:    Georgia, "Times New Roman", serif;
+$mono:     ui-monospace, Menlo, Consolas, monospace;
+
+// Support tints, lifted from the ebooks. reference so the card system reads
+// as the same family rather than a coincidence.
+$note-bg:  #f0f9ff;  $note-line: #e0f2fe;  $note-ink: #075985;
+$dl-bg:    #ecfdf5;  $dl-line:   #6ee7b7;  $dl-ink:   #065f46;
+$beg-bg:   #dcfce7;  $beg-ink:   #166534;
+$int-bg:   #fef9c3;  $int-ink:   #854d0e;
+$arch-bg:  #fee2e2;  $arch-ink:  #991b1b;
 
 // --- Base -----------------------------------------------------------------
 body {
@@ -35,14 +56,18 @@ h1, h2, h3, h4, h5 {
   color: $ink;
   font-weight: 600;
   letter-spacing: -0.011em;
-  // Kill the centred title block; the hero supplies the visual anchor.
+  // No Bootstrap .text-justify rivers
   text-align: left;
 }
+
+// Serif display face, per the ebooks. reference. Body copy stays on the
+// Bootstrap sans stack - the contrast between them is what gives the cards
+// their editorial feel.
+h1, h2, h3 { font-family: $serif; letter-spacing: -0.015em; }
 
 // The title block is NOT hidden - it carries the page h1 and is restyled as
 // the hero further down. See "Hero".
 
-h1 { font-size: 2.25rem; font-weight: 700; }
 h1 { font-size: 2.25rem; font-weight: 700; }
 h2 {
   font-size: 1.5rem;
@@ -85,6 +110,9 @@ pre {
   padding: 0.9rem 1rem;
   font-size: 0.8125rem;
   line-height: 1.55;
+  // `main` is widened to $wide for the card grids; without this, code blocks
+  // on the apps page would stretch to the full 1100px.
+  max-width: 72ch;
 }
 
 hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
@@ -99,6 +127,7 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
   padding-bottom: 0;
 
   .title {
+    font-family: $serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: $ink;
@@ -166,143 +195,364 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
   &:hover { color: $accent-dk; }
 }
 
-// --- Package blocks -------------------------------------------------------
-// Layout follows pkgs.rsquaredacademy.com: hex sticker on the left, name and
-// tagline beside it, feature list below, then a CRAN / GitHub / Docs row.
-// Separated by whitespace rather than borders, which reads lighter than the
-// reference's <hr> dividers.
+// --- Card grid ------------------------------------------------------------
+// Ported from https://ebooks.rsquaredacademy.com/ - eyebrow label, cover,
+// title, one-liner, meta, a tinted note, a row of small action buttons and a
+// collapsed <details> for the long contents list.
 //
-// Type is deliberately small and light. Eight of these stack on the homepage,
-// so at body size the section dominated the page; the package name is the only
-// element that stays above 1rem.
-.pkg {
-  clear: both;
-  padding: 1.4rem 0 0.4rem;
-
-  &:first-of-type { padding-top: 0.4rem; }
-}
-
-.pkg-hex {
-  float: left;
-  width: 60px;
-  max-width: 20%;
-  margin: 0.3rem 1.35rem 0.6rem 0;
-}
-
-.pkg-name {
-  font-size: 1.0625rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  margin: 0 0 0.1rem;
-  border-bottom: 0;
-
-  a { border-bottom: 0; }
-  a:hover { color: $accent; }
-}
-
-// Tagline sits directly under the name.
-.pkg > p:first-of-type {
-  color: $muted;
-  font-size: 0.9375rem;
-  margin-bottom: 0.7rem;
-  max-width: none;
-}
-
-.pkg ul {
-  margin: 0 0 0.7rem;
-  padding-left: 1.1rem;
-  columns: 2;
-  column-gap: 2rem;
-  font-size: 1rem;
-
-  li { margin-bottom: 0.2rem; break-inside: avoid; }
-}
-
-.pkg > p:last-of-type {
-  clear: both;
-  font-size: 0.8125rem;
-  padding-top: 0.3rem;
-  border-top: 1px solid $line-soft;
-  max-width: none;
-}
-
-@media (max-width: 575px) {
-  .pkg ul { columns: 1; }
-  .pkg-hex { width: 48px; max-width: 24%; margin-right: 0.9rem; }
-}
-// --- Bookshelf ------------------------------------------------------------
-// Mirrors ebooks.rsquaredacademy.com: a fixed three-column grid, cover on
-// top, title in caps beneath. The previous version ran cover and title side
-// by side inside a bordered row, which read as a list of links rather than as
-// a shelf.
-.shelf {
+// Namespaced `.l*` throughout: Bootstrap 5 owns `.card`, `.card-body`,
+// `.card-title`, `.btn` and `.badge`. The previous `.card` override here was
+// dead weight fighting cosmo for rules nothing used.
+.lgrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 1.75rem;
-  margin: 1.75rem 0 1.5rem;
+  gap: 18px;
+  margin: 1.75rem 0 2rem;
 }
 
-.book {
-  text-align: center;
-}
+.lcard {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 
-.book-cover {
-  display: block;
-  border-bottom: 0;
-  margin-bottom: 0.7rem;
-
-  img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    border-radius: 2px;
-    border: 1px solid $line;
-    transition: transform 0.12s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(2, 6, 23, 0.12);
   }
 
-  &:hover { border-bottom: 0; }
-  &:hover img { transform: translateY(-2px); }
+  // Pandoc wraps a lone image in a <p>. Only the cover paragraph is a direct
+  // child, so this collapses it without touching copy inside .lbody.
+  > p { margin: 0; }
 }
 
-.book-cap {
+// Covers are capped rather than full-bleed. At three columns on a $wide main
+// a full-bleed 3:4 book cover would render ~440px tall and swamp the card.
+.lcover {
   display: block;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  line-height: 1.45;
-  text-transform: uppercase;
-  color: $ink;
+  margin: 0 auto;
   border-bottom: 0;
 
-  &:hover { color: $accent; }
+  &:hover { border-bottom: 0; }
 }
 
-@media (max-width: 900px) {
-  .shelf { grid-template-columns: repeat(2, 1fr); }
+// CRAN hexagons are taller than wide - sizing by height preserves the shape,
+// where a square aspect-ratio box would distort them.
+.lcover-hex {
+  max-height: 128px;
+  width: auto;
+  padding: 1.5rem 0 1.25rem;
 }
 
-// --- Package / app listings ----------------------------------------------
-// Card decks are replaced by flat bordered panels that read as documents,
-// not advertisements.
-.card {
+.lcover-book {
+  max-width: 132px;
+  width: auto;
+  height: auto;
   border: 1px solid $line;
-  border-radius: 6px;
-  box-shadow: none;
-  background: $surface;
-  transition: border-color 0.12s ease;
-
-  &:hover { border-color: #cbd5e1; box-shadow: none; }
-
-  .card-title { color: $ink; font-weight: 600; font-size: 1.0625rem; }
+  border-radius: 4px;
+  margin-bottom: 0.35rem;
 }
 
-.card-deck { gap: 1.25rem; margin-bottom: 1.5rem; }
+.lbody {
+  padding: 0.9rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
 
-.hex {
-  width: 100%;
-  max-width: 96px;   // 360px source is 2x of this
+  // Undo the global prose cap and list indents inside the card.
+  p, li { max-width: none; }
+  // Pandoc wraps bare inline HTML (`<span class="ltrack">`) and each run of
+  // links in a <p>. As flex items those wrappers would otherwise add their own
+  // margins on top of the gap.
+  > p { margin: 0; }
+  ul, ol { padding-left: 1.05rem; }
+  li { margin-bottom: 0.15rem; }
+
+  h3 {
+    font-family: $serif;
+    font-size: 1.15rem;
+    margin: 0;
+    line-height: 1.25;
+
+    a {
+      color: $ink;
+      border-bottom: 0;
+      &:hover { color: $accent; }
+    }
+  }
+}
+
+// Monospace eyebrow: "CORE 01", "FLAGSHIP", "olsrr". The one place the accent
+// is used at 11px, where 4.54:1 clears WCAG AA for bold small text.
+.ltrack {
+  font-family: $mono;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+.ltrack.util { color: $muted; }
+.ltrack.arch { color: $arch-ink; }
+
+.lout {
+  color: $muted;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.lmeta {
+  font-size: 0.78125rem;
+  color: $muted;
+  margin: 0;
+}
+
+.lprereq {
+  font-size: 0.78125rem;
+  color: $note-ink;
+  background: $note-bg;
+  border: 1px solid $note-line;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  margin: 0;
+}
+
+// --- Card actions ---------------------------------------------------------
+// Pandoc collects a run of links into a single <p>, so the flex context has to
+// be established on the wrapper as well - otherwise `gap` has no flex items to
+// separate and the buttons sit one whitespace apart.
+.lactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.15rem;
+
+  > p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.labtn {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  color: $ink;
+  background: $surface;
+  border-bottom: 1px solid #cbd5e1;
+
+  &:hover {
+    color: $ink;
+    background: $line-soft;
+    border-color: #cbd5e1;
+    border-bottom: 1px solid #cbd5e1;
+  }
+
+  // `format.html.link-external-icon: true` in _quarto.yml appends a
+  // Bootstrap glyph to every external link. On a button row that is noise.
+  .bi { display: none; }
+}
+
+.labtn.primary {
+  background: $ink;
+  border-color: $ink;
+  color: #fff;
+  border-bottom: 1px solid $ink;
+
+  &:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+}
+
+.labtn.dl {
+  background: $dl-bg;
+  border-color: $dl-line;
+  color: $dl-ink;
+  border-bottom: 1px solid $dl-line;
+
+  &:hover { background: #d1fae5; border-color: $dl-line; color: $dl-ink; }
+}
+
+// --- Card pills -----------------------------------------------------------
+.lpill {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  background: $note-bg;
+  color: $note-ink;
+  margin-right: 5px;
+}
+
+.lpill.beg { background: $beg-bg; color: $beg-ink; }
+.lpill.int { background: $int-bg; color: $int-ink; }
+.lpill.arch { background: $arch-bg; color: $arch-ink; }
+
+// --- Card details ---------------------------------------------------------
+// The single biggest win from the ebooks. model. An always-open bullet list
+// made each package block ~200px tall; eight of those on one page is why the
+// body type was shrunk twice. Collapsed, the same content costs four lines.
+.lcard details {
+  font-size: 0.8125rem;
+  color: $body;
+  background: $canvas;
+  border: 1px solid $line;
+  border-radius: 9px;
+  padding: 0.4rem 0.55rem;
+  margin-top: 0.2rem;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: $ink;
+  }
+
+  ul {
+    margin: 0.5rem 0 0.25rem 1.1rem;
+    padding: 0;
+    max-height: 168px;
+    overflow: auto;
+
+    li { font-size: 0.8125rem; }
+  }
+
+  p { font-size: 0.75rem; color: $muted; margin: 0.3rem 0 0; }
+}
+
+// --- Shelf strip ----------------------------------------------------------
+// "Series at a glance" - thumbnails with a caption, per the ebooks. reference.
+.lshelf {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 1rem 0 2rem;
+
+  .lshelf-item { margin: 0; }
+
+  // Pandoc turns a linked image into a <figure> and generates a <figcaption>
+  // from the alt text, which would print the same words twice under every
+  // thumbnail. The alt already carries it, so the generated one is dropped and
+  // the short caption below the image is styled instead.
+  .quarto-figure { margin: 0; }
+  figcaption { display: none; }
+
+  .lshelf-item > p:last-child {
+    font-size: 0.71875rem;
+    color: $muted;
+    text-align: center;
+    margin: 0.35rem 0 0;
+    max-width: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid $line;
+    border-radius: 6px;
+    border-bottom: 0;
+
+    &:hover { border-bottom: 0; }
+  }
+}
+
+// --- Learning path --------------------------------------------------------
+// Four "core track" steps plus two companion panels, per the ebooks.
+// reference. Communicates prerequisite order without a diagram.
+.lpath {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 1rem 0 1.25rem;
+}
+
+.lstep {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 0.85rem;
+
+  .num {
+    display: block;
+    font-family: $mono;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: $accent;
+  }
+
+  h3 { font-size: 1rem; margin: 0.25rem 0 0.35rem; }
+
+  p {
+    font-size: 0.8125rem;
+    color: $muted;
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.lshortcut {
   display: block;
-  margin: 0 auto 0.9rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: $note-ink;
+  background: $note-bg;
+  border: 1px solid $note-line;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+}
+
+.lcomps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.lcomp {
+  background: #fffbeb;
+  border: 1px dashed #f59e0b;
+  border-radius: $radius;
+  padding: 0.85rem;
+
+  .num {
+    display: block;
+    font-family: $mono;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #b45309;
+  }
+
+  h3 { font-size: 1rem; margin: 0.25rem 0 0.35rem; }
+
+  p {
+    font-size: 0.8125rem;
+    color: #57534e;
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.lcomp.deep {
+  background: #ecfeff;
+  border-color: #06b6d4;
+
+  .num { color: #0e7490; }
+  p { color: #155e75; }
 }
 
 // --- Code snippets (apps page) -------------------------------------------
@@ -414,7 +664,9 @@ footer {
 }
 
 // --- Layout cap -----------------------------------------------------------
-main { max-width: 940px; }
+// Widened from 940px so three cards sit at a usable ~350px. Prose is unaffected:
+// `main p, main li` and `table` are still capped at $measure, and `pre` at 72ch.
+main { max-width: $wide; }
 
 // --- Responsive -----------------------------------------------------------
 @media (max-width: 575px) {
@@ -425,12 +677,35 @@ main { max-width: 940px; }
     margin: 0 auto 1.25rem;
     max-width: 60%;
   }
-  .shelf { grid-template-columns: 1fr; }
-  .book-cover img { max-width: 130px; }
+  .lgrid { grid-template-columns: 1fr; }
+  .lpath { grid-template-columns: 1fr; }
+  .lcover-book { max-width: 118px; }
 }
 
 // The Explore row is fixed at 3 columns on desktop; below that it stacks,
 // because three panels at tablet width are unreadably narrow.
 @media (max-width: 900px) {
   .explore-grid { grid-template-columns: 1fr; }
+  .lcomps { grid-template-columns: 1fr; }
+}
+
+// Three cards need ~350px each to hold a title, two action buttons and a
+// meta line without wrapping. Below ~960px of main they drop to two, then one.
+@media (max-width: 960px) {
+  .lgrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+// Six thumbnails across is a strip; three is a shelf you can still read.
+@media (max-width: 860px) {
+  .lpath { grid-template-columns: repeat(2, 1fr); }
+  .lshelf { grid-template-columns: repeat(3, 1fr); }
+}
+
+// --- Reduced motion -------------------------------------------------------
+// The card hover lift is the only animation in the system, but it is applied
+// unconditionally, so honour the preference.
+@media (prefers-reduced-motion: reduce) {
+  .lcard { transition: none; }
+  .lcard:hover { transform: none; }
+  .lcover { transition: none; }
 }
