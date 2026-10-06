@@ -384,16 +384,25 @@ hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
     padding: 0;
     flex: 1 1 auto;
     min-width: 0;
-    // Every body child is margin:0, so this gap is the only thing separating
-    // the eyebrow, title, one-liner, note and disclosure. At the inherited
-    // 0.5rem they read as one congested block once the one-liner wraps to two
-    // lines, which it usually does in a ~400px column.
-    gap: 0.85rem;
-  }
+    // Every body child is margin:0, so this is the base seam.
+    //
+    // `space-between` is not usable here: .lbody is currently the tallest
+    // column, so there is no free space for it to distribute, and anchoring the
+    // disclosure to the bottom would need a fixed min-height that breaks as soon
+    // as a one-liner wraps differently. Uneven seams do the job instead.
+    gap: 0.75rem;
 
-  // The disclosure already gets a margin-top of its own; with the wider gap
-  // above it that made this one seam visibly larger than the rest.
-  .lbody details { margin-top: 0; }
+    // Proximity. The eyebrow and the package name read as one unit and keep the
+    // base gap. Everything below them is a distinct block and gets a real break,
+    // widening as the eye travels down the card:
+    //   12px  eyebrow -> name
+    //   16px  name -> description
+    //   18px  description -> note
+    //   20px  note -> What's inside
+    .lout    { margin-top: 0.25rem; }
+    .lprereq { margin-top: 0.4rem; }
+    details  { margin-top: 0.5rem; }
+  }
 
   // Buttons run down the rail rather than across the card.
   .lactions {

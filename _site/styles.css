@@ -111,9 +111,13 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .lcard-h .lside > p { flex: 0 0 auto; margin: 0; line-height: 0; }
 
-.lcard-h .lbody { padding: 0; flex: 1 1 auto; min-width: 0; gap: 0.85rem; }
+.lcard-h .lbody { padding: 0; flex: 1 1 auto; min-width: 0; gap: 0.75rem; }
 
-.lcard-h .lbody details { margin-top: 0; }
+.lcard-h .lbody .lout { margin-top: 0.25rem; }
+
+.lcard-h .lbody .lprereq { margin-top: 0.4rem; }
+
+.lcard-h .lbody details { margin-top: 0.5rem; }
 
 .lcard-h .lactions { width: 100%; margin-top: 0; }
 
