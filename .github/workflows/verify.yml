@@ -1,0 +1,59 @@
+# CI gate for the committed _site/.
+#
+# WHY THIS CHECKS OUTPUT, NOT SOURCES
+# -----------------------------------
+# Every bug in the 2026-10-06/07 sessions was output-level and invisible in the
+# .qmd source: 15 hex stickers 404ing because Quarto resolves image paths
+# relative to the source file; three packages shipping with no Docs button
+# because a hand-maintained host table was incomplete; horizontal cards holding
+# 2 columns down to 575px. Grepping sources finds none of that.
+#
+# So this validates the BUILT site. `_site/` is already committed and is what
+# Netlify serves (netlify.toml sets publish = "_site"), which means:
+#   - no Quarto, no R, no sass needed here
+#   - the deploy path is untouched
+#   - a green run means "what is committed is sound", not "a fresh build passes"
+#
+# Checks are grouped into two jobs. `output` is deterministic and offline, so it
+# can hard-fail. `links` needs the network, so a DNS hiccup upstream cannot take
+# the build down for a reason that has nothing to do with the code.
+
+name: verify
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  output:
+    name: _site output checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify committed _site
+        run: node .github/scripts/verify-site.mjs
+
+  links:
+    name: external host checks
+    runs-on: ubuntu-latest
+    # Never block a push on someone else's uptime.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify external hosts
+        run: node .github/scripts/verify-links.mjs
