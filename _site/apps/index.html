@@ -227,6 +227,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     loadGA4(choice);
   }
 
+  // The withdrawal controls on /privacy/ change the choice outside the banner,
+  // so they announce it with this event rather than duplicating the load logic.
+  // Named to match the localStorage key so the two cannot drift apart.
+  //
+  // Only "granted" and "denied" mean anything. /privacy/ sends null for "Forget
+  // my choice", and an earlier version of this guard tested for the string
+  // "reset" instead - so null fell through and loaded analytics on the very
+  // page where the visitor had just withdrawn it. Whitelist, don't blacklist.
+  function applyExternalChoice(choice) {
+    hideBanner();
+    if (choice !== "granted" && choice !== "denied") return;
+    loadGA4(choice);
+  }
+
+  window.addEventListener("ga-consent-changed", function (e) {
+    applyExternalChoice(e && e.detail);
+  });
+
   function init() {
     var existing = readChoice();
     if (existing) {

@@ -123,6 +123,14 @@ next page view.
       else window.localStorage.setItem(KEY, choice);
     } catch (e) { /* storage unavailable; the banner will ask again */ }
     state.textContent = describe();
+    // Tell the gate in head-includes.html, which owns the loading logic.
+    // Without this the choice is stored but analytics does not start until the
+    // NEXT page view - so "Accept analytics" here would appear not to work.
+    // "Forget my choice" sends null, which the gate treats as "load nothing",
+    // and the following page view asks again.
+    window.dispatchEvent(new CustomEvent("ga-consent-changed", {
+      detail: choice === "reset" ? null : choice,
+    }));
   }
 
   for (var i = 0; i < buttons.length; i++) {
