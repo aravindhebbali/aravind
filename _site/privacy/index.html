@@ -390,7 +390,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>The site is a static set of pages hosted by Netlify. There is no server-side code, no database, no account, and nothing to sign up for.</li>
 <li>It sets <strong>no cookies</strong> and runs <strong>no advertising or remarketing tags</strong>.</li>
-<li>Two things are loaded from other companies’ servers: <strong>Google Analytics</strong>, but only after you agree to it, and <strong>Google Fonts</strong>, which happens automatically before you are asked. Both are described below, and the font one is called out honestly rather than buried.</li>
+<li><strong>Nothing on this page is loaded from an advertising or analytics company unless you agree to it.</strong> Google Analytics waits for your consent, as described below.</li>
+<li>The typeface is served from this site’s own domain. Fonts used to come from Google before you were asked; they no longer do.</li>
 <li>Nothing you type here reaches me. There is no form on this site.</li>
 </ul>
 </section>
@@ -423,12 +424,6 @@ ul.task-list li input[type="checkbox"] {
 <td><strong>No</strong></td>
 </tr>
 <tr class="even">
-<td>Google</td>
-<td>Source Sans Pro webfont</td>
-<td>Every page, automatically</td>
-<td><strong>Yes</strong></td>
-</tr>
-<tr class="odd">
 <td>Netlify</td>
 <td>Serves the files</td>
 <td>Every page</td>
@@ -436,7 +431,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Google Fonts is the awkward one, and it is worth being direct about: the Bootstrap theme this site uses includes a stylesheet rule that pulls the font from <code>fonts.googleapis.com</code>. That request reaches Google before the consent banner is answered, and it necessarily discloses your IP address to them in the process. Self-hosting the font would remove it; that change is worth making and I have not made it here.</p>
+<p><strong>Source Sans Pro used to be the awkward one.</strong> The Bootstrap theme this site uses included a stylesheet rule that pulled the font from <code>fonts.googleapis.com</code>, which reached Google before the consent banner was answered and necessarily disclosed your IP address in the process. The font is now hosted on this site’s own domain and that rule has been removed, so no request to Google is made for type at all.</p>
+<p>I am noting the change rather than quietly deleting the paragraph, because “we no longer do the thing we used to do” is the sort of claim worth showing the work for. The two font files are served from <code>/images/fonts/</code>: roughly 29 KB for regular and semibold, latin subset, and they are licensed under the SIL Open Font License, which permits self-hosting. If you are checking, this site’s Content-Security-Policy no longer permits Google Fonts at all, so a request to either Google font host would be blocked by the browser rather than merely avoided by convention.</p>
 <p>The rest of the site has no third-party embeds at all — no videos, no maps, no chat widgets, no social media buttons that load anything. Calendly and LinkedIn appear only as ordinary links that take you to another site, and those sites have their own policies.</p>
 </section>
 <section id="google-analytics" class="level2">

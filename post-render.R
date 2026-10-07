@@ -176,6 +176,71 @@ for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
 }
 message("post-render: bootstrap-icons.css <link> stripped")
 
+# --- Suppress the Google Fonts @import in the built Bootstrap CSS ----------
+#
+# cosmo compiles to an @import of fonts.googleapis.com at the very top of its
+# stylesheet. That is a network request made BY THE STYLESHEET, before any of
+# this page's script runs, so it reaches Google BEFORE the consent banner is
+# answered and the consent gate cannot intercept it. Measured on first paint with
+# the banner still visible: fonts.googleapis.com plus one fonts.gstatic.com
+# request per page load.
+#
+# styles.scss now declares Source Sans Pro itself (same two files Google was
+# serving: w400 and w600, latin subset, 14.5 KB + 14.3 KB), so the @import is
+# redundant - but declaring the font does NOT suppress an @import. Verified in a
+# scratch project: with both present, the @import survives into the built CSS and
+# is still fetched. @import is a top-of-file statement the browser acts on before
+# it has applied any later rule.
+#
+# So the statement itself is removed from the BUILT stylesheet here. Editing
+# _site rather than the Quarto theme is deliberate: the theme is a shared SCSS
+# partial under the Quarto install, and `theme: [cosmo]` in _quarto.yml is a
+# named reference to it. Rewriting a file inside the Quarto installation would
+# break on upgrade and would not survive a reinstall, whereas _site is a build
+# artefact that post-render.R already corrects for other reasons.
+#
+# Matched on the quoted URL. cosmo writes the statement with the URL in DOUBLE
+# QUOTES - `@import"https://…:wght@300;400;700&display=swap";` - so `@import"[^"]*";`
+# matches exactly one statement and cannot overrun.
+#
+# Two approaches were tried and rejected first, both verified against this file:
+#
+#   - `[^;]*` up to the first semicolon: stops INSIDE the URL, because the weight
+#     list contains semicolons (wght@300;400;700). Removing what it matched left
+#     a dangling `400;700&display=swap";` at the head of the file. That is invalid
+#     CSS at position 0 and can invalidate the whole stylesheet - a worse outcome
+#     than leaving the @import in.
+#   - matching through to the next `}`: there is no brace of its own. The import
+#     is immediately followed by `:root,[data-bs-theme=light]{…}`, so a `.*?\}`
+#     match swallows the entire :root block and deletes the design tokens.
+boot_css <- list.files(file.path(site_dir, "site_libs", "bootstrap"),
+                       pattern = "\\.css$", full.names = TRUE)
+font_import <- '@import"[^"]*";'
+for (f in boot_css) {
+  css <- paste(readLines(f, warn = FALSE), collapse = "\n")
+  if (!grepl(font_import, css)) next
+  # Only touch a stylesheet that really does import from Google; a future
+  # Bootstrap build with no Google import must be left byte-identical.
+  if (!grepl("fonts\\.googleapis\\.com", css)) next
+
+  stripped <- gsub(font_import, "", css)
+
+  # Belt and braces: the removal must be small (this statement is 96 bytes) and
+  # must leave the tokens and the file tail intact. If any check fails, keep the
+  # original rather than shipping a truncated stylesheet.
+  removed <- nchar(css) - nchar(stripped)
+  intact <- grepl(":root,\\[data-bs-theme=light\\]", stripped) &&
+           !grepl("fonts\\.googleapis", stripped)
+  if (removed <= 0 || removed > 500 || !intact) {
+    warning("post-render: @import strip of ", basename(f),
+            " looked unsafe (removed ", removed, " bytes); left unchanged")
+    next
+  }
+  writeLines(stripped, f, useBytes = TRUE)
+  message("post-render: Google Fonts @import removed from ", basename(f),
+          " (", removed, " bytes)")
+}
+
 # Nothing references these once the <link> is gone, so they are deleted rather
 # than left as 268 KB of unreachable weight in the committed _site/.
 for (f in c(icons_css, icons_woff)) {

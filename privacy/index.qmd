@@ -13,10 +13,11 @@ rather than comprehensive, because a policy nobody finishes is not a policy.
 - The site is a static set of pages hosted by Netlify. There is no server-side
   code, no database, no account, and nothing to sign up for.
 - It sets **no cookies** and runs **no advertising or remarketing tags**.
-- Two things are loaded from other companies' servers: **Google Analytics**,
-  but only after you agree to it, and **Google Fonts**, which happens
-  automatically before you are asked. Both are described below, and the font
-  one is called out honestly rather than buried.
+- **Nothing on this page is loaded from an advertising or analytics company
+  unless you agree to it.** Google Analytics waits for your consent, as described
+  below.
+- The typeface is served from this site's own domain. Fonts used to come from
+  Google before you were asked; they no longer do.
 - Nothing you type here reaches me. There is no form on this site.
 
 ## Who runs this site
@@ -30,15 +31,23 @@ is worth telling me about.
 | Who | What | When | Before you are asked? |
 |---|---|---|---|
 | Google | Analytics 4, to count visits | Only after you accept or choose "essential only" | **No** |
-| Google | Source Sans Pro webfont | Every page, automatically | **Yes** |
 | Netlify | Serves the files | Every page | Yes |
 
-Google Fonts is the awkward one, and it is worth being direct about: the
-Bootstrap theme this site uses includes a stylesheet rule that pulls the font
-from `fonts.googleapis.com`. That request reaches Google before the consent
-banner is answered, and it necessarily discloses your IP address to them in the
-process. Self-hosting the font would remove it; that change is worth making
-and I have not made it here.
+**Source Sans Pro used to be the awkward one.** The Bootstrap theme this site
+uses included a stylesheet rule that pulled the font from
+`fonts.googleapis.com`, which reached Google before the consent banner was
+answered and necessarily disclosed your IP address in the process. The font is
+now hosted on this site's own domain and that rule has been removed, so no
+request to Google is made for type at all.
+
+I am noting the change rather than quietly deleting the paragraph, because "we no
+longer do the thing we used to do" is the sort of claim worth showing the work
+for. The two font files are served from `/images/fonts/`: roughly 29 KB for
+regular and semibold, latin subset, and they are licensed under the SIL Open Font
+License, which permits self-hosting. If you are checking, this site's
+Content-Security-Policy no longer permits Google Fonts at all, so a request to
+either Google font host would be blocked by the browser rather than merely
+avoided by convention.
 
 The rest of the site has no third-party embeds at all — no videos, no maps, no
 chat widgets, no social media buttons that load anything. Calendly and

@@ -21,6 +21,10 @@ project:
     - "images/avatar.webp"
     - "images/avatar-sm.webp"
     - "images/og-card.jpg"
+    # Self-hosted Source Sans Pro (400 + 600, latin subset). Replaces the
+    # Google Fonts @import in cosmo, which reached Google before the consent
+    # banner was answered. See the Icons/fonts section of styles.scss.
+    - "images/fonts/**"
     - "images/hex-olsrr.webp"
     - "images/hex-blorr.webp"
     - "images/hex-xplorerr.webp"

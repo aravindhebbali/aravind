@@ -18,6 +18,74 @@
 // reasonable base and only its excesses (shadows, heavy borders, centred
 // title block) need pulling back.
 
+// --- Webfont ---------------------------------------------------------------
+// Source Sans Pro, self-hosted.
+//
+// WHY NOT GOOGLE FONTS
+// cosmo compiles to `@import url("https://fonts.googleapis.com/css2?…")`, which
+// fires on every page view - BEFORE the consent banner is answered, since a CSS
+// @import is a network request the stylesheet itself triggers. Measured on
+// first paint with the banner still visible: one fonts.googleapis.com request
+// plus one fonts.gstatic.com request. The consent gate cannot intercept it, so it
+// was the last third party the banner did not cover. Removing it lets 1.5 drop
+// two CSP entries for the first time.
+//
+// ONLY TWO FILES, on purpose. The site uses font-weight 400/500/600/700 and
+// Bootstrap asks for 300 as well, but the live network trace shows only two
+// woff2 ever fetched: w400 and w600, latin subset, 14.5 KB + 14.3 KB. Shipping
+// those two reproduces today's behaviour exactly. Note 500 and 700 render from
+// the 400 and 600 faces via synthetic weight, which is what already happens.
+//
+// The unicode-range is copied verbatim from Google's own stylesheet so the
+// browser subset decision is unchanged - a narrower range would silently fall
+// back to a system font for any glyph outside it.
+//
+// `font-display: swap` matches what cosmo asked Google for, so there is no
+// layout shift difference.
+//
+// The @import in cosmo's minified CSS is removed from the BUILT stylesheet by
+// post-render.R. Declaring the font here does NOT suppress it - @import is a
+// top-of-file statement the browser acts on before applying any later rule, and
+// that was confirmed in a scratch project with both present. The CSP change in
+// _headers is the belt-and-braces guarantee that the import cannot fire even if
+// the strip ever stops matching.
+//
+// The src paths are plain relative, and that is correct - NOT the gotcha #1 trap.
+// A url() inside a stylesheet is resolved against the STYLESHEET's own URL, not
+// the page's. styles.css is linked as `styles.css` on root pages and
+// `../styles.css` on the nested ones, so `url("images/fonts/…")` resolves to
+// /images/fonts/… from every depth. Verified in Chrome on all five pages: both
+// woff2 files are fetched at the root path with no 404s, and body text measures
+// differently from the serif fallback, so the face is genuinely in use rather
+// than merely downloaded.
+//
+// Root-absolute `/images/fonts/…` was tried first and cannot work: Quarto's CSS
+// minifier strips the leading slash from every url() during render. Confirmed
+// with a scratch project holding an absolute control and a relative control -
+// `/img/y.png` and `img/z.png` both came out slash-free. Worth knowing before
+// anyone "fixes" these back to absolute and silently breaks them.
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("images/fonts/source-sans-pro-latin-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("images/fonts/source-sans-pro-latin-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 // --- Tokens ---------------------------------------------------------------
 $ink:      #0f172a;  // headings, primary text
 $body:     #334155;  // body copy
