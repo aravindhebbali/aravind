@@ -9,7 +9,12 @@ title-block-categories: false
 ---
 
 ::: {.hero}
-![](images/avatar.webp){.hero-photo alt="Aravind Hebbali"}
+<!-- Intrinsic width/height on every image below: the browser reserves the
+     box from the attributes instead of discovering it after decode, which is
+     what drives the 4s of Style & Layout in the mobile trace. 440x392 is
+     avatar.webp's true size. Deliberately NOT lazy-loaded - it is the hero
+     and a prime LCP candidate, so it must not be deferred. -->
+![](images/avatar.webp){.hero-photo width=440 height=392 alt="Aravind Hebbali"}
 :::
 
 I build statistical software that holds up outside a tutorial, and I help teams
@@ -69,7 +74,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
+![](images/hex-olsrr.webp){.lcover .lcover-hex width=360 height=417 alt="olsrr hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=olsrr){.labtn}
@@ -106,7 +111,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
+![](images/hex-xplorerr.webp){.lcover .lcover-hex width=360 height=417 alt="xplorerr hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
@@ -143,7 +148,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
+![](images/hex-rfm.webp){.lcover .lcover-hex width=360 height=417 alt="rfm hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=rfm){.labtn}
@@ -178,7 +183,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
+![](images/hex-descriptr.webp){.lcover .lcover-hex width=360 height=417 alt="descriptr hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=descriptr){.labtn}
@@ -213,7 +218,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](images/hex-rbin.webp){.lcover .lcover-hex alt="rbin hex sticker"}
+![](images/hex-rbin.webp){.lcover .lcover-hex width=360 height=417 alt="rbin hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=rbin){.labtn}
@@ -251,7 +256,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
+![](images/hex-blorr.webp){.lcover .lcover-hex width=360 height=417 alt="blorr hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=blorr){.labtn}
@@ -308,39 +313,39 @@ eventually rewritten into short books with the sharp edges filed off.
 ::: {.lshelf}
 
 ::: {.lshelf-item}
-[![Cover: Introduction to R](images/covers/intro-r.svg)](https://intro-r.rsquaredacademy.com/)
+<a href="https://intro-r.rsquaredacademy.com/"><img src="images/covers/intro-r.svg" width="300" height="400" alt="Cover: Introduction to R" loading="lazy" decoding="async"></a>
 
-01 Intro
+01 Intro<span class="visually-hidden"> - Introduction to R</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Wrangling with R](images/covers/wrangle-r.svg)](https://wrangle-r.rsquaredacademy.com/)
+<a href="https://wrangle-r.rsquaredacademy.com/"><img src="images/covers/wrangle-r.svg" width="300" height="400" alt="Cover: Data Wrangling with R" loading="lazy" decoding="async"></a>
 
-02 Wrangle
+02 Wrangle<span class="visually-hidden"> - Data Wrangling with R</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Visualization with ggplot2](images/covers/viz-ggplot2.svg)](https://viz-ggplot2.rsquaredacademy.com/)
+<a href="https://viz-ggplot2.rsquaredacademy.com/"><img src="images/covers/viz-ggplot2.svg" width="300" height="400" alt="Cover: Data Visualization with ggplot2" loading="lazy" decoding="async"></a>
 
-03 ggplot2
+03 ggplot2<span class="visually-hidden"> - Data Visualization with ggplot2</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Visualization with Base R](images/covers/viz-base.svg)](https://viz-base.rsquaredacademy.com/)
+<a href="https://viz-base.rsquaredacademy.com/"><img src="images/covers/viz-base.svg" width="300" height="400" alt="Cover: Data Visualization with Base R" loading="lazy" decoding="async"></a>
 
-04 Base
+04 Base<span class="visually-hidden"> - Data Visualization with Base R</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: R, Databases and SQL](images/covers/rdbsql.svg)](https://rdbsql.rsquaredacademy.com/)
+<a href="https://rdbsql.rsquaredacademy.com/"><img src="images/covers/rdbsql.svg" width="300" height="400" alt="Cover: R, Databases and SQL" loading="lazy" decoding="async"></a>
 
-05 SQL
+05 SQL<span class="visually-hidden"> - R, Databases and SQL</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Command Line Basics](images/covers/bash-intro.svg)](https://bash-intro.rsquaredacademy.com/)
+<a href="https://bash-intro.rsquaredacademy.com/"><img src="images/covers/bash-intro.svg" width="300" height="400" alt="Cover: Command Line Basics" loading="lazy" decoding="async"></a>
 
-06 Bash
+06 Bash<span class="visually-hidden"> - Command Line Basics</span>
 :::
 
 :::

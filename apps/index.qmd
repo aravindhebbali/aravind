@@ -25,7 +25,7 @@ installed. Copy the two lines, paste them into the console, and the app opens.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-olsrr.webp){.lcover .lcover-hex alt="olsrr hex sticker"}
+![](../images/hex-olsrr.webp){.lcover .lcover-hex width=360 height=417 alt="olsrr hex sticker"}
 
 ::: {.lactions}
 [Docs](https://olsrr.rsquaredacademy.com){.labtn}
@@ -55,7 +55,7 @@ olsrr::ols_launch_app()
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-blorr.webp){.lcover .lcover-hex alt="blorr hex sticker"}
+![](../images/hex-blorr.webp){.lcover .lcover-hex width=360 height=417 alt="blorr hex sticker"}
 
 ::: {.lactions}
 [Docs](https://blorr.rsquaredacademy.com){.labtn}
@@ -85,7 +85,7 @@ blorr::blr_launch_app()
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-rfm.webp){.lcover .lcover-hex alt="rfm hex sticker"}
+![](../images/hex-rfm.webp){.lcover .lcover-hex width=360 height=417 alt="rfm hex sticker"}
 
 ::: {.lactions}
 [Docs](https://rfm.rsquaredacademy.com){.labtn}
@@ -121,7 +121,7 @@ rfm::rfm_launch_app()
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-descriptr.webp){.lcover .lcover-hex alt="descriptr hex sticker"}
+![](../images/hex-descriptr.webp){.lcover .lcover-hex width=360 height=417 alt="descriptr hex sticker"}
 
 ::: {.lactions}
 [Docs](https://descriptr.rsquaredacademy.com){.labtn}
@@ -151,7 +151,7 @@ descriptr::ds_launch_shiny_app()
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-inferr.webp){.lcover .lcover-hex alt="inferr hex sticker"}
+![](../images/hex-inferr.webp){.lcover .lcover-hex width=360 height=417 alt="inferr hex sticker"}
 
 ::: {.lactions}
 [Docs](https://inferr.rsquaredacademy.com){.labtn}
@@ -190,7 +190,7 @@ other packages.</p>
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-vistributions.webp){.lcover .lcover-hex alt="vistributions hex sticker"}
+![](../images/hex-vistributions.webp){.lcover .lcover-hex width=360 height=417 alt="vistributions hex sticker"}
 
 ::: {.lactions}
 [Docs](https://vistributions.rsquaredacademy.com){.labtn}
@@ -228,7 +228,7 @@ package, start here.
 
 ::: {.lcard .lcard-h}
 ::: {.lside}
-![](../images/hex-xplorerr.webp){.lcover .lcover-hex alt="xplorerr hex sticker"}
+![](../images/hex-xplorerr.webp){.lcover .lcover-hex width=360 height=417 alt="xplorerr hex sticker"}
 
 ::: {.lactions}
 [Docs](https://xplorerr.rsquaredacademy.com){.labtn}

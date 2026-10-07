@@ -218,7 +218,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="hero">
-<p><img src="images/avatar.webp" class="hero-photo img-fluid" alt="Aravind Hebbali"></p>
+<!-- Intrinsic width/height on every image below: the browser reserves the
+     box from the attributes instead of discovering it after decode, which is
+     what drives the 4s of Style & Layout in the mobile trace. 440x392 is
+     avatar.webp's true size. Deliberately NOT lazy-loaded - it is the hero
+     and a prime LCP candidate, so it must not be deferred. -->
+<p><img src="images/avatar.webp" class="hero-photo" alt="Aravind Hebbali" width="440" height="392"></p>
 </div>
 <p>I build statistical software that holds up outside a tutorial, and I help teams do the same. My work sits where R, statistics, economics and finance overlap — regression diagnostics, customer segmentation, descriptive and inferential statistics, and the unglamorous plumbing that keeps an analysis reproducible six months later when someone else has to rerun it.</p>
 <p>Most of that work is open source. The package portfolio below is used far more widely than I expected when I started writing it, and it is the reason people find their way here: the packages are free, the vignettes are free, and there is no upsell attached to any of it.</p>
@@ -252,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="lgrid lgrid-h">
 <div class="lcard lcard-h">
 <div class="lside">
-<p><img src="images/hex-olsrr.webp" class="lcover lcover-hex img-fluid" alt="olsrr hex sticker"></p>
+<p><img src="images/hex-olsrr.webp" class="lcover lcover-hex" alt="olsrr hex sticker" width="360" height="417"></p>
 <div class="lactions">
 <p><a href="https://cran.r-project.org/package=olsrr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/olsrr" class="labtn">GitHub</a> <a href="https://olsrr.rsquaredacademy.com" class="labtn">Docs</a></p>
 </div>
@@ -286,7 +291,7 @@ What’s inside
 </div>
 <div class="lcard lcard-h">
 <div class="lside">
-<p><img src="images/hex-xplorerr.webp" class="lcover lcover-hex img-fluid" alt="xplorerr hex sticker"></p>
+<p><img src="images/hex-xplorerr.webp" class="lcover lcover-hex" alt="xplorerr hex sticker" width="360" height="417"></p>
 <div class="lactions">
 <p><a href="https://cran.r-project.org/package=xplorerr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/xplorerr" class="labtn">GitHub</a> <a href="https://xplorerr.rsquaredacademy.com" class="labtn">Docs</a></p>
 </div>
@@ -320,7 +325,7 @@ What’s inside
 </div>
 <div class="lcard lcard-h">
 <div class="lside">
-<p><img src="images/hex-rfm.webp" class="lcover lcover-hex img-fluid" alt="rfm hex sticker"></p>
+<p><img src="images/hex-rfm.webp" class="lcover lcover-hex" alt="rfm hex sticker" width="360" height="417"></p>
 <div class="lactions">
 <p><a href="https://cran.r-project.org/package=rfm" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/rfm" class="labtn">GitHub</a> <a href="https://rfm.rsquaredacademy.com" class="labtn">Docs</a></p>
 </div>
@@ -352,7 +357,7 @@ What’s inside
 </div>
 <div class="lcard lcard-h">
 <div class="lside">
-<p><img src="images/hex-descriptr.webp" class="lcover lcover-hex img-fluid" alt="descriptr hex sticker"></p>
+<p><img src="images/hex-descriptr.webp" class="lcover lcover-hex" alt="descriptr hex sticker" width="360" height="417"></p>
 <div class="lactions">
 <p><a href="https://cran.r-project.org/package=descriptr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/descriptr" class="labtn">GitHub</a> <a href="https://descriptr.rsquaredacademy.com" class="labtn">Docs</a></p>
 </div>
@@ -384,7 +389,7 @@ What’s inside
 </div>
 <div class="lcard lcard-h">
 <div class="lside">
-<p><img src="images/hex-rbin.webp" class="lcover lcover-hex img-fluid" alt="rbin hex sticker"></p>
+<p><img src="images/hex-rbin.webp" class="lcover lcover-hex" alt="rbin hex sticker" width="360" height="417"></p>
 <div class="lactions">
 <p><a href="https://cran.r-project.org/package=rbin" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/rbin" class="labtn">GitHub</a> <a href="https://rbin.rsquaredacademy.com" class="labtn">Docs</a></p>
 </div>
@@ -419,7 +424,7 @@ What’s inside
 </div>
 <div class="lcard lcard-h">
 <div class="lside">
-<p><img src="images/hex-blorr.webp" class="lcover lcover-hex img-fluid" alt="blorr hex sticker"></p>
+<p><img src="images/hex-blorr.webp" class="lcover lcover-hex" alt="blorr hex sticker" width="360" height="417"></p>
 <div class="lactions">
 <p><a href="https://cran.r-project.org/package=blorr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/blorr" class="labtn">GitHub</a> <a href="https://blorr.rsquaredacademy.com" class="labtn">Docs</a></p>
 </div>
@@ -459,58 +464,28 @@ What’s inside
 <p>Six open textbooks, free to read online. They started as blog posts, grew into tutorials on <a href="https://www.rsquaredacademy.com/">Rsquared Academy</a>, and were eventually rewritten into short books with the sharp edges filed off.</p>
 <div class="lshelf">
 <div class="lshelf-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://intro-r.rsquaredacademy.com/"><img src="images/covers/intro-r.svg" class="img-fluid figure-img" alt="Cover: Introduction to R"></a></p>
-<figcaption>Cover: Introduction to R</figcaption>
-</figure>
-</div>
-<p>01 Intro</p>
+<p><a href="https://intro-r.rsquaredacademy.com/"><img src="images/covers/intro-r.svg" width="300" height="400" alt="Cover: Introduction to R" loading="lazy" decoding="async"></a></p>
+<p>01 Intro<span class="visually-hidden"> - Introduction to R</span></p>
 </div>
 <div class="lshelf-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://wrangle-r.rsquaredacademy.com/"><img src="images/covers/wrangle-r.svg" class="img-fluid figure-img" alt="Cover: Data Wrangling with R"></a></p>
-<figcaption>Cover: Data Wrangling with R</figcaption>
-</figure>
-</div>
-<p>02 Wrangle</p>
+<p><a href="https://wrangle-r.rsquaredacademy.com/"><img src="images/covers/wrangle-r.svg" width="300" height="400" alt="Cover: Data Wrangling with R" loading="lazy" decoding="async"></a></p>
+<p>02 Wrangle<span class="visually-hidden"> - Data Wrangling with R</span></p>
 </div>
 <div class="lshelf-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://viz-ggplot2.rsquaredacademy.com/"><img src="images/covers/viz-ggplot2.svg" class="img-fluid figure-img" alt="Cover: Data Visualization with ggplot2"></a></p>
-<figcaption>Cover: Data Visualization with ggplot2</figcaption>
-</figure>
-</div>
-<p>03 ggplot2</p>
+<p><a href="https://viz-ggplot2.rsquaredacademy.com/"><img src="images/covers/viz-ggplot2.svg" width="300" height="400" alt="Cover: Data Visualization with ggplot2" loading="lazy" decoding="async"></a></p>
+<p>03 ggplot2<span class="visually-hidden"> - Data Visualization with ggplot2</span></p>
 </div>
 <div class="lshelf-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://viz-base.rsquaredacademy.com/"><img src="images/covers/viz-base.svg" class="img-fluid figure-img" alt="Cover: Data Visualization with Base R"></a></p>
-<figcaption>Cover: Data Visualization with Base R</figcaption>
-</figure>
-</div>
-<p>04 Base</p>
+<p><a href="https://viz-base.rsquaredacademy.com/"><img src="images/covers/viz-base.svg" width="300" height="400" alt="Cover: Data Visualization with Base R" loading="lazy" decoding="async"></a></p>
+<p>04 Base<span class="visually-hidden"> - Data Visualization with Base R</span></p>
 </div>
 <div class="lshelf-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://rdbsql.rsquaredacademy.com/"><img src="images/covers/rdbsql.svg" class="img-fluid figure-img" alt="Cover: R, Databases and SQL"></a></p>
-<figcaption>Cover: R, Databases and SQL</figcaption>
-</figure>
-</div>
-<p>05 SQL</p>
+<p><a href="https://rdbsql.rsquaredacademy.com/"><img src="images/covers/rdbsql.svg" width="300" height="400" alt="Cover: R, Databases and SQL" loading="lazy" decoding="async"></a></p>
+<p>05 SQL<span class="visually-hidden"> - R, Databases and SQL</span></p>
 </div>
 <div class="lshelf-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://bash-intro.rsquaredacademy.com/"><img src="images/covers/bash-intro.svg" class="img-fluid figure-img" alt="Cover: Command Line Basics"></a></p>
-<figcaption>Cover: Command Line Basics</figcaption>
-</figure>
-</div>
-<p>06 Bash</p>
+<p><a href="https://bash-intro.rsquaredacademy.com/"><img src="images/covers/bash-intro.svg" width="300" height="400" alt="Cover: Command Line Basics" loading="lazy" decoding="async"></a></p>
+<p>06 Bash<span class="visually-hidden"> - Command Line Basics</span></p>
 </div>
 </div>
 <p>If you are starting from zero, begin with <a href="https://intro-r.rsquaredacademy.com/">Introduction to R</a>. Every title can also be downloaded as a PDF or ePub: <a href="books/">Books</a>.</p>

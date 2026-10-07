@@ -60,7 +60,7 @@
     "href": "index.html#books",
     "title": "Hey, I am Aravind",
     "section": "Books",
-    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n\n\nCover: Introduction to R\n\n\n01 Intro\n\n\n\n\n\nCover: Data Wrangling with R\n\n\n02 Wrangle\n\n\n\n\n\nCover: Data Visualization with ggplot2\n\n\n03 ggplot2\n\n\n\n\n\nCover: Data Visualization with Base R\n\n\n04 Base\n\n\n\n\n\nCover: R, Databases and SQL\n\n\n05 SQL\n\n\n\n\n\nCover: Command Line Basics\n\n\n06 Bash\n\n\nIf you are starting from zero, begin with Introduction to R. Every title can also be downloaded as a PDF or ePub: Books."
+    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n01 Intro - Introduction to R\n\n\n\n02 Wrangle - Data Wrangling with R\n\n\n\n03 ggplot2 - Data Visualization with ggplot2\n\n\n\n04 Base - Data Visualization with Base R\n\n\n\n05 SQL - R, Databases and SQL\n\n\n\n06 Bash - Command Line Basics\n\n\nIf you are starting from zero, begin with Introduction to R. Every title can also be downloaded as a PDF or ePub: Books."
   },
   {
     "objectID": "index.html#teaching",
@@ -137,7 +137,7 @@
     "href": "books/index.html#shelf",
     "title": "E-Books",
     "section": "Series at a glance",
-    "text": "Series at a glance\nSix titles in the order they are meant to be read.\n\n\n\n\n\nCover: Introduction to R\n\n\n01 Intro\n\n\n\n\n\nCover: Data Wrangling with R\n\n\n02 Wrangle\n\n\n\n\n\nCover: Data Visualization with ggplot2\n\n\n03 ggplot2\n\n\n\n\n\nCover: R, Databases and SQL\n\n\n04 SQL\n\n\n\n\n\nCover: Command Line Basics\n\n\nC-A Bash\n\n\n\n\n\nCover: Data Visualization with Base R\n\n\nC-B Base\n\n\nIf you are starting from zero, begin with Introduction to R. The full catalogue, with download links for every title, is also at ebooks.rsquaredacademy.com."
+    "text": "Series at a glance\nSix titles in the order they are meant to be read.\n\n\n\n01 Intro - Introduction to R\n\n\n\n02 Wrangle - Data Wrangling with R\n\n\n\n03 ggplot2 - Data Visualization with ggplot2\n\n\n\n04 SQL - R, Databases and SQL\n\n\n\nC-A Bash - Command Line Basics\n\n\n\nC-B Base - Data Visualization with Base R\n\n\nIf you are starting from zero, begin with Introduction to R. The full catalogue, with download links for every title, is also at ebooks.rsquaredacademy.com."
   },
   {
     "objectID": "books/index.html#license",

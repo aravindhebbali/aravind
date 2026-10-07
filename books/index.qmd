@@ -16,7 +16,7 @@ downloaded as a PDF or ePub.
 ::: {.lgrid}
 
 ::: {.lcard}
-![](../images/covers/intro-r.svg){.lcover .lcover-book alt="Cover: Introduction to R"}
+![](../images/covers/intro-r.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Introduction to R"}
 
 ::: {.lbody}
 <span class="ltrack">Core 01</span>
@@ -61,7 +61,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/covers/wrangle-r.svg){.lcover .lcover-book alt="Cover: Data Wrangling with R"}
+![](../images/covers/wrangle-r.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Data Wrangling with R"}
 
 ::: {.lbody}
 <span class="ltrack">Core 02</span>
@@ -108,7 +108,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/covers/viz-ggplot2.svg){.lcover .lcover-book alt="Cover: Data Visualization with ggplot2"}
+![](../images/covers/viz-ggplot2.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Data Visualization with ggplot2"}
 
 ::: {.lbody}
 <span class="ltrack">Core 03</span>
@@ -164,7 +164,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/covers/rdbsql.svg){.lcover .lcover-book alt="Cover: R, Databases and SQL"}
+![](../images/covers/rdbsql.svg){.lcover .lcover-book width=300 height=400 alt="Cover: R, Databases and SQL"}
 
 ::: {.lbody}
 <span class="ltrack">Core 04</span>
@@ -204,7 +204,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/covers/bash-intro.svg){.lcover .lcover-book alt="Cover: Command Line Basics"}
+![](../images/covers/bash-intro.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Command Line Basics"}
 
 ::: {.lbody}
 <span class="ltrack">Companion A</span>
@@ -250,7 +250,7 @@ downloaded as a PDF or ePub.
 :::
 
 ::: {.lcard}
-![](../images/covers/viz-base.svg){.lcover .lcover-book alt="Cover: Data Visualization with Base R"}
+![](../images/covers/viz-base.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Data Visualization with Base R"}
 
 ::: {.lbody}
 <span class="ltrack">Companion B</span>
@@ -369,39 +369,39 @@ Six titles in the order they are meant to be read.
 ::: {.lshelf}
 
 ::: {.lshelf-item}
-[![Cover: Introduction to R](../images/covers/intro-r.svg)](https://intro-r.rsquaredacademy.com/)
+<a href="https://intro-r.rsquaredacademy.com/"><img src="../images/covers/intro-r.svg" width="300" height="400" alt="Cover: Introduction to R" loading="lazy" decoding="async"></a>
 
-01 Intro
+01 Intro<span class="visually-hidden"> - Introduction to R</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Wrangling with R](../images/covers/wrangle-r.svg)](https://wrangle-r.rsquaredacademy.com/)
+<a href="https://wrangle-r.rsquaredacademy.com/"><img src="../images/covers/wrangle-r.svg" width="300" height="400" alt="Cover: Data Wrangling with R" loading="lazy" decoding="async"></a>
 
-02 Wrangle
+02 Wrangle<span class="visually-hidden"> - Data Wrangling with R</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Visualization with ggplot2](../images/covers/viz-ggplot2.svg)](https://viz-ggplot2.rsquaredacademy.com/)
+<a href="https://viz-ggplot2.rsquaredacademy.com/"><img src="../images/covers/viz-ggplot2.svg" width="300" height="400" alt="Cover: Data Visualization with ggplot2" loading="lazy" decoding="async"></a>
 
-03 ggplot2
+03 ggplot2<span class="visually-hidden"> - Data Visualization with ggplot2</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: R, Databases and SQL](../images/covers/rdbsql.svg)](https://rdbsql.rsquaredacademy.com/)
+<a href="https://rdbsql.rsquaredacademy.com/"><img src="../images/covers/rdbsql.svg" width="300" height="400" alt="Cover: R, Databases and SQL" loading="lazy" decoding="async"></a>
 
-04 SQL
+04 SQL<span class="visually-hidden"> - R, Databases and SQL</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Command Line Basics](../images/covers/bash-intro.svg)](https://bash-intro.rsquaredacademy.com/)
+<a href="https://bash-intro.rsquaredacademy.com/"><img src="../images/covers/bash-intro.svg" width="300" height="400" alt="Cover: Command Line Basics" loading="lazy" decoding="async"></a>
 
-C-A Bash
+C-A Bash<span class="visually-hidden"> - Command Line Basics</span>
 :::
 
 ::: {.lshelf-item}
-[![Cover: Data Visualization with Base R](../images/covers/viz-base.svg)](https://viz-base.rsquaredacademy.com/)
+<a href="https://viz-base.rsquaredacademy.com/"><img src="../images/covers/viz-base.svg" width="300" height="400" alt="Cover: Data Visualization with Base R" loading="lazy" decoding="async"></a>
 
-C-B Base
+C-B Base<span class="visually-hidden"> - Data Visualization with Base R</span>
 :::
 
 :::
