@@ -111,6 +111,42 @@ $beg-bg:   #dcfce7;  $beg-ink:   #166534;
 $int-bg:   #fef9c3;  $int-ink:   #854d0e;
 $arch-bg:  #fee2e2;  $arch-ink:  #991b1b;
 
+// Launch-card ("compute") tints. Amber for the shallow cards, cyan for `.deep`,
+// so a viewer can tell the two tiers apart before reading either.
+$cmp-bg:     #fffbeb;  $cmp-line:   #f59e0b;  $cmp-num:  #b45309;
+$cmp-body:   #57534e;
+$cmpd-bg:    #ecfeff;  $cmpd-line:  #06b6d4;  $cmpd-num: #0e7490;
+$cmpd-body:  #155e75;
+
+// --- Elevation, and the two colours with no token until now -----------------
+// $line-strong is a *lighter-weight* border than $line, not a heavier one: it is
+// what a control's own outline uses, where $line would leave the button looking
+// detached from the card behind it. Two shades rather than one, because a hover
+// has to be visibly different from rest and $line -> #cbd5e1 alone is not enough
+// separation at this border weight.
+//
+// $on-ink is the text/icon colour for a surface filled with $ink. It is a token
+// rather than a bare #fff so that dark mode can put dark ink on a light fill
+// instead of inheriting white-on-dark assumptions.
+//
+// The four rgba() shadow tints are all the SAME hue (rgb(2, 6, 23)) at
+// increasing alpha, so only the alpha differs between them. Expressed as
+// separate tokens rather than one colour + literal alpha, so dark mode can
+// retune each level independently - a shadow that is too soft on white is
+// useless on near-black and vice versa.
+$line-strong: #cbd5e1;
+$on-ink:      #ffffff;
+// Hover fill for a button whose rest state is $ink. Distinct from $ink and from
+// $accent-dk: it is a *lighter* navy, not a blue, so the hover reads as a change
+// of weight on the same colour rather than a change of hue.
+$ink-hover:   #1e293b;
+// Hover fill for `.labtn.dl`, one step out from $dl-bg.
+$dl-bg-hover: #d1fae5;
+$accent-ring: rgba(37, 99, 235, 0.28);   // the underline under body links
+$shadow-xs:   rgba(2, 6, 23, 0.04);
+$shadow-sm:   rgba(2, 6, 23, 0.08);
+$shadow-md:   rgba(2, 6, 23, 0.12);
+
 // --- Base -----------------------------------------------------------------
 body {
   color: $body;
@@ -151,7 +187,7 @@ p { margin-bottom: 1.1rem; }
 a {
   color: $accent;
   text-decoration: none;
-  border-bottom: 1px solid rgba(37, 99, 235, 0.28);
+  border-bottom: 1px solid $accent-ring;
 
   &:hover { color: $accent-dk; border-bottom-color: $accent-dk; }
   &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; border-bottom-color: transparent; }
@@ -329,12 +365,12 @@ $bi-icons: (
   border: 1px solid $line;
   border-radius: 10px;
   padding: 1.15rem 1.15rem 1.2rem;
-  box-shadow: 0 1px 2px rgba(2, 6, 23, 0.04);
+box-shadow: 0 1px 2px $shadow-xs;
   transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 
   &:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.08);
+    border-color: $line-strong;
+    box-shadow: 0 8px 20px $shadow-sm;
     transform: translateY(-2px);
   }
 
@@ -419,7 +455,7 @@ $bi-icons: (
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 34px rgba(2, 6, 23, 0.12);
+    box-shadow: 0 14px 34px $shadow-md;
   }
 
   // Pandoc wraps a lone image in a <p>. Only the cover paragraph is a direct
@@ -646,17 +682,17 @@ $bi-icons: (
   line-height: 1.3;
   text-decoration: none;
   padding: 0.4rem 0.7rem;
-  border: 1px solid #cbd5e1;
+  border: 1px solid $line-strong;
   border-radius: 9px;
   color: $ink;
   background: $surface;
-  border-bottom: 1px solid #cbd5e1;
+  border-bottom: 1px solid $line-strong;
 
   &:hover {
     color: $ink;
     background: $line-soft;
-    border-color: #cbd5e1;
-    border-bottom: 1px solid #cbd5e1;
+    border-color: $line-strong;
+    border-bottom: 1px solid $line-strong;
   }
 
   // Defensive only. `format.html.link-external-icon: true` in _quarto.yml is
@@ -672,10 +708,10 @@ $bi-icons: (
 .labtn.primary {
   background: $ink;
   border-color: $ink;
-  color: #fff;
+  color: $on-ink;
   border-bottom: 1px solid $ink;
 
-  &:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+  &:hover { background: $ink-hover; border-color: $ink-hover; color: $on-ink; }
 }
 
 .labtn.dl {
@@ -684,7 +720,7 @@ $bi-icons: (
   color: $dl-ink;
   border-bottom: 1px solid $dl-line;
 
-  &:hover { background: #d1fae5; border-color: $dl-line; color: $dl-ink; }
+  &:hover { background: $dl-bg-hover; border-color: $dl-line; color: $dl-ink; }
 }
 
 // --- Card pills -----------------------------------------------------------
@@ -828,8 +864,8 @@ $bi-icons: (
 }
 
 .lcomp {
-  background: #fffbeb;
-  border: 1px dashed #f59e0b;
+  background: $cmp-bg;
+  border: 1px dashed $cmp-line;
   border-radius: $radius;
   padding: 0.85rem;
 
@@ -839,25 +875,25 @@ $bi-icons: (
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #b45309;
+    color: $cmp-num;
   }
 
   h3 { font-size: 1rem; margin: 0.25rem 0 0.35rem; }
 
   p {
     font-size: 0.8125rem;
-    color: #57534e;
+    color: $cmp-body;
     margin: 0;
     max-width: none;
   }
 }
 
 .lcomp.deep {
-  background: #ecfeff;
-  border-color: #06b6d4;
+  background: $cmpd-bg;
+  border-color: $cmpd-line;
 
-  .num { color: #0e7490; }
-  p { color: #155e75; }
+  .num { color: $cmpd-num; }
+  p { color: $cmpd-body; }
 }
 
 // --- Tables ---------------------------------------------------------------
@@ -1076,7 +1112,7 @@ footer {
   padding: 0.85rem 1.25rem;
   background: $surface;
   border-top: 1px solid $line;
-  box-shadow: 0 -4px 16px rgba(2, 6, 23, 0.08);
+  box-shadow: 0 -4px 16px $shadow-sm;
   font-size: 0.875rem;
   color: $body;
 
@@ -1107,22 +1143,22 @@ footer {
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid $line-strong;
   background: $surface;
   color: $ink;
-  border-bottom: 1px solid #cbd5e1;
+  border-bottom: 1px solid $line-strong;
   transition: background-color 0.12s ease, border-color 0.12s ease;
 
-  &:hover { background: $line-soft; border-color: #cbd5e1; }
+  &:hover { background: $line-soft; border-color: $line-strong; }
   &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
 }
 
 .consent-btn-primary {
   background: $ink;
   border-color: $ink;
-  color: #fff;
+  color: $on-ink;
 
-  &:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+  &:hover { background: $ink-hover; border-color: $ink-hover; color: $on-ink; }
 }
 
 // Stacks the buttons full-width on narrow screens so both targets stay thumb
@@ -1165,13 +1201,13 @@ footer {
   margin-right: 0.5rem;
   padding: 0.45rem 0.9rem;
   border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid $line-strong;
   background: $surface;
   color: $ink;
-  border-bottom: 1px solid #cbd5e1;
+  border-bottom: 1px solid $line-strong;
   transition: background-color 0.12s ease, border-color 0.12s ease;
 
-  &:hover { background: $line-soft; border-color: #cbd5e1; }
+  &:hover { background: $line-soft; border-color: $line-strong; }
   &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
 }
 
@@ -1186,9 +1222,9 @@ body:has(.privacy-consent) table {
 .privacy-btn-primary {
   background: $ink;
   border-color: $ink;
-  color: #fff;
+  color: $on-ink;
 
-  &:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+  &:hover { background: $ink-hover; border-color: $ink-hover; color: $on-ink; }
 }
 
 // --- Layout cap -----------------------------------------------------------
