@@ -13,6 +13,8 @@
 #
 # Quarto's auto-generated robots.txt is also minimal (a bare Sitemap line), so
 # a conformant one is written here too.
+#
+# The Bootstrap Icons font is also stripped here - see the icon block below.
 
 site_dir <- "_site"
 sitemap_path <- file.path(site_dir, "sitemap.xml")
@@ -84,6 +86,101 @@ message("post-render: robots.txt written")
 # SCSS verbatim (it does not compile `css:` .scss files), which served invalid
 # CSS; compile-styles.R now emits styles.css and _quarto.yml references that.
 # If a stale styles.scss ever reappears in the output, drop it.
+
+# --- Bootstrap Icons font -> inline SVG masks -------------------------------
+#
+# WHY
+# ---
+# `bootstrap-icons.woff` was 172 KB that gzip cannot compress (WOFF is already
+# a compressed container, so there is nothing to squeeze). It was 47% of the
+# 363 KB critical path and rendered 8 glyphs, and its `@font-face` was
+# `font-display: block` - so on slow 4G the icons were invisible for up to
+# ~3s, the same defect class the roadmap flags as a critical trust-breaker.
+#
+# styles.scss now paints every `.bi` with a CSS `mask-image` data-URI instead,
+# and that stylesheet links after Bootstrap, so nothing here is load-bearing
+# for rendering. Stripping the <link> makes the saving GUARANTEED rather than
+# dependent on lazy font-loading behaviour, and eliminates the
+# `font-display: block` risk outright. The CSS being removed is 96 KB carrying
+# 2,050 per-icon `content: "\fXXXX"` rules, none of which exist now.
+#
+# No CSP change is needed: `_headers` already sets `img-src 'self' data: https:`,
+# which permits data URIs.
+#
+# WHY THE GUARD RUNS FIRST
+# ------------------------
+# Order is deliberate. The check below runs before the <link> is removed or the
+# asset files are deleted, so a failure aborts the render with reachability
+# untouched. An uncovered `bi-*` class would otherwise render as *nothing* -
+# silently - which is exactly the failure mode that makes this risky to ship
+# without a check.
+
+icons_dir <- file.path(site_dir, "site_libs", "bootstrap")
+icons_css <- file.path(icons_dir, "bootstrap-icons.css")
+icons_woff <- file.path(icons_dir, "bootstrap-icons.woff")
+
+# Every `bi-*` class in the rendered output must have a mask rule.
+#
+# The scan reads `class="..."` ATTRIBUTES rather than grepping the raw HTML,
+# and that is not fussiness: books/index.html contains the URL
+# `.../cheatsheet/dbi-cheatsheet.pdf`, so a bare `bi-*` text search matches the
+# substring "bi-cheatsheet" and reports an icon that does not exist.
+icon_classes <- character(0)
+for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
+                        full.names = TRUE)) {
+  html <- paste(readLines(page, warn = FALSE), collapse = "\n")
+  attrs <- regmatches(html, gregexpr('class="[^"]*"', html))[[1]]
+  for (attr in attrs) {
+    tokens <- strsplit(sub('^class="', "", sub('"$', "", attr)), "[[:space:]]+")[[1]]
+    icon_classes <- c(icon_classes, grep("^bi-.+", tokens, value = TRUE))
+  }
+}
+icon_classes <- sort(unique(icon_classes))
+
+if (length(icon_classes)) {
+  styles_file <- file.path(site_dir, "styles.css")
+  if (!file.exists(styles_file)) {
+    stop("post-render: expected ", styles_file,
+         " - run Rscript compile-styles.R before quarto render.")
+  }
+  compiled <- paste(readLines(styles_file, warn = FALSE), collapse = "\n")
+
+  uncovered <- icon_classes[!vapply(
+    icon_classes,
+    function(cls) grepl(paste0(".", cls, "::before"), compiled, fixed = TRUE),
+    logical(1)
+  )]
+
+  if (length(uncovered)) {
+    stop("post-render: these bi-* classes have no mask rule in styles.css and ",
+         "would render as nothing: ", paste(uncovered, collapse = ", "),
+         ". Add them to $bi-icons in styles.scss.")
+  }
+  message("post-render: ", length(icon_classes),
+          " bi-* classes, all with mask rules")
+}
+
+# Three href shapes are in play, so match the whole tag on the filename rather
+# than a fixed prefix: root pages emit `site_libs/...`, nested pages emit
+# `../site_libs/...`, and 404.html emits an absolute `/site_libs/...`.
+link_pat <- '<link[^>]*bootstrap-icons\\.css[^>]*>'
+
+for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
+                        full.names = TRUE)) {
+  html <- paste(readLines(page, warn = FALSE), collapse = "\n")
+  if (!grepl(link_pat, html)) next
+  writeLines(gsub(link_pat, "", html, perl = TRUE), page, useBytes = TRUE)
+}
+message("post-render: bootstrap-icons.css <link> stripped")
+
+# Nothing references these once the <link> is gone, so they are deleted rather
+# than left as 268 KB of unreachable weight in the committed _site/.
+for (f in c(icons_css, icons_woff)) {
+  if (file.exists(f)) {
+    file.remove(f)
+    message("post-render: removed ", f)
+  }
+}
 
 # ---------------------------------------------------------------------------
 # Pre-cutover guard (now dormant).
