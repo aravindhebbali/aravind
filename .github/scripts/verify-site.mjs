@@ -271,21 +271,30 @@ section("8. _site is newer than its sources");
     const p = join(ROOT, d, "index.qmd");
     if (existsSync(p)) sources.push(p);
   }
-  // A styles.css newer than _site/styles.css means styles.css was recompiled
-  // without re-rendering, and the deploy would ship stale CSS.
-  const siteMtime = existsSync(join(SITE, "styles.css"))
-    ? statSync(join(SITE, "styles.css")).mtimeMs
-    : 0;
+  // Compare against the NEWEST file in _site/, not _site/styles.css.
+  // styles.css is itself a source (compile-styles.R writes it, then Quarto
+  // copies it), so if the only change is _headers or head-includes.html,
+  // styles.css is NOT rewritten and its mtime stays old - which made this
+  // check fail after a perfectly correct render. The newest output file is the
+  // honest proxy for "when did the last render happen".
+  let siteMtime = 0;
+  let newest = "";
+  for (const f of walk(SITE, () => true)) {
+    const m = statSync(f).mtimeMs;
+    if (m > siteMtime) { siteMtime = m; newest = relative(SITE, f).replace(/\\/g, "/"); }
+  }
   const stale = [];
   for (const s of sources) {
     if (statSync(s).mtimeMs > siteMtime + 1000) {
       stale.push(relative(ROOT, s).replace(/\\/g, "/"));
     }
   }
-  if (stale.length) {
-    fail(`sources newer than _site/styles.css - run compile-styles.R + quarto render: ${stale.join(", ")}`);
+  if (!siteMtime) {
+    fail("_site/ is empty");
+  } else if (stale.length) {
+    fail(`sources newer than the rendered output (newest: ${newest}) - run compile-styles.R + quarto render: ${stale.join(", ")}`);
   } else {
-    pass(`${sources.length} source file(s) all older than the rendered output`);
+    pass(`${sources.length} source file(s) all older than the rendered output (newest: ${newest})`);
   }
 }
 

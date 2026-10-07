@@ -2,6 +2,34 @@
      add twitter:site / twitter:creator meta until then - both pointed at a
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
 
+<!-- Google Analytics 4 (GA4).
+     Lives here because _quarto.yml pulls this file into <head> on all five
+     rendered pages via `include-in-header`, so one copy covers the whole site
+     and cannot drift per-page.
+
+     `async` on the loader is what keeps it off the critical path - it costs
+     nothing in FCP/LCP, which is the reason this is acceptable on a page whose
+     mobile performance budget is already tight.
+
+     CSP: _headers permits https://www.googletagmanager.com in script-src and
+     https://www.google-analytics.com + https://region1.google-analytics.com in
+     connect-src. The inline config below is already allowed by the existing
+     'unsafe-inline' in script-src, so nothing else had to be relaxed.
+     `region1.` is Google's regional beacon endpoint and is needed for
+     collection outside the default region.
+
+     NOTE: GA4 is NOT cookieless and no consent banner is planned on this site.
+     That is an open decision, not an oversight - see pending_tasks.md 4. -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JN5Q48PQP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7JN5Q48PQP');
+</script>
+
 <!-- Quarto emits og:image / twitter:image from each page's `image:` field but
      has no front-matter option for the dimensions, and roadmap section 6 asks
      for them explicitly. Every page shares one card, images/og-card.jpg, so the

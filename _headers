@@ -1,7 +1,25 @@
+# GA4 (gtag.js): the loader is served from googletagmanager.com and the beacons
+# are POSTed to google-analytics.com, so script-src AND connect-src both need
+# entries. The inline `gtag('config', ...)` call in head-includes.html is
+# already allowed by the existing 'unsafe-inline', so nothing else had to be
+# relaxed. `region1.` is Google's regional beacon endpoint, needed for
+# collection outside the default region.
+#
+# The two cloudflareinsights entries these replaced were DEAD permissions, not
+# something in use: the site is served by Netlify (verified - Server: Netlify,
+# CNAME aravindhebbali.netlify.com) and nothing in the rendered output
+# referenced Cloudflare Insights at all.
+#
+# img-src 'self' data: https: already permits GA's fallback collection pixel, so
+# that directive needed no change.
+#
+# NOTE: the comments live ABOVE the block on purpose. Netlify parses the block
+# below as one directive per line; keeping the explanation out of it removes any
+# chance of an indented comment confusing that parser.
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=()
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://cloudflareinsights.com
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
