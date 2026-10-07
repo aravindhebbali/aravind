@@ -8,6 +8,7 @@ project:
     - packages/index.qmd
     - apps/index.qmd
     - books/index.qmd
+    - privacy/index.qmd
     - 404.qmd
   post-render: post-render.R
   resources:

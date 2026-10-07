@@ -29,7 +29,10 @@ public_pages <- c(
   "https://www.aravindhebbali.com/",
   "https://www.aravindhebbali.com/packages/",
   "https://www.aravindhebbali.com/apps/",
-  "https://www.aravindhebbali.com/books/"
+  "https://www.aravindhebbali.com/books/",
+  # Not linked from the navbar on purpose - a privacy page reachable from
+  # navigation is discoverable, which is the point of having one.
+  "https://www.aravindhebbali.com/privacy/"
 )
 
 if (file.exists(sitemap_path)) {
@@ -218,6 +221,42 @@ for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
   bannered <- bannered + 1
 }
 if (bannered) message("post-render: consent banner injected into ", bannered, " page(s)")
+
+# --- Normalise mangled root-relative links on 404.html ---------------------
+#
+# Quarto renders 404.html with `quarto:offset` = "/", and on Windows it resolves
+# the homepage's root-relative Explore links (`packages/`, `apps/`, `books/`)
+# against that offset with the OS separator, emitting:
+#
+#     href="/.\packages/"      href="/.\apps/"      href="/.\books/"
+#
+# These are wrong markup. Verified 2026-10-07 that Netlify happens to normalise
+# them and serve the correct pages, so this was never a user-facing break - but
+# nothing guarantees another host will, and a 404 page whose own links are
+# malformed is a bad thing to ship. Only 404.html is affected; the other pages
+# carry clean relative paths.
+#
+# Fixed here rather than in 404.qmd because it is a renderer artefact, and
+# post-render.R already exists for output that has to be corrected after the
+# fact. Rewritten to a plain absolute path, which is correct from any depth.
+backslash_fix <- 0
+# The pattern is the three characters / . \ - i.e. slash, dot, backslash. In an
+# R string literal that is "/.\\" and NOT '/\\.\\', which is FOUR characters
+# (slash, backslash, dot, backslash) and silently never matches.
+backslash_pat <- "/.\\"
+for (page in list.files(site_dir, pattern = "[.]html$", recursive = TRUE,
+                        full.names = TRUE)) {
+  html <- paste(readLines(page, warn = FALSE), collapse = "\n")
+  if (!grepl(backslash_pat, html, fixed = TRUE)) next
+  fixed <- gsub(backslash_pat, "/", html, fixed = TRUE)
+  if (!identical(html, fixed)) {
+    writeLines(fixed, page, useBytes = TRUE)
+    backslash_fix <- backslash_fix + 1
+  }
+}
+if (backslash_fix) {
+  message("post-render: normalised mangled root-relative links in ", backslash_fix, " page(s)")
+}
 
 # ---------------------------------------------------------------------------
 # Pre-cutover guard (now dormant).

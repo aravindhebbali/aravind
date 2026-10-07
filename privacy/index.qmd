@@ -1,0 +1,161 @@
+---
+title: "Privacy"
+---
+
+This page says exactly what happens when you visit this site, including the
+parts that are less convenient to read. It is written to be short and specific
+rather than comprehensive, because a policy nobody finishes is not a policy.
+
+**Last reviewed: 7 October 2026.**
+
+## The short version
+
+- The site is a static set of pages hosted by Netlify. There is no server-side
+  code, no database, no account, and nothing to sign up for.
+- It sets **no cookies** and runs **no advertising or remarketing tags**.
+- Two things are loaded from other companies' servers: **Google Analytics**,
+  but only after you agree to it, and **Google Fonts**, which happens
+  automatically before you are asked. Both are described below, and the font
+  one is called out honestly rather than buried.
+- Nothing you type here reaches me. There is no form on this site.
+
+## Who runs this site
+
+Aravind Hebbali, based in Bengaluru, India. The contact address is the same one
+in the footer of every page. If anything on this page is wrong or unclear, that
+is worth telling me about.
+
+## What is loaded from other companies
+
+| Who | What | When | Before you are asked? |
+|---|---|---|---|
+| Google | Analytics 4, to count visits | Only after you accept or choose "essential only" | **No** |
+| Google | Source Sans Pro webfont | Every page, automatically | **Yes** |
+| Netlify | Serves the files | Every page | Yes |
+
+Google Fonts is the awkward one, and it is worth being direct about: the
+Bootstrap theme this site uses includes a stylesheet rule that pulls the font
+from `fonts.googleapis.com`. That request reaches Google before the consent
+banner is answered, and it necessarily discloses your IP address to them in the
+process. Self-hosting the font would remove it; that change is worth making
+and I have not made it here.
+
+The rest of the site has no third-party embeds at all — no videos, no maps, no
+chat widgets, no social media buttons that load anything. Calendly and
+LinkedIn appear only as ordinary links that take you to another site, and those
+sites have their own policies.
+
+## Google Analytics
+
+Used for one purpose: knowing which pages get read. It is configured for basic
+page measurement, with no advertising or conversion features.
+
+If you accept, a page view sends Google the page you are on and its title, the
+page you came from, your approximate country and city derived from your IP
+address, your browser, operating system, screen resolution and language, and an
+identifier stored in a cookie so your visits can be grouped. The IP address
+itself is used to work out the location and is not stored. Google's own
+documentation on [what Google Analytics collects](https://support.google.com/analytics/answer/13627441)
+and [how location works](https://support.google.com/analytics/answer/5360183)
+covers this in more detail than a site policy can.
+
+Two things you should know that are easy to miss:
+
+- **Google Signals is switched on** for this property, which lets Google
+  report aggregated demographic and interest data. Google states this data is
+  not used to identify individual visitors, but the setting lives in the
+  Analytics property rather than on this site, and it was on when I looked.
+- **There is no advertising measurement.** No Google Ads tag is present, so no
+  click identifiers are sent and your visits here are not connected to any ad
+  profile I control.
+
+If you choose "essential only", the tag still loads so I can see that a page was
+viewed, but with storage denied. You get an anonymous page count and **no
+cookie is set**.
+
+## Cookies
+
+| Cookie | Set when | Purpose | Lifetime |
+|---|---|---|---|
+| `_ga`, `_ga_G-7JN5Q48PQP` | You accept analytics | Distinguishes you from other visitors | 2 years |
+| `ga-consent` | You make a choice | Remembers it so you are not asked again | Until you clear it |
+
+`ga-consent` is a `localStorage` entry rather than a cookie, and it never
+leaves your browser — it is only read to avoid showing you the banner again.
+
+If you decline analytics, **no cookies are set by this site at all.**
+
+## Changing your mind
+
+You can withdraw or change your choice at any time. It takes effect on your
+next page view.
+
+<div class="privacy-consent" id="privacy-consent-controls">
+  <p class="privacy-consent-note" id="privacy-consent-state">Checking your current choice…</p>
+  <p>
+    <button type="button" class="privacy-btn privacy-btn-primary" data-consent-choice="granted">Accept analytics</button>
+    <button type="button" class="privacy-btn" data-consent-choice="denied">Essential only</button>
+    <button type="button" class="privacy-btn" data-consent-choice="reset">Forget my choice</button>
+  </p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var KEY = "ga-consent";
+  var state = document.getElementById("privacy-consent-state");
+  var buttons = document.querySelectorAll("#privacy-consent-controls [data-consent-choice]");
+
+  function read() {
+    try { return window.localStorage.getItem(KEY); } catch (e) { return null; }
+  }
+
+  function describe() {
+    var v = read();
+    if (v === "granted") return "Your current choice: analytics accepted, so analytics cookies are set.";
+    if (v === "denied") return "Your current choice: essential only, so no analytics cookies are set.";
+    return "You have not chosen yet, so no analytics cookies are set.";
+  }
+
+  function apply(choice) {
+    try {
+      if (choice === "reset") window.localStorage.removeItem(KEY);
+      else window.localStorage.setItem(KEY, choice);
+    } catch (e) { /* storage unavailable; the banner will ask again */ }
+    state.textContent = describe();
+  }
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      apply(this.getAttribute("data-consent-choice"));
+    });
+  }
+
+  state.textContent = describe();
+})();
+</script>
+
+Clearing cookies and site data for `aravindhebbali.com` in your browser has the
+same effect.
+
+## Links to other sites
+
+This site links to package documentation on CRAN and Rsquared Academy, book
+downloads, GitHub repositories, LinkedIn, Calendly, and a blog. Those are plain
+links: nothing is loaded from them until you click, and once you do, their own
+privacy policies apply rather than this one.
+
+## What this site does not do
+
+No advertising. No remarketing or retargeting. No selling or sharing of data.
+No behavioural profiling for ads. No third-party analytics other than the one
+above. No cross-site tracking of any kind. No server logs containing personal
+data beyond what Netlify records automatically for delivering files.
+
+## Contact
+
+Questions, corrections, or a request to delete data associated with your
+visits — email me at the address in the footer. Requests about the data Google
+Analytics holds are best made directly to
+[Google](https://support.google.com/analytics/answer/6019695), which is the
+only party that can act on them; I can only stop sending new data.

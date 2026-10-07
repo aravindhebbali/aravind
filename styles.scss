@@ -1068,6 +1068,61 @@ footer {
   .consent-btn { flex: 1 1 auto; }
 }
 
+// --- Privacy page ---------------------------------------------------------
+// The consent controls on privacy/index.qmd. Styled to match .consent-btn so
+// the two consent surfaces read as the same thing, but kept as their own class
+// because they live on a page that has no banner.
+.privacy-consent {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.15rem;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: 10px;
+
+  p { margin: 0 0 0.75rem; max-width: none; }
+  p:last-child { margin-bottom: 0; }
+}
+
+.privacy-consent-note {
+  font-size: 0.9375rem;
+  color: $muted;
+}
+
+.privacy-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: $surface;
+  color: $ink;
+  border-bottom: 1px solid #cbd5e1;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+
+  &:hover { background: $line-soft; border-color: #cbd5e1; }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+}
+
+// The two tables here are four columns wide, and the global 68ch prose cap
+// squeezes them until the headers wrap to three lines. `:has()` scopes this to
+// the privacy page via its consent-control block rather than needing a page
+// class or attribute on the markup.
+body:has(.privacy-consent) table {
+  max-width: none;
+}
+
+.privacy-btn-primary {
+  background: $ink;
+  border-color: $ink;
+  color: #fff;
+
+  &:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+}
+
 // --- Layout cap -----------------------------------------------------------
 // Widened from 940px so three cards sit at a usable ~350px. Prose is unaffected:
 // `main p, main li` and `table` are still capped at $measure, and `pre` at 72ch.
@@ -1137,4 +1192,5 @@ main { max-width: $wide; }
   .explore-card:hover { transform: none; }
   .lcover { transition: none; }
   .consent-btn { transition: none; }
+  .privacy-btn { transition: none; }
 }

@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.aravindhebbali.com/apps/</loc>
-    <lastmod>2026-10-07T05:37:31.243Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aravindhebbali.com/</loc>
-    <lastmod>2026-10-07T06:17:06.980Z</lastmod>
+    <loc>https://www.aravindhebbali.com/books/</loc>
+    <lastmod>2026-10-07T06:18:03.687Z</lastmod>
   </url>
   <url>
     <loc>https://www.aravindhebbali.com/packages/</loc>
     <lastmod>2026-10-07T05:37:31.181Z</lastmod>
   </url>
   <url>
-    <loc>https://www.aravindhebbali.com/books/</loc>
-    <lastmod>2026-10-07T06:18:03.687Z</lastmod>
+    <loc>https://www.aravindhebbali.com/</loc>
+    <lastmod>2026-10-07T06:17:06.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aravindhebbali.com/apps/</loc>
+    <lastmod>2026-10-07T05:37:31.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aravindhebbali.com/privacy/</loc>
+    <lastmod>2026-10-07T09:02:41.426Z</lastmod>
   </url>
 </urlset>

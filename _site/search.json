@@ -1,80 +1,31 @@
 [
   {
-    "objectID": "apps/index.html",
-    "href": "apps/index.html",
-    "title": "Interactive Apps",
+    "objectID": "books/index.html",
+    "href": "books/index.html",
+    "title": "E-Books",
     "section": "",
-    "text": "Seven Shiny applications covering data analysis, visualization and modelling. Each one ships inside its own R package and runs locally — there is no hosted copy to sign up for, and nothing to install beyond the package itself."
+    "text": "Six open textbooks, free to read online. Written with bookdown and hosted on Rsquared Academy. Every title can also be downloaded as a PDF or ePub."
   },
   {
-    "objectID": "apps/index.html#regression",
-    "href": "apps/index.html#regression",
-    "title": "Interactive Apps",
-    "section": "Regression and modelling",
-    "text": "Regression and modelling\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nolsrr\n\nLinear regression\n\nInteractive regression output, diagnostics and variable selection.\n\n\nInteractive diagnostics for a fitted lm model.\n\ninstall.packages(\"olsrr\")\nolsrr::ols_launch_app()\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nblorr\n\nLogistic regression\n\nModel fit, validation and collinearity for binary outcomes.\n\n\nThe glm equivalent of the olsrr app.\n\ninstall.packages(\"blorr\")\nblorr::blr_launch_app()\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nrfm\n\nCustomer segmentation\n\nGenerate RFM scores and explore customer segments visually.\n\n\nPoint it at transaction- or customer-level data.\n\ninstall.packages(\"rfm\")\nrfm::rfm_launch_app()"
+    "objectID": "books/index.html#path",
+    "href": "books/index.html#path",
+    "title": "E-Books",
+    "section": "Learning path",
+    "text": "Learning path\nThe Core Track is designed to be followed end to end. The two companions slot in alongside it rather than after it.\n\n\nCore 01\n\nIntro to R\n\nBeginnerZero to running code. RStudio, packages, help.\n\n\n\n\nCore 02\n\nData Wrangling\n\nBeginnerImport, reshape, dplyr, pipes, tibbles.\n\n\n\n\nCore 03\n\nViz with ggplot2\n\nIntermediateGrammar of graphics through to publication polish.\n\n\n\n\nCore 04\n\nR, Databases & SQL\n\nIntermediateDBI, dbplyr, queries, joins.\n\nShortcut: already wrangling data in SQL? Take 04 straight after 02.\n\n\n\n\n\nCompanion A — Foundational Tooling\n\nCommand Line Basics\n\nBeginnerFiles, permissions, pipes and scripting for R users. Pair with Core 01.\n\n\nOn Windows: everything works from the RStudio Terminal, Git Bash or WSL — chapter 1 covers all three.\n\n\n\n\nCompanion B — Graphics Deep-Dive\n\nData Viz with Base R\n\nIntermediateBase graphics engine, parameters, multi-panel layouts, production export. Zero dependencies. After Core 03."
   },
   {
-    "objectID": "apps/index.html#statistics",
-    "href": "apps/index.html#statistics",
-    "title": "Interactive Apps",
-    "section": "Statistics and distributions",
-    "text": "Statistics and distributions\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\ndescriptr\n\nDescriptive statistics\n\nData screening, summary statistics, frequency and cross tables.\n\n\nA visual front end to the descriptr functions.\n\ninstall.packages(\"descriptr\")\ndescriptr::ds_launch_shiny_app()\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\ninferr\n\nHypothesis testing\n\nt tests, chi square, binomial and proportion tests, interactively.\n\n\nChoose the test, pick the columns, read the result.\n\ninstall.packages(\"inferr\")\ninferr::ifr_launch_shiny_app()\n\n\nAlso exported\n\n\ninferr exports a second launcher under a longer name, infer_launch_shiny_app(). It is the same app; ifr_launch_shiny_app() is used here for consistency with the other packages.\n\n\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nvistributions\n\nProbability distributions\n\nVisualize the binomial, chi square, normal, F and t distributions.\n\n\nAdjust the parameters and watch the density update.\n\ninstall.packages(\"vistributions\")\nvistributions::vdist_launch_app()"
+    "objectID": "books/index.html#shelf",
+    "href": "books/index.html#shelf",
+    "title": "E-Books",
+    "section": "Series at a glance",
+    "text": "Series at a glance\nSix titles in the order they are meant to be read.\n\n\n\n01 Intro - Introduction to R\n\n\n\n02 Wrangle - Data Wrangling with R\n\n\n\n03 ggplot2 - Data Visualization with ggplot2\n\n\n\n04 SQL - R, Databases and SQL\n\n\n\nC-A Bash - Command Line Basics\n\n\n\nC-B Base - Data Visualization with Base R\n\n\nIf you are starting from zero, begin with Introduction to R. The full catalogue, with download links for every title, is also at ebooks.rsquaredacademy.com."
   },
   {
-    "objectID": "apps/index.html#xplorerr",
-    "href": "apps/index.html#xplorerr",
-    "title": "Interactive Apps",
-    "section": "Everything in one app",
-    "text": "Everything in one app\nxplorerr bundles the whole set behind a single install, and adds a visualizer the other packages do not have. If you are not attached to a particular package, start here.\n\n\n\n\nDocs CRAN GitHub\n\n\n\nxplorerr\n\nAll seven apps\n\nDescriptive, inferential, visual, RFM, linear and logistic — one package, one install.\n\n\nSeven launchers. Each opens its own app window.\n\ninstall.packages(\"xplorerr\")\nxplorerr::app_linear_regression()   # linear\nxplorerr::app_logistic_regression() # logistic\nxplorerr::app_descriptive()         # descriptive\nxplorerr::app_inference()           # inference\nxplorerr::app_vistributions()       # distributions\nxplorerr::app_rfm_analysis()        # segmentation\nxplorerr::app_visualizer()          # visualizer"
-  },
-  {
-    "objectID": "apps/index.html#which",
-    "href": "apps/index.html#which",
-    "title": "Interactive Apps",
-    "section": "Which launcher should I use?",
-    "text": "Which launcher should I use?\nBoth routes work and reach the same apps. The difference is who owns them.\n\n\n\nOption A\n\nOne install, seven apps\n\nInstall xplorerr and call any app_*() function. Nothing else to install.\n\n\nBest if you want the visualizer, or several apps at once.\n\n\n\n\n\n\nOption B\n\nThe owning package\n\nInstall the package that owns the app and call its own launcher.\n\n\nBest if you already use that package for its non-interactive functions.\n\n\nPackage reference\n\n\n\n\n\n\n\n\n\n\n\nnse2r has no app here\n\n\n\nnse2r did ship a Shiny app for NSE market data, but the package was archived on CRAN on 2023-08-07 and is under revival, so it gets no app card. Nothing to install and nothing to link to."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hey, I am Aravind",
-    "section": "",
-    "text": "I build statistical software that holds up outside a tutorial, and I help teams do the same. My work sits where R, statistics, economics and finance overlap — regression diagnostics, customer segmentation, descriptive and inferential statistics, and the unglamorous plumbing that keeps an analysis reproducible six months later when someone else has to rerun it.\nMost of that work is open source. The package portfolio below is used far more widely than I expected when I started writing it, and it is the reason people find their way here: the packages are free, the vignettes are free, and there is no upsell attached to any of it.\nI also write. Six data science textbooks are free to read online, and I founded Rsquared Academy, an open-source education platform for data science, where the courses behind those books live.\nI earned my postgraduate degree from Madras School of Economics (Anna University), Chennai, and now maintain the portfolio independently from Bengaluru, India."
-  },
-  {
-    "objectID": "index.html#explore",
-    "href": "index.html#explore",
-    "title": "Hey, I am Aravind",
-    "section": "Explore",
-    "text": "Explore\n\n\nPackages10 packages on CRAN · reference docs and vignettes\n\n\nApps7 Shiny apps · run locally, no account\n\n\nBooks6 open textbooks · free to read online"
-  },
-  {
-    "objectID": "index.html#open-source",
-    "href": "index.html#open-source",
-    "title": "Hey, I am Aravind",
-    "section": "Open Source",
-    "text": "Open Source\nThese packages were written while teaching data science at Rsquared Academy. They are free to use and were shared in the hope that others find them useful for teaching and learning data science with R.\nThe goal is software which is:\n\nuser friendly\nlight weight\nwell tested\nwell documented\n\nMajor bugs get fixed quickly. Feature requests are considered but not promised.\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nRegression\n\nolsrr\n\nTools for building linear regression models.\n\n\nDiagnostics, variable selection and influence measures for a fitted lm.\n\n\n\nWhat’s inside\n\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nInteractive\n\nxplorerr\n\nTools for interactive data analysis.\n\n\nDescriptive, inferential and visual analysis behind a Shiny interface. See Apps.\n\n\n\nWhat’s inside\n\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nSegmentation\n\nrfm\n\nTools for RFM analysis.\n\n\nScore and segment customers from transaction-level data. See Apps.\n\n\n\nWhat’s inside\n\n\nGenerate RFM Scores\nHandles Transaction / Customer Level Data\nVisualization Tools\nSegment Customers\nIncludes Shiny App\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nDescriptive\n\ndescriptr\n\nTools for generating descriptive and summary statistics.\n\n\nThe fastest way to screen a data frame before you model it.\n\n\n\nWhat’s inside\n\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nWrangling\n\nrbin\n\nTools for binning data.\n\n\nTurn continuous variables into factors, and generate dummy variables from them.\n\n\n\nWhat’s inside\n\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nRegression\n\nblorr\n\nTools for building binary logistic regression models.\n\n\nModel fit, validation and collinearity for a fitted glm with a binary outcome.\n\n\n\nWhat’s inside\n\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\n\n\n\n\n\nFour more carry the long tail: vistributions for visualizing probability distributions, inferr for inferential statistics, yahoofinancer for Yahoo! Finance data, and standby for managing R processes. nse2r is archived and under revival. Full reference documentation and vignettes: Packages."
-  },
-  {
-    "objectID": "index.html#books",
-    "href": "index.html#books",
-    "title": "Hey, I am Aravind",
-    "section": "Books",
-    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n01 Intro - Introduction to R\n\n\n\n02 Wrangle - Data Wrangling with R\n\n\n\n03 ggplot2 - Data Visualization with ggplot2\n\n\n\n04 Base - Data Visualization with Base R\n\n\n\n05 SQL - R, Databases and SQL\n\n\n\n06 Bash - Command Line Basics\n\n\nIf you are starting from zero, begin with Introduction to R. Every title can also be downloaded as a PDF or ePub: Books."
-  },
-  {
-    "objectID": "index.html#teaching",
-    "href": "index.html#teaching",
-    "title": "Hey, I am Aravind",
-    "section": "Teaching",
-    "text": "Teaching\nI run Rsquared Academy, where the courses behind the books are taught in full. It is an open-source education platform, not a lead-generation funnel — the course material is written to be useful even if you never sign up for anything.\n\nFor individuals. Self-paced and live courses on R, the tidyverse, visualization, SQL and command-line tooling.\nFor teams. Masterclasses built around your own data and problems, run as hands-on sessions rather than lectures."
-  },
-  {
-    "objectID": "index.html#consulting",
-    "href": "index.html#consulting",
-    "title": "Hey, I am Aravind",
-    "section": "Consulting & Advisory",
-    "text": "Consulting & Advisory\nCustom package development and architecture. Internal R or Python tooling built to survive handover: documented, tested, and structured so your team can extend it without me. Most consulting work is undocumented code that one person understands, and that is a single point of failure I can help remove.\nTeam masterclasses. Tidyverse, SQL, command-line tooling. Built around your data, your conventions and your team’s existing stack.\nWho this is for: teams shipping quantitative work that other people have to maintain. Who it is not for: one-off analyses, or anyone looking for a pre-packaged answer.\n\nSchedule an intro call"
+    "objectID": "books/index.html#license",
+    "href": "books/index.html#license",
+    "title": "E-Books",
+    "section": "License",
+    "text": "License\nAll six books are open educational resources under CC BY-NC-SA 4.0 — free to read online and to share with attribution, non-commercially. Found a typo? Open an issue on the book’s GitHub repository."
   },
   {
     "objectID": "packages/index.html",
@@ -119,31 +70,150 @@
     "text": "Archived\n\n\n\nArchived\n\nnse2r\n\nFetched data from the National Stock Exchange of India.\n\n\nArchived 2023-08-07v0.1.6, under revival\n\n\nNo longer installable from CRAN. Source and issue tracker are on GitHub.\n\n\nCRAN (archived) GitHub"
   },
   {
-    "objectID": "books/index.html",
-    "href": "books/index.html",
-    "title": "E-Books",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hey, I am Aravind",
     "section": "",
-    "text": "Six open textbooks, free to read online. Written with bookdown and hosted on Rsquared Academy. Every title can also be downloaded as a PDF or ePub."
+    "text": "I build statistical software that holds up outside a tutorial, and I help teams do the same. My work sits where R, statistics, economics and finance overlap — regression diagnostics, customer segmentation, descriptive and inferential statistics, and the unglamorous plumbing that keeps an analysis reproducible six months later when someone else has to rerun it.\nMost of that work is open source. The package portfolio below is used far more widely than I expected when I started writing it, and it is the reason people find their way here: the packages are free, the vignettes are free, and there is no upsell attached to any of it.\nI also write. Six data science textbooks are free to read online, and I founded Rsquared Academy, an open-source education platform for data science, where the courses behind those books live.\nI earned my postgraduate degree from Madras School of Economics (Anna University), Chennai, and now maintain the portfolio independently from Bengaluru, India."
   },
   {
-    "objectID": "books/index.html#path",
-    "href": "books/index.html#path",
-    "title": "E-Books",
-    "section": "Learning path",
-    "text": "Learning path\nThe Core Track is designed to be followed end to end. The two companions slot in alongside it rather than after it.\n\n\nCore 01\n\nIntro to R\n\nBeginnerZero to running code. RStudio, packages, help.\n\n\n\n\nCore 02\n\nData Wrangling\n\nBeginnerImport, reshape, dplyr, pipes, tibbles.\n\n\n\n\nCore 03\n\nViz with ggplot2\n\nIntermediateGrammar of graphics through to publication polish.\n\n\n\n\nCore 04\n\nR, Databases & SQL\n\nIntermediateDBI, dbplyr, queries, joins.\n\nShortcut: already wrangling data in SQL? Take 04 straight after 02.\n\n\n\n\n\nCompanion A — Foundational Tooling\n\nCommand Line Basics\n\nBeginnerFiles, permissions, pipes and scripting for R users. Pair with Core 01.\n\n\nOn Windows: everything works from the RStudio Terminal, Git Bash or WSL — chapter 1 covers all three.\n\n\n\n\nCompanion B — Graphics Deep-Dive\n\nData Viz with Base R\n\nIntermediateBase graphics engine, parameters, multi-panel layouts, production export. Zero dependencies. After Core 03."
+    "objectID": "index.html#explore",
+    "href": "index.html#explore",
+    "title": "Hey, I am Aravind",
+    "section": "Explore",
+    "text": "Explore\n\n\nPackages10 packages on CRAN · reference docs and vignettes\n\n\nApps7 Shiny apps · run locally, no account\n\n\nBooks6 open textbooks · free to read online"
   },
   {
-    "objectID": "books/index.html#shelf",
-    "href": "books/index.html#shelf",
-    "title": "E-Books",
-    "section": "Series at a glance",
-    "text": "Series at a glance\nSix titles in the order they are meant to be read.\n\n\n\n01 Intro - Introduction to R\n\n\n\n02 Wrangle - Data Wrangling with R\n\n\n\n03 ggplot2 - Data Visualization with ggplot2\n\n\n\n04 SQL - R, Databases and SQL\n\n\n\nC-A Bash - Command Line Basics\n\n\n\nC-B Base - Data Visualization with Base R\n\n\nIf you are starting from zero, begin with Introduction to R. The full catalogue, with download links for every title, is also at ebooks.rsquaredacademy.com."
+    "objectID": "index.html#open-source",
+    "href": "index.html#open-source",
+    "title": "Hey, I am Aravind",
+    "section": "Open Source",
+    "text": "Open Source\nThese packages were written while teaching data science at Rsquared Academy. They are free to use and were shared in the hope that others find them useful for teaching and learning data science with R.\nThe goal is software which is:\n\nuser friendly\nlight weight\nwell tested\nwell documented\n\nMajor bugs get fixed quickly. Feature requests are considered but not promised.\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nRegression\n\nolsrr\n\nTools for building linear regression models.\n\n\nDiagnostics, variable selection and influence measures for a fitted lm.\n\n\n\nWhat’s inside\n\n\nComprehensive Regression Output\nVariable Selection Procedures\nHeteroskedasticity Tests\nCollinearity Diagnostics\nModel Fit Assessment\nMeasures of Influence\nResidual Diagnostics\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nInteractive\n\nxplorerr\n\nTools for interactive data analysis.\n\n\nDescriptive, inferential and visual analysis behind a Shiny interface. See Apps.\n\n\n\nWhat’s inside\n\n\nDescriptive Statistics\nInferential Statistics\nVisualize Probability Distributions\nData Visualization\nRFM Analysis\nLinear Regression\nLogistic Regression\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nSegmentation\n\nrfm\n\nTools for RFM analysis.\n\n\nScore and segment customers from transaction-level data. See Apps.\n\n\n\nWhat’s inside\n\n\nGenerate RFM Scores\nHandles Transaction / Customer Level Data\nVisualization Tools\nSegment Customers\nIncludes Shiny App\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nDescriptive\n\ndescriptr\n\nTools for generating descriptive and summary statistics.\n\n\nThe fastest way to screen a data frame before you model it.\n\n\n\nWhat’s inside\n\n\nData Screening\nSummary Statistics\nFrequency Tables\nCross Tables\nData Visualization\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nWrangling\n\nrbin\n\nTools for binning data.\n\n\nTurn continuous variables into factors, and generate dummy variables from them.\n\n\n\nWhat’s inside\n\n\nManual Binning\nQuantile Binning\nWinsorized Binning\nEqual Length Binning\nEqual Width Binning\nFactor Binning\nGenerate Dummy Variables\nIncludes RStudio Addins\n\n\n\n\n\n\n\n\n\nCRAN GitHub Docs\n\n\n\nRegression\n\nblorr\n\nTools for building binary logistic regression models.\n\n\nModel fit, validation and collinearity for a fitted glm with a binary outcome.\n\n\n\nWhat’s inside\n\n\nBivariate Analysis\nModel Fit Statistics\nModel Validation\nVariable Selection\nResidual Diagnostics\nCollinearity Diagnostics\nVisualization\n\n\n\n\n\n\nFour more carry the long tail: vistributions for visualizing probability distributions, inferr for inferential statistics, yahoofinancer for Yahoo! Finance data, and standby for managing R processes. nse2r is archived and under revival. Full reference documentation and vignettes: Packages."
   },
   {
-    "objectID": "books/index.html#license",
-    "href": "books/index.html#license",
-    "title": "E-Books",
-    "section": "License",
-    "text": "License\nAll six books are open educational resources under CC BY-NC-SA 4.0 — free to read online and to share with attribution, non-commercially. Found a typo? Open an issue on the book’s GitHub repository."
+    "objectID": "index.html#books",
+    "href": "index.html#books",
+    "title": "Hey, I am Aravind",
+    "section": "Books",
+    "text": "Books\nSix open textbooks, free to read online. They started as blog posts, grew into tutorials on Rsquared Academy, and were eventually rewritten into short books with the sharp edges filed off.\n\n\n\n01 Intro - Introduction to R\n\n\n\n02 Wrangle - Data Wrangling with R\n\n\n\n03 ggplot2 - Data Visualization with ggplot2\n\n\n\n04 Base - Data Visualization with Base R\n\n\n\n05 SQL - R, Databases and SQL\n\n\n\n06 Bash - Command Line Basics\n\n\nIf you are starting from zero, begin with Introduction to R. Every title can also be downloaded as a PDF or ePub: Books."
+  },
+  {
+    "objectID": "index.html#teaching",
+    "href": "index.html#teaching",
+    "title": "Hey, I am Aravind",
+    "section": "Teaching",
+    "text": "Teaching\nI run Rsquared Academy, where the courses behind the books are taught in full. It is an open-source education platform, not a lead-generation funnel — the course material is written to be useful even if you never sign up for anything.\n\nFor individuals. Self-paced and live courses on R, the tidyverse, visualization, SQL and command-line tooling.\nFor teams. Masterclasses built around your own data and problems, run as hands-on sessions rather than lectures."
+  },
+  {
+    "objectID": "index.html#consulting",
+    "href": "index.html#consulting",
+    "title": "Hey, I am Aravind",
+    "section": "Consulting & Advisory",
+    "text": "Consulting & Advisory\nCustom package development and architecture. Internal R or Python tooling built to survive handover: documented, tested, and structured so your team can extend it without me. Most consulting work is undocumented code that one person understands, and that is a single point of failure I can help remove.\nTeam masterclasses. Tidyverse, SQL, command-line tooling. Built around your data, your conventions and your team’s existing stack.\nWho this is for: teams shipping quantitative work that other people have to maintain. Who it is not for: one-off analyses, or anyone looking for a pre-packaged answer.\n\nSchedule an intro call"
+  },
+  {
+    "objectID": "apps/index.html",
+    "href": "apps/index.html",
+    "title": "Interactive Apps",
+    "section": "",
+    "text": "Seven Shiny applications covering data analysis, visualization and modelling. Each one ships inside its own R package and runs locally — there is no hosted copy to sign up for, and nothing to install beyond the package itself."
+  },
+  {
+    "objectID": "apps/index.html#regression",
+    "href": "apps/index.html#regression",
+    "title": "Interactive Apps",
+    "section": "Regression and modelling",
+    "text": "Regression and modelling\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nolsrr\n\nLinear regression\n\nInteractive regression output, diagnostics and variable selection.\n\n\nInteractive diagnostics for a fitted lm model.\n\ninstall.packages(\"olsrr\")\nolsrr::ols_launch_app()\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nblorr\n\nLogistic regression\n\nModel fit, validation and collinearity for binary outcomes.\n\n\nThe glm equivalent of the olsrr app.\n\ninstall.packages(\"blorr\")\nblorr::blr_launch_app()\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nrfm\n\nCustomer segmentation\n\nGenerate RFM scores and explore customer segments visually.\n\n\nPoint it at transaction- or customer-level data.\n\ninstall.packages(\"rfm\")\nrfm::rfm_launch_app()"
+  },
+  {
+    "objectID": "apps/index.html#statistics",
+    "href": "apps/index.html#statistics",
+    "title": "Interactive Apps",
+    "section": "Statistics and distributions",
+    "text": "Statistics and distributions\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\ndescriptr\n\nDescriptive statistics\n\nData screening, summary statistics, frequency and cross tables.\n\n\nA visual front end to the descriptr functions.\n\ninstall.packages(\"descriptr\")\ndescriptr::ds_launch_shiny_app()\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\ninferr\n\nHypothesis testing\n\nt tests, chi square, binomial and proportion tests, interactively.\n\n\nChoose the test, pick the columns, read the result.\n\ninstall.packages(\"inferr\")\ninferr::ifr_launch_shiny_app()\n\n\nAlso exported\n\n\ninferr exports a second launcher under a longer name, infer_launch_shiny_app(). It is the same app; ifr_launch_shiny_app() is used here for consistency with the other packages.\n\n\n\n\n\n\n\n\n\nDocs CRAN GitHub\n\n\n\nvistributions\n\nProbability distributions\n\nVisualize the binomial, chi square, normal, F and t distributions.\n\n\nAdjust the parameters and watch the density update.\n\ninstall.packages(\"vistributions\")\nvistributions::vdist_launch_app()"
+  },
+  {
+    "objectID": "apps/index.html#xplorerr",
+    "href": "apps/index.html#xplorerr",
+    "title": "Interactive Apps",
+    "section": "Everything in one app",
+    "text": "Everything in one app\nxplorerr bundles the whole set behind a single install, and adds a visualizer the other packages do not have. If you are not attached to a particular package, start here.\n\n\n\n\nDocs CRAN GitHub\n\n\n\nxplorerr\n\nAll seven apps\n\nDescriptive, inferential, visual, RFM, linear and logistic — one package, one install.\n\n\nSeven launchers. Each opens its own app window.\n\ninstall.packages(\"xplorerr\")\nxplorerr::app_linear_regression()   # linear\nxplorerr::app_logistic_regression() # logistic\nxplorerr::app_descriptive()         # descriptive\nxplorerr::app_inference()           # inference\nxplorerr::app_vistributions()       # distributions\nxplorerr::app_rfm_analysis()        # segmentation\nxplorerr::app_visualizer()          # visualizer"
+  },
+  {
+    "objectID": "apps/index.html#which",
+    "href": "apps/index.html#which",
+    "title": "Interactive Apps",
+    "section": "Which launcher should I use?",
+    "text": "Which launcher should I use?\nBoth routes work and reach the same apps. The difference is who owns them.\n\n\n\nOption A\n\nOne install, seven apps\n\nInstall xplorerr and call any app_*() function. Nothing else to install.\n\n\nBest if you want the visualizer, or several apps at once.\n\n\n\n\n\n\nOption B\n\nThe owning package\n\nInstall the package that owns the app and call its own launcher.\n\n\nBest if you already use that package for its non-interactive functions.\n\n\nPackage reference\n\n\n\n\n\n\n\n\n\n\n\nnse2r has no app here\n\n\n\nnse2r did ship a Shiny app for NSE market data, but the package was archived on CRAN on 2023-08-07 and is under revival, so it gets no app card. Nothing to install and nothing to link to."
+  },
+  {
+    "objectID": "privacy/index.html",
+    "href": "privacy/index.html",
+    "title": "Privacy",
+    "section": "",
+    "text": "This page says exactly what happens when you visit this site, including the parts that are less convenient to read. It is written to be short and specific rather than comprehensive, because a policy nobody finishes is not a policy.\nLast reviewed: 7 October 2026."
+  },
+  {
+    "objectID": "privacy/index.html#the-short-version",
+    "href": "privacy/index.html#the-short-version",
+    "title": "Privacy",
+    "section": "The short version",
+    "text": "The short version\n\nThe site is a static set of pages hosted by Netlify. There is no server-side code, no database, no account, and nothing to sign up for.\nIt sets no cookies and runs no advertising or remarketing tags.\nTwo things are loaded from other companies’ servers: Google Analytics, but only after you agree to it, and Google Fonts, which happens automatically before you are asked. Both are described below, and the font one is called out honestly rather than buried.\nNothing you type here reaches me. There is no form on this site."
+  },
+  {
+    "objectID": "privacy/index.html#who-runs-this-site",
+    "href": "privacy/index.html#who-runs-this-site",
+    "title": "Privacy",
+    "section": "Who runs this site",
+    "text": "Who runs this site\nAravind Hebbali, based in Bengaluru, India. The contact address is the same one in the footer of every page. If anything on this page is wrong or unclear, that is worth telling me about."
+  },
+  {
+    "objectID": "privacy/index.html#what-is-loaded-from-other-companies",
+    "href": "privacy/index.html#what-is-loaded-from-other-companies",
+    "title": "Privacy",
+    "section": "What is loaded from other companies",
+    "text": "What is loaded from other companies\n\n\n\n\n\n\n\n\n\nWho\nWhat\nWhen\nBefore you are asked?\n\n\n\n\nGoogle\nAnalytics 4, to count visits\nOnly after you accept or choose “essential only”\nNo\n\n\nGoogle\nSource Sans Pro webfont\nEvery page, automatically\nYes\n\n\nNetlify\nServes the files\nEvery page\nYes\n\n\n\nGoogle Fonts is the awkward one, and it is worth being direct about: the Bootstrap theme this site uses includes a stylesheet rule that pulls the font from fonts.googleapis.com. That request reaches Google before the consent banner is answered, and it necessarily discloses your IP address to them in the process. Self-hosting the font would remove it; that change is worth making and I have not made it here.\nThe rest of the site has no third-party embeds at all — no videos, no maps, no chat widgets, no social media buttons that load anything. Calendly and LinkedIn appear only as ordinary links that take you to another site, and those sites have their own policies."
+  },
+  {
+    "objectID": "privacy/index.html#google-analytics",
+    "href": "privacy/index.html#google-analytics",
+    "title": "Privacy",
+    "section": "Google Analytics",
+    "text": "Google Analytics\nUsed for one purpose: knowing which pages get read. It is configured for basic page measurement, with no advertising or conversion features.\nIf you accept, a page view sends Google the page you are on and its title, the page you came from, your approximate country and city derived from your IP address, your browser, operating system, screen resolution and language, and an identifier stored in a cookie so your visits can be grouped. The IP address itself is used to work out the location and is not stored. Google’s own documentation on what Google Analytics collects and how location works covers this in more detail than a site policy can.\nTwo things you should know that are easy to miss:\n\nGoogle Signals is switched on for this property, which lets Google report aggregated demographic and interest data. Google states this data is not used to identify individual visitors, but the setting lives in the Analytics property rather than on this site, and it was on when I looked.\nThere is no advertising measurement. No Google Ads tag is present, so no click identifiers are sent and your visits here are not connected to any ad profile I control.\n\nIf you choose “essential only”, the tag still loads so I can see that a page was viewed, but with storage denied. You get an anonymous page count and no cookie is set."
+  },
+  {
+    "objectID": "privacy/index.html#cookies",
+    "href": "privacy/index.html#cookies",
+    "title": "Privacy",
+    "section": "Cookies",
+    "text": "Cookies\n\n\n\n\n\n\n\n\n\nCookie\nSet when\nPurpose\nLifetime\n\n\n\n\n_ga, _ga_G-7JN5Q48PQP\nYou accept analytics\nDistinguishes you from other visitors\n2 years\n\n\nga-consent\nYou make a choice\nRemembers it so you are not asked again\nUntil you clear it\n\n\n\nga-consent is a localStorage entry rather than a cookie, and it never leaves your browser — it is only read to avoid showing you the banner again.\nIf you decline analytics, no cookies are set by this site at all."
+  },
+  {
+    "objectID": "privacy/index.html#changing-your-mind",
+    "href": "privacy/index.html#changing-your-mind",
+    "title": "Privacy",
+    "section": "Changing your mind",
+    "text": "Changing your mind\nYou can withdraw or change your choice at any time. It takes effect on your next page view.\n\n\nChecking your current choice…\n\n\n\nAccept analytics\n\n\nEssential only\n\n\nForget my choice\n\n\n\n\nClearing cookies and site data for aravindhebbali.com in your browser has the same effect."
+  },
+  {
+    "objectID": "privacy/index.html#links-to-other-sites",
+    "href": "privacy/index.html#links-to-other-sites",
+    "title": "Privacy",
+    "section": "Links to other sites",
+    "text": "Links to other sites\nThis site links to package documentation on CRAN and Rsquared Academy, book downloads, GitHub repositories, LinkedIn, Calendly, and a blog. Those are plain links: nothing is loaded from them until you click, and once you do, their own privacy policies apply rather than this one."
+  },
+  {
+    "objectID": "privacy/index.html#what-this-site-does-not-do",
+    "href": "privacy/index.html#what-this-site-does-not-do",
+    "title": "Privacy",
+    "section": "What this site does not do",
+    "text": "What this site does not do\nNo advertising. No remarketing or retargeting. No selling or sharing of data. No behavioural profiling for ads. No third-party analytics other than the one above. No cross-site tracking of any kind. No server logs containing personal data beyond what Netlify records automatically for delivering files."
+  },
+  {
+    "objectID": "privacy/index.html#contact",
+    "href": "privacy/index.html#contact",
+    "title": "Privacy",
+    "section": "Contact",
+    "text": "Contact\nQuestions, corrections, or a request to delete data associated with your visits — email me at the address in the footer. Requests about the data Google Analytics holds are best made directly to Google, which is the only party that can act on them; I can only stop sending new data."
   }
 ]

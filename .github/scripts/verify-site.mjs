@@ -176,6 +176,28 @@ section("4. Bootstrap Icons font eliminated");
   if (!refs) pass("no bootstrap-icons <link>, no .css, no .woff anywhere in _site/");
 }
 
+// --- 4b. no Windows path separators in hrefs -------------------------------
+
+section("4b. no backslashes in href/src (Quarto on Windows emits them)");
+{
+  // Quarto resolves root-relative links against `quarto:offset` using the OS
+  // separator, so 404.html shipped href="/.\packages/" - non-standard markup
+  // that only resolved because Netlify happens to normalise it. post-render.R
+  // rewrites these; this asserts it keeps doing so.
+  const bad = [];
+  for (const [file, html] of docs) {
+    const pageUrl = "/" + relative(SITE, file).replace(/\\/g, "/");
+    for (const m of html.matchAll(/(?:href|src)="([^"]*\\[^"]*)"/g)) {
+      bad.push(`${pageUrl} -> ${m[1]}`);
+    }
+  }
+  if (bad.length) {
+    for (const b of bad) fail(b);
+  } else {
+    pass("every href/src uses forward slashes");
+  }
+}
+
 // --- 5/6. host policy ------------------------------------------------------
 
 section("5. forbidden hosts absent");
@@ -213,6 +235,7 @@ section("7. canonicals self-reference, sitemap lists the four pages");
     "https://www.aravindhebbali.com/packages/",
     "https://www.aravindhebbali.com/apps/",
     "https://www.aravindhebbali.com/books/",
+    "https://www.aravindhebbali.com/privacy/",
   ];
   // Only the four public pages carry a self-referencing canonical. 404.html is
   // an error page and is deliberately excluded from the sitemap, though Quarto
