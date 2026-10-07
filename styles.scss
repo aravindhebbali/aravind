@@ -147,17 +147,71 @@ $shadow-xs:   rgba(2, 6, 23, 0.04);
 $shadow-sm:   rgba(2, 6, 23, 0.08);
 $shadow-md:   rgba(2, 6, 23, 0.12);
 
+
+// --- Custom properties -------------------------------------------------
+//
+// Colour tokens are emitted as custom properties rather than inlined at
+// compile time. Sass inlines a $variable into every rule that uses it, which
+// means dark mode would need a second, selector-for-selector copy of the
+// whole stylesheet - and two copies drift. With these, dark mode is a list
+// of VALUES and nothing else, which is why no selector appears twice.
+//
+// The values below are interpolated from the Sass variables, so those stay
+// the single source of truth and this block cannot fall out of sync.
+:root {
+  --ink: #{$ink};
+  --body: #{$body};
+  --muted: #{$muted};
+  --line: #{$line};
+  --line-soft: #{$line-soft};
+  --accent: #{$accent};
+  --accent-dk: #{$accent-dk};
+  --surface: #{$surface};
+  --canvas: #{$canvas};
+  --note-bg: #{$note-bg};
+  --note-line: #{$note-line};
+  --note-ink: #{$note-ink};
+  --dl-bg: #{$dl-bg};
+  --dl-line: #{$dl-line};
+  --dl-ink: #{$dl-ink};
+  --beg-bg: #{$beg-bg};
+  --beg-ink: #{$beg-ink};
+  --int-bg: #{$int-bg};
+  --int-ink: #{$int-ink};
+  --arch-bg: #{$arch-bg};
+  --arch-ink: #{$arch-ink};
+  --cmp-bg: #{$cmp-bg};
+  --cmp-line: #{$cmp-line};
+  --cmp-num: #{$cmp-num};
+  --cmp-body: #{$cmp-body};
+  --cmpd-bg: #{$cmpd-bg};
+  --cmpd-line: #{$cmpd-line};
+  --cmpd-num: #{$cmpd-num};
+  --cmpd-body: #{$cmpd-body};
+  --line-strong: #{$line-strong};
+  --on-ink: #{$on-ink};
+  --ink-hover: #{$ink-hover};
+  --dl-bg-hover: #{$dl-bg-hover};
+  --accent-ring: #{$accent-ring};
+  --shadow-xs: #{$shadow-xs};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+}
+
+// Non-colour tokens stay Sass variables: a measure, a font stack and a
+// column count have no "dark" value, and var() is invalid inside a Sass
+// function or a media-query condition.
 // --- Base -----------------------------------------------------------------
 body {
-  color: $body;
-  background: $canvas;
+  color: var(--body);
+  background: var(--canvas);
   text-align: left;   // no Bootstrap .text-justify rivers
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5 {
-  color: $ink;
+  color: var(--ink);
   font-weight: 600;
   letter-spacing: -0.011em;
   // No Bootstrap .text-justify rivers
@@ -178,19 +232,19 @@ h2 {
   margin-top: 3.5rem;
   margin-bottom: 1.25rem;
   padding-bottom: 0.6rem;
-  border-bottom: 1px solid $line;
+  border-bottom: 1px solid var(--line);
 }
 h3 { font-size: 1.125rem; margin-top: 2rem; margin-bottom: 0.6rem; }
 
 p { margin-bottom: 1.1rem; }
 
 a {
-  color: $accent;
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid $accent-ring;
+  border-bottom: 1px solid var(--accent-ring);
 
-  &:hover { color: $accent-dk; border-bottom-color: $accent-dk; }
-  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; border-bottom-color: transparent; }
+  &:hover { color: var(--accent-dk); border-bottom-color: var(--accent-dk); }
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-bottom-color: transparent; }
 }
 
 // Prose measure - long lines are the fastest way to make a page feel unconsidered.
@@ -200,16 +254,16 @@ main ul, main ol { padding-left: 1.25rem; }
 main li { margin-bottom: 0.35rem; }
 
 code {
-  color: $ink;
-  background: $line-soft;
+  color: var(--ink);
+  background: var(--line-soft);
   padding: 0.1em 0.35em;
   border-radius: 3px;
   font-size: 0.875em;
 }
 
 pre {
-  background: $line-soft;
-  border: 1px solid $line;
+  background: var(--line-soft);
+  border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0.9rem 1rem;
   font-size: 0.8125rem;
@@ -222,7 +276,7 @@ pre {
   overflow-x: auto;
 }
 
-hr { border: 0; border-top: 1px solid $line; margin: 3rem 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 // --- Icons ----------------------------------------------------------------
 // WHY THIS REPLACED THE BOOTSTRAP ICONS FONT
@@ -304,13 +358,13 @@ $bi-icons: (
     font-family: $serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: $ink;
+    color: var(--ink);
     letter-spacing: -0.022em;
     margin-bottom: 0.2rem;
   }
 
   .subtitle {
-    color: $muted;
+    color: var(--muted);
     font-size: 1.15rem;
     font-weight: 400;
     margin: 0;
@@ -361,16 +415,16 @@ $bi-icons: (
 }
 
 .explore-card {
-  background: $surface;
-  border: 1px solid $line;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 10px;
   padding: 1.15rem 1.15rem 1.2rem;
-box-shadow: 0 1px 2px $shadow-xs;
+box-shadow: 0 1px 2px var(--shadow-xs);
   transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 
   &:hover {
-    border-color: $line-strong;
-    box-shadow: 0 8px 20px $shadow-sm;
+    border-color: var(--line-strong);
+    box-shadow: 0 8px 20px var(--shadow-sm);
     transform: translateY(-2px);
   }
 
@@ -384,11 +438,11 @@ box-shadow: 0 1px 2px $shadow-xs;
   // The whole card is the hit target, not just the title.
   a {
     display: block;
-    color: $ink;
+    color: var(--ink);
     border-bottom: 0;
 
-    &:hover { color: $ink; border-bottom: 0; }
-    &:focus-visible { outline: 2px solid $accent; outline-offset: 3px; border-radius: 4px; }
+    &:hover { color: var(--ink); border-bottom: 0; }
+    &:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
   }
 }
 
@@ -409,7 +463,7 @@ box-shadow: 0 1px 2px $shadow-xs;
     text-align: center;
     font-size: 1.75rem;
     line-height: 1;
-    color: $accent;
+    color: var(--accent);
   }
 }
 
@@ -423,7 +477,7 @@ box-shadow: 0 1px 2px $shadow-xs;
 .explore-sub {
   display: block;
   font-size: 0.875rem;
-  color: $muted;
+  color: var(--muted);
   line-height: 1.45;
   margin-top: 0.5rem;
   max-width: none;
@@ -445,8 +499,8 @@ box-shadow: 0 1px 2px $shadow-xs;
 }
 
 .lcard {
-  background: $surface;
-  border: 1px solid $line;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: $radius;
   overflow: hidden;
   display: flex;
@@ -455,7 +509,7 @@ box-shadow: 0 1px 2px $shadow-xs;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 34px $shadow-md;
+    box-shadow: 0 14px 34px var(--shadow-md);
   }
 
   // Pandoc wraps a lone image in a <p>. Only the cover paragraph is a direct
@@ -488,7 +542,7 @@ box-shadow: 0 1px 2px $shadow-xs;
   width: 100%;
   max-width: 132px;
   height: auto;
-  border: 1px solid $line;
+  border: 1px solid var(--line);
   border-radius: 4px;
   margin-bottom: 0.35rem;
 }
@@ -516,9 +570,9 @@ box-shadow: 0 1px 2px $shadow-xs;
     line-height: 1.25;
 
     a {
-      color: $ink;
+      color: var(--ink);
       border-bottom: 0;
-      &:hover { color: $accent; }
+      &:hover { color: var(--accent); }
     }
   }
 }
@@ -531,14 +585,14 @@ box-shadow: 0 1px 2px $shadow-xs;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: $accent;
+  color: var(--accent);
 }
 
-.ltrack.util { color: $muted; }
-.ltrack.arch { color: $arch-ink; }
+.ltrack.util { color: var(--muted); }
+.ltrack.arch { color: var(--arch-ink); }
 
 .lout {
-  color: $muted;
+  color: var(--muted);
   font-size: 0.875rem;
   line-height: 1.5;
   margin: 0;
@@ -546,15 +600,15 @@ box-shadow: 0 1px 2px $shadow-xs;
 
 .lmeta {
   font-size: 0.78125rem;
-  color: $muted;
+  color: var(--muted);
   margin: 0;
 }
 
 .lprereq {
   font-size: 0.78125rem;
-  color: $note-ink;
-  background: $note-bg;
-  border: 1px solid $note-line;
+  color: var(--note-ink);
+  background: var(--note-bg);
+  border: 1px solid var(--note-line);
   border-radius: 8px;
   padding: 0.35rem 0.5rem;
   margin: 0;
@@ -682,17 +736,17 @@ box-shadow: 0 1px 2px $shadow-xs;
   line-height: 1.3;
   text-decoration: none;
   padding: 0.4rem 0.7rem;
-  border: 1px solid $line-strong;
+  border: 1px solid var(--line-strong);
   border-radius: 9px;
-  color: $ink;
-  background: $surface;
-  border-bottom: 1px solid $line-strong;
+  color: var(--ink);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-strong);
 
   &:hover {
-    color: $ink;
-    background: $line-soft;
-    border-color: $line-strong;
-    border-bottom: 1px solid $line-strong;
+    color: var(--ink);
+    background: var(--line-soft);
+    border-color: var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
   }
 
   // Defensive only. `format.html.link-external-icon: true` in _quarto.yml is
@@ -706,21 +760,21 @@ box-shadow: 0 1px 2px $shadow-xs;
 }
 
 .labtn.primary {
-  background: $ink;
-  border-color: $ink;
-  color: $on-ink;
-  border-bottom: 1px solid $ink;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-ink);
+  border-bottom: 1px solid var(--ink);
 
-  &:hover { background: $ink-hover; border-color: $ink-hover; color: $on-ink; }
+  &:hover { background: var(--ink-hover); border-color: var(--ink-hover); color: var(--on-ink); }
 }
 
 .labtn.dl {
-  background: $dl-bg;
-  border-color: $dl-line;
-  color: $dl-ink;
-  border-bottom: 1px solid $dl-line;
+  background: var(--dl-bg);
+  border-color: var(--dl-line);
+  color: var(--dl-ink);
+  border-bottom: 1px solid var(--dl-line);
 
-  &:hover { background: $dl-bg-hover; border-color: $dl-line; color: $dl-ink; }
+  &:hover { background: var(--dl-bg-hover); border-color: var(--dl-line); color: var(--dl-ink); }
 }
 
 // --- Card pills -----------------------------------------------------------
@@ -730,14 +784,14 @@ box-shadow: 0 1px 2px $shadow-xs;
   font-weight: 700;
   border-radius: 999px;
   padding: 0.1rem 0.55rem;
-  background: $note-bg;
-  color: $note-ink;
+  background: var(--note-bg);
+  color: var(--note-ink);
   margin-right: 5px;
 }
 
-.lpill.beg { background: $beg-bg; color: $beg-ink; }
-.lpill.int { background: $int-bg; color: $int-ink; }
-.lpill.arch { background: $arch-bg; color: $arch-ink; }
+.lpill.beg { background: var(--beg-bg); color: var(--beg-ink); }
+.lpill.int { background: var(--int-bg); color: var(--int-ink); }
+.lpill.arch { background: var(--arch-bg); color: var(--arch-ink); }
 
 // --- Card details ---------------------------------------------------------
 // The single biggest win from the ebooks. model. An always-open bullet list
@@ -745,9 +799,9 @@ box-shadow: 0 1px 2px $shadow-xs;
 // body type was shrunk twice. Collapsed, the same content costs four lines.
 .lcard details {
   font-size: 0.8125rem;
-  color: $body;
-  background: $canvas;
-  border: 1px solid $line;
+  color: var(--body);
+  background: var(--canvas);
+  border: 1px solid var(--line);
   border-radius: 9px;
   padding: 0.4rem 0.55rem;
   margin-top: 0.2rem;
@@ -755,7 +809,7 @@ box-shadow: 0 1px 2px $shadow-xs;
   summary {
     cursor: pointer;
     font-weight: 600;
-    color: $ink;
+    color: var(--ink);
   }
 
   ul {
@@ -767,7 +821,7 @@ box-shadow: 0 1px 2px $shadow-xs;
     li { font-size: 0.8125rem; }
   }
 
-  p { font-size: 0.75rem; color: $muted; margin: 0.3rem 0 0; }
+  p { font-size: 0.75rem; color: var(--muted); margin: 0.3rem 0 0; }
 }
 
 // --- Shelf strip ----------------------------------------------------------
@@ -791,7 +845,7 @@ box-shadow: 0 1px 2px $shadow-xs;
   // removed too rather than left as dead selectors.
   .lshelf-item > p:last-child {
     font-size: 0.71875rem;
-    color: $muted;
+    color: var(--muted);
     text-align: center;
     margin: 0.35rem 0 0;
     max-width: none;
@@ -802,7 +856,7 @@ box-shadow: 0 1px 2px $shadow-xs;
     display: block;
     width: 100%;
     height: auto;
-    border: 1px solid $line;
+    border: 1px solid var(--line);
     border-radius: 6px;
     border-bottom: 0;
 
@@ -821,8 +875,8 @@ box-shadow: 0 1px 2px $shadow-xs;
 }
 
 .lstep {
-  background: $surface;
-  border: 1px solid $line;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: $radius;
   padding: 0.85rem;
 
@@ -832,14 +886,14 @@ box-shadow: 0 1px 2px $shadow-xs;
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: $accent;
+    color: var(--accent);
   }
 
   h3 { font-size: 1rem; margin: 0.25rem 0 0.35rem; }
 
   p {
     font-size: 0.8125rem;
-    color: $muted;
+    color: var(--muted);
     margin: 0;
     max-width: none;
   }
@@ -849,9 +903,9 @@ box-shadow: 0 1px 2px $shadow-xs;
   display: block;
   margin-top: 0.5rem;
   font-size: 0.75rem;
-  color: $note-ink;
-  background: $note-bg;
-  border: 1px solid $note-line;
+  color: var(--note-ink);
+  background: var(--note-bg);
+  border: 1px solid var(--note-line);
   border-radius: 8px;
   padding: 0.35rem 0.5rem;
 }
@@ -864,8 +918,8 @@ box-shadow: 0 1px 2px $shadow-xs;
 }
 
 .lcomp {
-  background: $cmp-bg;
-  border: 1px dashed $cmp-line;
+  background: var(--cmp-bg);
+  border: 1px dashed var(--cmp-line);
   border-radius: $radius;
   padding: 0.85rem;
 
@@ -875,25 +929,25 @@ box-shadow: 0 1px 2px $shadow-xs;
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: $cmp-num;
+    color: var(--cmp-num);
   }
 
   h3 { font-size: 1rem; margin: 0.25rem 0 0.35rem; }
 
   p {
     font-size: 0.8125rem;
-    color: $cmp-body;
+    color: var(--cmp-body);
     margin: 0;
     max-width: none;
   }
 }
 
 .lcomp.deep {
-  background: $cmpd-bg;
-  border-color: $cmpd-line;
+  background: var(--cmpd-bg);
+  border-color: var(--cmpd-line);
 
-  .num { color: $cmpd-num; }
-  p { color: $cmpd-body; }
+  .num { color: var(--cmpd-num); }
+  p { color: var(--cmpd-body); }
 }
 
 // --- Tables ---------------------------------------------------------------
@@ -904,32 +958,32 @@ table {
   border-collapse: collapse;
 
   th {
-    color: $muted;
+    color: var(--muted);
     font-weight: 500;
     font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-bottom: 1px solid $line;
+    border-bottom: 1px solid var(--line);
     padding: 0.5rem 0.75rem 0.5rem 0;
   }
 
   td {
-    border-bottom: 1px solid $line-soft;
+    border-bottom: 1px solid var(--line-soft);
     padding: 0.6rem 0.75rem 0.6rem 0;
     vertical-align: top;
   }
 
-  tr:last-child td { border-bottom: 1px solid $line; }
+  tr:last-child td { border-bottom: 1px solid var(--line); }
   td:first-child { white-space: nowrap; font-weight: 500; }
   td a { border-bottom: 0; }
 }
 
 // --- Callouts -------------------------------------------------------------
 .callout {
-  border: 1px solid $line;
-  border-left: 3px solid $accent;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   border-radius: 4px;
-  background: $surface;
+  background: var(--surface);
   padding: 0.25rem 1.25rem;
   margin: 1.5rem 0;
 
@@ -944,11 +998,11 @@ table {
 }
 
 .btn-primary {
-  background: $accent;
-  border-color: $accent;
+  background: var(--accent);
+  border-color: var(--accent);
   box-shadow: none;
 
-  &:hover, &:focus { background: $accent-dk; border-color: $accent-dk; }
+  &:hover, &:focus { background: var(--accent-dk); border-color: var(--accent-dk); }
 }
 
 
@@ -967,7 +1021,7 @@ table {
 header#quarto-header {
   // .fixed-top sets no background of its own. Without this, page content
   // scrolling underneath shows through.
-  background: $surface;
+  background: var(--surface);
 
   &.headroom.headroom--unpinned {
     transform: translateY(0);
@@ -984,8 +1038,8 @@ html {
 
 // --- Navbar ---------------------------------------------------------------
 .navbar {
-  border-bottom: 1px solid $line;
-  background: $surface;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
   box-shadow: none;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
@@ -993,7 +1047,7 @@ html {
 
 .navbar-brand {
   font-weight: 600;
-  color: $ink;
+  color: var(--ink);
   margin-right: 1.5rem;
 
   // The logo <img> is generated by Quarto from `website.navbar.logo` in
@@ -1019,12 +1073,12 @@ html {
 }
 
 .navbar .nav-link {
-  color: $body;
+  color: var(--body);
   font-size: 0.9375rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
 
-  &:hover, &.active { color: $accent; }
+  &:hover, &.active { color: var(--accent); }
 }
 
 // --- Footer ---------------------------------------------------------------
@@ -1033,12 +1087,12 @@ html {
 // the glyphs inherit the footer's font-size, so they grow with it - and each one
 // is given a square hit area with a hover chip so it reads as tappable.
 footer {
-  border-top: 1px solid $line;
+  border-top: 1px solid var(--line);
   margin-top: 2.25rem;
   padding: 1.25rem 0 1.75rem;
-  background: $surface;
+  background: var(--surface);
   font-size: 0.9375rem;
-  color: $body;
+  color: var(--body);
 
   // Quarto emits the copyright as a bare <p>, which otherwise collects the
   // global 1.1rem bottom margin and leaves a gap under the text.
@@ -1072,18 +1126,18 @@ footer {
       min-width: 2.4rem;
       height: 2.4rem;
       border-radius: 8px;
-      color: $ink;
+      color: var(--ink);
       font-size: 1.0625rem;
       border-bottom: 0;
       transition: background-color 0.12s ease, color 0.12s ease;
 
       &:hover {
-        color: $ink;
-        background: $line-soft;
+        color: var(--ink);
+        background: var(--line-soft);
         border-bottom: 0;
       }
 
-      &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+      &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     }
   }
 }
@@ -1110,23 +1164,23 @@ footer {
   align-items: center;
   gap: 0.75rem 1.25rem;
   padding: 0.85rem 1.25rem;
-  background: $surface;
-  border-top: 1px solid $line;
-  box-shadow: 0 -4px 16px $shadow-sm;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -4px 16px var(--shadow-sm);
   font-size: 0.875rem;
-  color: $body;
+  color: var(--body);
 
   // Focused programmatically on show so the prompt is announced, which puts a
   // ring on the whole bar. Border-radius + outline-offset keeps it off the
   // viewport edge.
-  &:focus { outline: 2px solid $accent; outline-offset: -2px; }
+  &:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
 }
 
 .consent-text {
   flex: 1 1 24rem;
   margin: 0;
   max-width: none;   // undo the global prose measure
-  color: $body;
+  color: var(--body);
 }
 
 .consent-actions {
@@ -1143,22 +1197,22 @@ footer {
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  border: 1px solid $line-strong;
-  background: $surface;
-  color: $ink;
-  border-bottom: 1px solid $line-strong;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-strong);
   transition: background-color 0.12s ease, border-color 0.12s ease;
 
-  &:hover { background: $line-soft; border-color: $line-strong; }
-  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+  &:hover { background: var(--line-soft); border-color: var(--line-strong); }
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 }
 
 .consent-btn-primary {
-  background: $ink;
-  border-color: $ink;
-  color: $on-ink;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-ink);
 
-  &:hover { background: $ink-hover; border-color: $ink-hover; color: $on-ink; }
+  &:hover { background: var(--ink-hover); border-color: var(--ink-hover); color: var(--on-ink); }
 }
 
 // Stacks the buttons full-width on narrow screens so both targets stay thumb
@@ -1179,8 +1233,8 @@ footer {
 .privacy-consent {
   margin: 1.25rem 0 1.5rem;
   padding: 1rem 1.15rem;
-  background: $surface;
-  border: 1px solid $line;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 10px;
 
   p { margin: 0 0 0.75rem; max-width: none; }
@@ -1189,7 +1243,7 @@ footer {
 
 .privacy-consent-note {
   font-size: 0.9375rem;
-  color: $muted;
+  color: var(--muted);
 }
 
 .privacy-btn {
@@ -1201,14 +1255,14 @@ footer {
   margin-right: 0.5rem;
   padding: 0.45rem 0.9rem;
   border-radius: 8px;
-  border: 1px solid $line-strong;
-  background: $surface;
-  color: $ink;
-  border-bottom: 1px solid $line-strong;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-strong);
   transition: background-color 0.12s ease, border-color 0.12s ease;
 
-  &:hover { background: $line-soft; border-color: $line-strong; }
-  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+  &:hover { background: var(--line-soft); border-color: var(--line-strong); }
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 }
 
 // The two tables here are four columns wide, and the global 68ch prose cap
@@ -1220,11 +1274,11 @@ body:has(.privacy-consent) table {
 }
 
 .privacy-btn-primary {
-  background: $ink;
-  border-color: $ink;
-  color: $on-ink;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-ink);
 
-  &:hover { background: $ink-hover; border-color: $ink-hover; color: $on-ink; }
+  &:hover { background: var(--ink-hover); border-color: var(--ink-hover); color: var(--on-ink); }
 }
 
 // --- Layout cap -----------------------------------------------------------
