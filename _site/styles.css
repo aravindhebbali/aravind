@@ -232,8 +232,6 @@ hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3rem 0; }
 
 .lcomp.deep p { color: #155e75; }
 
-pre.run { font-size: 0.78rem; background: #ffffff; }
-
 table { width: 100%; max-width: 68ch; font-size: 0.9375rem; border-collapse: collapse; }
 
 table th { color: #64748b; font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #e2e8f0; padding: 0.5rem 0.75rem 0.5rem 0; }
@@ -255,10 +253,6 @@ table td a { border-bottom: 0; }
 .btn-primary { background: #2563eb; border-color: #2563eb; box-shadow: none; }
 
 .btn-primary:hover, .btn-primary:focus { background: #1d4ed8; border-color: #1d4ed8; }
-
-.btn-secondary { background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; }
-
-.btn-secondary:hover { background: #f1f5f9; color: #0f172a; border-color: #cbd5e1; }
 
 header#quarto-header { background: #ffffff; }
 

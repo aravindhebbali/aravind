@@ -783,12 +783,6 @@ $bi-icons: (
   p { color: #155e75; }
 }
 
-// --- Code snippets (apps page) -------------------------------------------
-pre.run {
-  font-size: 0.78rem;
-  background: $surface;
-}
-
 // --- Tables ---------------------------------------------------------------
 table {
   width: 100%;
@@ -844,13 +838,7 @@ table {
   &:hover, &:focus { background: $accent-dk; border-color: $accent-dk; }
 }
 
-.btn-secondary {
-  background: $surface;
-  color: $ink;
-  border: 1px solid $line;
 
-  &:hover { background: $line-soft; color: $ink; border-color: #cbd5e1; }
-}
 
 // --- Navbar: always pinned ------------------------------------------------
 // Quarto already renders the header as `fixed-top`, so the navbar is fixed -
