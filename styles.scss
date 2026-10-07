@@ -983,7 +983,6 @@ main { max-width: $wide; }
     max-width: 60%;
   }
   .lgrid { grid-template-columns: 1fr; }
-  .lgrid-h { grid-template-columns: 1fr; }
   .lpath { grid-template-columns: 1fr; }
   .lcover-book { max-width: 118px; }
   .lcard-h .lcover-hex { max-height: 84px; margin-right: 0.85rem; }
@@ -998,8 +997,28 @@ main { max-width: $wide; }
 
 // Three cards need ~350px each to hold a title, two action buttons and a
 // meta line without wrapping. Below ~960px of main they drop to two, then one.
+//
+// `.lgrid-h` drops straight to one here, not two. It is declared on the SAME
+// element as `.lgrid` (`::: {.lgrid .lgrid-h}`), so at equal specificity the
+// LATER rule wins - which means its own 575px rule below could never take
+// effect while this block also set `.lgrid` to two columns. That inversion
+// held 2 columns all the way down to 575px, squeezing the horizontal card
+// body to 218px at 768px and 134px at 600px. Both classes sit in one block
+// here so the outcome does not depend on which line each is declared on:
+//
+//   992px  2 cols  330px body  ok
+//   900px  1 col   731px body  ok
+//   768px  1 col   599px body  ok
+//   576px  1 col   407px body  ok
+//
+// DECIDED: horizontal cards stay horizontal on small phones. Below ~430px the
+// hex still takes ~26% of the card width (body 168px at 320px, 223px at 375px,
+// 262px at 414px). Accepted deliberately - the card stays functional, just
+// tall. Do not "fix" this by stacking `.lcard-h` vertically; revisit only if
+// the books page becomes hard to read on a phone.
 @media (max-width: 960px) {
   .lgrid { grid-template-columns: repeat(2, 1fr); }
+  .lgrid-h { grid-template-columns: 1fr; }
 }
 
 // Six thumbnails across is a strip; three is a shelf you can still read.
