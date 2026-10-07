@@ -182,6 +182,43 @@ for (f in c(icons_css, icons_woff)) {
   }
 }
 
+# --- GA4 consent banner ----------------------------------------------------
+#
+# Injected here rather than via `include-before-body` in _quarto.yml, for two
+# reasons:
+#
+#   1. Quarto 1.6.40 has no `include-in-body` at all, and `include-before-body`
+#      places the banner inside <body> where Pandoc's search indexer picks it
+#      up - the consent copy and both button labels became searchable text at the
+#      top of every page's entry in search.json, so searching "Accept" surfaced
+#      all four pages. Injecting after Pandoc has run keeps it out of the index
+#      entirely, which is the actual fix rather than a filter over the symptom.
+#   2. It is a position: fixed element, so its place in the DOM is purely
+#      cosmetic, and the end of <body> is the conventional home for an overlay.
+#
+# The markup lives in consent-banner.html so the text and the stylesheet in
+# styles.scss can be read together; this reads it once and stamps it into every
+# page. A banner that only landed on some pages would be worse than none.
+banner_file <- "consent-banner.html"
+if (!file.exists(banner_file)) {
+  stop("post-render: expected ", banner_file,
+       " - it holds the GA4 consent banner markup.")
+}
+banner <- paste(readLines(banner_file, warn = FALSE), collapse = "\n")
+
+# Quarto emits </body> with no leading whitespace, but tolerate either.
+bannered <- 0
+for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
+                        full.names = TRUE)) {
+  html <- paste(readLines(page, warn = FALSE), collapse = "\n")
+  if (grepl('id="consent-banner"', html, fixed = TRUE)) next   # already injected
+  if (!grepl("</body>", html, fixed = TRUE)) next
+  writeLines(sub("</body>", paste0(banner, "\n</body>"), html, fixed = TRUE),
+             page, useBytes = TRUE)
+  bannered <- bannered + 1
+}
+if (bannered) message("post-render: consent banner injected into ", bannered, " page(s)")
+
 # ---------------------------------------------------------------------------
 # Pre-cutover guard (now dormant).
 #

@@ -107,32 +107,163 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      add twitter:site / twitter:creator meta until then - both pointed at a
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
 
-<!-- Google Analytics 4 (GA4).
-     Lives here because _quarto.yml pulls this file into <head> on all five
-     rendered pages via `include-in-header`, so one copy covers the whole site
-     and cannot drift per-page.
+<!-- GA4 consent gate.
+     This used to hold a bare <script async src=".../gtag/js"> plus an inline
+     config block, which set _ga cookies with no consent step and no banner
+     anywhere on the site. It now defines the gate below and creates the gtag
+     loader dynamically *after* the visitor chooses, so nothing reaches Google
+     before then and nothing at all without JavaScript.
 
-     `async` on the loader is what keeps it off the critical path - it costs
-     nothing in FCP/LCP, which is the reason this is acceptable on a page whose
-     mobile performance budget is already tight.
+     The gate is INLINED here rather than kept as consent.js on purpose. Quarto
+     rewrites asset paths in markup it generates, but `include-in-header`
+     content is copied verbatim - so `<script src="consent.js">` resolved to
+     /consent.js on the root page but /packages/consent.js, /apps/consent.js and
+     /books/consent.js on the nested ones, and all three 404ed. That is
+     gotcha #1 wearing a different hat. A root-absolute /consent.js would work
+     but breaks if the site is ever served from a subpath, and inlining costs
+     nothing: script-src already needs 'unsafe-inline' for Quarto's own inline
+     bootstrap, and an inline block is re-read on each page load anyway rather
+     than being separately cacheable.
 
-     CSP: _headers permits https://www.googletagmanager.com in script-src and
-     https://www.google-analytics.com + https://region1.google-analytics.com in
-     connect-src. The inline config below is already allowed by the existing
-     'unsafe-inline' in script-src, so nothing else had to be relaxed.
-     `region1.` is Google's regional beacon endpoint and is needed for
-     collection outside the default region.
+     The loader it creates points at https://www.googletagmanager.com, which
+     _headers permits in script-src, and the beacons go to
+     https://www.google-analytics.com and https://region1.google-analytics.com
+     in connect-src.
 
-     NOTE: GA4 is NOT cookieless and no consent banner is planned on this site.
-     That is an open decision, not an oversight - see pending_tasks.md 4. -->
-<!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7JN5Q48PQP"></script>
+     The banner markup lives in consent-banner.html, injected on every page by
+     `include-before-body` in _quarto.yml, so it cannot drift per-page.
+
+     Blocking on purpose: the Consent Mode v2 default is set before config, and
+     running inline means the choice is made before gtag.js executes rather than
+     racing it. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+(function () {
+  "use strict";
 
-  gtag('config', 'G-7JN5Q48PQP');
+  var MEASUREMENT_ID = "G-7JN5Q48PQP";
+  var STORAGE_KEY = "ga-consent";
+
+  // Consent Mode v2 signals. `denied` for everything except security_storage,
+  // which is always granted and is not a user-facing storage category. The
+  // advertisement_* signals are set even though no ad or remarketing tag runs
+  // here - they are required fields for a valid v2 default, and omitting them is
+  // what produces an "invalid consent" warning in GA4.
+  //
+  // The alternative here - letting gtag.js load immediately with
+  // analytics_storage defaulting to "denied", so cookieless pings flow before
+  // any choice - is Google's "advanced consent mode". Not used: it still sends
+  // an undecided visitor's data to Google. "Essential only" below keeps
+  // cookieless measurement, but only AFTER the visitor has been asked.
+  var DENIED = {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted",
+  };
+
+  function readChoice() {
+    try {
+      var v = window.localStorage.getItem(STORAGE_KEY);
+      // Anything else - absent, "maybe", a value from an older format - is
+      // treated as undecided rather than obeyed.
+      return v === "granted" || v === "denied" ? v : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function writeChoice(value) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, value);
+    } catch (e) {
+      // Private mode with storage disabled. The choice still applies to this
+      // page view; it just will not be remembered next time.
+    }
+  }
+
+  var loaded = false;
+
+  function loadGA4(choice) {
+    if (loaded) return;
+    loaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+
+    // Consent must be set before config, and before the library loads, or GA4
+    // records an unconsented hit.
+    gtag("consent", "default", DENIED);
+    if (choice === "granted") {
+      gtag("consent", "update", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+        analytics_storage: "granted",
+        functionality_storage: "granted",
+        personalization_storage: "granted",
+      });
+    }
+    gtag("js", new Date());
+    gtag("config", MEASUREMENT_ID);
+
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
+    document.head.appendChild(s);
+  }
+
+  function hideBanner() {
+    var el = document.getElementById("consent-banner");
+    if (el) el.remove();
+  }
+
+  function decide(choice) {
+    writeChoice(choice);
+    hideBanner();
+    loadGA4(choice);
+  }
+
+  function init() {
+    var existing = readChoice();
+    if (existing) {
+      hideBanner();
+      loadGA4(existing);
+      return;
+    }
+
+    var banner = document.getElementById("consent-banner");
+    if (!banner) return;
+
+    var accept = document.getElementById("consent-accept");
+    var deny = document.getElementById("consent-deny");
+    if (accept) accept.addEventListener("click", function () { decide("granted"); });
+    if (deny) deny.addEventListener("click", function () { decide("denied"); });
+
+    // Focus the region rather than a button: it announces the prompt without
+    // letting Enter accept something the visitor has not read.
+    banner.focus();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  // Accepting in one tab should clear the banner in the others, so a visitor
+  // with the site open twice is not asked twice.
+  window.addEventListener("storage", function (e) {
+    if (e.key !== STORAGE_KEY) return;
+    var v = e.newValue;
+    if (v !== "granted" && v !== "denied") return;
+    hideBanner();
+    loadGA4(v);
+  });
+})();
 </script>
 
 <!-- Quarto emits og:image / twitter:image from each page's `image:` field but
@@ -1002,4 +1133,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 <script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<!-- GA4 consent banner.
+     Injected on every page by `include-before-body` in _quarto.yml.
+
+     Rendered in the initial HTML on purpose: a banner added by script after
+     paint would shift the footer up, which counts against Cumulative Layout
+     Shift. consent.js hides it on load when a choice is already stored, and a
+     visitor-initiated hide is excluded from CLS, so this costs nothing.
+
+     Fixed to the bottom so it needs no reserved space, which is also what keeps
+     it from displacing the footer - the footer is the only contact route on this
+     site, so it has to stay reachable the moment the banner is dismissed. -->
+<div id="consent-banner" class="consent" role="region" aria-label="Cookie consent" tabindex="-1">
+  <p class="consent-text">
+    This site uses Google Analytics to count visits. Nothing is sent to Google
+    until you choose. Choosing "essential only" still allows cookieless
+    measurement; choosing "accept" also allows cookies and audience features.
+  </p>
+  <div class="consent-actions">
+    <button type="button" id="consent-accept" class="consent-btn consent-btn-primary">Accept</button>
+    <button type="button" id="consent-deny" class="consent-btn">Essential only</button>
+  </div>
+</div>
+
+<!-- No JavaScript means no Google Analytics at all now that the tag is gated on
+     this decision, so there is nothing to consent to. Hiding the banner avoids
+     stranding a visitor behind controls that cannot work. -->
+<noscript><style>#consent-banner { display: none; }</style></noscript>
 </body></html>

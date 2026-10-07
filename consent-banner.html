@@ -1,0 +1,27 @@
+<!-- GA4 consent banner.
+     Injected on every page by `include-before-body` in _quarto.yml.
+
+     Rendered in the initial HTML on purpose: a banner added by script after
+     paint would shift the footer up, which counts against Cumulative Layout
+     Shift. consent.js hides it on load when a choice is already stored, and a
+     visitor-initiated hide is excluded from CLS, so this costs nothing.
+
+     Fixed to the bottom so it needs no reserved space, which is also what keeps
+     it from displacing the footer - the footer is the only contact route on this
+     site, so it has to stay reachable the moment the banner is dismissed. -->
+<div id="consent-banner" class="consent" role="region" aria-label="Cookie consent" tabindex="-1">
+  <p class="consent-text">
+    This site uses Google Analytics to count visits. Nothing is sent to Google
+    until you choose. Choosing "essential only" still allows cookieless
+    measurement; choosing "accept" also allows cookies and audience features.
+  </p>
+  <div class="consent-actions">
+    <button type="button" id="consent-accept" class="consent-btn consent-btn-primary">Accept</button>
+    <button type="button" id="consent-deny" class="consent-btn">Essential only</button>
+  </div>
+</div>
+
+<!-- No JavaScript means no Google Analytics at all now that the tag is gated on
+     this decision, so there is nothing to consent to. Hiding the banner avoids
+     stranding a visitor behind controls that cannot work. -->
+<noscript><style>#consent-banner { display: none; }</style></noscript>

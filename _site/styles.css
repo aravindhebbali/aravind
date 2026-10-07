@@ -282,6 +282,26 @@ footer .footer-items .nav-link:hover { color: #0f172a; background: #f1f5f9; bord
 
 footer .footer-items .nav-link:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
 
+.consent { position: fixed; inset-inline: 0; bottom: 0; z-index: 1030; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; padding: 0.85rem 1.25rem; background: #ffffff; border-top: 1px solid #e2e8f0; box-shadow: 0 -4px 16px rgba(2, 6, 23, 0.08); font-size: 0.875rem; color: #334155; }
+
+.consent:focus { outline: 2px solid #2563eb; outline-offset: -2px; }
+
+.consent-text { flex: 1 1 24rem; margin: 0; max-width: none; color: #334155; }
+
+.consent-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-left: auto; }
+
+.consent-btn { font: inherit; font-weight: 600; line-height: 1.3; cursor: pointer; padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid #cbd5e1; background: #ffffff; color: #0f172a; border-bottom: 1px solid #cbd5e1; transition: background-color 0.12s ease, border-color 0.12s ease; }
+
+.consent-btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+
+.consent-btn:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+
+.consent-btn-primary { background: #0f172a; border-color: #0f172a; color: #fff; }
+
+.consent-btn-primary:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+
+@media (max-width: 575px) { .consent { padding: 0.9rem 1rem; } .consent-actions { margin-left: 0; width: 100%; } .consent-btn { flex: 1 1 auto; } }
+
 main { max-width: 1100px; }
 
 @media (max-width: 575px) { .quarto-title-block .title { font-size: 1.9rem; } .hero-photo { float: none; display: block; margin: 0 auto 1.25rem; max-width: 60%; } .lgrid { grid-template-columns: 1fr; } .lpath { grid-template-columns: 1fr; } .lcover-book { max-width: 118px; } .lcard-h .lcover-hex { max-height: 84px; margin-right: 0.85rem; } }
@@ -292,5 +312,5 @@ main { max-width: 1100px; }
 
 @media (max-width: 860px) { .lpath { grid-template-columns: repeat(2, 1fr); } .lshelf { grid-template-columns: repeat(3, 1fr); } }
 
-@media (prefers-reduced-motion: reduce) { .lcard { transition: none; } .lcard:hover { transform: none; } .explore-card { transition: none; } .explore-card:hover { transform: none; } .lcover { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .lcard { transition: none; } .lcard:hover { transform: none; } .explore-card { transition: none; } .explore-card:hover { transform: none; } .lcover { transition: none; } .consent-btn { transition: none; } }
 
