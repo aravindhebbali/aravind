@@ -47,8 +47,26 @@ website:
   open-graph: true
   twitter-card: true
   navbar:
-    background: "#0f172a"
-    foreground: "#e2e8f0"
+    # No background/foreground keys, and the reason is not cosmetic.
+    #
+    # These set Bootstrap's --bs-navbar-color, which is what the navbar
+    # INHERITS from - and docsearch's search button draws its icon with
+    # `fill="currentColor"`. So `foreground: "#e2e8f0"` painted the search
+    # icon #e2e8f0 on a navbar that styles.scss paints white: **1.23:1**, far
+    # under the 3:1 WCAG minimum for a non-text graphic. The icon was there and
+    # was genuinely invisible. Removing the key drops it to #545555 = 7.48:1.
+    #
+    # So this is a real fix, not a cleanup, and it is the only reason to touch
+    # this block. Note what it does NOT do: `background` was never inert in
+    # effect either, but styles.scss overrides `.navbar` background on
+    # specificity, so that one only ever lied - see the .navbar rules there.
+    #
+    # For the record, my first hypothesis was wrong and the comment above it
+    # said so: I assumed these keys caused data-bs-theme="dark" on the <nav>.
+    # They do not. That attribute is Quarto's DEFAULT for any navbar with items
+    # - proven by rendering a scratch project whose navbar had only a `left:`
+    # list, no theme keys at all, which still emitted it. styles.scss
+    # neutralises the dark Bootstrap tokens it pulls in either way.
     logo: images/avatar-sm.webp
     logo-alt: "Aravind Hebbali"
     search: true
