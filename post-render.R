@@ -128,7 +128,22 @@ icons_woff <- file.path(icons_dir, "bootstrap-icons.woff")
 # and that is not fussiness: books/index.html contains the URL
 # `.../cheatsheet/dbi-cheatsheet.pdf`, so a bare `bi-*` text search matches the
 # substring "bi-cheatsheet" and reports an icon that does not exist.
+#
+# A BARE `bi` TOKEN IS ALSO COLLECTED, and this is not a refinement - it is a bug
+# this check was written too narrowly to catch. Quarto's own copy button is
+# `<button class="code-copy-button"><i class="bi"></i></button>`: a `bi` class
+# with no `bi-*` name, because the glyph is not chosen by class but by a
+# `background-image` on `pre:hover`. The generic `.bi::before` rule then matched
+# it and gave it a 1em `background-color: currentColor` with no mask to punch
+# through, so it rendered as a solid filled square on every code block - black in
+# light mode, white in dark. Shipped, unnoticed, and invisible to a `bi-*` scan.
+#
+# The failure is worse than an uncovered `bi-*`, which renders as nothing: a bare
+# `bi` with no mask renders as an opaque BLOCK. So both are collected and both
+# are required to have a mask rule, and the error message says which kind is
+# missing rather than making the reader work it out.
 icon_classes <- character(0)
+bare_bi <- 0L
 for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
                         full.names = TRUE)) {
   html <- paste(readLines(page, warn = FALSE), collapse = "\n")
@@ -136,9 +151,24 @@ for (page in list.files(site_dir, pattern = "\\.html$", recursive = TRUE,
   for (attr in attrs) {
     tokens <- strsplit(sub('^class="', "", sub('"$', "", attr)), "[[:space:]]+")[[1]]
     icon_classes <- c(icon_classes, grep("^bi-.+", tokens, value = TRUE))
+    # A lone `bi` with no `bi-*` sibling on the same element.
+    if ("bi" %in% tokens && !any(grepl("^bi-.+", tokens))) bare_bi <- bare_bi + 1L
   }
 }
 icon_classes <- sort(unique(icon_classes))
+
+# The bare-`bi` case is checked by selector rather than by class name, because
+# there is no class name to check - the mask hangs off `.code-copy-button .bi`.
+if (bare_bi && file.exists(file.path(site_dir, "styles.css"))) {
+  compiled_bare <- paste(readLines(file.path(site_dir, "styles.css"),
+                                   warn = FALSE), collapse = "\n")
+  if (!grepl(".code-copy-button .bi::before", compiled_bare, fixed = TRUE)) {
+    stop("post-render: ", bare_bi, " element(s) carry a bare `bi` class with no ",
+         "bi-* sibling (the code-copy button), and styles.css has no ",
+         ".code-copy-button .bi::before mask rule. Such an element renders as a ",
+         "solid filled square, not as a missing icon.")
+  }
+}
 
 if (length(icon_classes)) {
   styles_file <- file.path(site_dir, "styles.css")
@@ -161,6 +191,9 @@ if (length(icon_classes)) {
   }
   message("post-render: ", length(icon_classes),
           " bi-* classes, all with mask rules")
+}
+if (bare_bi) {
+  message("post-render: ", bare_bi, " bare `bi` element(s), mask rule present")
 }
 
 # Three href shapes are in play, so match the whole tag on the filename rather

@@ -284,6 +284,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 })();
 </script>
 
+<!-- Dark-mode flash guard.
+
+     The colours themselves live in styles.css behind prefers-color-scheme, which
+     is the right mechanism: the browser knows the preference before the first
+     byte of CSS arrives, so no script is involved in choosing the theme.
+
+     But `color-scheme` in that stylesheet is not enough on its own. Until
+     styles.css has been fetched and parsed, the UA has no idea this document
+     supports a dark scheme, and paints the default canvas white. On a fast
+     connection that is a few frames; on 4G it is long enough to see.
+
+     This meta tag is the standard fix. `color-scheme` in <meta> is applied by the
+     parser, before any stylesheet, so the canvas is dark from the very first
+     paint. Declaring it here is not a duplicate of the CSS rule - the CSS
+     `color-scheme: light dark` handles UA widget rendering for the rest of the
+     page, and this handles the pre-CSS moment the CSS cannot cover.
+
+     MEASURED, both directions, in Chrome with every stylesheet blocked at the
+     network layer and prefers-color-scheme: dark, reading the first painted
+     pixel:
+
+       meta present   -> rgb(18,18,18)    the UA dark canvas
+       meta REMOVED   -> rgb(255,255,255) the regression this tag exists to stop
+       meta present,
+         CSS served    -> rgb(15,23,42)    --surface, i.e. the real scheme
+
+     The middle case is the point: without this line the tag is not a
+     belt-and-braces extra, it is the only thing standing between a dark-mode
+     visitor and a white flash.
+
+     One trap found while testing this, worth recording. Blocking ONLY
+     styles.css - which is the obvious way to write the test - shows no
+     difference between the two cases, because cosmo's own stylesheet sets the
+     body background to #f8f9fa and arrives anyway. The tag only governs the
+     canvas the UA paints before ANY stylesheet lands, so the test has to block
+     all of them or it measures nothing. A first version of this check passed
+     vacuously for exactly that reason.
+
+     Kept in step with styles.scss by hand. It is one line and the value is
+     `light dark`, which is preference-agnostic, so the two cannot drift into
+     disagreeing about which scheme applies. -->
+<meta name="color-scheme" content="light dark">
+
 <!-- Quarto emits og:image / twitter:image from each page's `image:` field but
      has no front-matter option for the dimensions, and roadmap section 6 asks
      for them explicitly. Every page shares one card, images/og-card.jpg, so the

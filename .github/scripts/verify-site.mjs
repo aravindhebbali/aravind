@@ -17,8 +17,10 @@
 //   2. every <img> carries width+height, except the navbar logo, which Quarto
 //      generates from _quarto.yml with no such option (verified: the CSS gives
 //      it a definite height + aspect-ratio instead)
-//   3. every bi-* class has a mask rule - mirrors the post-render.R guard so a
-//      hand-edited _site cannot silently drop an icon
+//   3. every bi-* class has a mask rule, and no bare `bi` is left unmasked;
+//      also that every mask URI is a plain data:image/svg+xml
+//      - mirrors the post-render.R guard so a hand-edited _site cannot silently
+//      drop an icon
 //   4. no bootstrap-icons link/font anywhere; neither file should exist
 //   5. forbidden hosts absent (rsquaredcomputing.com was sold; TLS fails)
 //   6. nse2r must NOT link a docs host - that subdomain is NXDOMAIN
@@ -124,20 +126,30 @@ section("2. every <img> carries intrinsic dimensions");
 
 // --- 3. mask coverage ------------------------------------------------------
 
-section("3. every bi-* class has a mask rule");
+section("3. every bi-* class has a mask rule, and no bare `bi` is left unmasked");
 {
   if (!stylesCss) {
     fail("_site/styles.css is missing");
   } else {
     const icons = new Set();
+    let bareBi = 0;
     for (const html of docs.values()) {
       // Scan class ATTRIBUTES only. A bare text search for "bi-" matches the
       // substring in books/index.html's URL .../cheatsheet/dbi-cheatsheet.pdf
       // and reports an icon that does not exist.
       for (const m of html.matchAll(/class="([^"]*)"/g)) {
-        for (const token of m[1].split(/\s+/)) {
+        const tokens = m[1].split(/\s+/);
+        for (const token of tokens) {
           if (/^bi-.+/.test(token)) icons.add(token);
         }
+        // A lone `bi` with no `bi-*` sibling is a different failure, and a
+        // worse one. Quarto's copy button is `<button class="code-copy-button">
+        // <i class="bi"></i></button>`: the glyph is chosen by a background-image
+        // on pre:hover, not by a class name. The generic `.bi::before` rule then
+        // matched it and gave it a 1em currentColor fill with no mask to punch
+        // through - a solid filled square on every code block, shipped live.
+        // A `bi-*` scan cannot see this, which is why it is counted separately.
+        if (tokens.includes("bi") && !tokens.some((t) => /^bi-.+/.test(t))) bareBi++;
       }
     }
     const uncovered = [...icons].filter(
@@ -147,6 +159,30 @@ section("3. every bi-* class has a mask rule");
       fail(`no mask rule for: ${uncovered.join(", ")} - these would render as nothing`);
     } else {
       pass(`${icons.size} bi-* class(es), all with mask rules (${[...icons].sort().join(", ")})`);
+    }
+
+    if (bareBi) {
+      if (!stylesCss.includes(".code-copy-button .bi::before")) {
+        fail(`${bareBi} element(s) carry a bare \`bi\` class with no bi-* sibling, and styles.css has no .code-copy-button .bi::before mask rule - such an element renders as a solid filled square, not as a missing icon`);
+      } else {
+        pass(`${bareBi} bare \`bi\` element(s), mask rule present`);
+      }
+    }
+
+    // A mask rule can exist and still be broken. A glyph whose path data was
+    // transcribed by hand can lose an arc flag and render as a solid block while
+    // the URI still decodes to a well-formed <svg> with a <path d=...> - which
+    // is all the check above can see. Catching that needs a rasteriser, so all
+    // this can do is refuse a URI that is not a plain data: SVG.
+    const uris = [...stylesCss.matchAll(/mask-image:\s*url\("([^"]+)"\)/g)].map((m) => m[1]);
+    const malformed = uris.filter((u) => !u.startsWith("data:image/svg+xml,"));
+    if (malformed.length) {
+      fail(`${malformed.length} mask URI(s) are not data:image/svg+xml - first: ${malformed[0].slice(0, 60)}`);
+    } else {
+      // Doubled on purpose: every rule declares both -webkit-mask-image and
+      // mask-image, so 11 icons is 22 URIs. Dividing keeps the number readable
+      // next to the icon count printed just above.
+      pass(`${uris.length} mask URI(s) (${uris.length / 2} icon rules x -webkit- and standard), all data:image/svg+xml`);
     }
   }
 }

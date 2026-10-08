@@ -158,7 +158,13 @@ $shadow-md:   rgba(2, 6, 23, 0.12);
 //
 // The values below are interpolated from the Sass variables, so those stay
 // the single source of truth and this block cannot fall out of sync.
+// `color-scheme` is declared bare, with no value, so the UA applies whatever the
+// user's preference is. That is the whole mechanism - no second declaration, no
+// script, and it cannot drift out of sync with the media query below because it
+// is not a copy of it. Without it the page paints dark while scrollbars and form
+// controls stay light.
 :root {
+  color-scheme: light dark;
   --ink: #{$ink};
   --body: #{$body};
   --muted: #{$muted};
@@ -196,11 +202,185 @@ $shadow-md:   rgba(2, 6, 23, 0.12);
   --shadow-xs: #{$shadow-xs};
   --shadow-sm: #{$shadow-sm};
   --shadow-md: #{$shadow-md};
+
+  // Syntax-highlighting tokens. WHY THESE EXIST AT ALL: Quarto's stylesheet
+  // declares 29 `--quarto-hl-*` custom properties, and they are dead - not one
+  // rule anywhere references them. The actual `code span.fu { color: ... }`
+  // rules carry hardcoded hex. So overriding `--quarto-hl-fu-color` would change
+  // nothing, which is easy to believe until you read the file rather than the
+  // variable names.
+  //
+  // Only the four classes this site's R code actually emits are tokenised. Scanned
+  // across all five pages: `fu` (20), `sc` (13), `st` (7), `co` (7). The other 25
+  // are for languages with no code block here. Tokenising all 29 would be
+  // twenty-five dead declarations in a theme file we would then be responsible
+  // for keeping in step with Quarto's.
+  //
+  // These three values are byte-identical to Quarto's own hexes, so light mode
+  // renders exactly as before - the pixel diff against HEAD proves it.
+  --hl-fu: #4758ab;   // function - Quarto's #4758AB
+  --hl-st: #20794d;   // string
+  --hl-sc: #5e5e5e;   // scope operator `::`
+  --hl-co: #5e5e5e;   // comment
+  --hl-punct: #003b4f;  // the un-tokenised remainder: `(` `)` and friends
+
+  // Foreground for an --accent fill. Distinct from --on-ink even though the two
+  // happen to hold the same pair of values, because they answer different
+  // questions: --on-ink is "text on the ink fill", this is "text on an accent
+  // fill". Merging them would quietly couple two decisions that can diverge - the
+  // accent is free to get lighter in dark mode without dragging the button text
+  // with it.
+  --on-accent: #ffffff;
 }
 
-// Non-colour tokens stay Sass variables: a measure, a font stack and a
-// column count have no "dark" value, and var() is invalid inside a Sass
-// function or a media-query condition.
+// --- Dark mode -------------------------------------------------------------
+// System-driven only, by decision: `prefers-color-scheme` and nothing else. No
+// toggle, no localStorage, no flash-prevention script. The browser already knows
+// the user's preference before the first byte of CSS arrives, so a media query is
+// not a compromise here - it is the mechanism that avoids the FOUC that a
+// class-swapping toggle script exists to prevent. A toggle would need either
+// that script or a blocking inline style in <head>, and this site takes GA4's
+// no-flash approach for the same reason: trust the browser, do not race it.
+//
+// VALUES ONLY. No selector is repeated here, which is the entire reason the
+// tokens became custom properties in 7765d0b. Adding a rule to the light half
+// and forgetting it here is the failure mode this avoids.
+//
+// `color-scheme: dark` goes on :root, not on a subtree. It is what makes the
+// browser render scrollbars, text-selection and form controls dark to match -
+// and it must be the SAME declaration as the media query, or controls are drawn
+// light while the page around them is dark. Declaring the bare property on
+// :root above (defaulting to `light dark`) lets the UA pick per preference,
+// which is the same outcome without needing the value written twice.
+//
+// Every text pair below was measured with the WCAG relative-luminance formula
+// against the surface it actually sits on, not against pure black - the nearest
+// -dark surface- is still a real surface. All 20 text pairs pass at 4.5:1 or
+// better; the weakest is --muted at 8.66:1. Borders are held to a lower bar
+// because they are not text: --line-strong is 2.08:1, and 3:1 is the ideal for a
+// control boundary, so a control outline is slightly under the guideline here
+// rather than over-brightening every button on the page.
+@media (prefers-color-scheme: dark) {
+  :root {
+    // The surface is not black. Pure #000 maximises contrast but makes
+    // elevation impossible - there is nowhere to go "up" - and reads as a void.
+    // A dark navy keeps the same hue family as the light scheme, so the design
+    // does not change character, only luminance.
+    --surface:  #0f172a;
+    --canvas:   #020617;   // page ground, one step below the cards
+    --ink:      #f8fafc;   // 17.06:1 on --surface
+    --body:     #e2e8f0;   // 14.48:1
+    --muted:    #a8b6c8;   //  8.66:1
+
+    --line:        #24334a;
+    --line-soft:   #182338;
+    --line-strong: #3d4d66;   // 2.08:1 - see note above on the 3:1 boundary
+
+    // Accent goes LIGHTER in dark, not darker. A blue dark enough to pass 4.5:1
+    // on white is nearly invisible on near-black; #7cc0ff is 9.22:1 here.
+    --accent:    #7cc0ff;
+    --accent-dk: #a8d3ff;   // hover moves further from the surface, not towards
+
+    // Primary buttons invert. In light mode $ink is a dark fill carrying white
+    // text; in dark mode $ink is a LIGHT fill, so it has to carry DARK text.
+    // This is the one token pair that inverts rather than translates, and it is
+    // why $on-ink exists as a token instead of a bare #fff.
+    --on-ink:    #0f172a;   // 17.06:1 on --ink
+    --ink-hover: #e2e8f0;   // hover moves UP toward the text colour
+    // Measured, not assumed: keeping the light-mode hover (#1e293b, a dark navy)
+    // here would put #0f172a text on a dark fill at 1.22:1. The dark hover has
+    // to move the same direction the rest of the dark surface hierarchy does.
+
+    --dl-bg-hover: #7ff0c4;
+
+    // Callouts keep their hue identity but invert their relationship: a dark
+    // tinted ground with a light, saturated foreground, rather than a light
+    // ground with dark text. All five measure 9.9:1 or better.
+    --note-bg: #0c2436;  --note-ink: #8fdcff;   // 10.48:1
+    --dl-bg:   #063024;  --dl-ink:   #7ff0c4;   // 10.41:1
+    --beg-bg:  #053021;  --beg-ink:  #8ef0b0;   // 10.50:1
+    --int-bg:  #2c2609;  --int-ink:  #ffe14d;   // 11.62:1
+    --arch-bg: #331318;  --arch-ink: #ffb3b3;   //  9.90:1
+
+    // The four TINTED HAIRLINES. These are the one family where "dark mode" is
+    // not a straight translation, and the reason is the light values themselves:
+    // #e0f2fe, #6ee7b7, #f59e0b and #06b6d4 are all *light-mode* colours, so
+    // carrying them over unchanged puts a near-white 1px border on a near-black
+    // pill. They were the four tokens missing from this block when dark mode
+    // landed, which is only visible by reading the light list against this one -
+    // nothing errors, the pills just gain an unwanted outline.
+    //
+    // They are decorative, not text, and the light scheme already treats them
+    // as near-invisible (1.08:1 to 2.33:1 against their own ground). So each
+    // value below was picked to land on the SAME ratio against its dark ground,
+    // which keeps the border as quiet in dark as it was in light rather than
+    // inventing a stronger one:
+    //
+    //   --note-line   1.08:1 -> 1.33:1   nudged UP, deliberately. Below ~1.2 a
+    //                                    hairline on a near-black ground reads
+    //                                    as nothing at all, whereas 1.08 on
+    //                                    white still reads as an edge.
+    //   --dl-line     1.45:1 -> 1.54:1   also holds on the dark hover ground
+    //                                    (#7ff0c4) at 6.77:1, where light mode
+    //                                    managed only 1.34:1
+    //   --cmp-line    2.07:1 -> 2.04:1
+    //   --cmpd-line   2.33:1 -> 2.40:1
+    //
+    // Hue is preserved in every case - these are tints of the ground they sit
+    // on, not greys - so the border still reads as belonging to the pill.
+    --note-line: #123a52;
+    --dl-line:   #14503a;
+    --cmp-line:  #6b480c;   // the dashed 1px ring on .lcomp
+    --cmpd-line: #12657a;
+
+    // Launch cards: amber and cyan, same split as light mode so the two tiers
+    // stay distinguishable by hue alone.
+    --cmp-bg:  #261c06;  --cmp-num:  #ffc94d;  --cmp-body:  #dedbd8;
+    --cmpd-bg: #072533;  --cmpd-num: #7ae7f7;  --cmpd-body: #b0f4fc;
+
+    // Shadows on a near-black ground are close to invisible at the light
+    // scheme's alphas, and a strong one would read as a smudge. The hue is
+    // retained but the alphas drop, and --line-strong does the work of
+    // separating cards from the page instead. This is the token most specific
+    // to dark: not "the same shadow, darker" but a different mechanism.
+    --shadow-xs: rgba(2, 6, 23, 0.30);
+    --shadow-sm: rgba(2, 6, 23, 0.45);
+    --shadow-md: rgba(2, 6, 23, 0.60);
+
+    // The link underline. Alpha is the only thing that changes - the hue has to
+    // stay the accent or the underline stops reading as part of the link.
+    --accent-ring: rgba(124, 192, 255, 0.34);
+
+    // Syntax highlighting, measured against the ground it actually sits on -
+    // `--line-soft`, which is both the `pre` background and the inline `code`
+    // background. Light-mode equivalents are 5.89 / 4.91 / 5.92 / 5.92 on
+    // #f1f5f9; these are all higher, because a dark ground gives more headroom
+    // and because a token colour that merely matched would read as dimmed code
+    // rather than as code.
+    //
+    // `fu` keeps its blue-violet identity and `st` its green, lightened rather
+    // than replaced - a syntax theme that changes hue reads as a different
+    // language, not a different colour scheme. `sc` and `co` share one value, as
+    // they do in light mode: the scope operator is punctuation and the comment
+    // is an aside, and both are meant to recede.
+    --hl-fu: #a5b4fc;   //  7.88:1
+    --hl-st: #7ee2a8;   //  9.98:1
+    --hl-sc: #94a3b8;   //  6.13:1
+    --hl-co: #94a3b8;   //  6.13:1
+    // The punctuation colour is the one that needed overriding most and looks
+    // like the least. Quarto paints it #003B4F, which is 11.03:1 on a white
+    // `pre` and 1.30:1 on the dark one - and it is not a rare token: it is the
+    // bare text of `install.packages("olsrr")`, i.e. the brackets around all
+    // twenty-odd calls on the apps page. Left alone it deletes them.
+    --hl-punct: #e2e8f0;  // 12.75:1
+
+    // Dark text on the lightened dark accent. The accent moves to #7cc0ff here
+    // so it can serve as TEXT on a dark ground at 9.22:1; as a button FILL that
+    // same value needs the opposite foreground.
+    --on-accent: #0f172a;
+  }
+}
+
 // --- Base -----------------------------------------------------------------
 body {
   color: var(--body);
@@ -276,6 +456,266 @@ pre {
   overflow-x: auto;
 }
 
+// --- Syntax highlighting ----------------------------------------------------
+// Quarto ships `code span.fu { color: #4758AB }` and friends with the hex written
+// straight into the rule. Its 29 `--quarto-hl-*` custom properties look like the
+// override point and are not referenced by any rule in the file - overriding them
+// does nothing at all. So the four classes this site's R code actually emits are
+// re-pointed at tokens here, which is what makes them themable.
+//
+// Selector shape matters here and the reason is not cosmetic. Quarto writes
+// `pre > code.sourceCode > span { color: #003B4F }`, which is (0,1,3) - one class
+// and three types. A bare `code span.fu` is (0,1,2) and would LOSE to it on any
+// element matching both, i.e. any line wrapper that also carries a token class.
+// Anchoring on `code.sourceCode` makes these (0,2,2) and win outright, so the
+// outcome does not depend on which element Pandoc happens to nest first.
+//
+// Equal-specificity ordering is the other half: styles.css is the last <link> on
+// every page, after the Quarto highlighting sheet, so these win on source order.
+// Load order is asserted in verify-site.mjs rather than assumed.
+code.sourceCode span.fu { color: var(--hl-fu); }
+code.sourceCode span.st { color: var(--hl-st); }
+code.sourceCode span.sc { color: var(--hl-sc); }
+code.sourceCode span.co { color: var(--hl-co); }
+
+// The un-tokenised remainder. `div.sourceCode` is the one that carries visible
+// text - the brackets and parentheses around every call - and Quarto paints all
+// of it dark teal. The two span fallbacks are defensive: today those spans hold
+// only an empty `<a>` line anchor, so nothing renders, but leaving an unreadable
+// colour in place means the next markup change makes it visible.
+div.sourceCode,
+div.sourceCode pre.sourceCode { color: var(--hl-punct); }
+code span { color: inherit; }
+pre > code.sourceCode > span { color: inherit; }
+
+// --- Third-party surfaces that cannot be tokenised --------------------------
+// Everything above is either ours or re-pointed at a token. What follows is the
+// residue: colours that Quarto and Bootstrap write as literals into their own
+// stylesheets, where a custom property is not available. Each one was found by
+// walking the rendered DOM in Chrome under `prefers-color-scheme: dark` and
+// reporting every element whose computed background was still light - not by
+// reading `_quarto.yml`, which is how `link-external-icon` and `pre.run` both
+// produced confidently wrong answers.
+//
+// These need the same media query as the tokens, so they live in their own block
+// rather than in the values block above, which stays values-only.
+@media (prefers-color-scheme: dark) {
+
+  // Bootstrap: `div.sourceCode { background-color: rgba(233,236,239,.65) }` -
+  // a `$gray-200` wash, and `pre.sourceCode { background-color: rgba(0,0,0,0) }`.
+  //
+  // The second one means the `pre { background: var(--line-soft) }` above has
+  // been DEAD on every code block since it was written: (0,1,1) outranks (0,0,1).
+  // The two together mean a code block's real ground is the wash on the wrapper,
+  // not the token - which is why the syntax colours measured 1.01:1 to 2.09:1 in
+  // the audit instead of the ~7:1 they measure against `--line-soft`.
+  //
+  // Both are cancelled here rather than in the light half on purpose. Undoing it
+  // in light mode too would fix a real latent bug, but it would also move light
+  // pixels in a commit whose whole claim is that light mode does not change, and
+  // the delta would then be impossible to attribute. Dark-only keeps the change
+  // honest and leaves the light-mode fix to be made deliberately, with its own
+  // before/after.
+  div.sourceCode { background-color: transparent; border-color: transparent; }
+  pre.sourceCode {
+    background-color: var(--line-soft);
+    border-color: var(--line);
+  }
+
+  // Quarto hardcodes one header tint per callout type:
+  //   note #e9f2fc  tip #ecf8e8  warning #fff1e8  caution #fef7ed  important #ffe6eb
+  // Only `warning` is used on this site - the "Browser hosting has been retired"
+  // callout on /apps/ - where it put `.callout-title-container` at 1.12:1 against
+  // our `--body` text. All five are listed rather than just the one in use: the
+  // selectors have to match Quarto's shape exactly anyway to win on
+  // specificity, and writing four of the five would leave a booby trap for
+  // whoever adds the next `::: {.callout-note}`.
+  //
+  // One shared ground, rather than five tints: our own `.callout` rule already
+  // flattens the per-type border colour to `--accent` in BOTH schemes, so the
+  // type is carried by the border and the icon, not by the header wash.
+  div.callout-note.callout-style-default > .callout-header,
+  div.callout-tip.callout-style-default > .callout-header,
+  div.callout-warning.callout-style-default > .callout-header,
+  div.callout-caution.callout-style-default > .callout-header,
+  div.callout-important.callout-style-default > .callout-header {
+    background: var(--line-soft);
+  }
+
+  // `p code`, `li code` and `td code` - Bootstrap at (0,1,2) against our `code`
+  // at (0,0,1), and hardcoded: `background-color: #f8f9fa`. So every inline code
+  // span in body text was taking its background from Bootstrap rather than from
+  // `--line-soft`, which is invisible in light mode and 1.01:1 in dark. The
+  // markup on the privacy page is `<code>fonts.googleapis.com</code>` inside a
+  // `<p>`, which is why the audit found it there.
+  //
+  // Selector shape copied exactly so the specificity match is real, not assumed.
+  p code:not(.sourceCode),
+  li code:not(.sourceCode),
+  td code:not(.sourceCode) { background: var(--line-soft); }
+
+  // --- The search UI --------------------------------------------------------
+  // Written out rather than derived, because autocomplete.js builds this whole
+  // subtree at runtime: none of it exists in the rendered HTML, so `post-render.R`
+  // cannot scan it and none of it can be found by reading `_quarto.yml`. It was
+  // found by clicking the search box and walking the computed styles.
+  //
+  // TWO SCOPES, AND THE ONE THAT MATTERS IS NOT THE OBVIOUS ONE. `#quarto-search-
+  // results` is a static, empty `<div>` in the source HTML - scoping on it alone
+  // produces rules that never match anything. autocomplete.js renders into
+  // `.aa-DetachedOverlay` instead, appended to `<body>`. Quarto's own rules list
+  // both prefixes on every selector; these do too, so the fix survives whichever
+  // container a future Quarto uses.
+  //
+  // Every selector shape below is copied verbatim from the Bootstrap bundle,
+  // including the long `li.aa-Item[aria-selected=true] .search-item
+  // .search-result-text-container` ones. Those are (0,5,1); rewriting them into
+  // something shorter and more readable would silently lose the cascade, which is
+  // how the `pre` background came to be dead in the first place. Kept on purpose.
+
+  // The panel itself, and each result row.
+  .aa-DetachedOverlay .aa-Panel,
+  #quarto-search-results .aa-Panel { background: var(--surface); border-color: var(--line); }
+  .aa-DetachedOverlay .aa-Item .search-item,
+  #quarto-search-results .aa-Item .search-item {
+    background: var(--surface);
+    border-color: var(--line);
+    color: var(--body);
+  }
+  .aa-DetachedOverlay .aa-Item .search-result-doc,
+  #quarto-search-results .aa-Item .search-result-doc { border-top-color: var(--line); }
+  .aa-DetachedOverlay .aa-Item .search-result-doc:not(.document-selectable) .search-result-title-container,
+  #quarto-search-results .aa-Item .search-result-doc:not(.document-selectable) .search-result-title-container {
+    background: var(--surface);
+    color: var(--body);
+  }
+
+  // Unselected row contents. Quarto sets `color:#343a40` on five inner elements,
+  // and the row BACKGROUND on a sixth rule that is `(0,4,1)` - the
+  // `li.aa-Item[aria-selected=false] .search-item` form - which outranks the
+  // `(0,3,0)` `.aa-DetachedOverlay .aa-Item .search-item` above. So the
+  // background has to be set HERE, on the attribute selector, and not only on the
+  // simpler one; setting colour alone left every unselected row white with
+  // near-white text on it, at 1.23:1.
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item {
+    background: var(--surface);
+  }
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item.search-result-more,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-section,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-title-container,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-result-text-container,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item.search-result-more,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-section,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-title-container,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-result-text-container {
+    color: var(--body);
+  }
+
+  // The "5 matching documents" band. Quarto gives it #f2f2f2; our text is
+  // `--body`, which is near-white in dark - 1.1:1, i.e. a heading nobody can read.
+  .aa-DetachedOverlay .aa-SourceHeader .search-result-header,
+  #quarto-search-results .aa-SourceHeader .search-result-header {
+    background: var(--line-soft);
+    color: var(--muted);
+  }
+
+  // The selected row. Quarto's #2780e3 with white text is 3.97:1 - a WCAG AA
+  // failure that is ALSO present in light mode and is left alone here on purpose,
+  // so this commit's claim that light mode does not move stays checkable. Dark
+  // gets `--accent` with `--on-accent`, the same relationship inverted.
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item.search-result-more,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-section,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-title-container,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text-container,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item.search-result-more,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-section,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-title-container,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text-container {
+    color: var(--on-accent);
+    background: var(--accent);
+  }
+
+  // The highlighted search terms. Unselected, Quarto's #e5effc is a pale wash;
+  // selected, #4b95e8 with white is 3.1:1. Both become a chip carrying the row's
+  // own foreground, so the term stays legible on either row.
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item mark.search-match,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-match.mark,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item mark.search-match,
+  #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-match.mark {
+    color: inherit;
+    background: var(--accent-ring);
+  }
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item mark.search-match,
+  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-match.mark,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item mark.search-match,
+  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-match.mark {
+    color: var(--accent);
+    background: var(--on-accent);
+  }
+
+  // The navbar overlay input. `color: #343a40` is hardcoded, and the overlay sits
+  // on the navbar, so in dark mode a typed query would be dark grey on #0f172a -
+  // 1.55:1, i.e. invisible.
+  .navbar #quarto-search .aa-Autocomplete .aa-Form .aa-InputWrapper .aa-Input,
+  .aa-DetachedOverlay .aa-Form .aa-InputWrapper .aa-Input {
+    color: var(--body);
+  }
+
+  // The bar holding that input, and the panel's own scrim. Both are white in the
+  // bundle: `.aa-DetachedFormContainer` and `form.aa-Form` carry `#fff`, and the
+  // modal container carries `rgba(255,255,255,.65)` - a light scrim, which on a
+  // dark page reads as a white haze over the whole viewport.
+  .aa-DetachedOverlay .aa-DetachedFormContainer,
+  .aa-DetachedOverlay form.aa-Form,
+  #quarto-search-results .aa-DetachedFormContainer,
+  #quarto-search-results form.aa-Form {
+    background: var(--surface);
+    color: var(--body);
+  }
+  .aa-DetachedOverlay .aa-DetachedContainer--modal,
+  #quarto-search-results .aa-DetachedContainer--modal {
+    background: rgba(2, 6, 23, 0.72);
+  }
+
+  // "Cancel" and the clear (X) button in the search overlay. Both hardcode
+  // `color:#343a40` - 1.55:1 on the dark surface, i.e. a Cancel button you cannot
+  // see. The `:hover` and `:focus` variants are listed because the bundle
+  // hardcodes the same grey there, so overriding only the base rule would make
+  // the button vanish again the moment it is hovered - which is exactly when
+  // someone is trying to read it.
+  .aa-DetachedOverlay .aa-DetachedCancelButton,
+  .aa-DetachedOverlay .aa-ClearButton,
+  .aa-DetachedOverlay .aa-ClearButton:hover,
+  .aa-DetachedOverlay .aa-ClearButton:focus,
+  #quarto-search-results .aa-DetachedCancelButton,
+  #quarto-search-results .aa-ClearButton,
+  #quarto-search-results .aa-ClearButton:hover,
+  #quarto-search-results .aa-ClearButton:focus {
+    color: var(--body);
+  }
+
+  // Footer text and links. `.nav-footer { color:#757575 }`, `.nav-footer a
+  // { color:#757575 }` and `.nav-footer-contents { color:#6c757d }` are all
+  // hardcoded light-mode greys, measuring 3.87:1 and 3.81:1 on the dark surface -
+  // below AA for body text. `--muted` is 8.66:1 on the same ground.
+  //
+  // Left in the dark block on purpose. The background is fixed unscoped above
+  // because that costs nothing in light; these three would each shift light-mode
+  // greys, and that is a visible change to make in its own commit with its own
+  // before/after, not as a side effect of adding dark mode.
+  .nav-footer,
+  .nav-footer-contents { color: var(--muted); }
+  .nav-footer a { color: var(--muted); }
+}
+
 hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 // --- Icons ----------------------------------------------------------------
@@ -317,7 +757,19 @@ $bi-icons: (
   // toggle icon; dormant here (`toc: false`, no sidebar) but the guard in
   // post-render.R asserts coverage, so it has to stay or that check would
   // fail the moment Quarto ever rendered a sidebar.
-  "caret-down-fill": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7.247%2011.14%202.451%205.658C1.885%205.013%202.345%204%203.204%204h9.592a1%201%200%200%201%20.753%201.659l-4.796%205.48a1%201%200%200%201-1.506%200z%22%2F%3E%3C%2Fsvg%3E"
+  "caret-down-fill": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7.247%2011.14%202.451%205.658C1.885%205.013%202.345%204%203.204%204h9.592a1%201%200%200%201%20.753%201.659l-4.796%205.48a1%201%200%200%201-1.506%200z%22%2F%3E%3C%2Fsvg%3E",
+
+  // The icon on every search result, and the only icon the post-render guard can
+  // never check: autocomplete.js injects `<i class="bi bi-file-richtext">` at
+  // runtime, so that class appears in no rendered HTML file for the guard to
+  // read. Without this rule it rendered as a solid 20px white square on the
+  // selected result row - confirmed by screenshot, in BOTH schemes, so this one
+  // was never a dark-mode bug at all.
+  //
+  // Path from bootstrap-icons 1.11.1, and checked to use no `fill-rule`, so
+  // alpha masking is lossless. See the note on `evenodd` above: some Bootstrap
+  // paths do rely on it, so this has to be checked per icon rather than assumed.
+  "file-richtext": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7%204.25a.75.75%200%201%201-1.5%200%20.75.75%200%200%201%201.5%200zm-.861%201.542%201.33.886%201.854-1.855a.25.25%200%200%201%20.289-.047l1.888.974V7.5a.5.5%200%200%201-.5.5H5a.5.5%200%200%201-.5-.5V7s1.54-1.274%201.639-1.208zM5%209a.5.5%200%200%200%200%201h6a.5.5%200%200%200%200-1H5zm0%202a.5.5%200%200%200%200%201h3a.5.5%200%200%200%200-1H5z%22%2F%3E%3Cpath%20d%3D%22M2%202a2%202%200%200%201%202-2h8a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V2zm10-1H4a1%201%201%200%200%200-1%201v12a1%201%201%200%200%200%201%201h8a1%201%201%200%200%200%201-1V2a1%201%200%200%200-1-1z%22%2F%3E%3C%2Fsvg%3E"
 );
 
 // One rule for every .bi, then one mask per icon. `1em` means sizing follows
@@ -344,6 +796,50 @@ $bi-icons: (
 @each $name, $svg in $bi-icons {
   .bi-#{$name}::before { @include bi-mask($svg); }
 }
+
+// The copy button was the one icon the guard could not see, and it has been
+// rendering as a solid filled square on every code block since the icon-font
+// migration. It is Quarto's own markup - `<button class="code-copy-button"><i
+// class="bi"></i></button>` - so the `<i>` carries a bare `bi` class and NO
+// `bi-*` name. The generic rule above therefore matched it and gave it a 1em
+// `background-color: currentColor` with no mask to punch through: a solid block,
+// black in light mode and white in dark. Bootstrap's own glyph only appears on
+// `pre:hover` and is a `background-image` with `fill="rgb(94,94,94)"` baked into
+// the SVG, so it painted a darker clipboard on top of the black square rather
+// than replacing it.
+//
+// Screenshot of the shipped page, before this fix, at 3x:
+//   idle  -> solid #000 square   hover -> #000 square with a #4758ab clipboard
+//
+// Fixed by bringing it into the mask system like every other icon, which also
+// gets the colour for free: `currentColor` off `--muted`, accent on hover. The
+// Bootstrap `background-image` has to be cancelled explicitly, since a mask and
+// a background-image are different mechanisms and the background-image would
+// otherwise sit on top of the mask.
+//
+// Not in $bi-icons because that map generates `.bi-<name>::before` and this
+// element has no name to generate. It is a variable rather than an inline
+// literal only so the two SVGs below stay readable.
+$bi-clipboard: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4%201.5H3a2%202%200%200%200-2%202V14a2%202%200%200%200%202%202h10a2%202%200%200%200%202-2V3.5a2%202%200%200%200-2-2h-1v1h1a1%201%200%200%201%201%201V14a1%201%200%200%201-1%201H3a1%201%200%200%201-1-1V3.5a1%201%200%200%201%201-1h1v-1z%22%2F%3E%3Cpath%20d%3D%22M9.5%201a.5.5%200%200%201%20.5.5v1a.5.5%200%200%201-.5.5h-3a.5.5%200%200%201-.5-.5v-1a.5.5%200%200%201%20.5-.5h3zm-3-1A1.5%201.5%200%200%200%205%201.5v1A1.5%201.5%200%200%200%206.5%204h3A1.5%201.5%200%200%200%2011%202.5v-1A1.5%201.5%200%200%200%209.5%200h-3z%22%2F%3E%3C%2Fsvg%3E";
+
+.code-copy-button {
+  // --muted is the same ink the footer icon row uses, and it is the token that
+  // keeps the button legible on both grounds: 4.55:1 on the light code wash,
+  // 8.66:1 on the dark one.
+  color: var(--muted);
+
+  &:hover, &:focus { color: var(--accent); }
+
+  .bi::before {
+    @include bi-mask($bi-clipboard);
+  }
+}
+
+// Cancels Bootstrap's baked-colour glyph on hover. Same (0,3,1) specificity as
+// `pre.sourceCode:hover > .code-copy-button > .bi::before`, and styles.css is
+// loaded later, so source order decides and this wins.
+pre.sourceCode:hover > .code-copy-button > .bi::before,
+pre.sourceCode:hover > .code-copy-button-checked > .bi::before { background-image: none; }
 
 // --- Hero -----------------------------------------------------------------
 // The Quarto title block IS the h1 (markdown has no heading of its own), so
@@ -1001,8 +1497,14 @@ table {
   background: var(--accent);
   border-color: var(--accent);
   box-shadow: none;
+  // Explicit, because without it Bootstrap's `.btn-primary { color: #fff }`
+  // supplies the text colour and dark mode puts white on #7cc0ff - 1.94:1.
+  // This is the one place the accent is a BACKGROUND rather than text, and the
+  // two directions need opposite foregrounds, so it needs its own token rather
+  // than borrowing --on-ink.
+  color: var(--on-accent);
 
-  &:hover, &:focus { background: var(--accent-dk); border-color: var(--accent-dk); }
+  &:hover, &:focus { background: var(--accent-dk); border-color: var(--accent-dk); color: var(--on-accent); }
 }
 
 
@@ -1106,6 +1608,13 @@ footer {
     padding: 0;
     min-height: 0;
     align-items: center;
+    // Bootstrap hardcodes `background-color:#fff` on this INNER div, so the
+    // `footer { background: var(--surface) }` above was painting the element
+    // underneath it and the footer came out white in dark mode on all five
+    // pages. Fixed here rather than in the dark block because it costs nothing
+    // in light: `--surface` IS `#ffffff` there, so this is byte-identical to
+    // what Bootstrap was already doing, and it removes the hardcode for good.
+    background-color: var(--surface);
   }
 
   .nav-footer-left {
