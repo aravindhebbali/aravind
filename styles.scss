@@ -641,44 +641,11 @@ pre > code.sourceCode > span { color: inherit; }
     color: var(--body);
   }
 
-  // The selected row. Quarto's #2780e3 with white text is 3.97:1 - a WCAG AA
-  // failure that is ALSO present in light mode and is left alone here on purpose,
-  // so this commit's claim that light mode does not move stays checkable. Dark
-  // gets `--accent` with `--on-accent`, the same relationship inverted.
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item.search-result-more,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-section,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-title-container,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text-container,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item.search-result-more,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-section,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-title-container,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text-container {
-    color: var(--on-accent);
-    background: var(--accent);
-  }
-
-  // The highlighted search terms. Unselected, Quarto's #e5effc is a pale wash;
-  // selected, #4b95e8 with white is 3.1:1. Both become a chip carrying the row's
-  // own foreground, so the term stays legible on either row.
-  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item mark.search-match,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-match.mark,
-  #quarto-search-results li.aa-Item[aria-selected=false] .search-item mark.search-match,
-  #quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-match.mark {
-    color: inherit;
-    background: var(--accent-ring);
-  }
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item mark.search-match,
-  .aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-match.mark,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item mark.search-match,
-  #quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-match.mark {
-    color: var(--accent);
-    background: var(--on-accent);
-  }
+  // The selected row and the highlighted terms are NOT here. They are the two
+  // places where Quarto's light-mode colours fail WCAG on their own scheme - white
+  // on #2780e3 is 3.97:1 and white on #4b95e8 is 3.10:1 - so correcting them
+  // necessarily changes light mode, and they were held back until a commit whose
+  // whole purpose was to change light mode. They now live unscoped, further down.
 
   // The navbar overlay input. `color: #343a40` is hardcoded, and the overlay sits
   // on the navbar, so in dark mode a typed query would be dark grey on #0f172a -
@@ -721,18 +688,15 @@ pre > code.sourceCode > span { color: inherit; }
     color: var(--body);
   }
 
-  // Footer text and links. `.nav-footer { color:#757575 }`, `.nav-footer a
-  // { color:#757575 }` and `.nav-footer-contents { color:#6c757d }` are all
-  // hardcoded light-mode greys, measuring 3.87:1 and 3.81:1 on the dark surface -
-  // below AA for body text. `--muted` is 8.66:1 on the same ground.
+  // The footer text is NOT overridden here any more. `.nav-footer { color:#757575 }`
+  // and `.nav-footer a { color:#757575 }` are Quarto's greys; against the DARK
+  // surface they measured 3.87:1 and were fixed in 19350a7. Against white they
+  // measure 4.61:1 and pass, so the dark side was the only broken one - see the
+  // unscoped `.nav-footer` rules by the footer section, which now covers both.
   //
-  // Left in the dark block on purpose. The background is fixed unscoped above
-  // because that costs nothing in light; these three would each shift light-mode
-  // greys, and that is a visible change to make in its own commit with its own
-  // before/after, not as a side effect of adding dark mode.
-  .nav-footer,
-  .nav-footer-contents { color: var(--muted); }
-  .nav-footer a { color: var(--muted); }
+  // `.nav-footer-contents { color:#6c757d }` is left alone entirely: it appears in
+  // no rendered page on this site, so there is nothing to fix.
+
 }
 
 // --- Where the dark scheme is applied ---------------------------------------
@@ -762,6 +726,59 @@ pre > code.sourceCode > span { color: inherit; }
 :root[data-theme="dark"] {
   @include dark-tokens;
   @include dark-overrides;
+}
+
+// --- Search UI: the two colours that fail on their OWN scheme ----------------
+// Quarto's search overlay hardcodes a selected-row blue of #2780e3 and a match
+// highlight of #4b95e8, both carrying white text. Measured against their own
+// backgrounds those are 3.97:1 and 3.10:1 - WCAG AA failures for normal text, and
+// failures in LIGHT mode, which is what made them the last things left over from
+// the dark-mode pass. They were held back there for a reason worth keeping: that
+// commit's claim was that light mode does not move, and fixing them necessarily
+// moves it. This commit exists to move it.
+//
+// UNSCOPED, deliberately. These two now serve both schemes from one rule set, so
+// duplicating them into the dark mixin would be the same two-lists-drift problem
+// the tokenisation removed.
+//
+// The selected row becomes `--accent` with `--on-accent`, which is 5.17:1 in
+// light and 9.22:1 in dark - and has the side benefit of making the selected
+// search row the same colour as every primary button on the site, which it
+// conspicuously was not.
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item,
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item.search-result-more,
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-section,
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text,
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-title-container,
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-result-text-container,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item.search-result-more,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-section,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-title-container,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-result-text-container {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+// The highlighted term becomes a chip that inverts the row it sits on, so it
+// reads on a selected row and an unselected one alike: 5.17:1 light, 9.22:1 dark.
+// Unselected it is a wash of `--accent-ring` at 7.15:1 - which is `--accent-ring`
+// doing double duty, since it is already the body-link underline colour.
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item mark.search-match,
+.aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item .search-match.mark,
+#quarto-search-results li.aa-Item[aria-selected=false] .search-item mark.search-match,
+#quarto-search-results li.aa-Item[aria-selected=false] .search-item .search-match.mark {
+  color: inherit;
+  background: var(--accent-ring);
+}
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item mark.search-match,
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item .search-match.mark,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item mark.search-match,
+#quarto-search-results li.aa-Item[aria-selected=true] .search-item .search-match.mark {
+  color: var(--accent);
+  background: var(--on-accent);
 }
 
 hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
@@ -1803,6 +1820,17 @@ footer {
     // what Bootstrap was already doing, and it removes the hardcode for good.
     background-color: var(--surface);
   }
+
+  // Quarto hardcodes the footer greys: `.nav-footer { color:#757575 }` and
+  // `.nav-footer a { color:#757575 }`. Against the dark surface they measured
+  // 3.87:1 and were corrected in 19350a7. Against white they measure 4.61:1,
+  // which passes - so the dark scheme was the only broken half, and the honest
+  // description of this change is "one scheme's hardcoded grey removed", not
+  // "a contrast bug fixed". Light goes 4.61:1 -> 4.76:1, a real gain but a small
+  // one, and the reason to do it unscoped is that the footer was the last place
+  // on the site still taking a colour from Quarto rather than from a token.
+  .nav-footer,
+  .nav-footer a { color: var(--muted); }
 
   .nav-footer-left {
     font-weight: 500;
