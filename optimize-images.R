@@ -25,6 +25,38 @@ webp_q  <- 82
 
 stopifnot(dir.exists(img_dir))
 
+# --- Alpha assertion --------------------------------------------------------
+# The hex stickers MUST keep their alpha channel. Three of the eight shipped
+# without it - hex-olsrr, hex-rbin and hex-vistributions each carried an opaque
+# white plate instead - which is invisible on a white card and glaring on a dark
+# one. It survived for as long as it did because nothing here looked.
+#
+# WHERE IT BREAKS, reproduced rather than guessed. All eight source PNGs are
+# RGBA (IHDR colour type 6), and `image_resize(img, "360x")` preserves alpha for
+# all eight - verified by writing the resized image to a PNG and reading the
+# colour type back, since a PNG header is unambiguous where a WebP one is not.
+# The loss is in `image_write(..., format = "webp")`, and it tracks the source
+# size: the three that lost alpha are exactly the three 2206px-wide sources, while
+# the five 1146px ones keep theirs. Going through an intermediate PNG changes
+# nothing. That is as far as the diagnosis goes - the mechanism inside the codec
+# is not established - but it is enough to make the failure loud instead of
+# silent, which is the part that matters.
+#
+# WHY THE ASSERTION AND NOT A FIX. The three affected WebPs in `images/` are
+# already correct (regenerated with the background knocked out), so re-running
+# this script today would REGRESS them. The right outcome is therefore that the
+# run stops and says so, rather than quietly writing three white plates again.
+# Anyone who needs to regenerate has to solve the codec behaviour first.
+#
+# `image_data(img, channels = "rgba")` returns a 3-d bitmap whose FIRST dimension
+# is the channel, so the alpha plane is `d[4, , ]` - all three indices, since
+# `d[4, ]` is "incorrect number of dimensions", and it is not a data.frame so
+# `$alpha` is an error. Both cost a run to find.
+has_alpha <- function(path) {
+  d <- image_data(image_read(path), channels = "rgba")
+  min(as.numeric(d[4, , ])) < 250
+}
+
 #' Write a resized copy as WebP and report the saving.
 save_webp <- function(src, out_name, geometry = NULL, quality = webp_q) {
   src_path <- file.path(img_dir, src)
@@ -37,6 +69,20 @@ save_webp <- function(src, out_name, geometry = NULL, quality = webp_q) {
   if (!is.null(geometry)) img <- image_resize(img, geometry)
   out_path <- file.path(img_dir, out_name)
   image_write(img, out_path, format = "webp", quality = quality)
+
+  if (!has_alpha(out_path) && !has_alpha(src_path)) {
+    stop("optimize-images: ", out_name, " was written WITHOUT an alpha channel, ",
+         "and the source did not have one either. Refusing to continue: this is ",
+         "the failure that put an opaque white plate behind the olsrr, rbin and ",
+         "vistributions hex stickers, which is invisible on a white card and ",
+         "glaring on a dark one. If the source is genuinely opaque, flatten it to ",
+         "a colour type that says so deliberately; do not let the codec decide.")
+  }
+  if (!has_alpha(out_path) && has_alpha(src_path)) {
+    stop("optimize-images: ", out_name, " LOST its alpha channel on the way to ",
+         "WebP. The source has alpha and the output does not, so the sticker ",
+         "would render as a rectangle instead of a hexagon.")
+  }
 
   before <- file.size(src_path)
   after  <- file.size(out_path)
