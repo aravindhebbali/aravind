@@ -655,8 +655,12 @@ pre > code.sourceCode > span { color: inherit; }
   }
 
   // The selected row and the highlighted terms are NOT here. They are the two
-  // places where Quarto's light-mode colours fail WCAG on their own scheme - white
-  // on #2780e3 is 3.97:1 and white on #4b95e8 is 3.10:1 - so correcting them
+  // places where Quarto's light-mode colours fail WCAG on their own scheme. On the
+  // selected row the foreground is Quarto's `#343a40`, not the white the row's own
+  // rule implies, and measured in the browser that is **2.89:1**; the mark really is
+  // white on `#4b95e8` at **3.10:1**. (This comment previously said 3.97:1 for the
+  // row - that was computed from the stylesheet rather than from the rendered
+  // element, and understated it. See tools/browser/README.md.) So correcting these
   // necessarily changes light mode, and they were held back until a commit whose
   // whole purpose was to change light mode. They now live unscoped, further down.
 
@@ -743,12 +747,13 @@ pre > code.sourceCode > span { color: inherit; }
 
 // --- Search UI: the two colours that fail on their OWN scheme ----------------
 // Quarto's search overlay hardcodes a selected-row blue of #2780e3 and a match
-// highlight of #4b95e8, both carrying white text. Measured against their own
-// backgrounds those are 3.97:1 and 3.10:1 - WCAG AA failures for normal text, and
-// failures in LIGHT mode, which is what made them the last things left over from
-// the dark-mode pass. They were held back there for a reason worth keeping: that
-// commit's claim was that light mode does not move, and fixing them necessarily
-// moves it. This commit exists to move it.
+// highlight of #4b95e8. The mark carries white text; the selected row does not - its
+// foreground is Quarto's `#343a40` on five inner elements, so the rendered pair is
+// `#343a40` on `#2780e3`. Measured in the browser those are **2.89:1** and **3.10:1**
+// - WCAG AA failures for normal text, and failures in LIGHT mode, which is what made
+// them the last things left over from the dark-mode pass. They were held back there
+// for a reason worth keeping: that commit's claim was that light mode does not move,
+// and fixing them necessarily moves it. This commit exists to move it.
 //
 // UNSCOPED, deliberately. These two now serve both schemes from one rule set, so
 // duplicating them into the dark mixin would be the same two-lists-drift problem
