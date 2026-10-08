@@ -47,21 +47,35 @@ const serve = (root, port) => new Promise(r => {
   s.listen(port, '127.0.0.1', () => r(s));
 });
 
-const a = await serve(oldDir, 8901), b = await serve(newDir, 8902);
+// Each side is either a _site directory (served locally) or a live origin, so
+// the same comparison works old-build vs new-build and build vs production.
+// Either side may be omitted, which is how you measure one build alone.
+const isOrigin = (s) => typeof s === 'string' && /^https?:\/\//i.test(s);
+const sides = [];
+let closers = [];
+
+if (isOrigin(oldDir)) sides.push(['this one', oldDir]);
+else if (oldDir) { const s = await serve(oldDir, 8901); closers.push(s); sides.push(['old', 'http://127.0.0.1:8901']); }
+
+if (isOrigin(newDir)) sides.push(['this one', newDir]);
+else if (newDir && newDir !== 'unused') { const s = await serve(newDir, 8902); closers.push(s); sides.push(['new', 'http://127.0.0.1:8902']); }
+
+if (!sides.length) throw new Error('usage: codeblock.mjs <oldDir|origin> [newDir|origin|none] [pagePath]');
+
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: 'new' });
 
 for (const scheme of ['light', 'dark']) {
   console.log(`\n================ system ${scheme} ================`);
-  for (const [tag, port] of [['OLD', 8901], ['NEW', 8902]]) {
+  for (const [tag, origin] of sides) {
     const ctx = await browser.createBrowserContext();
     const page = await ctx.newPage();
     await page.setViewport({ width: 1280, height: 900 });
     await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }]);
-    await page.goto(`http://127.0.0.1:${port}${pagePath}`, { waitUntil: 'networkidle0' });
+    await page.goto(`${origin}${pagePath}`, { waitUntil: 'networkidle0' });
     // wait out the consent banner so it cannot shift the measurement
     await new Promise(r => setTimeout(r, 800));
     const p = await page.evaluate(PROBE);
-    console.log(`  ${tag}  theme=${p.theme}  ${pagePath}`);
+    console.log(`  ${tag}  theme=${p.theme}  ${origin}${pagePath}`);
     console.log(`       div.sourceCode  bg=${p.wrapper?.bg}  border=${p.wrapper?.borderTop}  h=${p.wrapper?.height}`);
     console.log(`       pre.sourceCode  bg=${p.pre?.bg}  border=${p.pre?.borderTop}  h=${p.pre?.height}`);
     console.log(`       other <pre>     ${p.otherPre ? 'present - NOT blast-radius-free' : 'none on this page'}`);
@@ -69,4 +83,5 @@ for (const scheme of ['light', 'dark']) {
   }
 }
 
-await browser.close(); a.close(); b.close();
+await browser.close();
+for (const s of closers) s.close();

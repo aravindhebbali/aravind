@@ -275,8 +275,14 @@ section("7. canonicals self-reference, sitemap lists the four pages");
   ];
   // Only the four public pages carry a self-referencing canonical. 404.html is
   // an error page and is deliberately excluded from the sitemap, though Quarto
-  // still emits a canonical for it; zohoverify/ is a standalone Zoho-verification
-  // file outside the Quarto render list and is never indexed.
+  // still emits a canonical for it.
+  //
+  // The `zohoverify` exclusion below is now dead - the standalone Zoho
+  // verification file has been deleted - but it is KEPT. It is name-based,
+  // costs nothing, and if that file is ever re-added this check should still not
+  // sweep it into the index set. A guard that only knows about the files that
+  // exist today stops guarding the moment the tree changes, which is the moment
+  // it is needed.
   const indexed = pages.filter((f) => {
     const rel = relative(SITE, f).replace(/\\/g, "/");
     return !rel.includes("404") && !rel.includes("zohoverify");
@@ -378,11 +384,12 @@ section("9. _site/styles.css matches the repo-root copy");
 
 section("10. theme toggle present, labelled, and out of the search index");
 {
-  // The pages the site actually serves. 404.html is an error page and
-  // zohoverify/ is a standalone Zoho-verification file that is neither a Quarto
-  // page nor linked from anything - check 7 already excludes both, and a toggle
+  // The pages the site actually serves. 404.html is an error page, and a toggle
   // check that swept every .html in _site/ would fail on a file that is not a
-  // page. Deriving the list the same way keeps the two checks consistent.
+  // page. Deriving the list the same way check 7 does keeps the two consistent.
+  //
+  // The zohoverify arm is likewise kept although the file is gone - see the note
+  // in check 7.
   const isRealPage = (f) => {
     const rel = relative(SITE, f).replace(/\\/g, "/");
     return !rel.includes("404") && !rel.includes("zohoverify");
