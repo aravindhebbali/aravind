@@ -466,6 +466,62 @@ pre {
   overflow-x: auto;
 }
 
+// --- Code block ground and outline ------------------------------------------
+// UNSCOPED, and deliberately so. This is the last surface on the site still
+// painted by Bootstrap rather than by a token, and it was dark-only for several
+// commits because fixing it moves light pixels - the same deferral as the search
+// UI. Emitted once for both schemes rather than duplicated into the mixin.
+//
+// Bootstrap sets two things on the wrapper that together decide everything:
+//
+//   div.sourceCode { background-color: rgba(233,236,239,.65);
+//                    border: 1px solid rgba(233,236,239,.65) }
+//   pre.sourceCode { background-color: rgba(0,0,0,0) }
+//   pre.sourceCode { border: none }
+//
+// Consequences, both of which were true on every code block before this:
+//
+// 1. The real ground was the wash on the WRAPPER, not `pre`'s own background -
+//    `pre.sourceCode`'s transparent background outranks the unscoped `pre`
+//    background above at (0,1,1) against (0,0,1). In dark that put the syntax
+//    colours 1.01:1 to 2.09:1 against the wash rather than the ~7:1 they get
+//    against `--line-soft`.
+//
+// 2. The outline was asymmetric. Light showed the wrapper's 1px grey edge; dark
+//    showed nothing, because the dark half set `border-color: transparent`. And
+//    the dark half's own `pre.sourceCode { border-color: var(--line) }` could
+//    never have drawn anything even had it been left visible - `border: none`
+//    sets the width to 0, so setting only the colour is a dead declaration.
+//    Hence the `border` SHORTHAND below rather than `border-color`. That is the
+//    same class of bug as the dead `pre` background in point 1, one property
+//    over, and it is why the shorthand is load-bearing and not a style choice.
+//
+// So both schemes now get the same deliberate hairline. What this changes:
+//
+//   ground  light #eff2f4 -> #f1f5f9   (2-3 per channel; invisible)
+//   outline light a grey edge -> #e2e8f0, dark none -> #e2e8f0
+//
+// The ground really is that close: compositing `rgba(233,236,239,.65)` over the
+// card lands on #eff2f4, and `--line-soft` is #f1f5f9. The reason this was worth
+// doing at all is not the ground - it is that the outline becomes one deliberate
+// token in both schemes instead of a Bootstrap side effect in one and nothing in
+// the other.
+//
+// Every `pre` on the site is a `pre.sourceCode` - seven of them, and all seven are
+// on /apps/, which is what "launcher snippets in a ~400px card body" above means.
+// So the blast radius of touching the generic `pre` rule is exactly those seven,
+// and /apps/ is the only page this change can move. Measured after the change:
+// +2px per block, page height 3395 -> 3405 at 1280w. Note that `pixdiff` reports
+// this page as a SIZE MISMATCH rather than as differing pixels, because it
+// refuses to compare screenshots of different heights - so the aggregate reads
+// "0 pixels changed" everywhere and the one page that really moved is the one it
+// declines to compare. The computed-style probe is what settled it.
+div.sourceCode { background-color: transparent; border-color: transparent; }
+pre.sourceCode {
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+}
+
 // --- Syntax highlighting ----------------------------------------------------
 // Quarto ships `code span.fu { color: #4758AB }` and friends with the hex written
 // straight into the rule. Its 29 `--quarto-hl-*` custom properties look like the
@@ -513,26 +569,12 @@ pre > code.sourceCode > span { color: inherit; }
 // risk rather than a cosmetic one.
 @mixin dark-overrides {
 
-  // Bootstrap: `div.sourceCode { background-color: rgba(233,236,239,.65) }` -
-  // a `$gray-200` wash, and `pre.sourceCode { background-color: rgba(0,0,0,0) }`.
+  // The Bootstrap source-code rules are NOT cancelled here any more. Both were
+  // dark-only for a long time and are now unscoped, next to the `pre` rule they
+  // actually interact with - see "Code block ground and outline" above.
   //
-  // The second one means the `pre { background: var(--line-soft) }` above has
-  // been DEAD on every code block since it was written: (0,1,1) outranks (0,0,1).
-  // The two together mean a code block's real ground is the wash on the wrapper,
-  // not the token - which is why the syntax colours measured 1.01:1 to 2.09:1 in
-  // the audit instead of the ~7:1 they measure against `--line-soft`.
-  //
-  // Both are cancelled here rather than in the light half on purpose. Undoing it
-  // in light mode too would fix a real latent bug, but it would also move light
-  // pixels in a commit whose whole claim is that light mode does not change, and
-  // the delta would then be impossible to attribute. Dark-only keeps the change
-  // honest and leaves the light-mode fix to be made deliberately, with its own
-  // before/after.
-  div.sourceCode { background-color: transparent; border-color: transparent; }
-  pre.sourceCode {
-    background-color: var(--line-soft);
-    border-color: var(--line);
-  }
+  // `.nav-footer` is a different case and still only needs the dark half; see the
+  // footer section.
 
   // Quarto hardcodes one header tint per callout type:
   //   note #e9f2fc  tip #ecf8e8  warning #fff1e8  caution #fef7ed  important #ffe6eb
