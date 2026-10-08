@@ -589,9 +589,19 @@ pre > code.sourceCode > span { color: inherit; }
   .aa-DetachedOverlay .aa-Panel,
   #quarto-search-results .aa-Panel { background: var(--surface); border-color: var(--line); }
   .aa-DetachedOverlay .aa-Item .search-item,
-  #quarto-search-results .aa-Item .search-item {
+  #quarto-search-results .aa-Item .search-item { border-color: var(--line); }
+
+  // Background and colour here describe an UNSELECTED row, so they say so. The
+  // selected row is deliberately a different thing and is styled unscoped further
+  // down, and the `:not` is what lets that unscoped rule reach it: without it this
+  // selector also matches the selected row, and `:root[data-theme="dark"]` makes
+  // it (0,6,0) against the unscoped selected rule's (0,4,1) - so in dark the
+  // selected row silently reverts to the surface colour and reads as unselected.
+  // It cost nothing before, because the selected rule used to sit in this same
+  // block at (0,6,1) and won on the extra element.
+  .aa-DetachedOverlay .aa-Item:not([aria-selected="true"]) .search-item,
+  #quarto-search-results .aa-Item:not([aria-selected="true"]) .search-item {
     background: var(--surface);
-    border-color: var(--line);
     color: var(--body);
   }
   .aa-DetachedOverlay .aa-Item .search-result-doc,
@@ -604,11 +614,14 @@ pre > code.sourceCode > span { color: inherit; }
 
   // Unselected row contents. Quarto sets `color:#343a40` on five inner elements,
   // and the row BACKGROUND on a sixth rule that is `(0,4,1)` - the
-  // `li.aa-Item[aria-selected=false] .search-item` form - which outranks the
-  // `(0,3,0)` `.aa-DetachedOverlay .aa-Item .search-item` above. So the
-  // background has to be set HERE, on the attribute selector, and not only on the
-  // simpler one; setting colour alone left every unselected row white with
-  // near-white text on it, at 1.23:1.
+  // `li.aa-Item[aria-selected=false] .search-item` form. So the background has to
+  // be set on the attribute selector and not only on a simpler one; setting colour
+  // alone left every unselected row white with near-white text on it, at 1.23:1.
+  //
+  // The row background here is now redundant with the `:not([aria-selected="true"])`
+  // rule above - same value, one attribute column weaker. Left in place because it
+  // is the rule that beats Quarto's own attribute form, so if that one above is
+  // ever widened again the documented case stays covered.
   .aa-DetachedOverlay li.aa-Item[aria-selected=false] .search-item,
   #quarto-search-results li.aa-Item[aria-selected=false] .search-item {
     background: var(--surface);
