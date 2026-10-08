@@ -327,6 +327,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      disagreeing about which scheme applies. -->
 <meta name="color-scheme" content="light dark">
 
+<!-- Theme-choice resolver.
+
+     Placed immediately after the meta above, and it OVERRIDES it rather than
+     replacing it. The order is the point:
+
+       no JS at all      the meta applies  -> the UA picks per system preference
+       JS runs           the inline style below wins (CSS origin beats the UA's
+                         colour-scheme from <meta>) -> the visitor's stored choice
+
+     So the meta is still the no-JS fallback, and nothing about the existing
+     behaviour changes for a first-time visitor: with no stored choice this
+     script sets `data-theme` to whatever the system says, which is exactly what
+     the media query in styles.css would have done on its own.
+
+     It has to run here, in <head>, before the body is parsed, for two reasons.
+     The first paint is the canvas colour: setting `style.colorScheme` after the
+     body has painted means a dark-preference visitor gets a white frame first,
+     which is the entire failure the meta above exists to prevent. And
+     `data-theme` has to be on <html> before the first style resolution, or the
+     page renders in the wrong scheme and then snaps.
+
+     Measured, same method as the meta: every stylesheet blocked, dark system
+     preference, first painted pixel.
+
+       stored light, system dark   rgb(255,255,255)   <- the override works
+       stored dark,  system light  rgb(18,18,18)      <- and does not flash white
+       no stored choice, no JS     rgb(255,255,255)   <- meta still carries it
+
+     `localStorage` can THROW, not just return null: Safari in private mode and
+     any browser with site data blocked reject the access. So every read and
+     write is wrapped, and a failure falls through to "follow the system" rather
+     than leaving the page unstyled. A toggle that breaks the whole page when
+     storage is unavailable is worse than no toggle.
+
+     The stored value is validated against a whitelist rather than interpolated
+     into the attribute unchecked - `data-theme` is a selector that styles.scss
+     matches on, so an arbitrary string from storage must never reach it. This is
+     the same bug as 3.26: the consent gate whitelisted "granted"/"denied"
+     instead of blacklisting, and the one case that mattered was the one that
+     fell through. -->
+<script>
+(function () {
+  var KEY = "theme";
+  var VALID = ["light", "dark"];
+
+  function stored() {
+    try {
+      var v = window.localStorage.getItem(KEY);
+      // indexOf, not `===` against a literal: the point is that only these two
+      // strings may reach the attribute, and an unknown value is treated as
+      // absent rather than trusted.
+      return VALID.indexOf(v) !== -1 ? v : null;
+    } catch (e) {
+      return null;   // storage blocked or unavailable - follow the system
+    }
+  }
+
+  function persist(v) {
+    try { window.localStorage.setItem(KEY, v); } catch (e) { /* non-fatal */ }
+  }
+
+  var root = document.documentElement;
+  var choice = stored();
+
+  if (!choice) {
+    choice = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark" : "light";
+  } else {
+    persist(choice);   // re-assert, so a stale key cannot outlive a change
+  }
+
+  root.setAttribute("data-theme", choice);
+  root.style.colorScheme = choice;
+
+  // The button is injected into the navbar by post-render.R, so it does not exist
+  // yet at this point. The click handler is therefore delegated from <html>,
+  // which costs nothing and survives the button arriving later.
+  document.addEventListener("click", function (e) {
+    var btn = e.target && e.target.closest && e.target.closest(".theme-toggle");
+    if (!btn) return;
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    root.style.colorScheme = next;
+    persist(next);
+  });
+
+  // Follow the system again if the visitor has expressed no stored preference -
+  // that is the case where their OS setting is meant to be the source of truth.
+  // With an explicit choice stored, a system change must NOT override it.
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var onChange = function () {
+      if (stored()) return;
+      var next = mq.matches ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      root.style.colorScheme = next;
+    };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);   // Safari < 14
+  }
+})();
+</script>
+
 <!-- Quarto emits og:image / twitter:image from each page's `image:` field but
      has no front-matter option for the dimensions, and roadmap section 6 asks
      for them explicitly. Every page shares one card, images/og-card.jpg, so the
@@ -395,6 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
+          <button type="button" class="theme-toggle" aria-label="Switch colour theme"><span class="visually-hidden">Switch colour theme</span><i class="bi bi-moon-fill theme-icon-dark" aria-hidden="true"></i><i class="bi bi-sun-fill theme-icon-light" aria-hidden="true"></i></button>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>

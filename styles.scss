@@ -234,24 +234,36 @@ $shadow-md:   rgba(2, 6, 23, 0.12);
 }
 
 // --- Dark mode -------------------------------------------------------------
-// System-driven only, by decision: `prefers-color-scheme` and nothing else. No
-// toggle, no localStorage, no flash-prevention script. The browser already knows
-// the user's preference before the first byte of CSS arrives, so a media query is
-// not a compromise here - it is the mechanism that avoids the FOUC that a
-// class-swapping toggle script exists to prevent. A toggle would need either
-// that script or a blocking inline style in <head>, and this site takes GA4's
-// no-flash approach for the same reason: trust the browser, do not race it.
+// Two ways in, one set of values.
 //
-// VALUES ONLY. No selector is repeated here, which is the entire reason the
-// tokens became custom properties in 7765d0b. Adding a rule to the light half
-// and forgetting it here is the failure mode this avoids.
+//   1. `prefers-color-scheme: dark` and no stored choice  - the default, and the
+//      only thing that happens with JavaScript unavailable.
+//   2. `[data-theme="dark"]` - an explicit choice, which has to beat the media
+//      query even when the system says light.
+//
+// The system preference remains the default because the browser already knows it
+// before the first byte of CSS arrives, so it is the right answer for a
+// first-time visitor and needs no script to get right. The toggle is an
+// override on top, not a replacement.
+//
+// WHICH IS WHY THIS IS A MIXIN. Two selectors need these values, and the whole
+// point of 7765d0b was that a colour appears exactly once in this file - so the
+// values are declared here and `@include`d at both sites below. Writing them out
+// twice would put back the failure mode the tokenisation removed: two lists that
+// drift, with no way for a reviewer to tell which is authoritative.
+//
+// `:root:not([data-theme="light"])` on the media-query path is the load-bearing
+// detail. `:not()` rather than a bare `:root` because an explicit LIGHT choice on
+// a dark system has to win, and this is what makes it win - without the negation
+// the media query would still apply its tokens underneath.
 //
 // `color-scheme: dark` goes on :root, not on a subtree. It is what makes the
 // browser render scrollbars, text-selection and form controls dark to match -
 // and it must be the SAME declaration as the media query, or controls are drawn
 // light while the page around them is dark. Declaring the bare property on
 // :root above (defaulting to `light dark`) lets the UA pick per preference,
-// which is the same outcome without needing the value written twice.
+// which is the same outcome without needing the value written twice. The toggle
+// script sets an inline `style.colorScheme` on <html>, which outranks the meta.
 //
 // Every text pair below was measured with the WCAG relative-luminance formula
 // against the surface it actually sits on, not against pure black - the nearest
@@ -260,125 +272,123 @@ $shadow-md:   rgba(2, 6, 23, 0.12);
 // because they are not text: --line-strong is 2.08:1, and 3:1 is the ideal for a
 // control boundary, so a control outline is slightly under the guideline here
 // rather than over-brightening every button on the page.
-@media (prefers-color-scheme: dark) {
-  :root {
-    // The surface is not black. Pure #000 maximises contrast but makes
-    // elevation impossible - there is nowhere to go "up" - and reads as a void.
-    // A dark navy keeps the same hue family as the light scheme, so the design
-    // does not change character, only luminance.
-    --surface:  #0f172a;
-    --canvas:   #020617;   // page ground, one step below the cards
-    --ink:      #f8fafc;   // 17.06:1 on --surface
-    --body:     #e2e8f0;   // 14.48:1
-    --muted:    #a8b6c8;   //  8.66:1
+@mixin dark-tokens {
+  // The surface is not black. Pure #000 maximises contrast but makes
+  // elevation impossible - there is nowhere to go "up" - and reads as a void.
+  // A dark navy keeps the same hue family as the light scheme, so the design
+  // does not change character, only luminance.
+  --surface:  #0f172a;
+  --canvas:   #020617;   // page ground, one step below the cards
+  --ink:      #f8fafc;   // 17.06:1 on --surface
+  --body:     #e2e8f0;   // 14.48:1
+  --muted:    #a8b6c8;   //  8.66:1
 
-    --line:        #24334a;
-    --line-soft:   #182338;
-    --line-strong: #3d4d66;   // 2.08:1 - see note above on the 3:1 boundary
+  --line:        #24334a;
+  --line-soft:   #182338;
+  --line-strong: #3d4d66;   // 2.08:1 - see note above on the 3:1 boundary
 
-    // Accent goes LIGHTER in dark, not darker. A blue dark enough to pass 4.5:1
-    // on white is nearly invisible on near-black; #7cc0ff is 9.22:1 here.
-    --accent:    #7cc0ff;
-    --accent-dk: #a8d3ff;   // hover moves further from the surface, not towards
+  // Accent goes LIGHTER in dark, not darker. A blue dark enough to pass 4.5:1
+  // on white is nearly invisible on near-black; #7cc0ff is 9.22:1 here.
+  --accent:    #7cc0ff;
+  --accent-dk: #a8d3ff;   // hover moves further from the surface, not towards
 
-    // Primary buttons invert. In light mode $ink is a dark fill carrying white
-    // text; in dark mode $ink is a LIGHT fill, so it has to carry DARK text.
-    // This is the one token pair that inverts rather than translates, and it is
-    // why $on-ink exists as a token instead of a bare #fff.
-    --on-ink:    #0f172a;   // 17.06:1 on --ink
-    --ink-hover: #e2e8f0;   // hover moves UP toward the text colour
-    // Measured, not assumed: keeping the light-mode hover (#1e293b, a dark navy)
-    // here would put #0f172a text on a dark fill at 1.22:1. The dark hover has
-    // to move the same direction the rest of the dark surface hierarchy does.
+  // Primary buttons invert. In light mode $ink is a dark fill carrying white
+  // text; in dark mode $ink is a LIGHT fill, so it has to carry DARK text.
+  // This is the one token pair that inverts rather than translates, and it is
+  // why $on-ink exists as a token instead of a bare #fff.
+  --on-ink:    #0f172a;   // 17.06:1 on --ink
+  --ink-hover: #e2e8f0;   // hover moves UP toward the text colour
+  // Measured, not assumed: keeping the light-mode hover (#1e293b, a dark navy)
+  // here would put #0f172a text on a dark fill at 1.22:1. The dark hover has
+  // to move the same direction the rest of the dark surface hierarchy does.
 
-    --dl-bg-hover: #7ff0c4;
+  --dl-bg-hover: #7ff0c4;
 
-    // Callouts keep their hue identity but invert their relationship: a dark
-    // tinted ground with a light, saturated foreground, rather than a light
-    // ground with dark text. All five measure 9.9:1 or better.
-    --note-bg: #0c2436;  --note-ink: #8fdcff;   // 10.48:1
-    --dl-bg:   #063024;  --dl-ink:   #7ff0c4;   // 10.41:1
-    --beg-bg:  #053021;  --beg-ink:  #8ef0b0;   // 10.50:1
-    --int-bg:  #2c2609;  --int-ink:  #ffe14d;   // 11.62:1
-    --arch-bg: #331318;  --arch-ink: #ffb3b3;   //  9.90:1
+  // Callouts keep their hue identity but invert their relationship: a dark
+  // tinted ground with a light, saturated foreground, rather than a light
+  // ground with dark text. All five measure 9.9:1 or better.
+  --note-bg: #0c2436;  --note-ink: #8fdcff;   // 10.48:1
+  --dl-bg:   #063024;  --dl-ink:   #7ff0c4;   // 10.41:1
+  --beg-bg:  #053021;  --beg-ink:  #8ef0b0;   // 10.50:1
+  --int-bg:  #2c2609;  --int-ink:  #ffe14d;   // 11.62:1
+  --arch-bg: #331318;  --arch-ink: #ffb3b3;   //  9.90:1
 
-    // The four TINTED HAIRLINES. These are the one family where "dark mode" is
-    // not a straight translation, and the reason is the light values themselves:
-    // #e0f2fe, #6ee7b7, #f59e0b and #06b6d4 are all *light-mode* colours, so
-    // carrying them over unchanged puts a near-white 1px border on a near-black
-    // pill. They were the four tokens missing from this block when dark mode
-    // landed, which is only visible by reading the light list against this one -
-    // nothing errors, the pills just gain an unwanted outline.
-    //
-    // They are decorative, not text, and the light scheme already treats them
-    // as near-invisible (1.08:1 to 2.33:1 against their own ground). So each
-    // value below was picked to land on the SAME ratio against its dark ground,
-    // which keeps the border as quiet in dark as it was in light rather than
-    // inventing a stronger one:
-    //
-    //   --note-line   1.08:1 -> 1.33:1   nudged UP, deliberately. Below ~1.2 a
-    //                                    hairline on a near-black ground reads
-    //                                    as nothing at all, whereas 1.08 on
-    //                                    white still reads as an edge.
-    //   --dl-line     1.45:1 -> 1.54:1   also holds on the dark hover ground
-    //                                    (#7ff0c4) at 6.77:1, where light mode
-    //                                    managed only 1.34:1
-    //   --cmp-line    2.07:1 -> 2.04:1
-    //   --cmpd-line   2.33:1 -> 2.40:1
-    //
-    // Hue is preserved in every case - these are tints of the ground they sit
-    // on, not greys - so the border still reads as belonging to the pill.
-    --note-line: #123a52;
-    --dl-line:   #14503a;
-    --cmp-line:  #6b480c;   // the dashed 1px ring on .lcomp
-    --cmpd-line: #12657a;
+  // The four TINTED HAIRLINES. These are the one family where "dark mode" is
+  // not a straight translation, and the reason is the light values themselves:
+  // #e0f2fe, #6ee7b7, #f59e0b and #06b6d4 are all *light-mode* colours, so
+  // carrying them over unchanged puts a near-white 1px border on a near-black
+  // pill. They were the four tokens missing from this block when dark mode
+  // landed, which is only visible by reading the light list against this one -
+  // nothing errors, the pills just gain an unwanted outline.
+  //
+  // They are decorative, not text, and the light scheme already treats them
+  // as near-invisible (1.08:1 to 2.33:1 against their own ground). So each
+  // value below was picked to land on the SAME ratio against its dark ground,
+  // which keeps the border as quiet in dark as it was in light rather than
+  // inventing a stronger one:
+  //
+  //   --note-line   1.08:1 -> 1.33:1   nudged UP, deliberately. Below ~1.2 a
+  //                                    hairline on a near-black ground reads
+  //                                    as nothing at all, whereas 1.08 on
+  //                                    white still reads as an edge.
+  //   --dl-line     1.45:1 -> 1.54:1   also holds on the dark hover ground
+  //                                    (#7ff0c4) at 6.77:1, where light mode
+  //                                    managed only 1.34:1
+  //   --cmp-line    2.07:1 -> 2.04:1
+  //   --cmpd-line   2.33:1 -> 2.40:1
+  //
+  // Hue is preserved in every case - these are tints of the ground they sit
+  // on, not greys - so the border still reads as belonging to the pill.
+  --note-line: #123a52;
+  --dl-line:   #14503a;
+  --cmp-line:  #6b480c;   // the dashed 1px ring on .lcomp
+  --cmpd-line: #12657a;
 
-    // Launch cards: amber and cyan, same split as light mode so the two tiers
-    // stay distinguishable by hue alone.
-    --cmp-bg:  #261c06;  --cmp-num:  #ffc94d;  --cmp-body:  #dedbd8;
-    --cmpd-bg: #072533;  --cmpd-num: #7ae7f7;  --cmpd-body: #b0f4fc;
+  // Launch cards: amber and cyan, same split as light mode so the two tiers
+  // stay distinguishable by hue alone.
+  --cmp-bg:  #261c06;  --cmp-num:  #ffc94d;  --cmp-body:  #dedbd8;
+  --cmpd-bg: #072533;  --cmpd-num: #7ae7f7;  --cmpd-body: #b0f4fc;
 
-    // Shadows on a near-black ground are close to invisible at the light
-    // scheme's alphas, and a strong one would read as a smudge. The hue is
-    // retained but the alphas drop, and --line-strong does the work of
-    // separating cards from the page instead. This is the token most specific
-    // to dark: not "the same shadow, darker" but a different mechanism.
-    --shadow-xs: rgba(2, 6, 23, 0.30);
-    --shadow-sm: rgba(2, 6, 23, 0.45);
-    --shadow-md: rgba(2, 6, 23, 0.60);
+  // Shadows on a near-black ground are close to invisible at the light
+  // scheme's alphas, and a strong one would read as a smudge. The hue is
+  // retained but the alphas drop, and --line-strong does the work of
+  // separating cards from the page instead. This is the token most specific
+  // to dark: not "the same shadow, darker" but a different mechanism.
+  --shadow-xs: rgba(2, 6, 23, 0.30);
+  --shadow-sm: rgba(2, 6, 23, 0.45);
+  --shadow-md: rgba(2, 6, 23, 0.60);
 
-    // The link underline. Alpha is the only thing that changes - the hue has to
-    // stay the accent or the underline stops reading as part of the link.
-    --accent-ring: rgba(124, 192, 255, 0.34);
+  // The link underline. Alpha is the only thing that changes - the hue has to
+  // stay the accent or the underline stops reading as part of the link.
+  --accent-ring: rgba(124, 192, 255, 0.34);
 
-    // Syntax highlighting, measured against the ground it actually sits on -
-    // `--line-soft`, which is both the `pre` background and the inline `code`
-    // background. Light-mode equivalents are 5.89 / 4.91 / 5.92 / 5.92 on
-    // #f1f5f9; these are all higher, because a dark ground gives more headroom
-    // and because a token colour that merely matched would read as dimmed code
-    // rather than as code.
-    //
-    // `fu` keeps its blue-violet identity and `st` its green, lightened rather
-    // than replaced - a syntax theme that changes hue reads as a different
-    // language, not a different colour scheme. `sc` and `co` share one value, as
-    // they do in light mode: the scope operator is punctuation and the comment
-    // is an aside, and both are meant to recede.
-    --hl-fu: #a5b4fc;   //  7.88:1
-    --hl-st: #7ee2a8;   //  9.98:1
-    --hl-sc: #94a3b8;   //  6.13:1
-    --hl-co: #94a3b8;   //  6.13:1
-    // The punctuation colour is the one that needed overriding most and looks
-    // like the least. Quarto paints it #003B4F, which is 11.03:1 on a white
-    // `pre` and 1.30:1 on the dark one - and it is not a rare token: it is the
-    // bare text of `install.packages("olsrr")`, i.e. the brackets around all
-    // twenty-odd calls on the apps page. Left alone it deletes them.
-    --hl-punct: #e2e8f0;  // 12.75:1
+  // Syntax highlighting, measured against the ground it actually sits on -
+  // `--line-soft`, which is both the `pre` background and the inline `code`
+  // background. Light-mode equivalents are 5.89 / 4.91 / 5.92 / 5.92 on
+  // #f1f5f9; these are all higher, because a dark ground gives more headroom
+  // and because a token colour that merely matched would read as dimmed code
+  // rather than as code.
+  //
+  // `fu` keeps its blue-violet identity and `st` its green, lightened rather
+  // than replaced - a syntax theme that changes hue reads as a different
+  // language, not a different colour scheme. `sc` and `co` share one value, as
+  // they do in light mode: the scope operator is punctuation and the comment
+  // is an aside, and both are meant to recede.
+  --hl-fu: #a5b4fc;   //  7.88:1
+  --hl-st: #7ee2a8;   //  9.98:1
+  --hl-sc: #94a3b8;   //  6.13:1
+  --hl-co: #94a3b8;   //  6.13:1
+  // The punctuation colour is the one that needed overriding most and looks
+  // like the least. Quarto paints it #003B4F, which is 11.03:1 on a white
+  // `pre` and 1.30:1 on the dark one - and it is not a rare token: it is the
+  // bare text of `install.packages("olsrr")`, i.e. the brackets around all
+  // twenty-odd calls on the apps page. Left alone it deletes them.
+  --hl-punct: #e2e8f0;  // 12.75:1
 
-    // Dark text on the lightened dark accent. The accent moves to #7cc0ff here
-    // so it can serve as TEXT on a dark ground at 9.22:1; as a button FILL that
-    // same value needs the opposite foreground.
-    --on-accent: #0f172a;
-  }
+  // Dark text on the lightened dark accent. The accent moves to #7cc0ff here
+  // so it can serve as TEXT on a dark ground at 9.22:1; as a button FILL that
+  // same value needs the opposite foreground.
+  --on-accent: #0f172a;
 }
 
 // --- Base -----------------------------------------------------------------
@@ -497,9 +507,11 @@ pre > code.sourceCode > span { color: inherit; }
 // reading `_quarto.yml`, which is how `link-external-icon` and `pre.run` both
 // produced confidently wrong answers.
 //
-// These need the same media query as the tokens, so they live in their own block
-// rather than in the values block above, which stays values-only.
-@media (prefers-color-scheme: dark) {
+// A mixin for the same reason as `dark-tokens`: these have to follow whichever
+// of the two dark paths is active, and the selectors in here are long and
+// specificity-sensitive enough that duplicating them by hand would be a real
+// risk rather than a cosmetic one.
+@mixin dark-overrides {
 
   // Bootstrap: `div.sourceCode { background-color: rgba(233,236,239,.65) }` -
   // a `$gray-200` wash, and `pre.sourceCode { background-color: rgba(0,0,0,0) }`.
@@ -616,10 +628,17 @@ pre > code.sourceCode > span { color: inherit; }
 
   // The "5 matching documents" band. Quarto gives it #f2f2f2; our text is
   // `--body`, which is near-white in dark - 1.1:1, i.e. a heading nobody can read.
+  //
+  // `--body` rather than `--muted`, and that is a correction rather than a
+  // preference: `--muted` measures 4.34:1 on the LIGHT `--line-soft` this band
+  // inherits, which is under AA for normal text. The dark-mode pass only ever
+  // tested the dark scheme, where the same choice looks fine at 7.63:1 - so the
+  // regression sat there until this audit ran all four states. `--body` clears
+  // both: 9.45:1 light, 12.75:1 dark.
   .aa-DetachedOverlay .aa-SourceHeader .search-result-header,
   #quarto-search-results .aa-SourceHeader .search-result-header {
     background: var(--line-soft);
-    color: var(--muted);
+    color: var(--body);
   }
 
   // The selected row. Quarto's #2780e3 with white text is 3.97:1 - a WCAG AA
@@ -716,6 +735,35 @@ pre > code.sourceCode > span { color: inherit; }
   .nav-footer a { color: var(--muted); }
 }
 
+// --- Where the dark scheme is applied ---------------------------------------
+// Four lines that decide which of the two dark paths is live. Everything above
+// is a declaration; this is the only place the two paths meet, so it is the only
+// place worth reading if you ever need to know why a colour is not what you
+// expect.
+//
+// Order does not matter here - no two of these selectors match the same element
+// at the same specificity - but the intent does:
+//
+//   dark system, no stored choice   the media query applies (path 1, no JS)
+//   dark system, chose light         `:not([data-theme="light"])` excludes it
+//   light system, no stored choice   nothing applies
+//   light system, chose dark         the attribute selector applies (path 2)
+//
+// The overrides are nested under `:root[data-theme="dark"]` on path 2, which
+// raises their specificity by one class compared with path 1. That is harmless
+// - every rule they override is a third-party literal, so winning by more is
+// only ever safer - but it does mean the specificity arithmetic written into
+// those comments describes path 1 only.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-tokens; }
+  @include dark-overrides;
+}
+
+:root[data-theme="dark"] {
+  @include dark-tokens;
+  @include dark-overrides;
+}
+
 hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 // --- Icons ----------------------------------------------------------------
@@ -769,7 +817,28 @@ $bi-icons: (
   // Path from bootstrap-icons 1.11.1, and checked to use no `fill-rule`, so
   // alpha masking is lossless. See the note on `evenodd` above: some Bootstrap
   // paths do rely on it, so this has to be checked per icon rather than assumed.
-  "file-richtext": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7%204.25a.75.75%200%201%201-1.5%200%20.75.75%200%200%201%201.5%200zm-.861%201.542%201.33.886%201.854-1.855a.25.25%200%200%201%20.289-.047l1.888.974V7.5a.5.5%200%200%201-.5.5H5a.5.5%200%200%201-.5-.5V7s1.54-1.274%201.639-1.208zM5%209a.5.5%200%200%200%200%201h6a.5.5%200%200%200%200-1H5zm0%202a.5.5%200%200%200%200%201h3a.5.5%200%200%200%200-1H5z%22%2F%3E%3Cpath%20d%3D%22M2%202a2%202%200%200%201%202-2h8a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V2zm10-1H4a1%201%200%200%200-1%201v12a1%201%200%200%200%201%201h8a1%201%200%200%200%201-1V2a1%201%200%200%200-1-1z%22%2F%3E%3C%2Fsvg%3E"
+  "file-richtext": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7%204.25a.75.75%200%201%201-1.5%200%20.75.75%200%200%201%201.5%200zm-.861%201.542%201.33.886%201.854-1.855a.25.25%200%200%201%20.289-.047l1.888.974V7.5a.5.5%200%200%201-.5.5H5a.5.5%200%200%201-.5-.5V7s1.54-1.274%201.639-1.208zM5%209a.5.5%200%200%200%200%201h6a.5.5%200%200%200%200-1H5zm0%202a.5.5%200%200%200%200%201h3a.5.5%200%200%200%200-1H5z%22%2F%3E%3Cpath%20d%3D%22M2%202a2%202%200%200%201%202-2h8a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V2zm10-1H4a1%201%200%200%200-1%201v12a1%201%200%200%200%201%201h8a1%201%200%200%200%201-1V2a1%201%200%200%200-1-1z%22%2F%3E%3C%2Fsvg%3E",
+
+  // The toggle pair. Filled rather than outline, matching `caret-down-fill`:
+  // at 1em in the navbar a thin outline reads as a smudge. Which one shows is
+  // the state, not the target - see the .theme-toggle rules further down.
+  "moon-fill": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6%20.278a.768.768%200%200%201%20.08.858%207.208%207.208%200%200%200-.878%203.46c0%204.021%203.278%207.277%207.318%207.277.527%200%201.04-.055%201.533-.16a.787.787%200%200%201%20.81.316.733.733%200%200%201-.031.893A8.349%208.349%200%200%201%208.344%2016C3.734%2016%200%2012.286%200%207.71%200%204.266%202.114%201.312%205.124.06A.752.752%200%200%201%206%20.278z%22%2F%3E%3C%2Fsvg%3E",
+  "sun-fill": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2012a4%204%200%201%200%200-8%204%204%200%200%200%200%208zM8%200a.5.5%200%200%201%20.5.5v2a.5.5%200%200%201-1%200v-2A.5.5%200%200%201%208%200zm0%2013a.5.5%200%200%201%20.5.5v2a.5.5%200%200%201-1%200v-2A.5.5%200%200%201%208%2013zm8-5a.5.5%200%200%201-.5.5h-2a.5.5%200%200%201%200-1h2a.5.5%200%200%201%20.5.5zM3%208a.5.5%200%200%201-.5.5h-2a.5.5%200%200%201%200-1h2A.5.5%200%200%201%203%208zm10.657-5.657a.5.5%200%200%201%200%20.707l-1.414%201.415a.5.5%200%201%201-.707-.708l1.414-1.414a.5.5%200%200%201%20.707%200zm-9.193%209.193a.5.5%200%200%201%200%20.707L3.05%2013.657a.5.5%200%200%201-.707-.707l1.414-1.414a.5.5%200%200%201%20.707%200zm9.193%202.121a.5.5%200%200%201-.707%200l-1.414-1.414a.5.5%200%200%201%20.707-.707l1.414%201.414a.5.5%200%200%201%200%20.707zM4.464%204.465a.5.5%200%200%201-.707%200L2.343%203.05a.5.5%200%201%201%20.707-.707l1.414%201.414a.5.5%200%200%201%200%20.708z%22%2F%3E%3C%2Fsvg%3E",
+
+  // Two more, and like `file-richtext` both are injected at RUNTIME by
+  // quarto-search.js's copy-link button (`bi-clipboard`, switching to
+  // `bi-check2` on success). Neither appears in any rendered HTML file, so
+  // post-render.R cannot see either - they were found by clicking the search
+  // box and walking the DOM. Found the same way `file-richtext` was, and
+  // missed the first time for exactly the same reason.
+  //
+  // `clipboard` is the Bootstrap Icons glyph and is NOT the same drawing as the
+  // `$bi-clipboard` above, which is Bootstrap's own code-copy glyph lifted out
+  // of its bundle. Two near-identical clipboards on one site is mildly untidy;
+  // unifying them is a visual change to a working button, so it waits for a
+  // commit that is about that.
+  "clipboard": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4%201.5H3a2%202%200%200%200-2%202V14a2%202%200%200%200%202%202h10a2%202%200%200%200%202-2V3.5a2%202%200%200%200-2-2h-1v1h1a1%201%200%200%201%201%201V14a1%201%200%200%201-1%201H3a1%201%200%200%201-1-1V3.5a1%201%200%200%201%201-1h1v-1z%22%2F%3E%3Cpath%20d%3D%22M9.5%201a.5.5%200%200%201%20.5.5v1a.5.5%200%200%201-.5.5h-3a.5.5%200%200%201-.5-.5v-1a.5.5%200%200%201%20.5-.5h3zm-3-1A1.5%201.5%200%200%200%205%201.5v1A1.5%201.5%200%200%200%206.5%204h3A1.5%201.5%200%200%200%2011%202.5v-1A1.5%201.5%200%200%200%209.5%200h-3z%22%2F%3E%3C%2Fsvg%3E",
+  "check2": "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.854%203.646a.5.5%200%200%201%200%20.708l-7%207a.5.5%200%200%201-.708%200l-3.5-3.5a.5.5%200%201%201%20.708-.708L6.5%2010.293l6.646-6.647a.5.5%200%200%201%20.708%200z%22%2F%3E%3C%2Fsvg%3E"
 );
 
 // One rule for every .bi, then one mask per icon. `1em` means sizing follows
@@ -1537,6 +1606,124 @@ header#quarto-header {
 html {
   scroll-padding-top: 4rem;
 }
+
+// --- The theme toggle -------------------------------------------------------
+// Injected into the navbar by post-render.R, because Quarto generates that
+// markup from _quarto.yml and offers no raw-HTML slot for it.
+//
+// WHICH ICON SHOWS IS THE CURRENT STATE, NOT THE TARGET. On a light page you see
+// a moon (the thing you would switch to); on a dark page a sun. The reasoning is
+// that the two are never both on screen, so a label describing the *target*
+// ("switch to dark mode") would be wrong half the time for anyone reading the
+// markup, and the accessible name stays state-free on purpose - "Switch colour
+// theme" is true in both states. Both icons are in the DOM and one is hidden, so
+// this is `display` and not a mask swap: it costs nothing and it cannot desync
+// from the CSS the way a dynamically-applied mask class can.
+//
+// No transition on the colour properties. A cross-fade between two schemes means
+// every element animates at once, which on this page is a full-page repaint and
+// reads as a smear rather than as a transition. Instant is correct here.
+.theme-toggle {
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  color: var(--body);
+  cursor: pointer;
+  line-height: 0;
+
+  // `order`, and this is not cosmetic. Quarto lays the navbar out with flexbox
+  // `order` rather than DOM position, and a new child with no `order` defaults
+  // to 0 and therefore lands FIRST - the toggle rendered at the far left, before
+  // the brand, until this was set. Being injected next to the search box in the
+  // DOM does not help; nothing on this navbar is positioned by DOM order.
+  //
+  // The values below were read off getComputedStyle in the browser, NOT inferred
+  // from the minified CSS, because the bundle contains rules for BOTH the
+  // `type-overlay` and the plain navbar and only one applies to this site.
+  // Measured at 1280px, in visual order:
+  //
+  //   navbar-toggler  order 1     brand-container  order 2
+  //   navbar-collapse order 20    quarto-navbar-tools  order 900
+  //   #quarto-search  order 999   <- the search box
+  //
+  // So 950 sits after the tools and immediately before the search.
+  order: 950;
+
+  &:hover { color: var(--accent); border-color: var(--line); }
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .bi { font-size: 1.0625rem; }
+}
+
+// Below the expand-lg breakpoint the order values INVERT - measured at 375px the
+// search box is `order: 4` with the auto margin, and the tools are 3 - so the
+// toggle has to invert with it or it jumps back to the far left exactly when the
+// viewport narrows. Same shape as gotcha 3.1: two equal-specificity rules across
+// a breakpoint, and only reading the compiled result settles which one won.
+@media (max-width: 991.98px) {
+  .theme-toggle { order: 3; }
+}
+
+// Below ~390px a fourth navbar child no longer fits on the row and the SEARCH
+// BOX is what wraps - the one control on the page that must stay reachable, and
+// the reason someone might want the toggle in the first place.
+//
+// Measured, HEAD vs this build, y of #quarto-search:
+//
+//   414px and up   y=18 on both        unaffected
+//   375 / 360 / 320  y=18 on HEAD, y=54 here
+//
+// The brand title already truncates with an ellipsis ("Aravind Heb..."), so
+// capping its width costs a few characters of an already-truncated string rather
+// than any information. Sized from the measurement: at 320px the row needs
+// ~254px of children plus ~24px of gaps against 261px available, and the brand
+// is 146px of that - so capping it at 40vw frees enough at every width that
+// wrapped, and 40vw is above the natural width from 414px up, where this rule
+// does not apply.
+@media (max-width: 575.98px) {
+  .navbar-brand-container {
+    max-width: 40vw;
+    // Without this the flex item refuses to shrink below its content width and
+    // the cap does nothing.
+    min-width: 0;
+  }
+}
+
+// Light page -> moon. Dark page -> sun. `:root[data-theme=...]` rather than the
+// media query, because by the time this renders the script has already resolved
+// any stored choice into the attribute, and a visitor who chose light on a dark
+// system must see a moon even though their OS says otherwise.
+.theme-icon-light { display: none; }
+:root[data-theme="dark"] {
+  .theme-icon-dark { display: none; }
+  .theme-icon-light { display: inline-block; }
+}
+
+// Safety net for the no-JS path, where the script never sets data-theme. Without
+// this the two icons would both show, or neither, depending on which rule won -
+// and the visitor would see a moon on a dark page with no way to act on it.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    .theme-icon-dark { display: none; }
+    .theme-icon-light { display: inline-block; }
+  }
+}
+
+// Hidden until the resolver script has run, which it signals by setting
+// `data-theme` on <html>. A toggle whose click handler does not exist is worse
+// than no toggle: it advertises a capability the page does not have, and on a
+// no-JS load it would sit in the navbar looking broken. Keying visibility off the
+// attribute the script sets anyway avoids a second marker class, and it cannot
+// desync - the same write that resolves the theme is the one that reveals the
+// button. (`<noscript>` inside the <button> would be the obvious alternative and
+// is invalid: a button may only contain phrasing content.)
+.theme-toggle { display: none; }
+:root[data-theme] .theme-toggle { display: inline-flex; }
 
 // --- Navbar ---------------------------------------------------------------
 .navbar {

@@ -374,6 +374,77 @@ section("9. _site/styles.css matches the repo-root copy");
   }
 }
 
+// --- 10. the theme toggle ----------------------------------------------------
+
+section("10. theme toggle present, labelled, and out of the search index");
+{
+  // The pages the site actually serves. 404.html is an error page and
+  // zohoverify/ is a standalone Zoho-verification file that is neither a Quarto
+  // page nor linked from anything - check 7 already excludes both, and a toggle
+  // check that swept every .html in _site/ would fail on a file that is not a
+  // page. Deriving the list the same way keeps the two checks consistent.
+  const isRealPage = (f) => {
+    const rel = relative(SITE, f).replace(/\\/g, "/");
+    return !rel.includes("404") && !rel.includes("zohoverify");
+  };
+  const realPages = [...docs.entries()].filter(([f]) => isRealPage(f));
+  if (realPages.length < 5) {
+    fail(`only ${realPages.length} real page(s) found in _site/ - expected at least 5`);
+  }
+
+  // The button is injected by post-render.R, so this asserts the injection
+  // actually reached every page rather than trusting the log line.
+  const missing = [];
+  const dupes = [];
+  let unlabelled = 0;
+  for (const [file, html] of realPages) {
+    const pageUrl = "/" + relative(SITE, file).replace(/\\/g, "/");
+    const n = (html.match(/class="theme-toggle"/g) || []).length;
+    if (n === 0) missing.push(pageUrl);
+    if (n > 1) dupes.push(`${pageUrl} (${n})`);
+    // The accessible name must exist. A toggle that only communicates through a
+    // masked icon is unusable with a screen reader.
+    if (!/aria-label="[^"]*"[^>]*class="theme-toggle"|class="theme-toggle"[^>]*aria-label="/.test(html)) unlabelled++;
+  }
+  if (missing.length) fail(`no theme toggle on: ${missing.join(", ")}`);
+  else pass(`theme toggle on all ${realPages.length} page(s)`);
+  if (dupes.length) fail(`more than one theme toggle: ${dupes.join(", ")}`);
+  if (unlabelled) fail(`${unlabelled} page(s) have a theme toggle with no aria-label`);
+
+  // The resolver script has to be inline in <head>. The `consent.js`-as-a-file
+  // bug (pending_tasks.md 0d) was exactly this: include-in-header content is
+  // copied verbatim, so a relative src 404s on every nested page.
+  const scriptOk = realPages.every(([, html]) => /var KEY = "theme"/.test(html));
+  if (scriptOk && realPages.length) pass("theme resolver is inline in every page (no extra request, correct at every depth)");
+  else fail("theme resolver script not found inline in every rendered page");
+
+  // The label must NOT be indexed. `include-before-body` put the consent banner's
+  // copy and both button labels at the top of every search.json entry, so
+  // searching "Accept" surfaced all four pages; that is why the banner is
+  // injected from post-render.R instead. This asserts the toggle's accessible
+  // name is a visually-hidden span rather than visible text, which is what keeps
+  // it out of the index.
+  const idx = join(SITE, "search.json");
+  if (existsSync(idx)) {
+    const j = readFileSync(idx, "utf8");
+    const hits = (j.match(/Switch colour theme/gi) || []).length;
+    if (hits) fail(`"Switch colour theme" appears ${hits}x in search.json - the toggle label is being indexed`);
+    else pass("toggle label absent from search.json");
+  }
+
+  // The CSS must have both entry points, or an explicit choice silently does
+  // nothing while the button still renders and still responds.
+  if (stylesCss) {
+    const media = /@media \(prefers-color-scheme: dark\)\s*\{\s*:root:not\(\[data-theme="light"\]\)/.test(stylesCss);
+    const attr = /:root\[data-theme="dark"\]/.test(stylesCss);
+    if (media && attr) pass('both dark entry points present: :root:not([data-theme="light"]) and :root[data-theme="dark"]');
+    else fail(`dark entry points incomplete - media-query path ${media ? "ok" : "MISSING"}, attribute path ${attr ? "ok" : "MISSING"}`);
+    const missingIcons = [".theme-icon-dark", ".theme-icon-light"].filter((c) => !stylesCss.includes(c));
+    if (missingIcons.length) fail(`stylesheet has no rule for: ${missingIcons.join(", ")}`);
+    else pass("both toggle icon states are styled");
+  }
+}
+
 // --- summary ---------------------------------------------------------------
 
 console.log("\n" + "-".repeat(64));
