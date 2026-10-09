@@ -222,13 +222,17 @@ pre.sourceCode:hover > .code-copy-button > .bi::before, pre.sourceCode:hover > .
 
 .lcard-h .lcover-book { width: 100%; max-width: none; margin: 0; }
 
-.lcard-h .lbody { padding: 0; flex: 1 1 auto; min-width: 0; gap: 0.75rem; }
+.lcard-h .lbody { padding: 0; flex: 1 1 auto; min-width: 0; align-self: stretch; gap: 0.75rem; }
 
 .lcard-h .lbody .lout { margin-top: 0.25rem; }
 
 .lcard-h .lbody .lprereq { margin-top: 0.4rem; }
 
 .lcard-h .lbody details { margin-top: 0.5rem; }
+
+.lcard-h .lbody > section { display: flex; flex-direction: column; flex: 1 1 auto; justify-content: space-between; }
+
+.lcard-h .lbody > section > * { margin-bottom: 0; }
 
 .lcard-h .lactions { width: 100%; margin-top: 0; }
 

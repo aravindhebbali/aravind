@@ -1318,28 +1318,70 @@ box-shadow: 0 1px 2px var(--shadow-xs);
   // The card supplies the padding now. `min-width: 0` lets the body shrink
   // below its content width so long bullets and URLs wrap instead of forcing
   // the card wider than its column.
+  //
+  // `align-self: stretch` overrides the `align-items: flex-start` the card puts
+  // on both columns. Without it the body is only ever as tall as its own
+  // content, so there is never any slack to give away.
   .lbody {
     padding: 0;
     flex: 1 1 auto;
     min-width: 0;
+    align-self: stretch;
     // Every body child is margin:0, so this is the base seam.
     //
-    // `space-between` is not usable here: .lbody is currently the tallest
-    // column, so there is no free space for it to distribute, and anchoring the
-    // disclosure to the bottom would need a fixed min-height that breaks as soon
-    // as a one-liner wraps differently. Uneven seams do the job instead.
+    // `space-between` is not usable HERE: .lbody holds exactly two children -
+    // the eyebrow paragraph and the heading's <section> - so distributing over
+    // them would tear the eyebrow away from the title and leave the entire prose
+    // block hanging off it. The distribution happens inside the section instead,
+    // where there are four real seams. See the rule that follows.
     gap: 0.75rem;
 
     // Proximity. The eyebrow and the package name read as one unit and keep the
     // base gap. Everything below them is a distinct block and gets a real break,
-    // widening as the eye travels down the card:
-    //   12px  eyebrow -> name
-    //   16px  name -> description
-    //   18px  description -> note
-    //   20px  note -> What's inside
+    // widening as the eye travels down the card: 4px onto the one-liner, 6px
+    // onto the note, 8px onto the disclosure. These are the seams the section
+    // below distributes what is left of the rail's height across.
     .lout    { margin-top: 0.25rem; }
     .lprereq { margin-top: 0.4rem; }
     details  { margin-top: 0.5rem; }
+  }
+
+  // Pandoc nests the body's prose inside the heading's <section>, which is the
+  // only substantive child .lbody has. It becomes the column that distributes.
+  //
+  // `flex: 1 1 auto` claims what the rail leaves behind now that the body
+  // stretches to the rail's height, and `space-between` spends it down the
+  // seams: name -> one-liner -> meta -> note -> disclosure. The disclosure ends
+  // up opposite the last button in the rail instead of floating above the card
+  // edge, and the right side no longer reads as one crammed block.
+  //
+  // No-op on packages and apps, where the body is the taller column: there is no
+  // slack to claim, so both declarations resolve to nothing.
+  //
+  // `> * { margin-bottom: 0 }` is not tidying. Two things it has to override:
+  //
+  //  1. Bootstrap's `details { margin-bottom: 1em }`, i.e. 13.8px of its own.
+  //     Flex containers do not collapse margins, so that is reserved rather
+  //     than collapsed away, and `space-between` then strands it above the
+  //     card's bottom edge - the disclosure ends 13.8px short of the last
+  //     button in the rail, which is the whole point of distributing. Measured
+  //     without it: the seams run 7.1px each with 13.8px stranded; with it, the
+  //     same 7.1px per seam ends flush.
+  //  2. Quarto's `div.sourceCode { margin: 1em 0 }` on the apps page, which
+  //     collapsed with the `<details>` margin beneath it in block layout. As
+  //     siblings in a flex column the two sum instead of collapsing, which
+  //     quietly grew two apps cards by 8.5px before this rule was widened from
+  //     `> :last-child` to `> *`.
+  //
+  // With every bottom margin zeroed the column's seams are the margin-top values
+  // above plus the distribution - nothing hidden, nothing doubling up.
+  .lbody > section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: space-between;
+
+    > * { margin-bottom: 0; }
   }
 
   // Buttons run down the rail rather than across the card.
