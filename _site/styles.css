@@ -220,6 +220,8 @@ pre.sourceCode:hover > .code-copy-button > .bi::before, pre.sourceCode:hover > .
 
 .lcard-h .lside > p { flex: 0 0 auto; margin: 0; line-height: 0; }
 
+.lcard-h .lcover-book { width: 100%; max-width: none; margin: 0; }
+
 .lcard-h .lbody { padding: 0; flex: 1 1 auto; min-width: 0; gap: 0.75rem; }
 
 .lcard-h .lbody .lout { margin-top: 0.25rem; }
@@ -430,7 +432,7 @@ body:has(.privacy-consent) table { max-width: none; }
 
 main { max-width: 1100px; }
 
-@media (max-width: 575px) { .quarto-title-block .title { font-size: 1.9rem; } .hero-photo { float: none; display: block; margin: 0 auto 1.25rem; max-width: 60%; } .lgrid { grid-template-columns: 1fr; } .lpath { grid-template-columns: 1fr; } .lcover-book { max-width: 118px; } .lcard-h .lcover-hex { max-height: 84px; margin-right: 0.85rem; } }
+@media (max-width: 575px) { .quarto-title-block .title { font-size: 1.9rem; } .hero-photo { float: none; display: block; margin: 0 auto 1.25rem; max-width: 60%; } .lgrid { grid-template-columns: 1fr; } .lpath { grid-template-columns: 1fr; } .lcard-h .lcover-hex { max-height: 84px; margin-right: 0.85rem; } }
 
 @media (max-width: 900px) { .explore-grid { grid-template-columns: 1fr; } .lcomps { grid-template-columns: 1fr; } }
 

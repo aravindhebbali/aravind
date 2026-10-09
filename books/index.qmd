@@ -12,13 +12,22 @@ Six open textbooks, free to read online. Written with
 [Rsquared Academy](https://www.rsquaredacademy.com/). Every title can also be
 downloaded as a PDF or ePub.
 
+::: {.lgrid .lgrid-h}
 
-::: {.lgrid}
-
-::: {.lcard}
+::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/covers/intro-r.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Introduction to R"}
 
+::: {.lactions}
+[Read free online](https://intro-r.rsquaredacademy.com/){.labtn .primary}
+[PDF](https://intro-r.rsquaredacademy.com/Introduction-to-R.pdf){.labtn .dl}
+[ePub](https://intro-r.rsquaredacademy.com/Introduction-to-R.epub){.labtn .dl}
+[GitHub](https://github.com/rsquaredacademy-education/intro-r){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Core 01</span>
 
 ### [Introduction to R](https://intro-r.rsquaredacademy.com/)
@@ -28,13 +37,6 @@ downloaded as a PDF or ePub.
 <p class="lmeta"><span class="lpill beg">Beginner</span>13 chapters</p>
 
 <p class="lprereq">No prerequisites. Start here.</p>
-
-::: {.lactions}
-[Read free online](https://intro-r.rsquaredacademy.com/){.labtn .primary}
-[PDF](https://intro-r.rsquaredacademy.com/Introduction-to-R.pdf){.labtn .dl}
-[ePub](https://intro-r.rsquaredacademy.com/Introduction-to-R.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/intro-r){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -60,10 +62,20 @@ downloaded as a PDF or ePub.
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/covers/wrangle-r.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Data Wrangling with R"}
 
+::: {.lactions}
+[Read free online](https://wrangle-r.rsquaredacademy.com/){.labtn .primary}
+[PDF](https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.pdf){.labtn .dl}
+[ePub](https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.epub){.labtn .dl}
+[GitHub](https://github.com/rsquaredacademy-education/wrangle-r){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Core 02</span>
 
 ### [Data Wrangling with R](https://wrangle-r.rsquaredacademy.com/)
@@ -73,13 +85,6 @@ downloaded as a PDF or ePub.
 <p class="lmeta"><span class="lpill beg">Beginner</span><span class="lpill int">Intermediate</span>13 chapters</p>
 
 <p class="lprereq">Prereq: Core 01 Introduction to R.</p>
-
-::: {.lactions}
-[Read free online](https://wrangle-r.rsquaredacademy.com/){.labtn .primary}
-[PDF](https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.pdf){.labtn .dl}
-[ePub](https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/wrangle-r){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -107,10 +112,20 @@ downloaded as a PDF or ePub.
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/covers/viz-ggplot2.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Data Visualization with ggplot2"}
 
+::: {.lactions}
+[Read free online](https://viz-ggplot2.rsquaredacademy.com/){.labtn .primary}
+[PDF](https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.pdf){.labtn .dl}
+[ePub](https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.epub){.labtn .dl}
+[GitHub](https://github.com/rsquaredacademy-education/viz-ggplot2){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Core 03</span>
 
 ### [Data Visualization with ggplot2](https://viz-ggplot2.rsquaredacademy.com/)
@@ -120,13 +135,6 @@ downloaded as a PDF or ePub.
 <p class="lmeta"><span class="lpill int">Intermediate</span>22 chapters</p>
 
 <p class="lprereq">Prereq: Core 01 + Core 02.</p>
-
-::: {.lactions}
-[Read free online](https://viz-ggplot2.rsquaredacademy.com/){.labtn .primary}
-[PDF](https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.pdf){.labtn .dl}
-[ePub](https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/viz-ggplot2){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -163,10 +171,21 @@ downloaded as a PDF or ePub.
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/covers/rdbsql.svg){.lcover .lcover-book width=300 height=400 alt="Cover: R, Databases and SQL"}
 
+::: {.lactions}
+[Read free online](https://rdbsql.rsquaredacademy.com/){.labtn .primary}
+[PDF](https://rdbsql.rsquaredacademy.com/databases-and-sql.pdf){.labtn .dl}
+[ePub](https://rdbsql.rsquaredacademy.com/databases-and-sql.epub){.labtn .dl}
+[Cheatsheet](https://rdbsql.rsquaredacademy.com/cheatsheet/dbi-cheatsheet.pdf){.labtn .dl}
+[GitHub](https://github.com/rsquaredacademy-education/rdbsql){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Core 04</span>
 
 ### [R, Databases & SQL](https://rdbsql.rsquaredacademy.com/)
@@ -176,14 +195,6 @@ downloaded as a PDF or ePub.
 <p class="lmeta"><span class="lpill int">Intermediate</span>5 chapters</p>
 
 <p class="lprereq">Prereq: Core 02. Already querying in SQL? Take 04 straight after 02.</p>
-
-::: {.lactions}
-[Read free online](https://rdbsql.rsquaredacademy.com/){.labtn .primary}
-[PDF](https://rdbsql.rsquaredacademy.com/databases-and-sql.pdf){.labtn .dl}
-[ePub](https://rdbsql.rsquaredacademy.com/databases-and-sql.epub){.labtn .dl}
-[Cheatsheet](https://rdbsql.rsquaredacademy.com/cheatsheet/dbi-cheatsheet.pdf){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/rdbsql){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -203,10 +214,20 @@ downloaded as a PDF or ePub.
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/covers/bash-intro.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Command Line Basics"}
 
+::: {.lactions}
+[Read free online](https://bash-intro.rsquaredacademy.com/){.labtn .primary}
+[PDF](https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.pdf){.labtn .dl}
+[ePub](https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.epub){.labtn .dl}
+[GitHub](https://github.com/rsquaredacademy-education/bash-intro){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Companion A</span>
 
 ### [Command Line Basics](https://bash-intro.rsquaredacademy.com/)
@@ -216,13 +237,6 @@ downloaded as a PDF or ePub.
 <p class="lmeta"><span class="lpill beg">Beginner</span>12 chapters</p>
 
 <p class="lprereq">No prerequisites. Take alongside Core 01.</p>
-
-::: {.lactions}
-[Read free online](https://bash-intro.rsquaredacademy.com/){.labtn .primary}
-[PDF](https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.pdf){.labtn .dl}
-[ePub](https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/bash-intro){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>
@@ -249,10 +263,20 @@ downloaded as a PDF or ePub.
 :::
 :::
 
-::: {.lcard}
+::: {.lcard .lcard-h}
+::: {.lside}
 ![](../images/covers/viz-base.svg){.lcover .lcover-book width=300 height=400 alt="Cover: Data Visualization with Base R"}
 
+::: {.lactions}
+[Read free online](https://viz-base.rsquaredacademy.com/){.labtn .primary}
+[PDF](https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.pdf){.labtn .dl}
+[ePub](https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.epub){.labtn .dl}
+[GitHub](https://github.com/rsquaredacademy-education/viz-base){.labtn}
+:::
+:::
+
 ::: {.lbody}
+
 <span class="ltrack">Companion B</span>
 
 ### [Data Visualization with Base R](https://viz-base.rsquaredacademy.com/)
@@ -262,13 +286,6 @@ downloaded as a PDF or ePub.
 <p class="lmeta"><span class="lpill int">Intermediate</span>12 chapters</p>
 
 <p class="lprereq">After Core 03, if you need fine-grained canvas control. Requires R 4.1+.</p>
-
-::: {.lactions}
-[Read free online](https://viz-base.rsquaredacademy.com/){.labtn .primary}
-[PDF](https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.pdf){.labtn .dl}
-[ePub](https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/viz-base){.labtn}
-:::
 
 <details>
 <summary>What's inside</summary>

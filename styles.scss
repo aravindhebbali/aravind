@@ -1304,6 +1304,17 @@ box-shadow: 0 1px 2px var(--shadow-xs);
     line-height: 0;
   }
 
+  // The one cover that cannot be sized by height alone: book covers are 3:4,
+  // so they are capped by width instead. They fill the rail rather than being
+  // held at the 132px the vertical layout gave them, because a rail-narrow cover
+  // would leave a visible gap either side of it. The bottom margin is dropped
+  // - `.lside`'s `gap` already separates the cover from the buttons.
+  .lcover-book {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
   // The card supplies the padding now. `min-width: 0` lets the body shrink
   // below its content width so long bullets and URLs wrap instead of forcing
   // the card wider than its column.
@@ -2081,7 +2092,6 @@ main { max-width: $wide; }
   }
   .lgrid { grid-template-columns: 1fr; }
   .lpath { grid-template-columns: 1fr; }
-  .lcover-book { max-width: 118px; }
   .lcard-h .lcover-hex { max-height: 84px; margin-right: 0.85rem; }
 }
 
@@ -2112,7 +2122,10 @@ main { max-width: $wide; }
 // hex still takes ~26% of the card width (body 168px at 320px, 223px at 375px,
 // 262px at 414px). Accepted deliberately - the card stays functional, just
 // tall. Do not "fix" this by stacking `.lcard-h` vertically; revisit only if
-// the books page becomes hard to read on a phone.
+// the books page becomes hard to read on a phone. NOTE: the books page moved
+// to this layout, and there is no longer a separate `.lcover-book` rail width
+// to cap at 575px - the cover fills the rail, which is 108px at every
+// breakpoint, so nothing below overrides it.
 @media (max-width: 960px) {
   .lgrid { grid-template-columns: repeat(2, 1fr); }
   .lgrid-h { grid-template-columns: 1fr; }
