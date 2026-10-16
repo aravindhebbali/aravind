@@ -30,7 +30,7 @@ installed. Copy the two lines, paste them into the console, and the app opens.
 ::: {.lactions}
 [Docs](https://olsrr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=olsrr){.labtn}
-[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/olsrr){.labtn}
 :::
 :::
 
@@ -60,7 +60,7 @@ olsrr::ols_launch_app()
 ::: {.lactions}
 [Docs](https://blorr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=blorr){.labtn}
-[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/blorr){.labtn}
 :::
 :::
 
@@ -126,7 +126,7 @@ rfm::rfm_launch_app()
 ::: {.lactions}
 [Docs](https://descriptr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=descriptr){.labtn}
-[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/descriptr){.labtn}
 :::
 :::
 
@@ -156,7 +156,7 @@ descriptr::ds_launch_shiny_app()
 ::: {.lactions}
 [Docs](https://inferr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=inferr){.labtn}
-[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/inferr){.labtn}
 :::
 :::
 
@@ -233,7 +233,7 @@ package, start here.
 ::: {.lactions}
 [Docs](https://xplorerr.rsquaredacademy.com){.labtn}
 [CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
-[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/xplorerr){.labtn}
 :::
 :::
 

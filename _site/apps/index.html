@@ -104,368 +104,731 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <!-- TODO(roadmap 4): add X to the sameAs array once an X handle exists. Do not
+
      add twitter:site / twitter:creator meta until then - both pointed at a
+
      nonexistent account (@hebbaliaravind is a 404) and were removed. -->
 
+
+
 <!-- GA4 consent gate.
+
      This used to hold a bare <script async src=".../gtag/js"> plus an inline
+
      config block, which set _ga cookies with no consent step and no banner
+
      anywhere on the site. It now defines the gate below and creates the gtag
+
      loader dynamically *after* the visitor chooses, so nothing reaches Google
+
      before then and nothing at all without JavaScript.
 
+
+
      The gate is INLINED here rather than kept as consent.js on purpose. Quarto
+
      rewrites asset paths in markup it generates, but `include-in-header`
+
      content is copied verbatim - so `<script src="consent.js">` resolved to
+
      /consent.js on the root page but /packages/consent.js, /apps/consent.js and
+
      /books/consent.js on the nested ones, and all three 404ed. That is
+
      gotcha #1 wearing a different hat. A root-absolute /consent.js would work
+
      but breaks if the site is ever served from a subpath, and inlining costs
+
      nothing: script-src already needs 'unsafe-inline' for Quarto's own inline
+
      bootstrap, and an inline block is re-read on each page load anyway rather
+
      than being separately cacheable.
 
+
+
      The loader it creates points at https://www.googletagmanager.com, which
+
      _headers permits in script-src, and the beacons go to
+
      https://www.google-analytics.com and https://region1.google-analytics.com
+
      in connect-src.
 
+
+
      The banner markup lives in consent-banner.html, injected on every page by
+
      `include-before-body` in _quarto.yml, so it cannot drift per-page.
 
+
+
      Blocking on purpose: the Consent Mode v2 default is set before config, and
+
      running inline means the choice is made before gtag.js executes rather than
+
      racing it. -->
+
 <script>
+
 (function () {
+
   "use strict";
 
+
+
   var MEASUREMENT_ID = "G-7JN5Q48PQP";
+
   var STORAGE_KEY = "ga-consent";
 
+
+
   // Consent Mode v2 signals. `denied` for everything except security_storage,
+
   // which is always granted and is not a user-facing storage category. The
+
   // advertisement_* signals are set even though no ad or remarketing tag runs
+
   // here - they are required fields for a valid v2 default, and omitting them is
+
   // what produces an "invalid consent" warning in GA4.
+
   //
+
   // The alternative here - letting gtag.js load immediately with
+
   // analytics_storage defaulting to "denied", so cookieless pings flow before
+
   // any choice - is Google's "advanced consent mode". Not used: it still sends
+
   // an undecided visitor's data to Google. "Essential only" below keeps
+
   // cookieless measurement, but only AFTER the visitor has been asked.
+
   var DENIED = {
+
     ad_storage: "denied",
+
     ad_user_data: "denied",
+
     ad_personalization: "denied",
+
     analytics_storage: "denied",
+
     functionality_storage: "denied",
+
     personalization_storage: "denied",
+
     security_storage: "granted",
+
   };
 
+
+
   function readChoice() {
+
     try {
+
       var v = window.localStorage.getItem(STORAGE_KEY);
+
       // Anything else - absent, "maybe", a value from an older format - is
+
       // treated as undecided rather than obeyed.
+
       return v === "granted" || v === "denied" ? v : null;
+
     } catch (e) {
+
       return null;
+
     }
+
   }
 
+
+
   function writeChoice(value) {
+
     try {
+
       window.localStorage.setItem(STORAGE_KEY, value);
+
     } catch (e) {
+
       // Private mode with storage disabled. The choice still applies to this
+
       // page view; it just will not be remembered next time.
+
     }
+
   }
+
+
 
   var loaded = false;
 
+
+
   function loadGA4(choice) {
+
     if (loaded) return;
+
     loaded = true;
 
+
+
     window.dataLayer = window.dataLayer || [];
+
     function gtag() { window.dataLayer.push(arguments); }
+
     window.gtag = window.gtag || gtag;
 
+
+
     // Consent must be set before config, and before the library loads, or GA4
+
     // records an unconsented hit.
+
     gtag("consent", "default", DENIED);
+
     if (choice === "granted") {
+
       gtag("consent", "update", {
+
         ad_storage: "granted",
+
         ad_user_data: "granted",
+
         ad_personalization: "granted",
+
         analytics_storage: "granted",
+
         functionality_storage: "granted",
+
         personalization_storage: "granted",
+
       });
+
     }
+
     gtag("js", new Date());
+
     gtag("config", MEASUREMENT_ID);
 
+
+
     var s = document.createElement("script");
+
     s.async = true;
+
     s.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
+
     document.head.appendChild(s);
+
   }
+
+
 
   function hideBanner() {
+
     var el = document.getElementById("consent-banner");
+
     if (el) el.remove();
+
   }
+
+
 
   function decide(choice) {
+
     writeChoice(choice);
+
     hideBanner();
+
     loadGA4(choice);
+
   }
+
+
 
   // The withdrawal controls on /privacy/ change the choice outside the banner,
+
   // so they announce it with this event rather than duplicating the load logic.
+
   // Named to match the localStorage key so the two cannot drift apart.
+
   //
+
   // Only "granted" and "denied" mean anything. /privacy/ sends null for "Forget
+
   // my choice", and an earlier version of this guard tested for the string
+
   // "reset" instead - so null fell through and loaded analytics on the very
+
   // page where the visitor had just withdrawn it. Whitelist, don't blacklist.
+
   function applyExternalChoice(choice) {
+
     hideBanner();
+
     if (choice !== "granted" && choice !== "denied") return;
+
     loadGA4(choice);
+
   }
+
+
 
   window.addEventListener("ga-consent-changed", function (e) {
+
     applyExternalChoice(e && e.detail);
+
   });
+
+
 
   function init() {
+
     var existing = readChoice();
+
     if (existing) {
+
       hideBanner();
+
       loadGA4(existing);
+
       return;
+
     }
 
+
+
     var banner = document.getElementById("consent-banner");
+
     if (!banner) return;
 
+
+
     var accept = document.getElementById("consent-accept");
+
     var deny = document.getElementById("consent-deny");
+
     if (accept) accept.addEventListener("click", function () { decide("granted"); });
+
     if (deny) deny.addEventListener("click", function () { decide("denied"); });
 
+
+
     // Focus the region rather than a button: it announces the prompt without
+
     // letting Enter accept something the visitor has not read.
+
     banner.focus();
+
   }
+
+
 
   if (document.readyState === "loading") {
+
     document.addEventListener("DOMContentLoaded", init);
+
   } else {
+
     init();
+
   }
 
+
+
   // Accepting in one tab should clear the banner in the others, so a visitor
+
   // with the site open twice is not asked twice.
+
   window.addEventListener("storage", function (e) {
+
     if (e.key !== STORAGE_KEY) return;
+
     var v = e.newValue;
+
     if (v !== "granted" && v !== "denied") return;
+
     hideBanner();
+
     loadGA4(v);
+
   });
+
 })();
+
 </script>
+
+
 
 <!-- Dark-mode flash guard.
 
+
+
      The colours themselves live in styles.css behind prefers-color-scheme, which
+
      is the right mechanism: the browser knows the preference before the first
+
      byte of CSS arrives, so no script is involved in choosing the theme.
 
+
+
      But `color-scheme` in that stylesheet is not enough on its own. Until
+
      styles.css has been fetched and parsed, the UA has no idea this document
+
      supports a dark scheme, and paints the default canvas white. On a fast
+
      connection that is a few frames; on 4G it is long enough to see.
 
+
+
      This meta tag is the standard fix. `color-scheme` in <meta> is applied by the
+
      parser, before any stylesheet, so the canvas is dark from the very first
+
      paint. Declaring it here is not a duplicate of the CSS rule - the CSS
+
      `color-scheme: light dark` handles UA widget rendering for the rest of the
+
      page, and this handles the pre-CSS moment the CSS cannot cover.
 
+
+
      MEASURED, both directions, in Chrome with every stylesheet blocked at the
+
      network layer and prefers-color-scheme: dark, reading the first painted
+
      pixel:
 
+
+
        meta present   -> rgb(18,18,18)    the UA dark canvas
+
        meta REMOVED   -> rgb(255,255,255) the regression this tag exists to stop
+
        meta present,
+
          CSS served    -> rgb(15,23,42)    --surface, i.e. the real scheme
 
+
+
      The middle case is the point: without this line the tag is not a
+
      belt-and-braces extra, it is the only thing standing between a dark-mode
+
      visitor and a white flash.
 
+
+
      One trap found while testing this, worth recording. Blocking ONLY
+
      styles.css - which is the obvious way to write the test - shows no
+
      difference between the two cases, because cosmo's own stylesheet sets the
+
      body background to #f8f9fa and arrives anyway. The tag only governs the
+
      canvas the UA paints before ANY stylesheet lands, so the test has to block
+
      all of them or it measures nothing. A first version of this check passed
+
      vacuously for exactly that reason.
 
+
+
      Kept in step with styles.scss by hand. It is one line and the value is
+
      `light dark`, which is preference-agnostic, so the two cannot drift into
+
      disagreeing about which scheme applies. -->
+
 <meta name="color-scheme" content="light dark">
+
+
 
 <!-- Theme-choice resolver.
 
+
+
      Placed immediately after the meta above, and it OVERRIDES it rather than
+
      replacing it. The order is the point:
 
+
+
        no JS at all      the meta applies  -> the UA picks per system preference
+
        JS runs           the inline style below wins (CSS origin beats the UA's
+
                          colour-scheme from <meta>) -> the visitor's stored choice
 
+
+
      So the meta is still the no-JS fallback, and nothing about the existing
+
      behaviour changes for a first-time visitor: with no stored choice this
+
      script sets `data-theme` to whatever the system says, which is exactly what
+
      the media query in styles.css would have done on its own.
 
+
+
      It has to run here, in <head>, before the body is parsed, for two reasons.
+
      The first paint is the canvas colour: setting `style.colorScheme` after the
+
      body has painted means a dark-preference visitor gets a white frame first,
+
      which is the entire failure the meta above exists to prevent. And
+
      `data-theme` has to be on <html> before the first style resolution, or the
+
      page renders in the wrong scheme and then snaps.
 
+
+
      Measured, same method as the meta: every stylesheet blocked, dark system
+
      preference, first painted pixel.
 
+
+
        stored light, system dark   rgb(255,255,255)   <- the override works
+
        stored dark,  system light  rgb(18,18,18)      <- and does not flash white
+
        no stored choice, no JS     rgb(255,255,255)   <- meta still carries it
 
+
+
      `localStorage` can THROW, not just return null: Safari in private mode and
+
      any browser with site data blocked reject the access. So every read and
+
      write is wrapped, and a failure falls through to "follow the system" rather
+
      than leaving the page unstyled. A toggle that breaks the whole page when
+
      storage is unavailable is worse than no toggle.
 
+
+
      The stored value is validated against a whitelist rather than interpolated
+
      into the attribute unchecked - `data-theme` is a selector that styles.scss
+
      matches on, so an arbitrary string from storage must never reach it. This is
+
      the same bug as 3.26: the consent gate whitelisted "granted"/"denied"
+
      instead of blacklisting, and the one case that mattered was the one that
+
      fell through. -->
+
 <script>
+
 (function () {
+
   var KEY = "theme";
+
   var VALID = ["light", "dark"];
 
+
+
   function stored() {
+
     try {
+
       var v = window.localStorage.getItem(KEY);
+
       // indexOf, not `===` against a literal: the point is that only these two
+
       // strings may reach the attribute, and an unknown value is treated as
+
       // absent rather than trusted.
+
       return VALID.indexOf(v) !== -1 ? v : null;
+
     } catch (e) {
+
       return null;   // storage blocked or unavailable - follow the system
+
     }
+
   }
+
+
 
   function persist(v) {
+
     try { window.localStorage.setItem(KEY, v); } catch (e) { /* non-fatal */ }
+
   }
+
+
 
   var root = document.documentElement;
+
   var choice = stored();
 
+
+
   if (!choice) {
+
     choice = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+
       ? "dark" : "light";
+
   } else {
+
     persist(choice);   // re-assert, so a stale key cannot outlive a change
+
   }
+
+
 
   root.setAttribute("data-theme", choice);
+
   root.style.colorScheme = choice;
 
+
+
   // The button is injected into the navbar by post-render.R, so it does not exist
+
   // yet at this point. The click handler is therefore delegated from <html>,
+
   // which costs nothing and survives the button arriving later.
+
   document.addEventListener("click", function (e) {
+
     var btn = e.target && e.target.closest && e.target.closest(".theme-toggle");
+
     if (!btn) return;
+
     var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
     root.setAttribute("data-theme", next);
+
     root.style.colorScheme = next;
+
     persist(next);
+
   });
 
+
+
   // Follow the system again if the visitor has expressed no stored preference -
+
   // that is the case where their OS setting is meant to be the source of truth.
+
   // With an explicit choice stored, a system change must NOT override it.
+
   if (window.matchMedia) {
+
     var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
     var onChange = function () {
+
       if (stored()) return;
+
       var next = mq.matches ? "dark" : "light";
+
       root.setAttribute("data-theme", next);
+
       root.style.colorScheme = next;
+
     };
+
     if (mq.addEventListener) mq.addEventListener("change", onChange);
+
     else if (mq.addListener) mq.addListener(onChange);   // Safari < 14
+
   }
+
 })();
+
 </script>
 
+
+
 <!-- Quarto emits og:image / twitter:image from each page's `image:` field but
+
      has no front-matter option for the dimensions, and roadmap section 6 asks
+
      for them explicitly. Every page shares one card, images/og-card.jpg, so the
+
      values are constant and belong here rather than in each .qmd.
+
      Verified: the file is 1200x630. -->
+
 <meta property="og:image:width" content="1200">
+
 <meta property="og:image:height" content="630">
+
 <meta property="og:image:type" content="image/jpeg">
+
 <meta name="twitter:image:width" content="1200">
+
 <meta name="twitter:image:height" content="630">
 
+
+
 <script type="application/ld+json">
+
 {
+
   "@context": "https://schema.org",
+
   "@type": "Person",
+
   "name": "Aravind Hebbali",
+
   "url": "https://www.aravindhebbali.com/",
+
   "jobTitle": "Principal Quantitative Consultant & Software Engineer",
+
   "alumniOf": {
+
     "@type": "CollegeOrUniversity",
+
     "name": "Madras School of Economics"
+
   },
+
   "knowsAbout": [
+
     "R",
+
     "Econometrics",
+
     "Statistical Modeling",
+
     "Data Engineering",
+
     "Go",
+
     "Python"
+
   ],
+
   "sameAs": [
+
     "https://github.com/aravindhebbali",
+
     "https://www.linkedin.com/in/aravind-hebbali-b6553831/",
+
     "https://www.rsquaredacademy.com/"
+
   ]
+
 }
+
 </script>
 
 
@@ -595,7 +958,7 @@ Browser hosting has been retired
 <div class="lside">
 <p><img src="../images/hex-olsrr.webp" class="lcover lcover-hex" alt="olsrr hex sticker" width="360" height="417"></p>
 <div class="lactions">
-<p><a href="https://olsrr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=olsrr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/olsrr" class="labtn">GitHub</a></p>
+<p><a href="https://olsrr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=olsrr" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/olsrr" class="labtn">GitHub</a></p>
 </div>
 </div>
 <div class="lbody">
@@ -617,7 +980,7 @@ Interactive diagnostics for a fitted <code>lm</code> model.
 <div class="lside">
 <p><img src="../images/hex-blorr.webp" class="lcover lcover-hex" alt="blorr hex sticker" width="360" height="417"></p>
 <div class="lactions">
-<p><a href="https://blorr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=blorr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/blorr" class="labtn">GitHub</a></p>
+<p><a href="https://blorr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=blorr" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/blorr" class="labtn">GitHub</a></p>
 </div>
 </div>
 <div class="lbody">
@@ -666,7 +1029,7 @@ Point it at transaction- or customer-level data.
 <div class="lside">
 <p><img src="../images/hex-descriptr.webp" class="lcover lcover-hex" alt="descriptr hex sticker" width="360" height="417"></p>
 <div class="lactions">
-<p><a href="https://descriptr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=descriptr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/descriptr" class="labtn">GitHub</a></p>
+<p><a href="https://descriptr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=descriptr" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/descriptr" class="labtn">GitHub</a></p>
 </div>
 </div>
 <div class="lbody">
@@ -688,7 +1051,7 @@ A visual front end to the descriptr functions.
 <div class="lside">
 <p><img src="../images/hex-inferr.webp" class="lcover lcover-hex" alt="inferr hex sticker" width="360" height="417"></p>
 <div class="lactions">
-<p><a href="https://inferr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=inferr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/inferr" class="labtn">GitHub</a></p>
+<p><a href="https://inferr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=inferr" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/inferr" class="labtn">GitHub</a></p>
 </div>
 </div>
 <div class="lbody">
@@ -745,7 +1108,7 @@ Adjust the parameters and watch the density update.
 <div class="lside">
 <p><img src="../images/hex-xplorerr.webp" class="lcover lcover-hex" alt="xplorerr hex sticker" width="360" height="417"></p>
 <div class="lactions">
-<p><a href="https://xplorerr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=xplorerr" class="labtn">CRAN</a> <a href="https://github.com/aravindhebbali/xplorerr" class="labtn">GitHub</a></p>
+<p><a href="https://xplorerr.rsquaredacademy.com" class="labtn">Docs</a> <a href="https://cran.r-project.org/package=xplorerr" class="labtn">CRAN</a> <a href="https://github.com/rsquaredacademy/xplorerr" class="labtn">GitHub</a></p>
 </div>
 </div>
 <div class="lbody">

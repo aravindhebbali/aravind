@@ -78,7 +78,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=olsrr){.labtn}
-[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/olsrr){.labtn}
 [Docs](https://olsrr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -115,7 +115,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
-[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/xplorerr){.labtn}
 [Docs](https://xplorerr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -187,7 +187,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=descriptr){.labtn}
-[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/descriptr){.labtn}
 [Docs](https://descriptr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -260,7 +260,7 @@ Major bugs get fixed quickly. Feature requests are considered but not promised.
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=blorr){.labtn}
-[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/blorr){.labtn}
 [Docs](https://blorr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -299,7 +299,7 @@ for visualizing probability distributions,
 [inferr](https://cran.r-project.org/package=inferr) for inferential statistics,
 [yahoofinancer](https://cran.r-project.org/package=yahoofinancer) for Yahoo!
 Finance data, and [standby](https://cran.r-project.org/package=standby) for
-managing R processes. [nse2r](https://github.com/rsquaredacademy/nse2r) is
+alerts, notifications and loading screens in Shiny. [nse2r](https://github.com/rsquaredacademy/nse2r) is
 archived and under revival. Full reference documentation and vignettes:
 [Packages](packages/).
 

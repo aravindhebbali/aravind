@@ -27,7 +27,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=olsrr){.labtn}
-[GitHub](https://github.com/aravindhebbali/olsrr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/olsrr){.labtn}
 [Docs](https://olsrr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -64,7 +64,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=blorr){.labtn}
-[GitHub](https://github.com/aravindhebbali/blorr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/blorr){.labtn}
 [Docs](https://blorr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -101,7 +101,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=xplorerr){.labtn}
-[GitHub](https://github.com/aravindhebbali/xplorerr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/xplorerr){.labtn}
 [Docs](https://xplorerr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -144,7 +144,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=descriptr){.labtn}
-[GitHub](https://github.com/aravindhebbali/descriptr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/descriptr){.labtn}
 [Docs](https://descriptr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -179,7 +179,7 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=inferr){.labtn}
-[GitHub](https://github.com/aravindhebbali/inferr){.labtn}
+[GitHub](https://github.com/rsquaredacademy/inferr){.labtn}
 [Docs](https://inferr.rsquaredacademy.com){.labtn}
 :::
 :::
@@ -331,15 +331,11 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 
 ## Utilities {#utilities}
 
-::: {.lgrid}
+::: {.lgrid .lgrid-h}
 
-::: {.lcard}
-::: {.lbody}
-<span class="ltrack util">Utility</span>
-
-### [yahoofinancer](https://yahoofinancer.rsquaredacademy.com)
-
-<p class="lout">Fetch stock and index data from Yahoo! Finance.</p>
+::: {.lcard .lcard-h}
+::: {.lside}
+![](../images/hex-yahoofinancer.webp){.lcover .lcover-hex width=360 height=417 alt="yahoofinancer hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=yahoofinancer){.labtn}
@@ -348,15 +344,37 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
-:::
-
-::: {.lcard}
 ::: {.lbody}
+
 <span class="ltrack util">Utility</span>
 
-### [standby](https://standby.rsquaredacademy.com)
+### [yahoofinancer](https://yahoofinancer.rsquaredacademy.com)
 
-<p class="lout">Save, load and manage R processes and sessions.</p>
+<p class="lout">Fetch data from the Yahoo Finance API.</p>
+
+<p class="lprereq">Historical and near real-time data on stocks, indices and currencies.</p>
+
+
+<details>
+<summary>What's inside</summary>
+
+- Historical Prices
+- Real-time Quotes
+- Financial Statements
+- Valuation Metrics
+- Currency Conversion
+- Market Indices
+- Market Summary
+- Trending Tickers
+- Multi-ticker Queries
+
+</details>
+:::
+:::
+
+::: {.lcard .lcard-h}
+::: {.lside}
+![](../images/hex-standby.webp){.lcover .lcover-hex width=360 height=417 alt="standby hex sticker"}
 
 ::: {.lactions}
 [CRAN](https://cran.r-project.org/package=standby){.labtn}
@@ -365,6 +383,29 @@ Full descriptions and vignettes: [pkgs.rsquaredacademy.com](https://pkgs.rsquare
 :::
 :::
 
+::: {.lbody}
+
+<span class="ltrack util">Utility</span>
+
+### [standby](https://standby.rsquaredacademy.com)
+
+<p class="lout">Alerts, notifications and loading screens in Shiny.</p>
+
+<p class="lprereq">Add alerts, notifications, modals, info tips and loading screens to Shiny apps.</p>
+
+
+<details>
+<summary>What's inside</summary>
+
+- Loading Screens for Shiny Outputs
+- Spinners and Loaders
+- Alerts and Modals
+- Notifications and Toasts
+- Tooltips
+- Preview Alerts and Spinners
+
+</details>
+:::
 :::
 
 :::
