@@ -22,7 +22,7 @@ downloaded as a PDF or ePub.
 [Read free online](https://intro-r.rsquaredacademy.com/){.labtn .primary}
 [PDF](https://intro-r.rsquaredacademy.com/Introduction-to-R.pdf){.labtn .dl}
 [ePub](https://intro-r.rsquaredacademy.com/Introduction-to-R.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/intro-r){.labtn}
+[GitHub](https://github.com/rsquaredacademy-publications/intro-r){.labtn}
 :::
 :::
 
@@ -70,7 +70,7 @@ downloaded as a PDF or ePub.
 [Read free online](https://wrangle-r.rsquaredacademy.com/){.labtn .primary}
 [PDF](https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.pdf){.labtn .dl}
 [ePub](https://wrangle-r.rsquaredacademy.com/Data-Wrangling-with-R.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/wrangle-r){.labtn}
+[GitHub](https://github.com/rsquaredacademy-publications/wrangle-r){.labtn}
 :::
 :::
 
@@ -120,7 +120,7 @@ downloaded as a PDF or ePub.
 [Read free online](https://viz-ggplot2.rsquaredacademy.com/){.labtn .primary}
 [PDF](https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.pdf){.labtn .dl}
 [ePub](https://viz-ggplot2.rsquaredacademy.com/Data-Visualization-with-ggplot2.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/viz-ggplot2){.labtn}
+[GitHub](https://github.com/rsquaredacademy-publications/viz-ggplot2){.labtn}
 :::
 :::
 
@@ -180,7 +180,7 @@ downloaded as a PDF or ePub.
 [PDF](https://rdbsql.rsquaredacademy.com/databases-and-sql.pdf){.labtn .dl}
 [ePub](https://rdbsql.rsquaredacademy.com/databases-and-sql.epub){.labtn .dl}
 [Cheatsheet](https://rdbsql.rsquaredacademy.com/cheatsheet/dbi-cheatsheet.pdf){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/rdbsql){.labtn}
+[GitHub](https://github.com/rsquaredacademy-publications/rdbsql){.labtn}
 :::
 :::
 
@@ -222,7 +222,7 @@ downloaded as a PDF or ePub.
 [Read free online](https://bash-intro.rsquaredacademy.com/){.labtn .primary}
 [PDF](https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.pdf){.labtn .dl}
 [ePub](https://bash-intro.rsquaredacademy.com/Command-Line-Basics-for-R-Users.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/bash-intro){.labtn}
+[GitHub](https://github.com/rsquaredacademy-publications/bash-intro){.labtn}
 :::
 :::
 
@@ -271,7 +271,7 @@ downloaded as a PDF or ePub.
 [Read free online](https://viz-base.rsquaredacademy.com/){.labtn .primary}
 [PDF](https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.pdf){.labtn .dl}
 [ePub](https://viz-base.rsquaredacademy.com/Data-Visualization-with-R.epub){.labtn .dl}
-[GitHub](https://github.com/rsquaredacademy-education/viz-base){.labtn}
+[GitHub](https://github.com/rsquaredacademy-publications/viz-base){.labtn}
 :::
 :::
 
