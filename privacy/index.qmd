@@ -6,16 +6,18 @@ This page says exactly what happens when you visit this site, including the
 parts that are less convenient to read. It is written to be short and specific
 rather than comprehensive, because a policy nobody finishes is not a policy.
 
-**Last reviewed: 7 October 2026.**
+**Last reviewed: 17 October 2026.**
 
 ## The short version
 
 - The site is a static set of pages hosted by Netlify. There is no server-side
   code, no database, no account, and nothing to sign up for.
-- It sets **no cookies** and runs **no advertising or remarketing tags**.
-- **Nothing on this page is loaded from an advertising or analytics company
-  unless you agree to it.** Google Analytics waits for your consent, as described
-  below.
+- It runs **no advertising or remarketing tags**. The only cookies are Google
+  Analytics' and one that remembers your consent choice.
+- **Google Analytics counts visits.** Visitors in the European Economic Area, the
+  United Kingdom and Switzerland are asked first, and nothing is stored for them
+  unless they accept. Everyone else is counted by default and can switch it off
+  at any time with one link (see [Changing your mind](#changing-your-mind)).
 - The typeface is served from this site's own domain. Fonts used to come from
   Google before you were asked; they no longer do.
 - Nothing you type here reaches me. There is no form on this site.
@@ -30,13 +32,13 @@ is worth telling me about.
 
 | Who | What | When | Before you are asked? |
 |---|---|---|---|
-| Google | Analytics 4, to count visits | Only after you accept or choose "essential only" | **No** |
+| Google | Analytics 4, to count visits | Every page, unless you have switched it off | In the EEA, UK and Switzerland: **no**. Elsewhere: yes |
 | Netlify | Serves the files | Every page | Yes |
 
 **Source Sans Pro used to be the awkward one.** The Bootstrap theme this site
 uses included a stylesheet rule that pulled the font from
 `fonts.googleapis.com`, which reached Google before the consent banner was
-answered and necessarily disclosed your IP address in the process. The font is
+loaded and necessarily disclosed your IP address in the process. The font is
 now hosted on this site's own domain and that rule has been removed, so no
 request to Google is made for type at all.
 
@@ -59,7 +61,7 @@ sites have their own policies.
 Used for one purpose: knowing which pages get read. It is configured for basic
 page measurement, with no advertising or conversion features.
 
-If you accept, a page view sends Google the page you are on and its title, the
+With analytics on, a page view sends Google the page you are on and its title, the
 page you came from, your approximate country and city derived from your IP
 address, your browser, operating system, screen resolution and language, and an
 identifier stored in a cookie so your visits can be grouped. The IP address
@@ -78,79 +80,33 @@ Two things you should know that are easy to miss:
   click identifiers are sent and your visits here are not connected to any ad
   profile I control.
 
-If you choose "essential only", the tag still loads so I can see that a page was
-viewed, but with storage denied. You get an anonymous page count and **no
-cookie is set**.
+**How consent works.** The site uses Google's Consent Mode. If you are in the
+European Economic Area, the United Kingdom or Switzerland, analytics storage
+starts as denied and a banner asks you; until you accept, no analytics cookie is
+set. Your region is worked out by Google from your IP address, and the banner
+itself appears when your browser's time zone is in Europe. Everywhere else,
+analytics storage starts as granted. Advertising storage is denied for everyone,
+always.
+
+This is the same setup used across Rsquared Academy's sites, and the same as
+`blog.aravindhebbali.com`, so one choice applies to both of my sites.
 
 ## Cookies
 
 | Cookie | Set when | Purpose | Lifetime |
 |---|---|---|---|
-| `_ga`, `_ga_G-7JN5Q48PQP` | You accept analytics | Distinguishes you from other visitors | 2 years |
-| `ga-consent` | You make a choice | Remembers it so you are not asked again | Until you clear it |
+| `_ga`, `_ga_<ID>` | Analytics is on (by default outside Europe, or after you accept) | Distinguishes you from other visitors | 2 years |
+| `rsa_consent` | You accept, decline or switch analytics off | Remembers your choice so you are not asked again, on `aravindhebbali.com` and its subdomains | 180 days |
 
-`ga-consent` is a `localStorage` entry rather than a cookie, and it never
-leaves your browser — it is only read to avoid showing you the banner again.
-
-If you decline analytics, **no cookies are set by this site at all.**
+If you decline or switch analytics off, **no analytics cookies are set**; only
+`rsa_consent` remains, to remember that choice.
 
 ## Changing your mind
 
-You can withdraw or change your choice at any time. It takes effect on your
-next page view.
-
-<div class="privacy-consent" id="privacy-consent-controls">
-  <p class="privacy-consent-note" id="privacy-consent-state">Checking your current choice…</p>
-  <p>
-    <button type="button" class="privacy-btn privacy-btn-primary" data-consent-choice="granted">Accept analytics</button>
-    <button type="button" class="privacy-btn" data-consent-choice="denied">Essential only</button>
-    <button type="button" class="privacy-btn" data-consent-choice="reset">Forget my choice</button>
-  </p>
-</div>
-
-<script>
-(function () {
-  "use strict";
-  var KEY = "ga-consent";
-  var state = document.getElementById("privacy-consent-state");
-  var buttons = document.querySelectorAll("#privacy-consent-controls [data-consent-choice]");
-
-  function read() {
-    try { return window.localStorage.getItem(KEY); } catch (e) { return null; }
-  }
-
-  function describe() {
-    var v = read();
-    if (v === "granted") return "Your current choice: analytics accepted, so analytics cookies are set.";
-    if (v === "denied") return "Your current choice: essential only, so no analytics cookies are set.";
-    return "You have not chosen yet, so no analytics cookies are set.";
-  }
-
-  function apply(choice) {
-    try {
-      if (choice === "reset") window.localStorage.removeItem(KEY);
-      else window.localStorage.setItem(KEY, choice);
-    } catch (e) { /* storage unavailable; the banner will ask again */ }
-    state.textContent = describe();
-    // Tell the gate in head-includes.html, which owns the loading logic.
-    // Without this the choice is stored but analytics does not start until the
-    // NEXT page view - so "Accept analytics" here would appear not to work.
-    // "Forget my choice" sends null, which the gate treats as "load nothing",
-    // and the following page view asks again.
-    window.dispatchEvent(new CustomEvent("ga-consent-changed", {
-      detail: choice === "reset" ? null : choice,
-    }));
-  }
-
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      apply(this.getAttribute("data-consent-choice"));
-    });
-  }
-
-  state.textContent = describe();
-})();
-</script>
+You can switch analytics off at any time:
+<a href="#" data-rsa-analytics-optout>Turn off analytics</a>. The same link is in
+the footer of every page. It stores your choice for 180 days and takes effect
+straight away.
 
 Clearing cookies and site data for `aravindhebbali.com` in your browser has the
 same effect.
