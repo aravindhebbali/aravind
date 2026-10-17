@@ -31,3 +31,6 @@
   Permissions-Policy: geolocation=(), camera=(), microphone=()
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/site-kit/*
+  Cache-Control: public, max-age=86400

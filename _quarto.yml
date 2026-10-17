@@ -36,6 +36,10 @@ project:
     # where they exist only as inline markup. They supersede the raster covers,
     # so the book-*.webp renditions and their PNG sources are gone.
     - "images/covers/**"
+    # Rsquared site-kit v1.0.1 (rsa-analytics.js + rsa-consent.css), vendored so
+    # the site is self-contained and same-origin under the CSP. Referenced from
+    # head-includes.html.
+    - "site-kit/**"
 
 website:
   title: "Aravind Hebbali"
@@ -96,6 +100,7 @@ website:
   # renders with no footer at all. This is where the contact links live.
   page-footer:
     left: "© Aravind Hebbali · Bengaluru, India"
+    center: '<a href="/privacy/">Privacy</a> · <a href="#" data-rsa-analytics-optout>Turn off analytics</a>'
     right:
       - icon: envelope
         href: "mailto:hebbali.aravind@gmail.com"
